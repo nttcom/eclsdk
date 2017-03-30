@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.network.v2.subnet &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.network.v2.subnet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.network.v2.subnet</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="kn">import</span> <span class="nn">base</span>
+<span class="kn">from</span> <span class="nn">ecl.network</span> <span class="k">import</span> <span class="n">network_service</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">exceptions</span>
+
+
+<div class="viewcode-block" id="Subnet"><a class="viewcode-back" href="../../../../ecl.network.v2.html#ecl.network.v2.subnet.Subnet">[docs]</a><span class="k">class</span> <span class="nc">Subnet</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">NetworkBaseResource</span><span class="p">):</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="s1">&#39;subnet&#39;</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="s1">&#39;subnets&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">network_service</span><span class="o">.</span><span class="n">NetworkService</span><span class="p">(</span><span class="s2">&quot;v2.0&quot;</span><span class="p">)</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span> <span class="o">+</span> <span class="s1">&#39;/subnets&#39;</span>
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># query mappings</span>
+    <span class="n">_query_mapping</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">QueryParameters</span><span class="p">(</span><span class="s1">&#39;cidr&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;gateway_ip&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;ip_version&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;ipv6_address_mode&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;ipv6_ra_mode&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;network_id&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;tenant_id&#39;</span><span class="p">,</span>
+                                               <span class="s1">&#39;subnet_id&#39;</span><span class="p">,</span> <span class="s1">&#39;sort_key&#39;</span><span class="p">,</span> <span class="s1">&#39;sort_dir&#39;</span><span class="p">,)</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: The start and end addresses for the allocation pools.</span>
+    <span class="n">allocation_pools</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;allocation_pools&#39;</span><span class="p">)</span>
+    <span class="c1">#: The CIDR.</span>
+    <span class="n">cidr</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;cidr&#39;</span><span class="p">)</span>
+    <span class="c1">#: The subnet description.</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">)</span>
+    <span class="c1">#: A list of DNS nameservers.</span>
+    <span class="n">dns_nameservers</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;dns_nameservers&#39;</span><span class="p">)</span>
+    <span class="c1">#: The gateway IP address.</span>
+    <span class="n">gateway_ip</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;gateway_ip&#39;</span><span class="p">)</span>
+    <span class="c1">#: Subnet unique id.</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="c1">#: A list of host routes.</span>
+    <span class="n">host_routes</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;host_routes&#39;</span><span class="p">)</span>
+    <span class="c1">#: A list of ntp servers.</span>
+    <span class="n">ntp_servers</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;ntp_servers&#39;</span><span class="p">)</span>
+    <span class="c1">#: The IP version, which is ``4`` or ``6``.</span>
+    <span class="n">ip_version</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;ip_version&#39;</span><span class="p">)</span>
+    <span class="c1">#: The IPv6 address modes which are &#39;dhcpv6-stateful&#39;, &#39;dhcpv6-stateless&#39;,</span>
+    <span class="c1">#: or &#39;SLAAC&#39;</span>
+    <span class="n">ipv6_address_mode</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;ipv6_address_mode&#39;</span><span class="p">)</span>
+    <span class="c1">#: The IPv6 router advertisements modes</span>
+    <span class="n">ipv6_ra_mode</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;ipv6_ra_mode&#39;</span><span class="p">)</span>
+    <span class="c1">#: Set to ``True`` if DHCP is enabled and ``False`` if DHCP is disabled.</span>
+    <span class="c1">#: *Type: bool*</span>
+    <span class="n">enable_dhcp</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;enable_dhcp&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="c1">#: The subnet name.</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1">#: The ID of the attached network.</span>
+    <span class="n">network_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;network_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: The ID of the project this subnet is associated with.</span>
+    <span class="n">project_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: The status of the subnet</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="c1">#: tags of the subnet</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Subnet.find"><a class="viewcode-back" href="../../../../ecl.network.v2.html#ecl.network.v2.subnet.Subnet.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a resource by its name or id.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+<span class="sd">        :param name_or_id: This resource&#39;s identifier, if needed by</span>
+<span class="sd">                           the request. The default is ``None``.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :param dict params: Any additional parameters to be passed into</span>
+<span class="sd">                            underlying methods, such as to</span>
+<span class="sd">                            :meth:`~ecl.resource2.Resource.existing`</span>
+<span class="sd">                            in order to pass on URI parameters.</span>
+
+<span class="sd">        :return: The :class:`Resource` object matching the given name or id</span>
+<span class="sd">                 or None if nothing matches.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.DuplicateResource` if more</span>
+<span class="sd">                 than one resource is found for this request.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.ResourceNotFound` if nothing</span>
+<span class="sd">                 is found and ignore_missing is ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Try to short-circuit by looking directly for a matching ID.</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_one_match</span><span class="p">(</span><span class="n">name_or_id</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">if</span> <span class="n">ignore_missing</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceNotFound</span><span class="p">(</span>
+            <span class="s2">&quot;No </span><span class="si">%s</span><span class="s2"> found for </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

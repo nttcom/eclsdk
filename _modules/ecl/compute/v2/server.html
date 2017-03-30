@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.compute.v2.server &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.compute.v2.server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.compute.v2.server</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.compute</span> <span class="k">import</span> <span class="n">compute_service</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">metadata</span> <span class="k">as</span> <span class="n">_metadata</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">utils</span>
+
+
+<div class="viewcode-block" id="Server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server">[docs]</a><span class="k">class</span> <span class="nc">Server</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">,</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">MetadataMixin</span><span class="p">):</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="s1">&#39;server&#39;</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="s1">&#39;servers&#39;</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">compute_service</span><span class="o">.</span><span class="n">ComputeService</span><span class="p">()</span>
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">_query_mapping</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">QueryParameters</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;host&quot;</span><span class="p">,</span>
+                                               <span class="n">changes_since</span><span class="o">=</span><span class="s2">&quot;changes-since&quot;</span><span class="p">)</span>
+
+    <span class="c1">#: IPv4 Address</span>
+    <span class="n">access_ipv4</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;accessIPv4&#39;</span><span class="p">)</span>
+    <span class="n">accessIPv4</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;accessIPv4&#39;</span><span class="p">)</span>
+    <span class="c1">#: IPv6 Address</span>
+    <span class="n">access_ipv6</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;accessIPv6&#39;</span><span class="p">)</span>
+    <span class="n">accessIPv6</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;accessIPv6&#39;</span><span class="p">)</span>
+    <span class="c1">#: A dictionary of addresses this server can be accessed through.</span>
+    <span class="c1">#: The dictionary contains keys such as ``private`` and ``public``,</span>
+    <span class="c1">#: each containing a list of dictionaries for addresses of that type.</span>
+    <span class="c1">#: The addresses are contained in a dictionary with keys ``addr``</span>
+    <span class="c1">#: and ``version``, which is either 4 or 6 depending on the protocol</span>
+    <span class="c1">#: of the IP address. *Type: dict*</span>
+    <span class="n">addresses</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;addresses&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: config drive</span>
+    <span class="n">config_drive</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;config_drive&#39;</span><span class="p">)</span>
+    <span class="c1">#: Timestamp of when the server was created.</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+    <span class="c1">#: The flavor reference, as a ID or full URL, for the flavor to use for</span>
+    <span class="c1">#: this server.</span>
+    <span class="n">flavor_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;flavorRef&#39;</span><span class="p">)</span>
+    <span class="c1">#: The flavor property as returned from server.</span>
+    <span class="n">flavor</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;flavor&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: An ID representing the host of this server.</span>
+    <span class="n">host_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;hostId&#39;</span><span class="p">)</span>
+    <span class="c1">#: The image reference, as a ID or full URL, for the image to use for</span>
+    <span class="c1">#: this server.</span>
+    <span class="n">image_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;imageRef&#39;</span><span class="p">)</span>
+    <span class="c1">#: The image property as returned from server.</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: ID of the server</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="c1">#: The name of an associated keypair</span>
+    <span class="n">key_name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;key_name&#39;</span><span class="p">)</span>
+    <span class="c1">#: A list of dictionaries holding links relevant to this server.</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;links&#39;</span><span class="p">)</span>
+    <span class="c1">#: Metadata stored for this server. *Type: dict*</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: Name of the server</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1">#: A networks object. Required parameter when there are multiple</span>
+    <span class="c1">#: networks defined for the tenant. When you do not specify the</span>
+    <span class="c1">#: networks parameter, the server attaches to the only network</span>
+    <span class="c1">#: created for the current tenant.</span>
+    <span class="n">networks</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;networks&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: The disk configuration. Either AUTO or MANUAL.</span>
+    <span class="n">disk_config</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-DCF:diskConfig&#39;</span><span class="p">)</span>
+    <span class="n">diskConfig</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-DCF:diskConfig&#39;</span><span class="p">)</span>
+    <span class="c1">#: The name of the availability zone this server is a part of.</span>
+    <span class="n">availability_zone</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-AZ:availability_zone&#39;</span><span class="p">)</span>
+    <span class="c1">#: The power state of this server.</span>
+    <span class="n">power_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:power_state&#39;</span><span class="p">)</span>
+    <span class="c1">#: The task state of this server.</span>
+    <span class="n">task_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:task_state&#39;</span><span class="p">)</span>
+    <span class="c1">#: The VM state of this server.</span>
+    <span class="n">vm_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:vm_state&#39;</span><span class="p">)</span>
+    <span class="c1">#: A list of an attached volumes. Each item in the list contains at least</span>
+    <span class="c1">#: an &quot;id&quot; key to identify the specific volumes.</span>
+    <span class="n">attached_volumes</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span>
+        <span class="s1">&#39;os-extended-volumes:volumes_attached&#39;</span><span class="p">)</span>
+    <span class="c1">#: The timestamp when the server was launched.</span>
+    <span class="n">launched_at</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-SRV-USG:launched_at&#39;</span><span class="p">)</span>
+    <span class="c1">#: The timestamp when the server was terminated (if it has been).</span>
+    <span class="n">terminated_at</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-SRV-USG:terminated_at&#39;</span><span class="p">)</span>
+    <span class="c1">#: of completion. Once it is completed, it will be 100.  *Type: int*</span>
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;progress&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1">#: A list of applicable security groups. Each group contains keys for</span>
+    <span class="c1">#: description, name, id, and rules.</span>
+    <span class="n">security_groups</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;security_groups&#39;</span><span class="p">)</span>
+    <span class="c1">#: The state this server is in. Valid values include ``ACTIVE``,</span>
+    <span class="c1">#: ``BUILDING``, ``DELETED``, ``ERROR``, ``HARD_REBOOT``, ``PASSWORD``,</span>
+    <span class="c1">#: ``PAUSED``, ``REBOOT``, ``REBUILD``, ``RESCUED``, ``RESIZED``,</span>
+    <span class="c1">#: ``REVERT_RESIZE``, ``SHUTOFF``, ``SOFT_DELETED``, ``STOPPED``,</span>
+    <span class="c1">#: ``SUSPENDED``, ``UNKNOWN``, or ``VERIFY_RESIZE``.</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="c1">#: The ID of the project this server is associated with.</span>
+    <span class="n">project_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: Timestamp of when this server was last updated.</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;updated&#39;</span><span class="p">)</span>
+    <span class="c1">#: The ID of the owners of this server.</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: The dict of tags of servers</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+    <span class="c1">#: The file path and contents, text only, to inject into the server at</span>
+    <span class="c1">#: launch. The maximum size of the file path data is 255 bytes.</span>
+    <span class="c1">#: The maximum limit is The number of allowed bytes in the decoded,</span>
+    <span class="c1">#: rather than encoded, data.</span>
+    <span class="n">personality</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;personality&#39;</span><span class="p">)</span>
+    <span class="c1">#: Configuration information or scripts to use upon launch.</span>
+    <span class="c1">#: Must be Base64 encoded.</span>
+    <span class="n">user_data</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;user_data&#39;</span><span class="p">)</span>
+    <span class="c1">#: Enables fine grained control of the block device mapping for an</span>
+    <span class="c1">#: instance. This is typically used for booting servers from volumes.</span>
+    <span class="n">block_device_mapping</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;block_device_mapping&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">block_device_mapping_v2</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;block_device_mapping_v2&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: admin user&#39;s password for this server</span>
+    <span class="n">admin_pass</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;adminPass&#39;</span><span class="p">)</span>
+    <span class="n">adminPass</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;adminPass&#39;</span><span class="p">)</span>
+    <span class="c1">#: The dictionary of data to send to the scheduler.</span>
+    <span class="n">scheduler_hints</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;os:scheduler_hints&#39;</span><span class="p">)</span>
+    <span class="c1">#: Requested minim count of instance</span>
+    <span class="n">min_count</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;min_count&#39;</span><span class="p">)</span>
+    <span class="c1">#: Requested maximum count of instance</span>
+    <span class="n">max_count</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;max_count&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Server.create"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">prepend_key</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a remote resource based on this instance.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+<span class="sd">        :param prepend_key: A boolean indicating whether the resource_key</span>
+<span class="sd">                            should be prepended in a resource creation</span>
+<span class="sd">                            request. Default to True.</span>
+
+<span class="sd">        :return: This :class:`Resource` instance.</span>
+<span class="sd">        :raises: :exc:`~ecl.exceptions.MethodNotSupported` if</span>
+<span class="sd">                 :data:`Resource.allow_create` is not set to ``True``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_request</span><span class="p">(</span><span class="n">requires_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                        <span class="n">prepend_key</span><span class="o">=</span><span class="n">prepend_key</span><span class="p">)</span>
+
+        <span class="n">az</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">&#39;server&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OS-EXT-AZ:availability_zone&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;OS-EXT-AZ:availability_zone&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">&#39;server&#39;</span><span class="p">]:</span>
+            <span class="k">del</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">&#39;server&#39;</span><span class="p">][</span><span class="s1">&#39;OS-EXT-AZ:availability_zone&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">az</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">&#39;server&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;availability_zone&#39;</span><span class="p">:</span> <span class="n">az</span><span class="p">})</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">uri</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+                                <span class="n">json</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span> <span class="nf">_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Preform server actions given the message body.&quot;&quot;&quot;</span>
+        <span class="c1"># NOTE: This is using Server.base_path instead of self.base_path</span>
+        <span class="c1"># as both Server and ServerDetail instances can be acted on, but</span>
+        <span class="c1"># the URL used is sans any additional /detail/ part.</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">Server</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Server.create_image"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.create_image">[docs]</a>    <span class="k">def</span> <span class="nf">create_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create image from server.</span>
+<span class="sd">        :param session</span>
+<span class="sd">        :param name</span>
+<span class="sd">        :param metadata</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">action</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;createImage&#39;</span><span class="p">:</span> <span class="n">action</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.get_console"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.get_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">vnc_type</span><span class="p">):</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">vnc_type</span><span class="p">}</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;os-getVNCConsole&#39;</span><span class="p">:</span> <span class="n">action</span><span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="n">console_dict</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">console_dict</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">console_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;console&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.start"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;os-start&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.stop"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;os-stop&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.resize"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.resize">[docs]</a>    <span class="k">def</span> <span class="nf">resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">flavor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resize server to flavor reference.&quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;resize&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;flavorRef&#39;</span><span class="p">:</span> <span class="n">flavor</span><span class="p">,</span>
+                <span class="s1">&#39;OS-DCF:diskConfig&#39;</span><span class="p">:</span> <span class="s1">&#39;AUTO&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.change_password"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.change_password">[docs]</a>    <span class="k">def</span> <span class="nf">change_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">new_password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change the administrator password to the given password.&quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;changePassword&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adminPass&#39;</span><span class="p">:</span> <span class="n">new_password</span><span class="p">}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.reboot"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.reboot">[docs]</a>    <span class="k">def</span> <span class="nf">reboot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">reboot_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reboot server where reboot_type might be &#39;SOFT&#39; or &#39;HARD&#39;.&quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reboot&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">reboot_type</span><span class="p">}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.force_delete"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.force_delete">[docs]</a>    <span class="k">def</span> <span class="nf">force_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Force delete a server.&quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;forceDelete&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.rebuild"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.rebuild">[docs]</a>    <span class="k">def</span> <span class="nf">rebuild</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">admin_password</span><span class="p">,</span>
+                <span class="n">preserve_ephemeral</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">access_ipv4</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">access_ipv6</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">personality</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Rebuild the server with the given arguments.&quot;&quot;&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s1">&#39;adminPass&#39;</span><span class="p">:</span> <span class="n">admin_password</span><span class="p">,</span>
+            <span class="s1">&#39;preserve_ephemeral&#39;</span><span class="p">:</span> <span class="n">preserve_ephemeral</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">action</span><span class="p">[</span><span class="s1">&#39;imageRef&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">access_ipv4</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">action</span><span class="p">[</span><span class="s1">&#39;accessIPv4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_ipv4</span>
+        <span class="k">if</span> <span class="n">access_ipv6</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">action</span><span class="p">[</span><span class="s1">&#39;accessIPv6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_ipv6</span>
+        <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">action</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="k">if</span> <span class="n">personality</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">action</span><span class="p">[</span><span class="s1">&#39;personality&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">personality</span>
+
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rebuild&#39;</span><span class="p">:</span> <span class="n">action</span><span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Server.confirm_resize"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.confirm_resize">[docs]</a>    <span class="k">def</span> <span class="nf">confirm_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Confirm the resize of the server.&quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;confirmResize&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.revert_resize"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.revert_resize">[docs]</a>    <span class="k">def</span> <span class="nf">revert_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Revert the resize of the server.&quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;revertResize&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.add_security_group"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.add_security_group">[docs]</a>    <span class="k">def</span> <span class="nf">add_security_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">security_group</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;addSecurityGroup&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">security_group</span><span class="p">}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Server.remove_security_group"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.remove_security_group">[docs]</a>    <span class="k">def</span> <span class="nf">remove_security_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">security_group</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;removeSecurityGroup&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">security_group</span><span class="p">}}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_action</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Server.find"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.Server.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a resource by its name or id.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+<span class="sd">        :param name_or_id: This resource&#39;s identifier, if needed by</span>
+<span class="sd">                           the request. The default is ``None``.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :param dict params: Any additional parameters to be passed into</span>
+<span class="sd">                            underlying methods, such as to</span>
+<span class="sd">                            :meth:`~ecl.resource2.Resource.existing`</span>
+<span class="sd">                            in order to pass on URI parameters.</span>
+
+<span class="sd">        :return: The :class:`Resource` object matching the given name or id</span>
+<span class="sd">                 or None if nothing matches.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.DuplicateResource` if more</span>
+<span class="sd">                 than one resource is found for this request.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.ResourceNotFound` if nothing</span>
+<span class="sd">                 is found and ignore_missing is ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Try to short-circuit by looking directly for a matching ID.</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_one_match</span><span class="p">(</span><span class="n">name_or_id</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">if</span> <span class="n">ignore_missing</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceNotFound</span><span class="p">(</span>
+            <span class="s2">&quot;No </span><span class="si">%s</span><span class="s2"> found for </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="ServerDetail"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.server.ServerDetail">[docs]</a><span class="k">class</span> <span class="nc">ServerDetail</span><span class="p">(</span><span class="n">Server</span><span class="p">):</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers/detail&#39;</span>
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

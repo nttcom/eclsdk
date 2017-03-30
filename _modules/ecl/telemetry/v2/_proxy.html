@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.telemetry.v2._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.telemetry.v2._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.telemetry.v2._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">alarm</span> <span class="k">as</span> <span class="n">_alarm</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">alarm_change</span> <span class="k">as</span> <span class="n">_alarm_change</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">capability</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">meter</span> <span class="k">as</span> <span class="n">_meter</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">resource</span> <span class="k">as</span> <span class="n">_resource</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">ecl.telemetry.v2</span> <span class="k">import</span> <span class="n">statistics</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;.. caution:: This API is a work in progress and is subject to change.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Proxy.create_alarm"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.create_alarm">[docs]</a>    <span class="k">def</span> <span class="nf">create_alarm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new alarm from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.telemetry.v2.alarm.Alarm`,</span>
+<span class="sd">                           comprised of the properties on the Alarm class.</span>
+
+<span class="sd">        :returns: The results of alarm creation</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.alarm.Alarm`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_alarm"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.delete_alarm">[docs]</a>    <span class="k">def</span> <span class="nf">delete_alarm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alarm</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete an alarm</span>
+
+<span class="sd">        :param alarm: The value can be either the ID of an alarm or a</span>
+<span class="sd">                      :class:`~ecl.telemetry.v2.alarm.Alarm` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the alarm does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent alarm.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="p">,</span> <span class="n">alarm</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_alarm"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_alarm">[docs]</a>    <span class="k">def</span> <span class="nf">find_alarm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single alarm</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a alarm.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.alarm.Alarm` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_alarm"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.get_alarm">[docs]</a>    <span class="k">def</span> <span class="nf">get_alarm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alarm</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single alarm</span>
+
+<span class="sd">        :param alarm: The value can be the ID of an alarm or a</span>
+<span class="sd">                      :class:`~ecl.telemetry.v2.alarm.Alarm` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.alarm.Alarm`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="p">,</span> <span class="n">alarm</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.alarms"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.alarms">[docs]</a>    <span class="k">def</span> <span class="nf">alarms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of alarms</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of alarm objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.alarm.Alarm`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_alarm"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.update_alarm">[docs]</a>    <span class="k">def</span> <span class="nf">update_alarm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alarm</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a alarm</span>
+
+<span class="sd">        :param alarm: Either the id of a alarm or a</span>
+<span class="sd">                      :class:`~ecl.telemetry.v2.alarm.Alarm` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the alarm represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated alarm</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.alarm.Alarm`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="p">,</span> <span class="n">alarm</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_alarm_change"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_alarm_change">[docs]</a>    <span class="k">def</span> <span class="nf">find_alarm_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single alarm change</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a alarm change.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.alarm_change.AlarmChange`</span>
+<span class="sd">                  or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_alarm_change</span><span class="o">.</span><span class="n">AlarmChange</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.alarm_changes"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.alarm_changes">[docs]</a>    <span class="k">def</span> <span class="nf">alarm_changes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alarm</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of alarm changes</span>
+
+<span class="sd">        :param alarm: Alarm resource or id for alarm.</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of alarm change objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.alarm_change.AlarmChange`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alarm_id</span> <span class="o">=</span> <span class="n">_alarm</span><span class="o">.</span><span class="n">Alarm</span><span class="o">.</span><span class="n">from_id</span><span class="p">(</span><span class="n">alarm</span><span class="p">)</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_alarm_change</span><span class="o">.</span><span class="n">AlarmChange</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alarm_id&#39;</span><span class="p">:</span> <span class="n">alarm_id</span><span class="p">},</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_capability"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_capability">[docs]</a>    <span class="k">def</span> <span class="nf">find_capability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single capability</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a capability.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.capability.Capability`</span>
+<span class="sd">                  or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">capability</span><span class="o">.</span><span class="n">Capability</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.capabilities"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.capabilities">[docs]</a>    <span class="k">def</span> <span class="nf">capabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of capabilities</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of capability objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.capability.Capability`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">capability</span><span class="o">.</span><span class="n">Capability</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_meter"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_meter">[docs]</a>    <span class="k">def</span> <span class="nf">find_meter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single meter</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a meter.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.meter.Meter` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_meter</span><span class="o">.</span><span class="n">Meter</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.meters"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.meters">[docs]</a>    <span class="k">def</span> <span class="nf">meters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of meters</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of meter objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.meter.Meter`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_meter</span><span class="o">.</span><span class="n">Meter</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_resource"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_resource">[docs]</a>    <span class="k">def</span> <span class="nf">find_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single resource</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a resource.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.resource.Resource` or</span>
+<span class="sd">                  None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_resource</span><span class="o">.</span><span class="n">Resource</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_resource"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.get_resource">[docs]</a>    <span class="k">def</span> <span class="nf">get_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single resource</span>
+
+<span class="sd">        :param resource: The value can be the ID of a resource or a</span>
+<span class="sd">                         :class:`~ecl.telemetry.v2.resource.Resource`</span>
+<span class="sd">                         instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.resource.Resource`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_resource</span><span class="o">.</span><span class="n">Resource</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.resources"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.resources">[docs]</a>    <span class="k">def</span> <span class="nf">resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of resources</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of resource objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.resource.Resource`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_resource</span><span class="o">.</span><span class="n">Resource</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_sample"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.create_sample">[docs]</a>    <span class="k">def</span> <span class="nf">create_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new sample from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.telemetry.v2.sample.Sample`,</span>
+<span class="sd">                           comprised of the properties on the Sample class.</span>
+
+<span class="sd">        :returns: The results of sample creation</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.sample.Sample`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">Sample</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_sample"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_sample">[docs]</a>    <span class="k">def</span> <span class="nf">find_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single sample</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a sample.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.sample.Sample` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">Sample</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.samples"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.samples">[docs]</a>    <span class="k">def</span> <span class="nf">samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meter</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of samples</span>
+
+<span class="sd">        :param value: Meter resource or name for a meter.</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of sample objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.sample.Sample`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">meter_name</span> <span class="o">=</span> <span class="n">_meter</span><span class="o">.</span><span class="n">Meter</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">Sample</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;counter_name&#39;</span><span class="p">:</span> <span class="n">meter_name</span><span class="p">},</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_statistics"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.find_statistics">[docs]</a>    <span class="k">def</span> <span class="nf">find_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single statistics</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a statistics.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.telemetry.v2.statistics.Statistics`</span>
+<span class="sd">                  or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">Statistics</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.statistics"><a class="viewcode-back" href="../../../../ecl.telemetry.v2.html#ecl.telemetry.v2._proxy.Proxy.statistics">[docs]</a>    <span class="k">def</span> <span class="nf">statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meter</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of statistics</span>
+
+<span class="sd">        :param meter: Meter resource or name for a meter.</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of statistics objects</span>
+<span class="sd">        :rtype: :class:`~ecl.telemetry.v2.statistics.Statistics`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">meter_name</span> <span class="o">=</span> <span class="n">_meter</span><span class="o">.</span><span class="n">Meter</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">Statistics</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;meter_name&#39;</span><span class="p">:</span> <span class="n">meter_name</span><span class="p">},</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

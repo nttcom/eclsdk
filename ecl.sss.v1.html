@@ -1,0 +1,1980 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sss methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="sss" href="ecl.sss.html"/>
+        <link rel="next" title="storage" href="ecl.storage.html"/>
+        <link rel="prev" title="sss" href="ecl.sss.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.sss.html">sss</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sss methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.api_key">api_key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.channel">channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.contract">contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.iam_group">iam_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.iam_role">iam_role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.role">role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.tenant">tenant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.sss.v1.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.sss.html">sss</a> &raquo;</li>
+        
+      <li>sss methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.sss.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.sss.v1._proxy">
+<span id="sss-methods"></span><h1>sss methods<a class="headerlink" href="#module-ecl.sss.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.assign_iam_role">
+<code class="descname">assign_iam_role</code><span class="sig-paren">(</span><em>iam_group_id</em>, <em>iam_role_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.assign_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.assign_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assignment of the IAM Role to the IAM Group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_group_id</strong> &#8211; IAM Group ID that assign to the Role.</li>
+<li><strong>iam_role_id</strong> &#8211; IAM Role ID that assign to the Group.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.iam_group.IAMGroup" title="ecl.sss.v1.iam_group.IAMGroup"><code class="xref py py-class docutils literal"><span class="pre">IAMGroup</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.assign_user">
+<code class="descname">assign_user</code><span class="sig-paren">(</span><em>iam_group_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.assign_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.assign_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assignment of the IAM User to the IAM Group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_group_id</strong> &#8211; IAM Group ID that assign to the User.</li>
+<li><strong>user_id</strong> &#8211; User ID that assign to the Group.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.iam_group.IAMGroup" title="ecl.sss.v1.iam_group.IAMGroup"><code class="xref py py-class docutils literal"><span class="pre">IAMGroup</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.channels">
+<code class="descname">channels</code><span class="sig-paren">(</span><em>get_contracts</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.channels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting lists of information about the own channel and end user channel
+that own contract belongs. Only partner user allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>get_contracts</strong> &#8211; The flag of whether getting contracts
+(true or false(default)).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of channels instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.channel.Channel" title="ecl.sss.v1.channel.Channel"><code class="xref py py-class docutils literal"><span class="pre">Channel</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.contracts">
+<code class="descname">contracts</code><span class="sig-paren">(</span><em>channel_id</em>, <em>include_deleted='false'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.contracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.contracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>List Contracts in the designated channel. Only partner user allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>channel_id</strong> &#8211; Target channel_id under own contract.</li>
+<li><strong>include_deleted</strong> &#8211; Setting true or false(default is false)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>(true : Include deleted contract/ false: Not include deleted contract.
+:return: A generator of contracts instances.
+:rtype: <a class="reference internal" href="#ecl.sss.v1.contract.Contract" title="ecl.sss.v1.contract.Contract"><code class="xref py py-class docutils literal"><span class="pre">Contract</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.create_contract">
+<code class="descname">create_contract</code><span class="sig-paren">(</span><em>login_id</em>, <em>mail_address</em>, <em>channel_id</em>, <em>password=None</em>, <em>external_reference_id=None</em>, <em>notify_password=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.create_contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.create_contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create contract in designated channel. Only partner user allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>login_id</strong> &#8211; Login ID of new user.</li>
+<li><strong>mail_address</strong> &#8211; E-mail address of the user.</li>
+<li><strong>channel_id</strong> &#8211; The channel means the group to manage contracts.
+The partner user will be given 2 channels. One is the channel that
+contains own contract. The other is the channel that contains all
+end user contracts which the partner user has. By executing the List
+Channel API(For partner user only),
+the user can get your (and enduser&#8217;s) channel ID.</li>
+<li><strong>password</strong> &#8211; Password of the user. If the API user set this item as
+blank, the system set initial random password automatically.</li>
+<li><strong>external_reference_id</strong> &#8211; By using this item, the partner API user
+can associate optional string to the constract(e.g. The end user
+management ID in the partner user&#8217;s system). Note that this ID will
+be NOT used to control the contract in ECL2.0 internal system.
+If the item is set as blank, ECL 2.0 system set the end user&#8217;s
+contract ID automatically(e.g. econXXXXXXXX).</li>
+<li><strong>notify_password</strong> &#8211; Setting true or false(default is false).
+This item designate whether the system should send to the login_ID
+and Password with e-mail.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.contract.Contract" title="ecl.sss.v1.contract.Contract"><code class="xref py py-class docutils literal"><span class="pre">Contract</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.create_iam_group">
+<code class="descname">create_iam_group</code><span class="sig-paren">(</span><em>iam_group_name</em>, <em>contract_id=None</em>, <em>description=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.create_iam_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.create_iam_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create iam group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_group_name</strong> &#8211; New IAM Group name.
+Alphanumeric characters and &#64;, -, ., _ can be used.</li>
+<li><strong>contract_id</strong> &#8211; Contract ID ( Default is the Contract ID of API
+executing user ) .</li>
+<li><strong>description</strong> &#8211; Description of the IAM Group.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.iam_group.IAMGroup" title="ecl.sss.v1.iam_group.IAMGroup"><code class="xref py py-class docutils literal"><span class="pre">IAMGroup</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.create_iam_role">
+<code class="descname">create_iam_role</code><span class="sig-paren">(</span><em>iam_role_name</em>, <em>resources</em>, <em>contract_id=None</em>, <em>description=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.create_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.create_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create IAM Role in the designated contract. Only supser user
+(contract owner user) can use this API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_role_name</strong> &#8211; New IAM Role name.
+Alphanumeric characters and &#64;, -, ., _ can be used.</li>
+<li><strong>resources</strong> &#8211; Whitelist rules of API execution.
+( resources item is mandatory, but a user can define any rule by
+using follow parameters. )</li>
+<li><strong>contract_id</strong> &#8211; Contract ID ( Default is the Contract ID of API
+executing user ).</li>
+<li><strong>description</strong> &#8211; Description of the IAM Role.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.iam_group.IAMGroup" title="ecl.sss.v1.iam_group.IAMGroup"><code class="xref py py-class docutils literal"><span class="pre">IAMGroup</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.create_role">
+<code class="descname">create_role</code><span class="sig-paren">(</span><em>user_id</em>, <em>tenant_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.create_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.create_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create role between a user and a tenant. With role, users can access
+to the tenants.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user_id</strong> &#8211; User which have new role.</li>
+<li><strong>tenant_id</strong> &#8211; Tenant which the user have role.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.role.Role" title="ecl.sss.v1.role.Role"><code class="xref py py-class docutils literal"><span class="pre">Role</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.create_tenant">
+<code class="descname">create_tenant</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.create_tenant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.create_tenant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new tenant in the designated contract. Only supser user
+(contract owner user) allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.sss.v1.tenant.Tenant" title="ecl.sss.v1.tenant.Tenant"><code class="xref py py-class docutils literal"><span class="pre">Tenant</span></code></a>,
+comprised of the properties on the Tenant class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of tenant creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.tenant.Tenant" title="ecl.sss.v1.tenant.Tenant"><code class="xref py py-class docutils literal"><span class="pre">Tenant</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.create_user">
+<code class="descname">create_user</code><span class="sig-paren">(</span><em>login_id</em>, <em>mail_address</em>, <em>notify_password</em>, <em>password=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.create_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create user in the designated contract. Only supser user (contract
+owner user) allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>login_id</strong> &#8211; Login id of new user.</li>
+<li><strong>mail_address</strong> &#8211; Mail address of new user.</li>
+<li><strong>notify_password</strong> &#8211; If this flag is set &#8216;true&#8217;,
+notification email will be sent to new users email</li>
+<li><strong>password</strong> &#8211; Initial password of new user.
+If this parameter is not designated, random initial password is
+generated and applied to new user.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of user creation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.sss.v1.user.User" title="ecl.sss.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_assign_iam_role">
+<code class="descname">delete_assign_iam_role</code><span class="sig-paren">(</span><em>iam_group_id</em>, <em>iam_role_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_assign_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_assign_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete Assignment of the IAM Role to the IAM Group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_group_id</strong> &#8211; IAM Group ID.</li>
+<li><strong>iam_role_id</strong> &#8211; IAM Role ID.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_assign_user">
+<code class="descname">delete_assign_user</code><span class="sig-paren">(</span><em>iam_group_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_assign_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_assign_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete Assignment of the User to the IAM Group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_group_id</strong> &#8211; IAM Group ID.</li>
+<li><strong>user_id</strong> &#8211; User ID.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_contract">
+<code class="descname">delete_contract</code><span class="sig-paren">(</span><em>contract_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete contract in designated channel. Only partner user allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>contract_id</strong> &#8211; Contract ID of Delete target</li>
+<li><strong>ignore_missing</strong> &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the user does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_iam_group">
+<code class="descname">delete_iam_group</code><span class="sig-paren">(</span><em>iam_group_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_iam_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_iam_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete iam group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iam_group_id</strong> &#8211; Group ID that you want to delete.</li>
+<li><strong>ignore_missing</strong> &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the user does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_iam_role">
+<code class="descname">delete_iam_role</code><span class="sig-paren">(</span><em>iam_role_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete designated IAM Role. Only supser user (contract owner user)
+can use this API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iam_role_id</strong> &#8211; IAM Role ID that you want to delete.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_role">
+<code class="descname">delete_role</code><span class="sig-paren">(</span><em>tenant_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete role between user and tenant. Contract owner user always have
+role to all tenants in the contract. Only supser user
+(contract owner user) allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tenant_id</strong> &#8211; Delete target tenant&#8217;s tenant id.</li>
+<li><strong>user_id</strong> &#8211; User&#8217;s id of the role</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_tenant">
+<code class="descname">delete_tenant</code><span class="sig-paren">(</span><em>tenant</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_tenant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_tenant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete tenant. Only supser user (contract owner user) allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tenant</strong> &#8211; Delete target tenant&#8217;s tenant id.</li>
+<li><strong>ignore_missing</strong> &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the user does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.delete_user">
+<code class="descname">delete_user</code><span class="sig-paren">(</span><em>user</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.delete_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete user. Only supser user (contract owner user) allowed. Contract
+owner user itself cannot be deleted</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user</strong> &#8211; Delete target user&#8217;s user id.</li>
+<li><strong>ignore_missing</strong> &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the user does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.find_tenant">
+<code class="descname">find_tenant</code><span class="sig-paren">(</span><em>tenant_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.find_tenant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.find_tenant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a tenant. Get tenant information such as tenant name, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tenant_id</strong> &#8211; ID of a tenant</li>
+<li><strong>ignore_missing</strong> &#8211; When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.sss.v1.tenant.Tenant" title="ecl.sss.v1.tenant.Tenant"><code class="xref py py-class docutils literal"><span class="pre">Tenant</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.find_user">
+<code class="descname">find_user</code><span class="sig-paren">(</span><em>user_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.find_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.find_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a user. Get user information such as login id, email, apikey, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user_id</strong> &#8211; ID of a user</li>
+<li><strong>ignore_missing</strong> &#8211; When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.sss.v1.user.User" title="ecl.sss.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.get_billing_info">
+<code class="descname">get_billing_info</code><span class="sig-paren">(</span><em>channel_id</em>, <em>target_month</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.get_billing_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.get_billing_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get billing statement of designated month.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>channel_id</strong> &#8211; Billing statement owner contract.</li>
+<li><strong>target_month</strong> &#8211; Target billing month with YYYY-MM format</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.sss.v1.contract.Contract" title="ecl.sss.v1.contract.Contract"><code class="xref py py-class docutils literal"><span class="pre">Contract</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.get_contract">
+<code class="descname">get_contract</code><span class="sig-paren">(</span><em>contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.get_contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.get_contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information of the designated contract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>contract_id</strong> &#8211; The contract ID getting more information.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.sss.v1.contract.Contract" title="ecl.sss.v1.contract.Contract"><code class="xref py py-class docutils literal"><span class="pre">Contract</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.get_iam_role">
+<code class="descname">get_iam_role</code><span class="sig-paren">(</span><em>iam_role_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.get_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.get_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Show a IAM Role&#8217;s information. You can check a IAM Role&#8217;s</dt>
+<dd>name, ID and resources by executing this API.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iam_role_id</strong> &#8211; IAM Role ID that you want to check information.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.iam_role.IAMRole" title="ecl.sss.v1.iam_role.IAMRole"><code class="xref py py-class docutils literal"><span class="pre">IAMRole</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.get_monthly_billing_of_each_contract">
+<code class="descname">get_monthly_billing_of_each_contract</code><span class="sig-paren">(</span><em>contract_id</em>, <em>target_month</em>, <em>target_contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.get_monthly_billing_of_each_contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.get_monthly_billing_of_each_contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get montly billing for each contract. Only partner user allowed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>contract_id</strong> &#8211; Contract ID of this request.</li>
+<li><strong>target_month</strong> &#8211; Target billing month with YYYY-MM format</li>
+<li><strong>target_contract_id</strong> &#8211; Target contract ID</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.get_user">
+<code class="descname">get_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user information such as login id, email, apikey, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; ID of a user or a <a class="reference internal" href="#ecl.sss.v1.user.User" title="ecl.sss.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.sss.v1.user.User" title="ecl.sss.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> or
+:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>~ecl.exceptions.ResourceNotFound`when no
+resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.iam_groups">
+<code class="descname">iam_groups</code><span class="sig-paren">(</span><em>contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.iam_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.iam_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>List iam groups by contract id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>contract_id</strong> &#8211; Contract ID ( Default is the Contract ID of
+API executing user ) .</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of iam groups.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.iam_group.IAMGroup" title="ecl.sss.v1.iam_group.IAMGroup"><code class="xref py py-class docutils literal"><span class="pre">IAMGroup</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.iam_roles">
+<code class="descname">iam_roles</code><span class="sig-paren">(</span><em>contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.iam_roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.iam_roles" title="Permalink to this definition">¶</a></dt>
+<dd><p>List IAM Role list in the designated contract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>contract_id</strong> &#8211; Contract ID ( Default is the Contract ID of API
+executing user ) .</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of iam groups.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.iam_role.IAMRole" title="ecl.sss.v1.iam_role.IAMRole"><code class="xref py py-class docutils literal"><span class="pre">IAMRole</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.tenants">
+<code class="descname">tenants</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.tenants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.tenants" title="Permalink to this definition">¶</a></dt>
+<dd><p>List tenants in the designated contract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of tenant instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.tenant.Tenant" title="ecl.sss.v1.tenant.Tenant"><code class="xref py py-class docutils literal"><span class="pre">Tenant</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.update_api_key">
+<code class="descname">update_api_key</code><span class="sig-paren">(</span><em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.update_api_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.update_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update API key pair of target user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_id</strong> &#8211; Change target user&#8217;s user id.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The attributes to update on the api_key represented by
+<code class="docutils literal"><span class="pre">Api_key</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.update_user">
+<code class="descname">update_user</code><span class="sig-paren">(</span><em>user_id</em>, <em>login_id=None</em>, <em>mail_address=None</em>, <em>new_password=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.update_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update user&#8217;s informain.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user_id</strong> &#8211; Specified user_id.</li>
+<li><strong>login_id</strong> &#8211; Login id of new user.</li>
+<li><strong>mail_address</strong> &#8211; Mail address of new user.</li>
+<li><strong>new_password</strong> &#8211; New password of the user.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.users">
+<code class="descname">users</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>List users in the designated contract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A generator of user instances.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.user.User" title="ecl.sss.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1._proxy.Proxy.users_designated_iam_group">
+<code class="descname">users_designated_iam_group</code><span class="sig-paren">(</span><em>iam_group_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/_proxy.html#Proxy.users_designated_iam_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1._proxy.Proxy.users_designated_iam_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>List User list in the designated IAM Group ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iam_group_id</strong> &#8211; IAM Group ID that you want to show user list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.sss.v1.iam_group.IAMGroup" title="ecl.sss.v1.iam_group.IAMGroup"><code class="xref py py-class docutils literal"><span class="pre">IAMGroup</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.api_key">
+<span id="api-key"></span><h1>api_key<a class="headerlink" href="#module-ecl.sss.v1.api_key" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.api_key.Api_key">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.api_key.</code><code class="descname">Api_key</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/api_key.html#Api_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.base_path">
+<code class="descname">base_path</code><em class="property"> = '/keys'</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.keystone_name">
+<code class="descname">keystone_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.keystone_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>New API key(keystone username)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.keystone_password">
+<code class="descname">keystone_password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.keystone_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>New API secret(keystone password)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'sss', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update status. &#8216;Success&#8217; for successful update</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.api_key.Api_key.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/api_key.html#Api_key.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.api_key.Api_key.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.api_key.Api_key.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s id whose API key updated.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.channel">
+<span id="channel"></span><h1>channel<a class="headerlink" href="#module-ecl.sss.v1.channel" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.channel.Channel">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.channel.</code><code class="descname">Channel</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/channel.html#Channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.channel.Channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.base_path">
+<code class="descname">base_path</code><em class="property"> = '/channels?get_contracts=%(get_contracts)s'</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.channel_id">
+<code class="descname">channel_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.channel_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channel ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.channel_name">
+<code class="descname">channel_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.channel_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channel name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.contracts">
+<code class="descname">contracts</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.contracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of contracts has two parameters:
+contract_id: Contract ID.
+status: The status of the contract(enable or deleted).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.language">
+<code class="descname">language</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>This item setting will relate to language setting of E-mail that will
+send by ECL2.0. Please note that NOT related to user&#8217;s display language
+setting(That setting is rely on the user browser&#8217;s language setting.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.management_channel">
+<code class="descname">management_channel</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.management_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this channel_id is the partner management channel(true), or
+not(false).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.parent_channel_id">
+<code class="descname">parent_channel_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.parent_channel_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parent channel ID means partner&#8217;s channel ID that belongs the end
+user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'channels'</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.channel.Channel.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'sss', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.sss.v1.channel.Channel.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.contract">
+<span id="contract"></span><h1>contract<a class="headerlink" href="#module-ecl.sss.v1.contract" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.contract.Contract">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.contract.</code><code class="descname">Contract</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/contract.html#Contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.contract.Contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.base_path">
+<code class="descname">base_path</code><em class="property"> = '/contracts'</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.channel_id">
+<code class="descname">channel_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.channel_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channel ID of this contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.channel_name">
+<code class="descname">channel_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.channel_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channel name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.charge_data">
+<code class="descname">charge_data</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.charge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The detail of billing information</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.charge_status">
+<code class="descname">charge_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.charge_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the acquired charge information (estimated:
+undetermined / fixed: Committed)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.company_code">
+<code class="descname">company_code</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.company_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal use</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.contract_id">
+<code class="descname">contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.contract_owner_user_id">
+<code class="descname">contract_owner_user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.contract_owner_user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The owner user ID in the Contract</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.customer_name">
+<code class="descname">customer_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.customer_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>customer_name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.customer_number">
+<code class="descname">customer_number</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.customer_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>This ID is equal to external_reference_id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.cycle_end_time">
+<code class="descname">cycle_end_time</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.cycle_end_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Period of the acquired charge information(End time)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.cycle_start_time">
+<code class="descname">cycle_start_time</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.cycle_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Period of the acquired charge information(Start time)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.end_time">
+<code class="descname">end_time</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.end_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>End time of the contract</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.external_reference_id">
+<code class="descname">external_reference_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.external_reference_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>By using this item, the partner API user can associate optional
+string to the constract(e.g. The end user management ID in the
+partner user&#8217;s system). Note that this ID will be NOT used to
+control the contract in ECL2.0 internal system. If the item is
+set as blank, ECL 2.0 system set the end user&#8217;s contract ID
+automatically</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.contract.Contract.get_billing_info">
+<code class="descname">get_billing_info</code><span class="sig-paren">(</span><em>session</em>, <em>channel_id</em>, <em>target_month</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/contract.html#Contract.get_billing_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.contract.Contract.get_billing_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get billing information by channel id and target month</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.contract.Contract.get_monthly_billing_of_each_contract">
+<code class="descname">get_monthly_billing_of_each_contract</code><span class="sig-paren">(</span><em>session</em>, <em>contract_id</em>, <em>target_month</em>, <em>target_contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/contract.html#Contract.get_monthly_billing_of_each_contract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.contract.Contract.get_monthly_billing_of_each_contract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get montly billing for each contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.glass_customer_id">
+<code class="descname">glass_customer_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.glass_customer_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal use</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.glass_user_id">
+<code class="descname">glass_user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.glass_user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal use</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.keystone_endpoint">
+<code class="descname">keystone_endpoint</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.keystone_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>keystone_endpoint</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.keystone_name">
+<code class="descname">keystone_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.keystone_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>This user&#8217;s API key for keystone authentication.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.keystone_password">
+<code class="descname">keystone_password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.keystone_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>This user&#8217;s API secret for keystone authentication.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.contract.Contract.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>channel_id</em>, <em>include_deleted</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/contract.html#Contract.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.contract.Contract.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List contracts by channel id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.login_id">
+<code class="descname">login_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.login_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Login ID of user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.login_integration">
+<code class="descname">login_integration</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.login_integration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal use(Login type)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.mail_address">
+<code class="descname">mail_address</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.mail_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>E-mail address of the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.management_channel">
+<code class="descname">management_channel</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.management_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this channel_id is the partner management channel(true),
+or not(false).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.notify_password">
+<code class="descname">notify_password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.notify_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting true or false(default is false). This item designate
+whether the system should send to the login_ID and Password with
+e-mail.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.owner_contract_id">
+<code class="descname">owner_contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.owner_contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The designated contract ID by request&#8217;s target_contract_id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.password">
+<code class="descname">password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password of the user. If user set this item as blank, the system
+set initial random password automatically.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.put_create">
+<code class="descname">put_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.put_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'sss', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.sss_endpoint">
+<code class="descname">sss_endpoint</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.sss_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access point to use APIs in the decided region</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.start_time">
+<code class="descname">start_time</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start time of the contract</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>status</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.contract.Contract.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.contract.Contract.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>User id. format is ecid[0-9]{10}.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.iam_group">
+<span id="iam-group"></span><h1>iam_group<a class="headerlink" href="#module-ecl.sss.v1.iam_group" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.iam_group.IAMGroup">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.iam_group.</code><code class="descname">IAMGroup</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.assign_iam_role">
+<code class="descname">assign_iam_role</code><span class="sig-paren">(</span><em>session</em>, <em>iam_group_id</em>, <em>iam_role_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup.assign_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.assign_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assignment of the IAM Role to the IAM Group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.assign_user">
+<code class="descname">assign_user</code><span class="sig-paren">(</span><em>session</em>, <em>iam_group_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup.assign_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.assign_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assignment of the IAM User to the IAM Group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.base_path">
+<code class="descname">base_path</code><em class="property"> = '/iam/groups'</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.contract_id">
+<code class="descname">contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The contact ID that the IAM Group belongs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.delete_assign_iam_role">
+<code class="descname">delete_assign_iam_role</code><span class="sig-paren">(</span><em>session</em>, <em>iam_group_id</em>, <em>iam_role_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup.delete_assign_iam_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.delete_assign_iam_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete Assignment of the IAM Role to the IAM Group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.delete_assign_user">
+<code class="descname">delete_assign_user</code><span class="sig-paren">(</span><em>session</em>, <em>iam_group_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup.delete_assign_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.delete_assign_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete Assignment of the IAM User to the IAM Group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the IAM group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.iam_group_id">
+<code class="descname">iam_group_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.iam_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM Group ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.iam_group_name">
+<code class="descname">iam_group_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.iam_group_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM Group name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.iam_role_id">
+<code class="descname">iam_role_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.iam_role_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM Role ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.iam_role_name">
+<code class="descname">iam_role_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.iam_role_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM Role name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.iam_roles">
+<code class="descname">iam_roles</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.iam_roles" title="Permalink to this definition">¶</a></dt>
+<dd><p>IAM Role Object.
+* iam_role_id: The IAM Role ID.
+* iam_role_name: The IAM Role name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List iam groups by contract id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.list_users">
+<code class="descname">list_users</code><span class="sig-paren">(</span><em>session</em>, <em>iam_group_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_group.html#IAMGroup.list_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.list_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show User list in the designated IAM Group ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'iam_groups'</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The User ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_group.IAMGroup.users">
+<code class="descname">users</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_group.IAMGroup.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>User ID that belongs in the designated IAM Group ID.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.iam_role">
+<span id="iam-role"></span><h1>iam_role<a class="headerlink" href="#module-ecl.sss.v1.iam_role" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.iam_role.IAMRole">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.iam_role.</code><code class="descname">IAMRole</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_role.html#IAMRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.base_path">
+<code class="descname">base_path</code><em class="property"> = '/iam/roles'</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.contract_id">
+<code class="descname">contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The contact ID that the IAM Role belongs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the IAM Role.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.iam_role_id">
+<code class="descname">iam_role_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.iam_role_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM Role&#8217;s ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.iam_role_name">
+<code class="descname">iam_role_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.iam_role_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM Role&#8217;s name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.iam_role.IAMRole.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>contract_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/iam_role.html#IAMRole.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List IAM Role list in the designated contract.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.resources">
+<code class="descname">resources</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whitelist rules of API exectution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.iam_role.IAMRole.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'iam_roles'</em><a class="headerlink" href="#ecl.sss.v1.iam_role.IAMRole.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.role">
+<span id="role"></span><h1>role<a class="headerlink" href="#module-ecl.sss.v1.role" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.role.Role">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.role.</code><code class="descname">Role</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/role.html#Role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.role.Role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.role.Role.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.role.Role.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.base_path">
+<code class="descname">base_path</code><em class="property"> = '/roles'</em><a class="headerlink" href="#ecl.sss.v1.role.Role.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.role.Role.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em>, <em>tenant_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/role.html#Role.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.role.Role.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete role with given tenant id and user id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.put_create">
+<code class="descname">put_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.sss.v1.role.Role.put_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.region_id">
+<code class="descname">region_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.region_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region id which the tenant belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.region_name">
+<code class="descname">region_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.region_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region name which the tenant belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.role_name">
+<code class="descname">role_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.role_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attached role&#8217;s name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'sss', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.sss.v1.role.Role.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant&#8217;s id which is attached with the role.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.tenant_name">
+<code class="descname">tenant_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.tenant_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant&#8217;s name which is attached with the role.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.role.Role.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.role.Role.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s id who was attached with the role.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.tenant">
+<span id="tenant"></span><h1>tenant<a class="headerlink" href="#module-ecl.sss.v1.tenant" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.tenant.Tenant">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.tenant.</code><code class="descname">Tenant</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/tenant.html#Tenant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.base_path">
+<code class="descname">base_path</code><em class="property"> = '/tenants'</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.contract_id">
+<code class="descname">contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract which the tenant belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant&#8217;s description.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.sss.v1.tenant.Tenant.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/tenant.html#Tenant.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.put_create">
+<code class="descname">put_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.put_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.region">
+<code class="descname">region</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region which the tenant belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'tenants'</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'sss', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant&#8217;s id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.tenant.Tenant.tenant_name">
+<code class="descname">tenant_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.tenant.Tenant.tenant_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.sss.v1.user">
+<span id="user"></span><h1>user<a class="headerlink" href="#module-ecl.sss.v1.user" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.sss.v1.user.User">
+<em class="property">class </em><code class="descclassname">ecl.sss.v1.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/user.html#User"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.user.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.user.User.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.user.User.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.user.User.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.user.User.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.sss.v1.user.User.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.base_path">
+<code class="descname">base_path</code><em class="property"> = '/users'</em><a class="headerlink" href="#ecl.sss.v1.user.User.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.contract_id">
+<code class="descname">contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract ID which this user belongs. contract id format is econ[0-9]{10}.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.contract_owner">
+<code class="descname">contract_owner</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.contract_owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this user is the Super user in this contract, 1. If not, 0.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.external_reference_id">
+<code class="descname">external_reference_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.external_reference_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>External system oriented contract id. If this user&#8217;s contract is NTT
+Communications, customer number with 15 numbers will be shown.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.sss.v1.user.User.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/user.html#User.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.user.User.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.keystone_endpoint">
+<code class="descname">keystone_endpoint</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.keystone_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keystone address this user can use to get token for SSS API request.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.keystone_name">
+<code class="descname">keystone_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.keystone_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>This user&#8217;s API key for keystone authentication.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.keystone_password">
+<code class="descname">keystone_password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.keystone_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>This user&#8217;s API secret for keystone authentication.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.login_id">
+<code class="descname">login_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.login_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>login id of the user. When this contract is tied with icp, this
+parameter is fixed {email}_{user_id}.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.login_integration">
+<code class="descname">login_integration</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.login_integration" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this user&#8217;s contract is tied with NTT Communications business portal,
+&#8216;icp&#8217; is shown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.mail_address">
+<code class="descname">mail_address</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.mail_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mail address of the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.new_password">
+<code class="descname">new_password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.new_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>New password of the user</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.notify_password">
+<code class="descname">notify_password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.notify_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this flag is set &#8216;true&#8217;, notification eamil will be sent to new
+user&#8217;s email.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.password">
+<code class="descname">password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password of the user</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.put_create">
+<code class="descname">put_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.sss.v1.user.User.put_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'users'</em><a class="headerlink" href="#ecl.sss.v1.user.User.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'sss', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.sss.v1.user.User.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.sss_endpoint">
+<code class="descname">sss_endpoint</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.sss_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>SSS endpoint recommended for this user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.sss.v1.user.User.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>user_id</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/sss/v1/user.html#User.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.sss.v1.user.User.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update user&#8217;s information</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>User id. format is ecid[0-9]{10}.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.sss.v1.user.User.users">
+<code class="descname">users</code><em class="property"> = None</em><a class="headerlink" href="#ecl.sss.v1.user.User.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>User list.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.storage.html" class="btn btn-neutral float-right" title="storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.sss.html" class="btn btn-neutral" title="sss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.object_store.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.object_store.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.object_store.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.object_store.v1</span> <span class="k">import</span> <span class="n">account</span> <span class="k">as</span> <span class="n">_account</span>
+<span class="kn">from</span> <span class="nn">ecl.object_store.v1</span> <span class="k">import</span> <span class="n">container</span> <span class="k">as</span> <span class="n">_container</span>
+<span class="kn">from</span> <span class="nn">ecl.object_store.v1</span> <span class="k">import</span> <span class="n">obj</span> <span class="k">as</span> <span class="n">_obj</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.get_account_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.get_account_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_account_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get metadata for this account.</span>
+
+<span class="sd">        :rtype:</span>
+<span class="sd">            :class:`~ecl.object_store.v1.account.Account`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">(</span><span class="n">_account</span><span class="o">.</span><span class="n">Account</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.set_account_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.set_account_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_account_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set metadata for this account.</span>
+
+<span class="sd">        :param kwargs metadata: Key/value pairs to be set as metadata</span>
+<span class="sd">                                on the container. Custom  metadata can be set.</span>
+<span class="sd">                                Custom metadata are keys and values defined</span>
+<span class="sd">                                by the user.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">account</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_account</span><span class="o">.</span><span class="n">Account</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">account</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_account_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.delete_account_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_account_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete metadata for this account.</span>
+
+<span class="sd">        :param keys: The keys of metadata to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">account</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_account</span><span class="o">.</span><span class="n">Account</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">account</span><span class="o">.</span><span class="n">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.containers"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.containers">[docs]</a>    <span class="k">def</span> <span class="nf">containers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain Container objects for this account.</span>
+
+<span class="sd">        :param kwargs query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :rtype: A generator of</span>
+<span class="sd">            :class:`~ecl.object_store.v1.container.Container` objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_container"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.create_container">[docs]</a>    <span class="k">def</span> <span class="nf">create_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new container from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">               a :class:`~ecl.object_store.v1.container.Container`,</span>
+<span class="sd">               comprised of the properties on the Container class.</span>
+
+<span class="sd">        :returns: The results of container creation</span>
+<span class="sd">        :rtype: :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_container"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.delete_container">[docs]</a>    <span class="k">def</span> <span class="nf">delete_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a container</span>
+
+<span class="sd">        :param container: The value can be either the name of a container or a</span>
+<span class="sd">                      :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">                      instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the container does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_container_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.get_container_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_container_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get metadata for a container</span>
+
+<span class="sd">        :param container: The value can be the name of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">(</span><span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.set_container_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.set_container_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_container_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set metadata for a container.</span>
+
+<span class="sd">        :param container: The value can be the name of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+<span class="sd">        :param kwargs metadata: Key/value pairs to be set as metadata</span>
+<span class="sd">                                on the container. Both custom and system</span>
+<span class="sd">                                metadata can be set. Custom metadata are keys</span>
+<span class="sd">                                and values defined by the user. System</span>
+<span class="sd">                                metadata are keys defined by the Object Store</span>
+<span class="sd">                                and values defined by the user. The system</span>
+<span class="sd">                                metadata keys are:</span>
+
+<span class="sd">                                - `content_type`</span>
+<span class="sd">                                - `is_content_type_detected`</span>
+<span class="sd">                                - `versions_location`</span>
+<span class="sd">                                - `read_ACL`</span>
+<span class="sd">                                - `write_ACL`</span>
+<span class="sd">                                - `sync_to`</span>
+<span class="sd">                                - `sync_key`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_container_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.delete_container_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_container_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete metadata for a container.</span>
+
+<span class="sd">        :param container: The value can be the ID of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+<span class="sd">        :param keys: The keys of metadata to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.objects"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.objects">[docs]</a>    <span class="k">def</span> <span class="nf">objects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator that yields the Container&#39;s objects.</span>
+
+<span class="sd">        :param container: A container object or the name of a container</span>
+<span class="sd">            that you want to retrieve objects from.</span>
+<span class="sd">        :type container:</span>
+<span class="sd">            :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :rtype: A generator of</span>
+<span class="sd">            :class:`~ecl.object_store.v1.obj.Object` objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">from_id</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+
+        <span class="n">objs</span> <span class="o">=</span> <span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container</span><span class="o">.</span><span class="n">name</span><span class="p">},</span>
+                                <span class="o">**</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">container</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">yield</span> <span class="n">obj</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_container_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">container</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">container</span>
+        <span class="k">if</span> <span class="n">container</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">container</span> <span class="o">=</span> <span class="n">_container</span><span class="o">.</span><span class="n">Container</span><span class="o">.</span><span class="n">from_id</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">container</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;container must be specified&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Proxy.get_object"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.get_object">[docs]</a>    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the data associated with an object</span>
+
+<span class="sd">        :param obj: The value can be the name of an object or a</span>
+<span class="sd">                       :class:`~ecl.object_store.v1.obj.Object` instance.</span>
+<span class="sd">        :param container: The value can be the name of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+
+<span class="sd">        :returns: The contents of the object.  Use the</span>
+<span class="sd">                  :func:`~get_object_metadata`</span>
+<span class="sd">                  method if you want an object resource.</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): call this download_object and make sure it&#39;s</span>
+        <span class="c1"># just returning the raw data, like download_image does</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+                         <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container_name</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="Proxy.download_object"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.download_object">[docs]</a>    <span class="k">def</span> <span class="nf">download_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download the data contained inside an object to disk.</span>
+
+<span class="sd">        :param obj: The value can be the name of an object or a</span>
+<span class="sd">                       :class:`~ecl.object_store.v1.obj.Object` instance.</span>
+<span class="sd">        :param container: The value can be the name of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+<span class="sd">        :param path str: Location to write the object contents.</span>
+
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): download_object should really have the behavior</span>
+        <span class="c1"># of get_object, and this writing to a file should not exist.</span>
+        <span class="c1"># TODO(briancurtin): This method should probably offload the get</span>
+        <span class="c1"># operation into another thread or something of that nature.</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.upload_object"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.upload_object">[docs]</a>    <span class="k">def</span> <span class="nf">upload_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Upload a new object from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">               a :class:`~ecl.object_store.v1.obj.Object`,</span>
+<span class="sd">               comprised of the properties on the Object class.</span>
+<span class="sd">               **Required**: A `container` argument must be specified,</span>
+<span class="sd">               which is either the ID of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+
+<span class="sd">        :returns: The results of object creation</span>
+<span class="sd">        :rtype: :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;container&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span>
+                            <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container_name</span><span class="p">},</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.copy_object"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.copy_object">[docs]</a>    <span class="k">def</span> <span class="nf">copy_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Copy an object.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_object"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.delete_object">[docs]</a>    <span class="k">def</span> <span class="nf">delete_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete an object</span>
+
+<span class="sd">        :param obj: The value can be either the name of an object or a</span>
+<span class="sd">                       :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">                       instance.</span>
+<span class="sd">        :param container: The value can be the ID of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the object does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">,</span>
+                     <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container_name</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="Proxy.get_object_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.get_object_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_object_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get metadata for an object.</span>
+
+<span class="sd">        :param obj: The value can be the name of an object or a</span>
+<span class="sd">                    :class:`~ecl.object_store.v1.obj.Object` instance.</span>
+<span class="sd">        :param container: The value can be the ID of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.object_store.v1.obj.Object`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">(</span><span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+                          <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container_name</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="Proxy.set_object_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.set_object_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_object_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set metadata for an object.</span>
+
+<span class="sd">        Note: This method will do an extra HEAD call.</span>
+
+<span class="sd">        :param obj: The value can be the name of an object or a</span>
+<span class="sd">                    :class:`~ecl.object_store.v1.obj.Object` instance.</span>
+<span class="sd">        :param container: The value can be the name of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+<span class="sd">        :param kwargs metadata: Key/value pairs to be set as metadata</span>
+<span class="sd">                                on the container. Both custom and system</span>
+<span class="sd">                                metadata can be set. Custom metadata are keys</span>
+<span class="sd">                                and values defined by the user. System</span>
+<span class="sd">                                metadata are keys defined by the Object Store</span>
+<span class="sd">                                and values defined by the user. The system</span>
+<span class="sd">                                metadata keys are:</span>
+
+<span class="sd">                                - `content_type`</span>
+<span class="sd">                                - `content_encoding`</span>
+<span class="sd">                                - `content_disposition`</span>
+<span class="sd">                                - `delete_after`</span>
+<span class="sd">                                - `delete_at`</span>
+<span class="sd">                                - `is_content_type_detected`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+                                 <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container_name</span><span class="p">})</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_object_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1._proxy.Proxy.delete_object_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_object_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete metadata for an object.</span>
+
+<span class="sd">        :param obj: The value can be the name of an object or a</span>
+<span class="sd">                    :class:`~ecl.object_store.v1.obj.Object` instance.</span>
+<span class="sd">        :param container: The value can be the ID of a container or a</span>
+<span class="sd">               :class:`~ecl.object_store.v1.container.Container`</span>
+<span class="sd">               instance.</span>
+<span class="sd">        :param keys: The keys of metadata to be deleted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_container_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_obj</span><span class="o">.</span><span class="n">Object</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+                                 <span class="n">path_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;container&quot;</span><span class="p">:</span> <span class="n">container_name</span><span class="p">})</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.compute.v2.metadata &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.compute.v2.metadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.compute.v2.metadata</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">utils</span>
+
+
+<div class="viewcode-block" id="MetadataMixin"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.metadata.MetadataMixin">[docs]</a><span class="k">class</span> <span class="nc">MetadataMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The value for </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">) must be &quot;</span>
+                                 <span class="s2">&quot;a text string&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+
+        <span class="c1"># If we&#39;re in a ServerDetail, we need to pop the &quot;detail&quot; portion</span>
+        <span class="c1"># of the URL off and then everything else will work the same.</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;detail&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">[:</span><span class="n">pos</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">)</span>
+
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;endpoint_filter&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">metadata</span> <span class="ow">or</span> <span class="n">clear</span><span class="p">:</span>
+            <span class="c1"># &#39;meta&#39; is the key for singular modifications.</span>
+            <span class="c1"># &#39;metadata&#39; is the key for mass modifications.</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;meta&quot;</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;metadata&quot;</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span> <span class="k">if</span> <span class="n">delete</span> <span class="k">else</span> <span class="p">{}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># DELETE doesn&#39;t return a JSON body while everything else does.</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">delete</span> <span class="k">else</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="MetadataMixin.get_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.metadata.MetadataMixin.get_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve metadata</span>
+
+<span class="sd">        :param session: The session to use for this request.</span>
+
+<span class="sd">        :returns: A dictionary of the requested metadata. All keys and values</span>
+<span class="sd">                  are Unicode text.</span>
+<span class="sd">        :rtype: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="MetadataMixin.set_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.metadata.MetadataMixin.set_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update metadata</span>
+
+<span class="sd">        This call will replace only the metadata with the same keys</span>
+<span class="sd">        given here. Metadata with other keys will not be modified.</span>
+
+<span class="sd">        :param session: The session to use for this request.</span>
+<span class="sd">        :param kwargs metadata: key/value metadata pairs to be update on</span>
+<span class="sd">                                this server instance. All keys and values</span>
+<span class="sd">                                are stored as Unicode.</span>
+
+<span class="sd">        :returns: A dictionary of the metadata after being updated.</span>
+<span class="sd">                  All keys and values are Unicode text.</span>
+<span class="sd">        :rtype: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">metadata</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="MetadataMixin.delete_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2.metadata.MetadataMixin.delete_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete metadata</span>
+
+<span class="sd">        Note: This method will do a HTTP DELETE request for every key in keys.</span>
+
+<span class="sd">        :param session: The session to use for this request.</span>
+<span class="sd">        :param keys: The keys to delete.</span>
+
+<span class="sd">        :rtype: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.dedicated_hypervisor.v1.server &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.dedicated_hypervisor.v1.server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.dedicated_hypervisor.v1.server</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.dedicated_hypervisor</span> <span class="k">import</span> <span class="n">dedicated_hypervisor_service</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+
+
+<div class="viewcode-block" id="Server"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1.server.Server">[docs]</a><span class="k">class</span> <span class="nc">Server</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="s2">&quot;servers&quot;</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="s2">&quot;server&quot;</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">dedicated_hypervisor_service</span><span class="o">.</span><span class="n">DedicatedHypervisorService</span><span class="p">()</span>
+
+    <span class="c1"># Capabilities</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">_query_mapping</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">QueryParameters</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                                               <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+                                               <span class="n">changes_since</span><span class="o">=</span><span class="s2">&quot;changes-since&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: id of Dedicated Hypervisor instance.</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="c1">#: Link of the Dedicated Hypervisor server.</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;links&#39;</span><span class="p">)</span>
+    <span class="c1">#: name of Dedicated Hypervisor instance.</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1">#: description of Dedicated Hypervisor instance.</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">)</span>
+    <span class="c1">#: type of hypervisor. vsphere_esxi or hyper_v.</span>
+    <span class="n">hypervisor_type</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;hypervisor_type&#39;</span><span class="p">)</span>
+    <span class="c1">#: image id of Dedicated Hypervisor instance.</span>
+    <span class="n">imageRef</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;imageRef&#39;</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;imageRef&#39;</span><span class="p">)</span>
+    <span class="c1">#: flavor id of Dedicated Hypervisor instance.</span>
+    <span class="n">flavorRef</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;flavorRef&#39;</span><span class="p">)</span>
+    <span class="n">flavor</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;flavorRef&#39;</span><span class="p">)</span>
+    <span class="c1">#: Networks.</span>
+    <span class="n">networks</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;networks&#39;</span><span class="p">)</span>
+    <span class="c1">#: Password for the administrator.</span>
+    <span class="n">adminPass</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;adminPass&#39;</span><span class="p">)</span>
+    <span class="n">admin_pass</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;adminPass&#39;</span><span class="p">)</span>
+    <span class="c1">#: Status of the Dedicated Hypervisor instance.</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="c1">#: detail of baremetal server.</span>
+    <span class="n">baremetal_server</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;baremetal_server&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s availability zone.</span>
+    <span class="n">availability_zone</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;availability_zone&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ServerDetail"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1.server.ServerDetail">[docs]</a><span class="k">class</span> <span class="nc">ServerDetail</span><span class="p">(</span><span class="n">Server</span><span class="p">):</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers/detail&#39;</span>
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="ServerAction"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1.server.ServerAction">[docs]</a><span class="k">class</span> <span class="nc">ServerAction</span><span class="p">(</span><span class="n">Server</span><span class="p">):</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers/</span><span class="si">%s</span><span class="s1">/action&#39;</span>
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">vm_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;vm_id&#39;</span><span class="p">)</span>
+    <span class="n">vm_name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;vm_name&#39;</span><span class="p">)</span>
+    <span class="n">license_types</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;license_types&#39;</span><span class="p">)</span>
+    <span class="n">job_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;job_id&#39;</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">)</span>
+    <span class="n">requested_param</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;requested_param&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ServerAction.add_license"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1.server.ServerAction.add_license">[docs]</a>    <span class="k">def</span> <span class="nf">add_license</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">license_types</span><span class="p">,</span> <span class="n">vm_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vm_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">params</span><span class="p">[</span><span class="s2">&quot;license_types&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">license_types</span>
+        <span class="k">if</span> <span class="n">vm_id</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;vm_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vm_id</span>
+        <span class="k">if</span> <span class="n">vm_name</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;vm_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vm_name</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;add-license-to-vm&quot;</span><span class="p">:</span> <span class="n">params</span> <span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ServerAction.get_add_license_job"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1.server.ServerAction.get_add_license_job">[docs]</a>    <span class="k">def</span> <span class="nf">get_add_license_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;get-result-for-add-license-to-vm&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;job_id&quot;</span><span class="p">:</span> <span class="n">job_id</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

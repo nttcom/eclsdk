@@ -1,0 +1,1050 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.compute.v2._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.compute.v2._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.compute.v2._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">availability_zone</span> <span class="k">as</span> <span class="n">_availability_zone</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">extension</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">flavor</span> <span class="k">as</span> <span class="n">_flavor</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">image</span> <span class="k">as</span> <span class="n">_image</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">keypair</span> <span class="k">as</span> <span class="n">_keypair</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">limits</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">server</span> <span class="k">as</span> <span class="n">_server</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">server_action</span> <span class="k">as</span> <span class="n">_server_action</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">server_interface</span> <span class="k">as</span> <span class="n">_server_interface</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">server_volume</span> <span class="k">as</span> <span class="n">_server_volume</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">quota</span> <span class="k">as</span> <span class="n">_quota</span>
+<span class="kn">from</span> <span class="nn">ecl.compute.v2</span> <span class="k">import</span> <span class="n">volume</span> <span class="k">as</span> <span class="n">_volume</span>
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.servers"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.servers">[docs]</a>    <span class="k">def</span> <span class="nf">servers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a list of servers</span>
+
+<span class="sd">        :param bool details: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.compute.v2.server.Server` instances</span>
+<span class="sd">                    will be returned. The default, ``True``, will cause</span>
+<span class="sd">                    :class:`~ecl.compute.v2.server.ServerDetail`</span>
+<span class="sd">                    instances to be returned.</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">            the servers being returned.  Available parameters include:</span>
+
+<span class="sd">            * changes_since: A time/date stamp for when the server last changed status.</span>
+<span class="sd">            * image: An image resource or ID.</span>
+<span class="sd">            * flavor: A flavor resource or ID.</span>
+<span class="sd">            * name: Name of the server as a string.</span>
+<span class="sd">            * status: Value of the status of the server so that you can filter on &quot;ACTIVE&quot; for example.</span>
+<span class="sd">            * host: Name of the host as a string.</span>
+<span class="sd">            * limit: Requests a specified page size of returned items from the query.</span>
+<span class="sd">            * marker: Specifies the ID of the last-seen item.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">srv</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_server</span><span class="o">.</span><span class="n">Server</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">srv</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.create_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.create_server">[docs]</a>    <span class="k">def</span> <span class="nf">create_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">disk_config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">min_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">availability_zone</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">config_drive</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">block_device_mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block_device_mapping_v2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">networks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">personality</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">admin_pass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new server from attributes</span>
+
+<span class="sd">        :param string flavor_id: ID of server</span>
+<span class="sd">        :param string name: Name of server</span>
+<span class="sd">        :param dict disk_config: a single partition which is expanded</span>
+<span class="sd">                to the size of the flavor selected</span>
+<span class="sd">        :param string image_id: if block_device_mapping_v2 is not specified,</span>
+<span class="sd">                it is require</span>
+<span class="sd">        :param int min_count: minim count of instance</span>
+<span class="sd">        :param int max_count: maxmum count of instance</span>
+<span class="sd">        :param string availability_zone: availability zone</span>
+<span class="sd">        :param boolean config_drive: Enables metadata injection in a server</span>
+<span class="sd">                through a configuration drive</span>
+<span class="sd">        :param string key_name: key name</span>
+<span class="sd">        :param string (Base64 encoded) user_data: user data</span>
+<span class="sd">        :param array block_device_mapping: block device mapping info</span>
+<span class="sd">        :param array block_device_mapping_v2:  block device mapping v2 info</span>
+<span class="sd">        :param dict metadata: metadata of the server</span>
+<span class="sd">        :param array networks: if a tenant has more than two networks, it is required</span>
+<span class="sd">        :param array personality: This param will not run for ECL2.0</span>
+<span class="sd">        :param string admin_pass: the administrator password for the server</span>
+<span class="sd">        :param kwargs attrs: Keyword arguments which will be used to create</span>
+<span class="sd">            a :class:`~ecl.compute.v2.server.Server`,</span>
+<span class="sd">            comprised of the properties on the Server class.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;flavor_id&quot;</span><span class="p">:</span> <span class="n">flavor_id</span><span class="p">})</span>
+        <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">disk_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;disk_config&quot;</span><span class="p">:</span> <span class="n">disk_config</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">image_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;image_id&quot;</span><span class="p">:</span> <span class="n">image_id</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">min_count</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;min_count&quot;</span><span class="p">:</span> <span class="n">min_count</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">max_count</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;max_count&quot;</span><span class="p">:</span> <span class="n">max_count</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">availability_zone</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;availability_zone&quot;</span><span class="p">:</span> <span class="n">availability_zone</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">config_drive</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;config_drive&quot;</span><span class="p">:</span> <span class="n">config_drive</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">key_name</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;key_name&quot;</span><span class="p">:</span> <span class="n">key_name</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">user_data</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;user_data&quot;</span><span class="p">:</span> <span class="n">user_data</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">block_device_mapping</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;block_device_mapping&quot;</span><span class="p">:</span> <span class="n">block_device_mapping</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">block_device_mapping_v2</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;block_device_mapping_v2&quot;</span><span class="p">:</span> <span class="n">block_device_mapping_v2</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">networks</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;networks&quot;</span><span class="p">:</span> <span class="n">networks</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">personality</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;personality&quot;</span><span class="p">:</span> <span class="n">personality</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">admin_pass</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;admin_pass&quot;</span><span class="p">:</span> <span class="n">admin_pass</span><span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_server">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a server</span>
+
+<span class="sd">        :param server: The value can be either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the server does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :param bool force: When set to ``True``, the server deletion will be</span>
+<span class="sd">                           forced immediatly.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">force</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">force_delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.find_server">[docs]</a>    <span class="k">def</span> <span class="nf">find_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single server</span>
+
+<span class="sd">        :param string name_or_id: The name or ID of a server.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.server.Server` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_server">[docs]</a>    <span class="k">def</span> <span class="nf">get_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single server</span>
+
+<span class="sd">        :param server: The value can be the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.update_server">[docs]</a>    <span class="k">def</span> <span class="nf">update_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :param string name: Server name</span>
+<span class="sd">        :param string access_ipv4: IPv4 address</span>
+<span class="sd">        :param string access_ipv6: IPv6 address</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.wait_for_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.wait_for_server">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span> <span class="n">failures</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ERROR&#39;</span><span class="p">],</span>
+                        <span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="mi">120</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Not supported</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">resource2</span><span class="o">.</span><span class="n">wait_for_status</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span>
+                                         <span class="n">failures</span><span class="p">,</span> <span class="n">interval</span><span class="p">,</span> <span class="n">wait</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_image_from_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.create_image_from_server">[docs]</a>    <span class="k">def</span> <span class="nf">create_image_from_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create image from a certain server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :param string name: Image name (1-255 characters).</span>
+<span class="sd">        :param dict metadata: Image metadata ({&quot;metadata_key&quot;: &quot;metadata_value&quot;})</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">virtual_server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">virtual_server</span><span class="o">.</span><span class="n">create_image</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_server_console"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_server_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">vnc_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the console link of server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :param vnc_type: should be one of these: novnc, rdp-html5, spice-html5, serial</span>
+<span class="sd">        :return: console link and type info</span>
+<span class="sd">        :rtype: :class:`~dict {&quot;url&quot;: &quot;&quot;, &quot;type&quot;: &quot;&quot;}`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">virtual_server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">virtual_server</span><span class="o">.</span><span class="n">get_console</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">vnc_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.start_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.start_server">[docs]</a>    <span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Start the server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :return: &lt;Response 202&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">virtual_server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">virtual_server</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.stop_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.stop_server">[docs]</a>    <span class="k">def</span> <span class="nf">stop_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Stop the server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :return: &lt;Response 202&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">virtual_server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">virtual_server</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.resize_server"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.resize_server">[docs]</a>    <span class="k">def</span> <span class="nf">resize_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resize the server to flavor reference</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance.</span>
+<span class="sd">        :param string flavor_id: ID of flavor to resize</span>
+<span class="sd">        :return: &lt;Response 202&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">virtual_server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">virtual_server</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_server_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of metadata for a server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` or</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.ServerDetail`</span>
+<span class="sd">                       instance.</span>
+
+<span class="sd">        :returns: A :class:`~ecl.compute.v2.server.Server` with only the</span>
+<span class="sd">                  server&#39;s metadata. All keys and values are Unicode text.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="o">.</span><span class="n">existing</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Proxy.set_server_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.set_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update metadata for a server</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` or</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.ServerDetail`</span>
+<span class="sd">                       instance.</span>
+<span class="sd">        :param kwargs metadata: Key/value pairs to be updated in the server&#39;s</span>
+<span class="sd">                                metadata. No other metadata is modified</span>
+<span class="sd">                                by this call. All keys and values are stored</span>
+<span class="sd">                                as Unicode.</span>
+<span class="sd">        :returns: A :class:`~ecl.compute.v2.server.Server` with only the</span>
+<span class="sd">                  server&#39;s metadata. All keys and values are Unicode text.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="o">.</span><span class="n">existing</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_server_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete metadata for a server</span>
+
+<span class="sd">        Note: This method will do a HTTP DELETE request for every key in keys.</span>
+
+<span class="sd">        :param server: Either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` or</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.ServerDetail`</span>
+<span class="sd">                       instance.</span>
+<span class="sd">        :param array keys: The keys to delete</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_server_interface"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.create_server_interface">[docs]</a>    <span class="k">def</span> <span class="nf">create_server_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">net_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ip_address</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">port_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fixed_ips</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new server interface from attributes</span>
+
+<span class="sd">        :param server: The server can be either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server` instance</span>
+<span class="sd">                       that the interface belongs to.</span>
+<span class="sd">        :param string net_id: ID of network, may need to specify ip address</span>
+<span class="sd">                        if</span>
+<span class="sd">        :param string ip_address: ip_address of add interface to the VM instance</span>
+<span class="sd">        :param string port_id: ID of port of add interface to the VM instance</span>
+<span class="sd">        :param dict fixed_ips: dict of fixed ips to add to the VM instance</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.server_interface.ServerInterface`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">net_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;net_id&quot;</span><span class="p">:</span> <span class="n">net_id</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">ip_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="s2">&quot;fixed_ips&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;ip_address&quot;</span><span class="p">:</span> <span class="n">ip_address</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+        <span class="k">if</span> <span class="n">port_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;port_id&quot;</span><span class="p">:</span> <span class="n">port_id</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">fixed_ips</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fixed_ips&quot;</span><span class="p">:</span> <span class="n">fixed_ips</span><span class="p">})</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_server_interface</span><span class="o">.</span><span class="n">ServerInterface</span><span class="p">,</span>
+                            <span class="n">server_id</span><span class="o">=</span><span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_server_interface"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_server_interface">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_interface</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a server interface</span>
+
+<span class="sd">        :param server_interface:</span>
+<span class="sd">            The value can be either the ID of a server interface or a</span>
+<span class="sd">            :class:`~ecl.compute.v2.server_interface.ServerInterface`</span>
+<span class="sd">            instance.</span>
+<span class="sd">        :param server: This parameter need to be specified when ServerInterface</span>
+<span class="sd">                       ID is given as value. It can be either the ID of a</span>
+<span class="sd">                       server or a :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">                       instance that the interface belongs to.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the server interface does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server interface.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_uri_attribute</span><span class="p">(</span><span class="n">server_interface</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span>
+                                            <span class="s2">&quot;server_id&quot;</span><span class="p">)</span>
+        <span class="n">server_interface</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server_interface</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_server_interface</span><span class="o">.</span><span class="n">ServerInterface</span><span class="p">,</span>
+                     <span class="n">port_id</span><span class="o">=</span><span class="n">server_interface</span><span class="p">,</span>
+                     <span class="n">server_id</span><span class="o">=</span><span class="n">server_id</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.server_interfaces"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.server_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">server_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of server interfaces</span>
+
+<span class="sd">        :param server: The server can be either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server`.</span>
+<span class="sd">        :returns: A list of</span>
+<span class="sd">            :class:`~ecl.compute.v2.server_interface.ServerInterface`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_server_interface</span><span class="o">.</span><span class="n">ServerInterface</span><span class="p">,</span>
+                               <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="n">server_id</span><span class="o">=</span><span class="n">server_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.server_actions"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.server_actions">[docs]</a>    <span class="k">def</span> <span class="nf">server_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of server actions</span>
+
+<span class="sd">        :param server: The server can be either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server`.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.server_action.ServerAction`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_server_action</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">instance_uuid</span><span class="o">=</span><span class="n">server_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_server_action"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_server_action">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_action</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single server action</span>
+
+<span class="sd">        :param server_action:</span>
+<span class="sd">            The value can be the request ID of a server action or a</span>
+<span class="sd">            :class:`~ecl.compute.v2.server_action.ServerAction`</span>
+<span class="sd">            instance.</span>
+<span class="sd">        :param server: This parameter need to be specified when ServerAction</span>
+<span class="sd">                       ID is given as value. It can be either the ID of a</span>
+<span class="sd">                       server or a :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">                       instance that the action belongs to.</span>
+<span class="sd">        :returns: Server Action object</span>
+<span class="sd">            :class:`~ecl.compute.v2.server_action.ServerAction`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server_action</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_server_action</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span>
+                         <span class="n">instance_uuid</span><span class="o">=</span><span class="n">server</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.server_volumes"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.server_volumes">[docs]</a>    <span class="k">def</span> <span class="nf">server_volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of server volumes</span>
+
+<span class="sd">        :param server: The server can be either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server`.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.server_volume.ServerVolume`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_server_volume</span><span class="o">.</span><span class="n">ServerVolume</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="n">serverId</span><span class="o">=</span><span class="n">server_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.create_server_volume"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.create_server_volume">[docs]</a>    <span class="k">def</span> <span class="nf">create_server_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attaches a volume to the specified server</span>
+
+<span class="sd">        :param server: The server can be either the ID of a server or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">        :param string volume_id: Volume ID to be attached</span>
+<span class="sd">        :param string device: Device name that satisfies the following</span>
+<span class="sd">            conditions: ^/dev/x{0,1}[a-z]{0,1}d{0,1})([a-z]+)[0-9]*$</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;volumeId&quot;</span><span class="p">:</span> <span class="n">volume_id</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">device</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="n">device</span><span class="p">})</span>
+
+        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_server_volume</span><span class="o">.</span><span class="n">ServerVolume</span><span class="p">,</span>
+                            <span class="n">serverId</span><span class="o">=</span><span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_server_volume"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_server_volume">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_volume</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Detach a volume from a server</span>
+
+<span class="sd">        :param server_volume:</span>
+<span class="sd">            The value can be either the ID of a server volume or a</span>
+<span class="sd">            :class:`~ecl.compute.v2.server_volume.ServerVolume`</span>
+<span class="sd">            instance.</span>
+<span class="sd">        :param server: This parameter need to be specified when ServerVolume</span>
+<span class="sd">                       ID is given as value. It can be either the ID of a</span>
+<span class="sd">                       server or a :class:`~ecl.compute.v2.server.Server`</span>
+<span class="sd">                       instance that the volume belongs to.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the server volume does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server volume.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_uri_attribute</span><span class="p">(</span><span class="n">server_volume</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span>
+                                            <span class="s2">&quot;server_id&quot;</span><span class="p">)</span>
+        <span class="n">attachment</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">server_volume</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_server_volume</span><span class="o">.</span><span class="n">ServerVolume</span><span class="p">,</span>
+                     <span class="nb">id</span><span class="o">=</span><span class="n">attachment</span><span class="p">,</span>
+                     <span class="n">serverId</span><span class="o">=</span><span class="n">server_id</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.extensions"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.extensions">[docs]</a>    <span class="k">def</span> <span class="nf">extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a list of extensions</span>
+
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.extension.Extension`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">extension</span><span class="o">.</span><span class="n">Extension</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_flavor"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.find_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">find_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single flavor</span>
+
+<span class="sd">        :param string name_or_id: The name or ID of a flavor.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.flavor.Flavor` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_flavor</span><span class="o">.</span><span class="n">Flavor</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_flavor"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">get_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single flavor</span>
+
+<span class="sd">        :param flavor: The value can be the ID of a flavor or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.flavor.Flavor` instance.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.flavor.Flavor`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_flavor</span><span class="o">.</span><span class="n">Flavor</span><span class="p">,</span> <span class="n">flavor</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.flavors"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.flavors">[docs]</a>    <span class="k">def</span> <span class="nf">flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of flavors</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">            :class:`~ecl.compute.v2.flavor.FlavorDetail` objects,</span>
+<span class="sd">            otherwise :class:`~ecl.compute.v2.flavor.Flavor`.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.flavor.Flavor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">flv</span> <span class="o">=</span> <span class="n">_flavor</span><span class="o">.</span><span class="n">FlavorDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_flavor</span><span class="o">.</span><span class="n">Flavor</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">flv</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_image"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_image">[docs]</a>    <span class="k">def</span> <span class="nf">delete_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete an image</span>
+
+<span class="sd">        :param image: The value can be either the ID of an image or a</span>
+<span class="sd">                      :class:`~ecl.compute.v2.image.Image` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the image does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent image.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_image"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.find_image">[docs]</a>    <span class="k">def</span> <span class="nf">find_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single image</span>
+
+<span class="sd">        :param string name_or_id: The name or ID of a image.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.image.Image` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_image"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_image">[docs]</a>    <span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single image</span>
+
+<span class="sd">        :param image: The value can be the ID of an image or a</span>
+<span class="sd">                      :class:`~ecl.compute.v2.image.Image` instance.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.image.Image`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.images"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.images">[docs]</a>    <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of images</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">            :class:`~ecl.compute.v2.image.ImageDetail` objects,</span>
+<span class="sd">            otherwise :class:`~ecl.compute.v2.image.Image`.</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.image.Image`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">ImageDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_base_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+        <span class="c1"># Metadata calls for Image and Server can work for both those</span>
+        <span class="c1"># resources but also ImageDetail and ServerDetail. If we get</span>
+        <span class="c1"># either class, use it, otherwise create an instance of the base.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">res</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Proxy.get_image_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_image_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of metadata for an image</span>
+
+<span class="sd">        :param image: Either the ID of an image or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.image.Image` or</span>
+<span class="sd">                       :class:`~ecl.compute.v2.image.ImageDetail`</span>
+<span class="sd">                       instance.</span>
+
+<span class="sd">        :returns: A :class:`~ecl.compute.v2.image.Image` with only the</span>
+<span class="sd">                  image&#39;s metadata. All keys and values are Unicode text.</span>
+<span class="sd">        :rtype: :class:`~ecl.compute.v2.image.Image`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_base_resource</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">existing</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Proxy.set_image_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.set_image_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_image_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update metadata for an image</span>
+
+<span class="sd">        :param image: Either the ID of an image or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.image.Image` or</span>
+<span class="sd">                       :class:`~ecl.compute.v2.image.ImageDetail`</span>
+<span class="sd">                       instance.</span>
+<span class="sd">        :param kwargs metadata: Key/value pairs to be updated in the image&#39;s</span>
+<span class="sd">                                metadata. No other metadata is modified</span>
+<span class="sd">                                by this call. All keys and values are stored</span>
+<span class="sd">                                as Unicode.</span>
+<span class="sd">        :returns: A :class:`~ecl.compute.v2.image.Image` with only the</span>
+<span class="sd">                  image&#39;s metadata. All keys and values are Unicode text.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_base_resource</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">existing</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_image_metadata"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_image_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_image_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete metadata for an image</span>
+
+<span class="sd">        :param image: Either the ID of an image or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.image.Image` or</span>
+<span class="sd">                       :class:`~ecl.compute.v2.image.ImageDetail`</span>
+<span class="sd">                       instance.</span>
+<span class="sd">        :param array keys: The keys to delete.</span>
+<span class="sd">        :rtype: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_base_resource</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_keypair"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.create_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">create_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new keypair from attributes</span>
+
+<span class="sd">        :param string name: The name to associate with the keypair.</span>
+<span class="sd">        :param string public_key: The public ssh key to import.</span>
+<span class="sd">            If not provided, a key is generated.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.keypair.Keypair`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">public_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;public_key&quot;</span><span class="p">:</span> <span class="n">public_key</span><span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_keypair"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">delete_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypair</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a keypair</span>
+
+<span class="sd">        :param keypair: The value can be either the ID of a keypair or a</span>
+<span class="sd">                        :class:`~ecl.compute.v2.keypair.Keypair`</span>
+<span class="sd">                        instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the keypair does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent keypair.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="n">keypair</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_keypair"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">get_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypair</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single keypair</span>
+
+<span class="sd">        :param keypair: The value can be the ID of a keypair or a</span>
+<span class="sd">                        :class:`~ecl.compute.v2.keypair.Keypair`</span>
+<span class="sd">                        instance.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.keypair.Keypair`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="n">keypair</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_keypair"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.find_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">find_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single keypair</span>
+
+<span class="sd">        :param string name_or_id: The name or ID of a keypair.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.keypair.Keypair` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.keypairs"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.keypairs">[docs]</a>    <span class="k">def</span> <span class="nf">keypairs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of keypairs</span>
+
+<span class="sd">        :returns: A list of keypair objects</span>
+<span class="sd">        :rtype: :class:`~ecl.compute.v2.keypair.Keypair`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_limits"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_limits">[docs]</a>    <span class="k">def</span> <span class="nf">get_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve limits that are applied to the project&#39;s account</span>
+
+<span class="sd">        :returns: A Limits object, including both</span>
+<span class="sd">                  :class:`~ecl.compute.v2.limits.AbsoluteLimits` and</span>
+<span class="sd">                  :class:`~ecl.compute.v2.limits.RateLimits`</span>
+<span class="sd">        :rtype: :class:`~ecl.compute.v2.limits.Limits`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">limits</span><span class="o">.</span><span class="n">Limits</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.availability_zones"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.availability_zones">[docs]</a>    <span class="k">def</span> <span class="nf">availability_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of availability zones</span>
+
+<span class="sd">        :param bool details: Return extra details about the availability</span>
+<span class="sd">            zones. This defaults to `False` as it generally</span>
+<span class="sd">            requires extra permission.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.availability_zone.AvailabilityZone`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">details</span><span class="p">:</span>
+            <span class="n">az</span> <span class="o">=</span> <span class="n">_availability_zone</span><span class="o">.</span><span class="n">AvailabilityZoneDetail</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">az</span> <span class="o">=</span> <span class="n">_availability_zone</span><span class="o">.</span><span class="n">AvailabilityZone</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">az</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_availability_zone"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.find_availability_zone">[docs]</a>    <span class="k">def</span> <span class="nf">find_availability_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single availability_zone</span>
+
+<span class="sd">        :param string name_or_id: The name or ID of a availability_zone.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.availability_zone.AvailabilityZone` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_availability_zone</span><span class="o">.</span><span class="n">AvailabilityZone</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_quota"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_quota">[docs]</a>    <span class="k">def</span> <span class="nf">get_quota</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get quota info of a tenant</span>
+
+<span class="sd">        :param tenant_id: The ID for the tenant for which you want to show</span>
+<span class="sd">                        quotas. This ID is different from the tenant ID of authentication.</span>
+<span class="sd">                        That ID is for the admin tenant.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.quota.Quota`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_quota</span><span class="o">.</span><span class="n">Quota</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_default_quota"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_default_quota">[docs]</a>    <span class="k">def</span> <span class="nf">get_default_quota</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get default quota info of a tenant</span>
+
+<span class="sd">        :param string tenant_id: The ID for the tenant for which you want to show</span>
+<span class="sd">                        quotas. This ID is different from the tenant ID of authentication.</span>
+<span class="sd">                        That ID is for the admin tenant.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.quota.DefaultQuota`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_quota</span><span class="o">.</span><span class="n">DefaultQuota</span><span class="p">,</span> <span class="n">tenant_id</span><span class="o">=</span><span class="n">tenant_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_tenant_usage"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_tenant_usage">[docs]</a>    <span class="k">def</span> <span class="nf">get_tenant_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get tenant usage information of a tenant</span>
+
+<span class="sd">        :param string tenant_id: The ID for the tenant for which you want to show</span>
+<span class="sd">                        usage information. This ID is different from the tenant ID of authentication.</span>
+<span class="sd">                        That ID is for the admin tenant.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.quota.TenantUsage`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_quota</span><span class="o">.</span><span class="n">TenantUsage</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.volumes"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.volumes">[docs]</a>    <span class="k">def</span> <span class="nf">volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of volumes</span>
+
+<span class="sd">        :param bool details: Return extra details about the volumes</span>
+<span class="sd">                             This defaults to `False` as it generally</span>
+<span class="sd">                             requires extra permission.</span>
+<span class="sd">        :returns: A list of :class:`~ecl.compute.v2.volume.Volume`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">details</span><span class="p">:</span>
+            <span class="n">vol</span> <span class="o">=</span> <span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vol</span> <span class="o">=</span> <span class="n">_volume</span><span class="o">.</span><span class="n">VolumeDetail</span>
+
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">vol</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_volume"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.get_volume">[docs]</a>    <span class="k">def</span> <span class="nf">get_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single volume</span>
+
+<span class="sd">        :param volume: The value can be the ID of a volume or a</span>
+<span class="sd">                       :class:`~ecl.compute.v2.volume.Volume` instance.</span>
+
+<span class="sd">        :returns: :class:`~ecl.compute.v2.volume.Volume`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_volume"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.create_volume">[docs]</a>    <span class="k">def</span> <span class="nf">create_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">volume_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">availability_zone</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">snapshot_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a single volume</span>
+
+<span class="sd">        :param size: size of volume to create.</span>
+<span class="sd">        :param name: display name of volume to create.</span>
+<span class="sd">        :param description: display description of volume to create.</span>
+<span class="sd">        :param volume_type: volume type of volume to create.</span>
+<span class="sd">        :param metadata: size of metadata to create.</span>
+<span class="sd">        :param availability_zone: availability zone of volume to create.</span>
+<span class="sd">        :param snapshot_id: ID of snapshot to create from.</span>
+<span class="sd">        :returns: :class:`~ecl.compute.v2.volume.Volume`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">size</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">volume_type</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="n">volume_type</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">availability_zone</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;availability_zone&quot;</span><span class="p">:</span> <span class="n">availability_zone</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">snapshot_id</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;snapshot_id&quot;</span><span class="p">:</span> <span class="n">snapshot_id</span><span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_volume"><a class="viewcode-back" href="../../../../ecl.compute.v2.html#ecl.compute.v2._proxy.Proxy.delete_volume">[docs]</a>    <span class="k">def</span> <span class="nf">delete_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete an volume</span>
+
+<span class="sd">        :param volume: The value can be either the ID of an volume or a</span>
+<span class="sd">                      :class:`~ecl.compute.v2.volume.Volume` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the volume does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent volume.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

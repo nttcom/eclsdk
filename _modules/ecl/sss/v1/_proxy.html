@@ -1,0 +1,728 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.sss.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.sss.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.sss.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">user</span> <span class="k">as</span> <span class="n">_user</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">tenant</span> <span class="k">as</span> <span class="n">_tenant</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">role</span> <span class="k">as</span> <span class="n">_role</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">api_key</span> <span class="k">as</span> <span class="n">_api_key</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">channel</span> <span class="k">as</span> <span class="n">_channel</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">contract</span> <span class="k">as</span> <span class="n">_contract</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">iam_group</span> <span class="k">as</span> <span class="n">_iam_group</span>
+<span class="kn">from</span> <span class="nn">ecl.sss.v1</span> <span class="k">import</span> <span class="n">iam_role</span> <span class="k">as</span> <span class="n">_iam_role</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="Proxy.users"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List users in the designated contract.</span>
+
+<span class="sd">        :return: A generator of user instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.user.User`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.find_user">[docs]</a>    <span class="k">def</span> <span class="nf">find_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find a user. Get user information such as login id, email, apikey, etc.</span>
+
+<span class="sd">        :param user_id: ID of a user</span>
+<span class="sd">        :param ignore_missing: When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :return: One :class:`~ecl.sss.v1.user.User` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span>
+                           <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.get_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get user information such as login id, email, apikey, etc.</span>
+
+<span class="sd">        :param user: ID of a user or a :class:`~ecl.sss.v1.user.User` instance.</span>
+<span class="sd">        :return: One :class:`~ecl.sss.v1.user.User` or</span>
+<span class="sd">                     :class:`~ecl.exceptions.ResourceNotFound`when no</span>
+<span class="sd">                     resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.create_user">[docs]</a>    <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">login_id</span><span class="p">,</span> <span class="n">mail_address</span><span class="p">,</span> <span class="n">notify_password</span><span class="p">,</span>
+                    <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create user in the designated contract. Only supser user (contract</span>
+<span class="sd">        owner user) allowed.</span>
+
+<span class="sd">        :param login_id: Login id of new user.</span>
+<span class="sd">        :param mail_address: Mail address of new user.</span>
+<span class="sd">        :param notify_password: If this flag is set &#39;true&#39;,</span>
+<span class="sd">            notification email will be sent to new users email</span>
+<span class="sd">        :param password: Initial password of new user.</span>
+<span class="sd">            If this parameter is not designated, random initial password is</span>
+<span class="sd">            generated and applied to new user.</span>
+<span class="sd">        :return: The results of user creation</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.user.User`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;login_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">login_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mail_address&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mail_address</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;notify_password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">notify_password</span>
+        <span class="k">if</span> <span class="n">password</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.update_user">[docs]</a>    <span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">login_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mail_address</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">new_password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update user&#39;s informain.</span>
+
+<span class="sd">        :param user_id: Specified user_id.</span>
+<span class="sd">        :param login_id: Login id of new user.</span>
+<span class="sd">        :param mail_address: Mail address of new user.</span>
+<span class="sd">        :param new_password: New password of the user.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">login_id</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;login_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">login_id</span>
+        <span class="k">if</span> <span class="n">mail_address</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mail_address&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mail_address</span>
+        <span class="k">if</span> <span class="n">new_password</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;new_password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_password</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_user">[docs]</a>    <span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete user. Only supser user (contract owner user) allowed. Contract</span>
+<span class="sd">        owner user itself cannot be deleted</span>
+
+<span class="sd">        :param user: Delete target user&#39;s user id.</span>
+<span class="sd">        :param ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the user does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.tenants"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.tenants">[docs]</a>    <span class="k">def</span> <span class="nf">tenants</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List tenants in the designated contract.</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :return: A generator of tenant instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.tenant.Tenant`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_tenant</span><span class="o">.</span><span class="n">Tenant</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_tenant"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.find_tenant">[docs]</a>    <span class="k">def</span> <span class="nf">find_tenant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find a tenant. Get tenant information such as tenant name, etc.</span>
+
+<span class="sd">        :param tenant_id: ID of a tenant</span>
+<span class="sd">        :param ignore_missing: When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :return: One :class:`~ecl.sss.v1.tenant.Tenant` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_tenant</span><span class="o">.</span><span class="n">Tenant</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span>
+                           <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_tenant"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.create_tenant">[docs]</a>    <span class="k">def</span> <span class="nf">create_tenant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create new tenant in the designated contract. Only supser user</span>
+<span class="sd">        (contract owner user) allowed.</span>
+
+<span class="sd">        :param attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                      a :class:`~ecl.sss.v1.tenant.Tenant`,</span>
+<span class="sd">                      comprised of the properties on the Tenant class.</span>
+<span class="sd">        :return: The results of tenant creation</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.tenant.Tenant`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_tenant</span><span class="o">.</span><span class="n">Tenant</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_tenant"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_tenant">[docs]</a>    <span class="k">def</span> <span class="nf">delete_tenant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant</span><span class="p">,</span> <span class="n">ignore_missing</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete tenant. Only supser user (contract owner user) allowed.</span>
+
+<span class="sd">        :param tenant: Delete target tenant&#39;s tenant id.</span>
+<span class="sd">        :param ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the user does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_tenant</span><span class="o">.</span><span class="n">Tenant</span><span class="p">,</span> <span class="n">tenant</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.create_role">[docs]</a>    <span class="k">def</span> <span class="nf">create_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create role between a user and a tenant. With role, users can access</span>
+<span class="sd">        to the tenants.</span>
+
+<span class="sd">        :param user_id: User which have new role.</span>
+<span class="sd">        :param tenant_id: Tenant which the user have role.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.role.Role`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tenant_id</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_role</span><span class="o">.</span><span class="n">Role</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_role">[docs]</a>    <span class="k">def</span> <span class="nf">delete_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete role between user and tenant. Contract owner user always have</span>
+<span class="sd">        role to all tenants in the contract. Only supser user</span>
+<span class="sd">        (contract owner user) allowed.</span>
+
+<span class="sd">        :param tenant_id: Delete target tenant&#39;s tenant id.</span>
+<span class="sd">        :param user_id: User&#39;s id of the role</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">role</span> <span class="o">=</span> <span class="n">_role</span><span class="o">.</span><span class="n">Role</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">role</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                 <span class="n">tenant_id</span><span class="o">=</span><span class="n">tenant_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_api_key"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.update_api_key">[docs]</a>    <span class="k">def</span> <span class="nf">update_api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update API key pair of target user.</span>
+
+<span class="sd">        :param user_id: Change target user&#39;s user id.</span>
+<span class="sd">        :return: The attributes to update on the api_key represented by</span>
+<span class="sd">                ``Api_key``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">_api_key</span><span class="o">.</span><span class="n">Api_key</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">key</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.channels"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.channels">[docs]</a>    <span class="k">def</span> <span class="nf">channels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get_contracts</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Getting lists of information about the own channel and end user channel</span>
+<span class="sd">        that own contract belongs. Only partner user allowed.</span>
+
+<span class="sd">        :param get_contracts: The flag of whether getting contracts</span>
+<span class="sd">                              (true or false(default)).</span>
+<span class="sd">        :return: A generator of channels instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.channel.Channel`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_channel</span><span class="o">.</span><span class="n">Channel</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="n">get_contracts</span><span class="o">=</span><span class="n">get_contracts</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.create_contract"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.create_contract">[docs]</a>    <span class="k">def</span> <span class="nf">create_contract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">login_id</span><span class="p">,</span> <span class="n">mail_address</span><span class="p">,</span> <span class="n">channel_id</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">external_reference_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">notify_password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create contract in designated channel. Only partner user allowed.</span>
+
+<span class="sd">        :param login_id: Login ID of new user.</span>
+<span class="sd">        :param mail_address: E-mail address of the user.</span>
+<span class="sd">        :param channel_id: The channel means the group to manage contracts.</span>
+<span class="sd">            The partner user will be given 2 channels. One is the channel that</span>
+<span class="sd">            contains own contract. The other is the channel that contains all</span>
+<span class="sd">            end user contracts which the partner user has. By executing the List</span>
+<span class="sd">            Channel API(For partner user only),</span>
+<span class="sd">            the user can get your (and enduser&#39;s) channel ID.</span>
+<span class="sd">        :param password: Password of the user. If the API user set this item as</span>
+<span class="sd">            blank, the system set initial random password automatically.</span>
+<span class="sd">        :param external_reference_id: By using this item, the partner API user</span>
+<span class="sd">            can associate optional string to the constract(e.g. The end user</span>
+<span class="sd">            management ID in the partner user&#39;s system). Note that this ID will</span>
+<span class="sd">            be NOT used to control the contract in ECL2.0 internal system.</span>
+<span class="sd">            If the item is set as blank, ECL 2.0 system set the end user&#39;s</span>
+<span class="sd">            contract ID automatically(e.g. econXXXXXXXX).</span>
+<span class="sd">        :param notify_password: Setting true or false(default is false).</span>
+<span class="sd">            This item designate whether the system should send to the login_ID</span>
+<span class="sd">            and Password with e-mail.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.contract.Contract`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;login_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">login_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mail_address&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mail_address</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;channel_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">channel_id</span>
+        <span class="k">if</span> <span class="n">password</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="k">if</span> <span class="n">external_reference_id</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;external_reference_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">external_reference_id</span>
+        <span class="k">if</span> <span class="n">notify_password</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;notify_password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">notify_password</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_contract</span><span class="o">.</span><span class="n">Contract</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.contracts"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.contracts">[docs]</a>    <span class="k">def</span> <span class="nf">contracts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel_id</span><span class="p">,</span> <span class="n">include_deleted</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List Contracts in the designated channel. Only partner user allowed.</span>
+
+<span class="sd">        :param channel_id: Target channel_id under own contract.</span>
+<span class="sd">        :param include_deleted: Setting true or false(default is false)</span>
+<span class="sd">        (true : Include deleted contract/ false: Not include deleted contract.</span>
+<span class="sd">        :return: A generator of contracts instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.contract.Contract`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">contract</span> <span class="o">=</span> <span class="n">_contract</span><span class="o">.</span><span class="n">Contract</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">contract</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">channel_id</span><span class="o">=</span><span class="n">channel_id</span><span class="p">,</span>
+                          <span class="n">include_deleted</span><span class="o">=</span><span class="n">include_deleted</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_contract"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_contract">[docs]</a>    <span class="k">def</span> <span class="nf">delete_contract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete contract in designated channel. Only partner user allowed.</span>
+
+<span class="sd">        :param contract_id: Contract ID of Delete target</span>
+<span class="sd">        :param ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the user does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_contract</span><span class="o">.</span><span class="n">Contract</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">,</span>
+                            <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_contract"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.get_contract">[docs]</a>    <span class="k">def</span> <span class="nf">get_contract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the information of the designated contract.</span>
+
+<span class="sd">        :param contract_id: The contract ID getting more information.</span>
+<span class="sd">        :return: One :class:`~ecl.sss.v1.contract.Contract`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_contract</span><span class="o">.</span><span class="n">Contract</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_billing_info"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.get_billing_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_billing_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel_id</span><span class="p">,</span> <span class="n">target_month</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get billing statement of designated month.</span>
+
+<span class="sd">        :param channel_id: Billing statement owner contract.</span>
+<span class="sd">        :param target_month: Target billing month with YYYY-MM format</span>
+<span class="sd">        :return: One :class:`~ecl.sss.v1.contract.Contract`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bill_info</span> <span class="o">=</span> <span class="n">_contract</span><span class="o">.</span><span class="n">Contract</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">bill_info</span><span class="o">.</span><span class="n">get_billing_info</span><span class="p">(</span>
+            <span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">channel_id</span><span class="o">=</span><span class="n">channel_id</span><span class="p">,</span>
+            <span class="n">target_month</span><span class="o">=</span><span class="n">target_month</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_monthly_billing_of_each_contract"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.get_monthly_billing_of_each_contract">[docs]</a>    <span class="k">def</span> <span class="nf">get_monthly_billing_of_each_contract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">,</span> <span class="n">target_month</span><span class="p">,</span>
+                                             <span class="n">target_contract_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get montly billing for each contract. Only partner user allowed.</span>
+
+<span class="sd">        :param contract_id: Contract ID of this request.</span>
+<span class="sd">        :param target_month: Target billing month with YYYY-MM format</span>
+<span class="sd">        :param target_contract_id: Target contract ID</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bill_info</span> <span class="o">=</span> <span class="n">_contract</span><span class="o">.</span><span class="n">Contract</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">bill_info</span><span class="o">.</span><span class="n">get_monthly_billing_of_each_contract</span><span class="p">(</span>
+            <span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">contract_id</span><span class="o">=</span><span class="n">contract_id</span><span class="p">,</span> <span class="n">target_month</span><span class="o">=</span><span class="n">target_month</span><span class="p">,</span>
+            <span class="n">target_contract_id</span><span class="o">=</span><span class="n">target_contract_id</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.iam_groups"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.iam_groups">[docs]</a>    <span class="k">def</span> <span class="nf">iam_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List iam groups by contract id.</span>
+
+<span class="sd">        :param contract_id: Contract ID ( Default is the Contract ID of</span>
+<span class="sd">            API executing user ) .</span>
+<span class="sd">        :return: A list of iam groups.</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.iam_group.IAMGroup`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_group</span> <span class="o">=</span> <span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iam_group</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                   <span class="n">contract_id</span><span class="o">=</span><span class="n">contract_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.create_iam_group"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.create_iam_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_iam_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_name</span><span class="p">,</span> <span class="n">contract_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                         <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create iam group.</span>
+
+<span class="sd">        :param iam_group_name: New IAM Group name.</span>
+<span class="sd">            Alphanumeric characters and @, -, ., _ can be used.</span>
+<span class="sd">        :param contract_id: Contract ID ( Default is the Contract ID of API</span>
+<span class="sd">            executing user ) .</span>
+<span class="sd">        :param description: Description of the IAM Group.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.iam_group.IAMGroup`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;iam_group_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iam_group_name</span>
+        <span class="k">if</span> <span class="n">contract_id</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;contract_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contract_id</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_iam_group"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_iam_group">[docs]</a>    <span class="k">def</span> <span class="nf">delete_iam_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete iam group.</span>
+
+<span class="sd">        :param iam_group_id: Group ID that you want to delete.</span>
+<span class="sd">        :param ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the user does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">,</span>
+                            <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.assign_iam_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.assign_iam_role">[docs]</a>    <span class="k">def</span> <span class="nf">assign_iam_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">,</span> <span class="n">iam_role_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assignment of the IAM Role to the IAM Group.</span>
+
+<span class="sd">        :param iam_group_id: IAM Group ID that assign to the Role.</span>
+<span class="sd">        :param iam_role_id: IAM Role ID that assign to the Group.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.iam_group.IAMGroup`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_group</span> <span class="o">=</span> <span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">iam_group</span><span class="o">.</span><span class="n">assign_iam_role</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                         <span class="n">iam_group_id</span><span class="o">=</span><span class="n">iam_group_id</span><span class="p">,</span>
+                                         <span class="n">iam_role_id</span><span class="o">=</span><span class="n">iam_role_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_assign_iam_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_assign_iam_role">[docs]</a>    <span class="k">def</span> <span class="nf">delete_assign_iam_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">,</span> <span class="n">iam_role_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete Assignment of the IAM Role to the IAM Group.</span>
+
+<span class="sd">        :param iam_group_id: IAM Group ID.</span>
+<span class="sd">        :param iam_role_id: IAM Role ID.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_group</span> <span class="o">=</span> <span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">iam_group</span><span class="o">.</span><span class="n">delete_assign_iam_role</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                                <span class="n">iam_group_id</span><span class="o">=</span><span class="n">iam_group_id</span><span class="p">,</span>
+                                                <span class="n">iam_role_id</span><span class="o">=</span><span class="n">iam_role_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.users_designated_iam_group"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.users_designated_iam_group">[docs]</a>    <span class="k">def</span> <span class="nf">users_designated_iam_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List User list in the designated IAM Group ID.</span>
+
+<span class="sd">        :param iam_group_id: IAM Group ID that you want to show user list.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.iam_group.IAMGroup`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_group</span> <span class="o">=</span> <span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">iam_group</span><span class="o">.</span><span class="n">list_users</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                    <span class="n">iam_group_id</span><span class="o">=</span><span class="n">iam_group_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.assign_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.assign_user">[docs]</a>    <span class="k">def</span> <span class="nf">assign_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assignment of the IAM User to the IAM Group.</span>
+
+<span class="sd">        :param iam_group_id: IAM Group ID that assign to the User.</span>
+<span class="sd">        :param user_id: User ID that assign to the Group.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.iam_group.IAMGroup`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_group</span> <span class="o">=</span> <span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">iam_group</span><span class="o">.</span><span class="n">assign_user</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                     <span class="n">iam_group_id</span><span class="o">=</span><span class="n">iam_group_id</span><span class="p">,</span>
+                                     <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_assign_user"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_assign_user">[docs]</a>    <span class="k">def</span> <span class="nf">delete_assign_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_group_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete Assignment of the User to the IAM Group.</span>
+
+<span class="sd">        :param iam_group_id: IAM Group ID.</span>
+<span class="sd">        :param user_id: User ID.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_group</span> <span class="o">=</span> <span class="n">_iam_group</span><span class="o">.</span><span class="n">IAMGroup</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">iam_group</span><span class="o">.</span><span class="n">delete_assign_user</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                            <span class="n">iam_group_id</span><span class="o">=</span><span class="n">iam_group_id</span><span class="p">,</span>
+                                            <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.iam_roles"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.iam_roles">[docs]</a>    <span class="k">def</span> <span class="nf">iam_roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contract_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List IAM Role list in the designated contract.</span>
+
+<span class="sd">        :param contract_id: Contract ID ( Default is the Contract ID of API</span>
+<span class="sd">            executing user ) .</span>
+<span class="sd">        :return: A list of iam groups.</span>
+<span class="sd">        :rtype: :class:`~ecl.sss.v1.iam_role.IAMRole`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">iam_role</span> <span class="o">=</span> <span class="n">_iam_role</span><span class="o">.</span><span class="n">IAMRole</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iam_role</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                  <span class="n">contract_id</span><span class="o">=</span><span class="n">contract_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_iam_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.get_iam_role">[docs]</a>    <span class="k">def</span> <span class="nf">get_iam_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_role_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show a IAM Role&#39;s information. You can check a IAM Role&#39;s</span>
+<span class="sd">            name, ID and resources by executing this API.</span>
+
+<span class="sd">        :param iam_role_id: IAM Role ID that you want to check information.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.iam_role.IAMRole`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_iam_role</span><span class="o">.</span><span class="n">IAMRole</span><span class="p">,</span> <span class="n">iam_role_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_iam_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.create_iam_role">[docs]</a>    <span class="k">def</span> <span class="nf">create_iam_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_role_name</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">contract_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create IAM Role in the designated contract. Only supser user</span>
+<span class="sd">        (contract owner user) can use this API.</span>
+
+<span class="sd">        :param iam_role_name: New IAM Role name.</span>
+<span class="sd">            Alphanumeric characters and @, -, ., _ can be used.</span>
+<span class="sd">        :param resources: Whitelist rules of API execution.</span>
+<span class="sd">            ( resources item is mandatory, but a user can define any rule by</span>
+<span class="sd">            using follow parameters. )</span>
+<span class="sd">        :param contract_id: Contract ID ( Default is the Contract ID of API</span>
+<span class="sd">            executing user ).</span>
+<span class="sd">        :param description: Description of the IAM Role.</span>
+<span class="sd">        :return: :class:`~ecl.sss.v1.iam_group.IAMGroup`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;iam_role_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iam_role_name</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resources</span>
+        <span class="k">if</span> <span class="n">contract_id</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;contract_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contract_id</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_iam_role</span><span class="o">.</span><span class="n">IAMRole</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_iam_role"><a class="viewcode-back" href="../../../../ecl.sss.v1.html#ecl.sss.v1._proxy.Proxy.delete_iam_role">[docs]</a>    <span class="k">def</span> <span class="nf">delete_iam_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iam_role_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete designated IAM Role. Only supser user (contract owner user)</span>
+<span class="sd">        can use this API.</span>
+
+<span class="sd">        :param iam_role_id: IAM Role ID that you want to delete.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_iam_role</span><span class="o">.</span><span class="n">IAMRole</span><span class="p">,</span> <span class="n">iam_role_id</span><span class="p">,</span>
+                            <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

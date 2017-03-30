@@ -1,0 +1,732 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.baremetal.v2._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.baremetal.v2._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.baremetal.v2._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">flavor</span> <span class="k">as</span> <span class="n">_flavor</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">keypair</span> <span class="k">as</span> <span class="n">_keypair</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">limits</span> <span class="k">as</span> <span class="n">_limits</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">metadata</span> <span class="k">as</span> <span class="n">_metadata</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">uefi</span> <span class="k">as</span> <span class="n">_uefi</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">availability_zone</span> <span class="k">as</span> <span class="n">_zone</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">stock</span> <span class="k">as</span> <span class="n">_stock</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">nic_physical_port</span> <span class="k">as</span> <span class="n">_port</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal.v2</span> <span class="k">import</span> <span class="n">server</span> <span class="k">as</span> <span class="n">_server</span>
+<span class="kn">from</span> <span class="nn">ecl.baremetal</span> <span class="k">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">_version</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">session</span>
+
+
+<div class="viewcode-block" id="VersionSession"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.VersionSession">[docs]</a><span class="k">class</span> <span class="nc">VersionSession</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">Session</span><span class="p">):</span>
+
+<div class="viewcode-block" id="VersionSession.get_endpoint"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.VersionSession.get_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="n">service_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Override get endpoint to automate endpoint filtering</span>
+
+<span class="sd">        This method uses the service catalog to find the root URI of</span>
+<span class="sd">        each service and then gets all available versions directly</span>
+<span class="sd">        from the service, not from the service catalog.</span>
+
+<span class="sd">        Endpoints are cached per service type and interface combination</span>
+<span class="sd">        so that they&#39;re only requested from the remote service once</span>
+<span class="sd">        per instance of this class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">sc_endpoint</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">VersionSession</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_endpoint</span><span class="p">(</span>
+            <span class="n">auth</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">service_type</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sc_endpoint</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sc_endpoint</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sc_endpoint</span>
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">sc_endpoint</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">segments</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">sc_endpoint</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
+                <span class="n">sc_endpoint</span> <span class="o">+=</span> <span class="n">segment</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+            <span class="n">sc_endpoint</span> <span class="o">=</span> <span class="n">sc_endpoint</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">sc_endpoint</span></div></div>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="Proxy.availability_zones"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.availability_zones">[docs]</a>    <span class="k">def</span> <span class="nf">availability_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of availability zones for baremetal servers</span>
+
+<span class="sd">        :returns: List of :class:`~ecl.baremetal.v2.availability_zone.AvailabilityZone`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_zone</span><span class="o">.</span><span class="n">AvailabilityZone</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_availability_zone"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.find_availability_zone">[docs]</a>    <span class="k">def</span> <span class="nf">find_availability_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single availability_zone</span>
+
+<span class="sd">        :param string name_or_id: The name or ID of an availability zone.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: :class:`~ecl.baremetal.v2.availability_zone.AvailabilityZone` or ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_zone</span><span class="o">.</span><span class="n">AvailabilityZone</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_limits"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_limits">[docs]</a>    <span class="k">def</span> <span class="nf">get_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API lists the current limits for the account</span>
+
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.limits.Limits`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">limits</span> <span class="o">=</span> <span class="n">_limits</span><span class="o">.</span><span class="n">Limits</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">limits</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.flavors"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.flavors">[docs]</a>    <span class="k">def</span> <span class="nf">flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Lists all Flavor. That hash only id, links and name.</span>
+<span class="sd">        If you want to get detail flavor information, call List Flavors</span>
+<span class="sd">        Detail API. A flavor is a hardware configuration for a server.</span>
+<span class="sd">        Each flavor is a unique combination of disk space and memory</span>
+<span class="sd">        capacity.</span>
+
+<span class="sd">        :return: A List of :class:`~ecl.baremetal.v2.flavor.Flavor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">flavor</span> <span class="o">=</span> <span class="n">_flavor</span><span class="o">.</span><span class="n">FlavorDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_flavor</span><span class="o">.</span><span class="n">Flavor</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">flavor</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_flavor"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">get_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets details for a FlavorDetail associated with flavor_id.</span>
+<span class="sd">        A flavor is a hardware configuration for a server.</span>
+<span class="sd">        Each flavor is a unique combination of disk space and memory</span>
+<span class="sd">        capacity.</span>
+
+<span class="sd">        :param string flavor_id: ID of a flavor.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.flavor.Flavor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_flavor</span><span class="o">.</span><span class="n">Flavor</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_flavor"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.find_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">find_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single flavor</span>
+
+<span class="sd">        :param string name_or_id: Name or ID of a flavor.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.flavor.Flavor` or ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_flavor</span><span class="o">.</span><span class="n">Flavor</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.keypairs"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.keypairs">[docs]</a>    <span class="k">def</span> <span class="nf">keypairs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Lists name, public_key and finger_print for all KeyPairs.</span>
+
+<span class="sd">        :return: A list of :class:`~ecl.baremetal.v2.keypair.Keypair`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keypairs</span> <span class="o">=</span> <span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">keypairs</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_keypair"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">get_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypair_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show a KeyPair associated with keypair_name.</span>
+
+<span class="sd">        :param string keypair: The name associated with a KeyPair.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.keypair.Keypair`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="n">keypair_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_keypair"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.create_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">create_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">public_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate or import SSH keys. After generating a KeyPair,</span>
+<span class="sd">        please specify the key_name parameter in the request body</span>
+<span class="sd">        in Create Server request to associate the new server with SSH keys.</span>
+
+<span class="sd">        :param string name: The name associated with a KeyPair.</span>
+<span class="sd">        :param string public_key: Keypair&#39;s public key.</span>
+<span class="sd">            If you do not specify this parameter,</span>
+<span class="sd">            You can get the private key from Responce.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.keypair.Keypair`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="n">public_key</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;public_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">public_key</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_keypair"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.delete_keypair">[docs]</a>    <span class="k">def</span> <span class="nf">delete_keypair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypair_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete KeyPair associated with keypair_name.</span>
+
+<span class="sd">        :param string keypair_name: The name associated with a KeyPair.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_keypair</span><span class="o">.</span><span class="n">Keypair</span><span class="p">,</span> <span class="n">keypair_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_uefi"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_uefi">[docs]</a>    <span class="k">def</span> <span class="nf">get_uefi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API shows the UEFI setting information for specified Baremetal server.</span>
+
+<span class="sd">        :param string server_id: ID for the requested server.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.uefi.UEFI`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">uefi</span> <span class="o">=</span> <span class="n">_uefi</span><span class="o">.</span><span class="n">UEFI</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">uefi</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_uefi"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.update_uefi">[docs]</a>    <span class="k">def</span> <span class="nf">update_uefi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Updates UEFI setting of specified Baremetal server.</span>
+<span class="sd">        This request will be accepted only when the task_state is None.</span>
+
+<span class="sd">        :param string server_id: ID for the requested server.</span>
+<span class="sd">        :param kwargs attrs: Attributes to be passed onto the</span>
+<span class="sd">                           :meth:`~ecl.baremetal.uefi.UEFI.update`</span>
+<span class="sd">                           method to be updated.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.uefi.UEFI`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">uefi</span> <span class="o">=</span> <span class="n">_uefi</span><span class="o">.</span><span class="n">UEFI</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">uefi</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_version"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_version">[docs]</a>    <span class="k">def</span> <span class="nf">get_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show Baremetal Server API version.</span>
+
+<span class="sd">        :return: :class:`~ecl.baremetal.version.Version`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">_version</span><span class="o">.</span><span class="n">Version</span><span class="p">()</span>
+        <span class="n">v_session</span> <span class="o">=</span> <span class="n">VersionSession</span><span class="p">(</span>
+            <span class="n">profile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span>
+            <span class="n">user_agent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">user_agent</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">v_session</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">version</span><span class="o">.</span><span class="n">get_version</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">v_session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.versions"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.versions">[docs]</a>    <span class="k">def</span> <span class="nf">versions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List Baremetal Server API version.</span>
+
+<span class="sd">        :return: A list of :class:`~ecl.baremetal.version.Version`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">_version</span><span class="o">.</span><span class="n">Version</span><span class="p">()</span>
+        <span class="n">v_session</span> <span class="o">=</span> <span class="n">VersionSession</span><span class="p">(</span>
+            <span class="n">profile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span>
+            <span class="n">user_agent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">user_agent</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">v_session</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">version</span><span class="o">.</span><span class="n">list_version</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">v_session</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_stock"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_stock">[docs]</a>    <span class="k">def</span> <span class="nf">get_stock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">,</span> <span class="n">availability_zone</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API show which Baremetal server stock is available or not.</span>
+
+<span class="sd">        :param string flavor_id: UUID of the flavor for search stock.</span>
+<span class="sd">        :param string availability_zone: Name of the AvailabilityZone.</span>
+<span class="sd">            If you specified this parameter, search stock from Baremetal</span>
+<span class="sd">            server that matching AvailabilityZone and flavor_id.</span>
+<span class="sd">            If you omit this parameter, stock search from all Baremetal</span>
+<span class="sd">            server that matching flavor_id.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.stock.Stock`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stock</span> <span class="o">=</span> <span class="n">_stock</span><span class="o">.</span><span class="n">Stock</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">stock</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">flavor_id</span><span class="p">,</span> <span class="n">availability_zone</span><span class="o">=</span><span class="n">availability_zone</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_nic_physical_port"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_nic_physical_port">[docs]</a>    <span class="k">def</span> <span class="nf">get_nic_physical_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">port_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API shows the specified NicPhysicalPort information for</span>
+<span class="sd">        specified server.</span>
+
+<span class="sd">        :param string server_id: ID for the specified server.</span>
+<span class="sd">        :param string port_id: ID for the specified network interface port.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.nic_physical_port.NicPhysicalPort`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">_port</span><span class="o">.</span><span class="n">NicPhysicalPort</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">port</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">port_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.nic_physical_ports"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.nic_physical_ports">[docs]</a>    <span class="k">def</span> <span class="nf">nic_physical_ports</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API lists all NicPhysicalPort information for the</span>
+<span class="sd">        specified server.</span>
+
+<span class="sd">        :param string server_id: ID for the specified server.</span>
+<span class="sd">        :return: A list of :class:`~ecl.baremetal.v2.nic_physical_port.NicPhysicalPort`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">_port</span><span class="o">.</span><span class="n">NicPhysicalPort</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">port</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.servers"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.servers">[docs]</a>    <span class="k">def</span> <span class="nf">servers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API lists your Baremetal servers information.</span>
+
+<span class="sd">        :param bool details: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.baremetal.v2.server.Server` instance</span>
+<span class="sd">                    will be returned. The default, ``True``, will cause</span>
+<span class="sd">                    :class:`~ecl.baremetal.v2.server.ServerDetail`</span>
+<span class="sd">                    instances to be returned.</span>
+<span class="sd">        :param attrs: Attributes to be passed onto the</span>
+<span class="sd">                    :meth:`~ecl.baremetal.server.Server.list` method.</span>
+<span class="sd">        :return: A list of :class:`~ecl.baremetal.v2.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_server</span><span class="o">.</span><span class="n">Server</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_server">[docs]</a>    <span class="k">def</span> <span class="nf">get_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show your Baremetal server&#39;s information.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.find_server">[docs]</a>    <span class="k">def</span> <span class="nf">find_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single baremetal server</span>
+
+<span class="sd">        :param string name_or_id: Name or ID of a server.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.server.Server` or ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.create_server">[docs]</a>    <span class="k">def</span> <span class="nf">create_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">networks</span><span class="p">,</span> <span class="n">flavor</span><span class="p">,</span> <span class="n">admin_pass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">key_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">availability_zone</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">user_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">raid_arrays</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">lvm_volume_groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filesystems</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">personality</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API create additional Baremetal server.</span>
+
+<span class="sd">        :param string name: Name of your Baremetal server as a string.</span>
+<span class="sd">        :param array networks: Network Array.</span>
+<span class="sd">            If it is specified greater than two, default gateway is</span>
+<span class="sd">            first network.</span>
+<span class="sd">        :param string flavor: The flavor reference for the desired flavor for your</span>
+<span class="sd">            Baremetal server.</span>
+<span class="sd">        :param string admin_pass: Password for the administrator.</span>
+<span class="sd">        :param string image: The image reference for the desired image for your</span>
+<span class="sd">            Baremetal server.</span>
+<span class="sd">        :param string key_name: SSH Keypair name you created on KeyPairs API.</span>
+<span class="sd">        :param string availability_zone: The availability zone name in which to launch</span>
+<span class="sd">            the server.</span>
+<span class="sd">        :param string user_data: Configuration information or scripts to use upon</span>
+<span class="sd">            launch. Must be Base64 encoded. Maximum size is 65535 bytes.</span>
+<span class="sd">        :param array raid_arrays: Raid Arrays information.</span>
+<span class="sd">        :param array lvm_volume_groups: LVM information. must be sure to specify</span>
+<span class="sd">            if you have to true lvm parameters Raid Arrays.</span>
+<span class="sd">        :param array filesystems: Partition filesystem / mount point information.</span>
+<span class="sd">        :param dict metadata: Metadata key and value pairs. The maximum size of the</span>
+<span class="sd">            metadata key and value is 255 bytes each.</span>
+<span class="sd">        :param array personality: File path and contents (text only) to inject into</span>
+<span class="sd">            your Baremetal server at launch. This parameter is not supported in</span>
+<span class="sd">            esxi.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;networks&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">networks</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;flavorRef&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flavor</span>
+        <span class="k">if</span> <span class="n">admin_pass</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;adminPass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">admin_pass</span>
+        <span class="k">if</span> <span class="n">image</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;imageRef&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="k">if</span> <span class="n">key_name</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;key_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_name</span>
+        <span class="k">if</span> <span class="n">availability_zone</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;availability_zone&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">availability_zone</span>
+        <span class="k">if</span> <span class="n">user_data</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;user_data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span>
+        <span class="k">if</span> <span class="n">raid_arrays</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;raid_arrays&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raid_arrays</span>
+        <span class="k">if</span> <span class="n">lvm_volume_groups</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;lvm_volume_groups&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lvm_volume_groups</span>
+        <span class="k">if</span> <span class="n">filesystems</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;filesystems&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filesystems</span>
+        <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="k">if</span> <span class="n">personality</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;personality&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">personality</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.delete_server">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API deletes a specified Baremetal server.</span>
+
+<span class="sd">        :param string server_id: ID for the specified server.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.start_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.start_server">[docs]</a>    <span class="k">def</span> <span class="nf">start_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">boot_mode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Power on the Baremetal Server associated with server_id.</span>
+<span class="sd">        This request will be accepted only when the task_state is None.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :param string boot_mode: Baremetal Server boot mode.</span>
+<span class="sd">            A valid value is DISK, PXE, LEGACY or ISO.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">boot_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.stop_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.stop_server">[docs]</a>    <span class="k">def</span> <span class="nf">stop_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Stop the Baremetal Server associated with server_id.</span>
+<span class="sd">        This request will be accepted only when the task_state is None.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.reboot_server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.reboot_server">[docs]</a>    <span class="k">def</span> <span class="nf">reboot_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">boot_mode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reboot the Baremetal Server associated with server_id.</span>
+<span class="sd">        This request will be accepted only when the task_state is None.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :param string type: Baremetal Server shutdown mode.</span>
+<span class="sd">            A valid value is HARD or SOFT. HARD is force restart by IPMI.</span>
+<span class="sd">            This operations is equal to power down.</span>
+<span class="sd">            SOFT is restated by ACPI.</span>
+<span class="sd">        :param string boot_mode: Baremetal Server boot mode.</span>
+<span class="sd">            A valid value is DISK, PXE, LEGACY or ISO.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">reboot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">boot_mode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.media_attach"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.media_attach">[docs]</a>    <span class="k">def</span> <span class="nf">media_attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attach media to the Baremetal Server associated with server_id.</span>
+<span class="sd">        This request will be accepted only when the task_state is None.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :param string image: ID of the image you want to attach.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">media_attach</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.media_detach"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.media_detach">[docs]</a>    <span class="k">def</span> <span class="nf">media_detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Detach media from the Baremetal Server associated with server_id.</span>
+<span class="sd">        This request will be accepted only when the task_state is None.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :param string image: ID of the image you want to detach.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">media_detach</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_management_console"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.get_management_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_management_console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets information to access the remote console of Baremetal</span>
+<span class="sd">        Server. This request will be accepted only when the task_state</span>
+<span class="sd">        is None.</span>
+<span class="sd">        This API response console parameters are used at Remote Console</span>
+<span class="sd">        Access - Get Started. To access your Baremetal Server, you have</span>
+<span class="sd">        to create VPN user and connect to VPN.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.server.ServerAction`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">get_management_console</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.metadata"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.metadata">[docs]</a>    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API lists metadata for a specified server.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :return: A list of :class:`~ecl.baremetal.v2.metadata.Metadata`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">metadata</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.show_metadata"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.show_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">show_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API shows metadata item (key and value) by specifying key</span>
+<span class="sd">        for a specified server.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :param string key: A string. Maximum length is 255 characters.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.metadata.Metadata`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_metadata"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.delete_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API deletes metadata item (key and value) by specifying</span>
+<span class="sd">        key for a specified server.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :param string key: A string. Maximum length is 255 characters.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metadata</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.merge_metadata"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.merge_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">merge_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API creates or merges metadata for a specified server.</span>
+<span class="sd">        This API replaces items which match the specified keys in the</span>
+<span class="sd">        request. This API does not remove items, unlike Replace Server</span>
+<span class="sd">        Metadata Items.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :param kwargs attr: Keyword arguments which will be used to do update</span>
+<span class="sd">                     process for :class:`~ecl.baremetal.metadata.Metadata`.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.metadata.Metadata`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metadata</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.replace_metadata"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.replace_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">replace_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API creates or replaces metadata for a specified server.</span>
+<span class="sd">        All existing metadata items are removed and completely replaced</span>
+<span class="sd">        by the metadata items in the request. If you don&#39;t want to remove</span>
+<span class="sd">        existing items, please use Merge Server Metadata Items.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :param kwargs attr: Keyword arguments which will be used to do update</span>
+<span class="sd">                     process for :class:`~ecl.baremetal.metadata.Metadata`.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.metadata.Metadata`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metadata</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_metadata"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2._proxy.Proxy.update_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">update_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API sets additonal metadata item (key and value) by</span>
+<span class="sd">        specifying key for a specified server.</span>
+
+<span class="sd">        :param string server_id: ID for specified server.</span>
+<span class="sd">        :param string key: A string. Maximum length is 255 characters.</span>
+<span class="sd">        :param kwargs attr: Keyword arguments which will be used to do update</span>
+<span class="sd">                     process for :class:`~ecl.baremetal.metadata.Metadata`.</span>
+<span class="sd">        :return: :class:`~ecl.baremetal.v2.metadata.Metadata`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">_metadata</span><span class="o">.</span><span class="n">Metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">metadata</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

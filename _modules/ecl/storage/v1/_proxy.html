@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.storage.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.storage.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.storage.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">session</span>
+<span class="kn">from</span> <span class="nn">ecl.storage.v1</span> <span class="k">import</span> <span class="n">availability_zone</span> <span class="k">as</span> <span class="n">_availability_zone</span>
+<span class="kn">from</span> <span class="nn">ecl.storage.v1</span> <span class="k">import</span> <span class="n">storage</span> <span class="k">as</span> <span class="n">_storage</span>
+<span class="kn">from</span> <span class="nn">ecl.storage.v1</span> <span class="k">import</span> <span class="n">volume</span> <span class="k">as</span> <span class="n">_volume</span>
+<span class="kn">from</span> <span class="nn">ecl.storage.v1</span> <span class="k">import</span> <span class="n">volume_type</span> <span class="k">as</span> <span class="n">_volume_type</span>
+<span class="kn">from</span> <span class="nn">ecl.storage.v1</span> <span class="k">import</span> <span class="n">snapshot</span> <span class="k">as</span> <span class="n">_snapshot</span>
+<span class="kn">from</span> <span class="nn">ecl.storage</span> <span class="k">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">_version</span>
+
+
+<div class="viewcode-block" id="VersionSession"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.VersionSession">[docs]</a><span class="k">class</span> <span class="nc">VersionSession</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">Session</span><span class="p">):</span>
+
+<div class="viewcode-block" id="VersionSession.get_endpoint"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.VersionSession.get_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="n">service_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Override get endpoint to automate endpoint filtering</span>
+<span class="sd">        This method uses the service catalog to find the root URI of</span>
+<span class="sd">        each service and then gets all available versions directly</span>
+<span class="sd">        from the service, not from the service catalog.</span>
+<span class="sd">        Endpoints are cached per service type and interface combination</span>
+<span class="sd">        so that they&#39;re only requested from the remote service once</span>
+<span class="sd">        per instance of this class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">sc_endpoint</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">VersionSession</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_endpoint</span><span class="p">(</span>
+            <span class="n">auth</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">service_type</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sc_endpoint</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sc_endpoint</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sc_endpoint</span>
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">sc_endpoint</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">segments</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">sc_endpoint</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
+                <span class="n">sc_endpoint</span> <span class="o">+=</span> <span class="n">segment</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+            <span class="n">sc_endpoint</span> <span class="o">=</span> <span class="n">sc_endpoint</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">sc_endpoint</span></div></div>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.availability_zones"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.availability_zones">[docs]</a>    <span class="k">def</span> <span class="nf">availability_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of availability zones</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">            :class:`~ecl.storage.v1.availability_zone.AvailabilityZoneDetail`</span>
+<span class="sd">            objects, otherwise :class:`~ecl.storage.v1.availability_zone.AvailabilityZone`.</span>
+<span class="sd">        :returns: A list of availability zone objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">availability_zone</span> <span class="o">=</span> <span class="n">_availability_zone</span><span class="o">.</span><span class="n">AvailabilityZoneDetail</span><span class="p">()</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_availability_zone</span><span class="o">.</span><span class="n">AvailabilityZone</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">availability_zone</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_availability_zone"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.find_availability_zone">[docs]</a>    <span class="k">def</span> <span class="nf">find_availability_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single availability_zone</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a availability_zone.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                                    raised when the resource does not exist.</span>
+<span class="sd">                                    When set to ``True``, None will be returned when</span>
+<span class="sd">                                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.storage.v1.availability_zone.AvailabilityZone` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_availability_zone</span><span class="o">.</span><span class="n">AvailabilityZone</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.volume_types"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.volume_types">[docs]</a>    <span class="k">def</span> <span class="nf">volume_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of volume types</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">                             :class:`~ecl.storage.v1.volume_type.VolumeTypeDetail` objects,</span>
+<span class="sd">                             otherwise :class:`~ecl.storage.v1.volume_type.VolumeType`.</span>
+<span class="sd">                             *Default: ``True``*</span>
+<span class="sd">        :returns: A generator of volume type objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">volume_type</span> <span class="o">=</span> <span class="n">_volume_type</span><span class="o">.</span><span class="n">VolumeTypeDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_volume_type</span><span class="o">.</span><span class="n">VolumeType</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">volume_type</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_volume_type"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.find_volume_type">[docs]</a>    <span class="k">def</span> <span class="nf">find_volume_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a volume type</span>
+
+<span class="sd">            :param string name_or_id: The name or ID of a volume type.</span>
+<span class="sd">            :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                        :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                        raised when the resource does not exist.</span>
+<span class="sd">                        When set to ``True``, None will be returned when</span>
+<span class="sd">                        attempting to find a nonexistent resource.</span>
+<span class="sd">            :returns: :class:`~ecl.storage.v1.volume_type.VolumeType` or None</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_volume_type</span><span class="o">.</span><span class="n">VolumeType</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_volume_type"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.get_volume_type">[docs]</a>    <span class="k">def</span> <span class="nf">get_volume_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_type_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single volume type</span>
+
+<span class="sd">        :param volume_type_id: The value is the ID of a volume type</span>
+<span class="sd">        :returns: One :class:`~ecl.storage.v1.volume_type.VolumeType`</span>
+<span class="sd">                      :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                      when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_volume_type</span><span class="o">.</span><span class="n">VolumeType</span><span class="p">,</span> <span class="n">volume_type_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.storages"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.storages">[docs]</a>    <span class="k">def</span> <span class="nf">storages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of storages</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">                             :class:`~ecl.storage.v1.storage.StorageDetail` objects,</span>
+<span class="sd">                             otherwise :class:`~ecl.storage.v1.storage.Storage`.</span>
+<span class="sd">                             *Default: ``True``*</span>
+<span class="sd">        :returns: A generator of storage objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">storage</span> <span class="o">=</span> <span class="n">_storage</span><span class="o">.</span><span class="n">StorageDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_storage</span><span class="o">.</span><span class="n">Storage</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_storage"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.get_storage">[docs]</a>    <span class="k">def</span> <span class="nf">get_storage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">storage_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single storage</span>
+
+<span class="sd">        :param storage_id: The value is the ID of a storage</span>
+<span class="sd">        :returns: One :class:`~ecl.storage.v1.storage.Storage`</span>
+<span class="sd">                      :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                      when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_storage</span><span class="o">.</span><span class="n">Storage</span><span class="p">,</span> <span class="n">storage_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_storage"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.create_storage">[docs]</a>    <span class="k">def</span> <span class="nf">create_storage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network_id</span><span class="p">,</span> <span class="n">subnet_id</span><span class="p">,</span> <span class="n">ip_addr_pool</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
+                       <span class="n">volume_type_id</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">host_routes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API create additional Storage.</span>
+
+<span class="sd">        :param network_id: Network ID.</span>
+<span class="sd">        :param subnet_id: Subnetwork ID.</span>
+<span class="sd">        :param ip_addr_pool: The pool of IP addresses for storage nodes used by the volume.</span>
+<span class="sd">                             The IP address range may be overwraped with subnet&#39;s allocation_pools.</span>
+<span class="sd">                             The range should be included in CIDR of the subnet.</span>
+<span class="sd">        :param name: Name of Virtual Storage.</span>
+<span class="sd">        :param volume_type_id: volume type ID.</span>
+<span class="sd">        :param description: Description of Virtual Storage.</span>
+<span class="sd">        :param host_routes: Static routes settings for each virtual storages.</span>
+<span class="sd">        :return: :class:`~ecl.storage.v1.storage.Storage`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;network_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">network_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;subnet_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subnet_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;ip_addr_pool&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip_addr_pool</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;volume_type_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume_type_id</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="k">if</span> <span class="n">host_routes</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;host_routes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">host_routes</span>
+        <span class="n">storage</span> <span class="o">=</span> <span class="n">_storage</span><span class="o">.</span><span class="n">Storage</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">storage</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_storage"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.update_storage">[docs]</a>    <span class="k">def</span> <span class="nf">update_storage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">storage_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API update existing storage</span>
+
+<span class="sd">        :param kwargs body: Request parameter to update storage.</span>
+
+<span class="sd">            * storage_id: ID for the requested storage.</span>
+<span class="sd">            * name: Name of Virtual Storage.</span>
+<span class="sd">            * description: Description of Virtual Storage.</span>
+<span class="sd">            * ip_addr_pool: The pool of IP addresses for storage nodes used by the volume. The IP address range may be overwraped with subnet&#39;s allocation_pools. The range should be included in CIDR of the subnet.</span>
+<span class="sd">            * host_routes: Static routes settings for each virtual storages.</span>
+<span class="sd">        :return: :class:`~ecl.storage.v1.storage.Storage`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">storage</span> <span class="o">=</span> <span class="n">_storage</span><span class="o">.</span><span class="n">Storage</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">storage</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">storage_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_storage"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.delete_storage">[docs]</a>    <span class="k">def</span> <span class="nf">delete_storage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">storage_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API deletes a specified storage.</span>
+
+<span class="sd">        :param storage_id: ID for the specified storage.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_storage</span><span class="o">.</span><span class="n">Storage</span><span class="p">,</span> <span class="n">storage_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.volumes"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.volumes">[docs]</a>    <span class="k">def</span> <span class="nf">volumes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of volumes</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">                             :class:`~ecl.storage.v1.volume_type.VolumeTypeDetail` objects,</span>
+<span class="sd">                             otherwise :class:`~ecl.storage.v1.volume_type.VolumeType`.</span>
+<span class="sd">                             *Default: ``True``*</span>
+<span class="sd">        :returns: A generator of volume type objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">volume</span> <span class="o">=</span> <span class="n">_volume</span><span class="o">.</span><span class="n">VolumeDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">volume</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_volume"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.get_volume">[docs]</a>    <span class="k">def</span> <span class="nf">get_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single volume</span>
+
+<span class="sd">        :param volume_id: The value is the ID of a volume</span>
+<span class="sd">        :returns: One :class:`~ecl.storage.v1.volume.Volume`</span>
+<span class="sd">                      :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                      when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_volume"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.create_volume">[docs]</a>    <span class="k">def</span> <span class="nf">create_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">virtual_storage_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">iops_per_gb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initiator_iqns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">throughput</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">availability_zone</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API create additional Volume.</span>
+
+<span class="sd">        :param virtual_storage_id: Virtual Storage ID.</span>
+<span class="sd">        :param name: Name of volume.</span>
+<span class="sd">        :param size: Size of volume in Gigabyte.</span>
+<span class="sd">        :param description: Description of volume.</span>
+<span class="sd">        :param iops_per_gb: Provisioned IOPS/GB for volume.</span>
+<span class="sd">        :param throughput: Provisioned throughput for volume.</span>
+<span class="sd">        :param initiator_iqns: List of initiator IQN who can access to this volume.</span>
+<span class="sd">        :param availability_zone: Availability zone.</span>
+<span class="sd">        :return: :class:`~ecl.storage.v1.volume.Volume`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;virtual_storage_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">virtual_storage_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="k">if</span> <span class="n">iops_per_gb</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;iops_per_gb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iops_per_gb</span>
+        <span class="k">if</span> <span class="n">throughput</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;throughput&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">throughput</span>
+        <span class="k">if</span> <span class="n">initiator_iqns</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;initiator_iqns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">initiator_iqns</span>
+        <span class="k">if</span> <span class="n">availability_zone</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;availability_zone&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">availability_zone</span>
+        <span class="n">volume</span> <span class="o">=</span> <span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">volume</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_volume"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.update_volume">[docs]</a>    <span class="k">def</span> <span class="nf">update_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API update existing volume.</span>
+
+<span class="sd">        :param kwargs body: Request parameter to update volume.</span>
+
+<span class="sd">            * volume_id: ID for the requested volume.</span>
+<span class="sd">            * name: Name of volume.</span>
+<span class="sd">            * description: Description of volume.</span>
+<span class="sd">            * initiator_iqns: List of initiator IQN who can access to this volume.</span>
+<span class="sd">        :return: :class:`~ecl.storage.v1.volume.Volume`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">volume</span> <span class="o">=</span> <span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">volume</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_volume"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.delete_volume">[docs]</a>    <span class="k">def</span> <span class="nf">delete_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API deletes a specified volume.</span>
+
+<span class="sd">        :param  volume_id: ID for the specified volume.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_volume</span><span class="o">.</span><span class="n">Volume</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.snapshots"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of snapshots.</span>
+
+<span class="sd">        :param bool details: When ``True``, returns</span>
+<span class="sd">                             :class:`~ecl.storage.v1.snapshot.SnapshotDetail` objects,</span>
+<span class="sd">                             otherwise :class:`~ecl.storage.v1.snapshot.Snapshot`.</span>
+<span class="sd">                             *Default: ``True``*</span>
+<span class="sd">        :param kwargs params: parameter used as query parameter</span>
+<span class="sd">                              for GET request.</span>
+<span class="sd">        :returns: A list of snapshot objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">snapshot</span> <span class="o">=</span> <span class="n">_snapshot</span><span class="o">.</span><span class="n">SnapshotDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_snapshot</span><span class="o">.</span><span class="n">Snapshot</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_snapshot"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.get_snapshot">[docs]</a>    <span class="k">def</span> <span class="nf">get_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single snapshot.</span>
+
+<span class="sd">        :param snapshot_id: The value is the ID of a snapshot</span>
+<span class="sd">        :returns: One :class:`~ecl.storage.v1.snapshot.Snapshot`</span>
+<span class="sd">                      :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                      when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_snapshot</span><span class="o">.</span><span class="n">Snapshot</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_snapshot"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.create_snapshot">[docs]</a>    <span class="k">def</span> <span class="nf">create_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API create snapshot of volume.</span>
+
+<span class="sd">        :param volume_id: Parent volume ID.</span>
+<span class="sd">        :param name: Name of snapshot.</span>
+<span class="sd">        :param description: Description of snapshot.</span>
+<span class="sd">        :return: :class:`~ecl.storage.v1.snapshot.Snapshot`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;volume_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">volume_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="n">snapshot</span> <span class="o">=</span> <span class="n">_snapshot</span><span class="o">.</span><span class="n">Snapshot</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_snapshot"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.update_snapshot">[docs]</a>    <span class="k">def</span> <span class="nf">update_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API update existing snapshot.</span>
+
+<span class="sd">        :param snapshot_id: ID for the requested snapshot.</span>
+<span class="sd">        :param name: Name of snapshot.</span>
+<span class="sd">        :param description: Description of snapshot.</span>
+<span class="sd">        :return: :class:`~ecl.storage.v1.snapshot.Snapshot`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">snapshot</span> <span class="o">=</span> <span class="n">_snapshot</span><span class="o">.</span><span class="n">Snapshot</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_snapshot"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.delete_snapshot">[docs]</a>    <span class="k">def</span> <span class="nf">delete_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This API deletes a specified snapshot.</span>
+
+<span class="sd">        :param  snapshot_id: ID for the specified snapshot.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_snapshot</span><span class="o">.</span><span class="n">Snapshot</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.restore_snapshot"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.restore_snapshot">[docs]</a>    <span class="k">def</span> <span class="nf">restore_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snapshot_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Restore volume from snapshot.</span>
+
+<span class="sd">        :param snapshot_id: Snapshot ID to utilize as restore source.</span>
+<span class="sd">        :return: &lt;Response 202&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">snapshot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_snapshot</span><span class="p">(</span><span class="n">snapshot_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_version"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.get_version">[docs]</a>    <span class="k">def</span> <span class="nf">get_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show Storage API version.</span>
+
+<span class="sd">        :return: :class:`~ecl.storage.version.Version`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">version</span> <span class="o">=</span> <span class="n">_version</span><span class="o">.</span><span class="n">Version</span><span class="p">()</span>
+        <span class="n">v_session</span> <span class="o">=</span> <span class="n">VersionSession</span><span class="p">(</span>
+            <span class="n">profile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span>
+            <span class="n">user_agent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">user_agent</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">v_session</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">version</span><span class="o">.</span><span class="n">get_version</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">v_session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.versions"><a class="viewcode-back" href="../../../../ecl.storage.v1.html#ecl.storage.v1._proxy.Proxy.versions">[docs]</a>    <span class="k">def</span> <span class="nf">versions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List Storage API version.</span>
+
+<span class="sd">        :return: A generator of version objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">version</span> <span class="o">=</span> <span class="n">_version</span><span class="o">.</span><span class="n">Version</span><span class="p">()</span>
+        <span class="n">v_session</span> <span class="o">=</span> <span class="n">VersionSession</span><span class="p">(</span>
+            <span class="n">profile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span>
+            <span class="n">user_agent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">user_agent</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="n">v_session</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">version</span><span class="o">.</span><span class="n">list_version</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">v_session</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

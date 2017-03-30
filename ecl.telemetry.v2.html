@@ -1,0 +1,1459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>telemetry methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="telemetry" href="ecl.telemetry.html"/>
+        <link rel="prev" title="telemetry" href="ecl.telemetry.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.telemetry.html">telemetry</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">telemetry methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.alarm">alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.alarm_change">alarm_change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.capability">capability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.meter">meter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.resource">resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.sample">sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.telemetry.v2.statistics">statistics</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.telemetry.html">telemetry</a> &raquo;</li>
+        
+      <li>telemetry methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.telemetry.v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.telemetry.v2._proxy">
+<span id="telemetry-methods"></span><h1>telemetry methods<a class="headerlink" href="#module-ecl.telemetry.v2._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy.BaseProxy</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.alarm_changes">
+<code class="descname">alarm_changes</code><span class="sig-paren">(</span><em>alarm</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.alarm_changes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.alarm_changes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of alarm changes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>alarm</strong> &#8211; Alarm resource or id for alarm.</li>
+<li><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A generator of alarm change objects</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.telemetry.v2.alarm_change.AlarmChange" title="ecl.telemetry.v2.alarm_change.AlarmChange"><code class="xref py py-class docutils literal"><span class="pre">AlarmChange</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.alarms">
+<code class="descname">alarms</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.alarms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.alarms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of alarms</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of alarm objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.capabilities">
+<code class="descname">capabilities</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.capabilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of capabilities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of capability objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.capability.Capability" title="ecl.telemetry.v2.capability.Capability"><code class="xref py py-class docutils literal"><span class="pre">Capability</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.create_alarm">
+<code class="descname">create_alarm</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.create_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.create_alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new alarm from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a>,
+comprised of the properties on the Alarm class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of alarm creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.create_sample">
+<code class="descname">create_sample</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.create_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.create_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new sample from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.telemetry.v2.sample.Sample" title="ecl.telemetry.v2.sample.Sample"><code class="xref py py-class docutils literal"><span class="pre">Sample</span></code></a>,
+comprised of the properties on the Sample class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of sample creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.sample.Sample" title="ecl.telemetry.v2.sample.Sample"><code class="xref py py-class docutils literal"><span class="pre">Sample</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.delete_alarm">
+<code class="descname">delete_alarm</code><span class="sig-paren">(</span><em>alarm</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.delete_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.delete_alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an alarm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>alarm</strong> &#8211; The value can be either the ID of an alarm or a
+<a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the alarm does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent alarm.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_alarm">
+<code class="descname">find_alarm</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single alarm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a alarm.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_alarm_change">
+<code class="descname">find_alarm_change</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_alarm_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_alarm_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single alarm change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a alarm change.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.alarm_change.AlarmChange" title="ecl.telemetry.v2.alarm_change.AlarmChange"><code class="xref py py-class docutils literal"><span class="pre">AlarmChange</span></code></a>
+or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_capability">
+<code class="descname">find_capability</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single capability</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a capability.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.capability.Capability" title="ecl.telemetry.v2.capability.Capability"><code class="xref py py-class docutils literal"><span class="pre">Capability</span></code></a>
+or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_meter">
+<code class="descname">find_meter</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_meter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_meter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single meter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a meter.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.meter.Meter" title="ecl.telemetry.v2.meter.Meter"><code class="xref py py-class docutils literal"><span class="pre">Meter</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_resource">
+<code class="descname">find_resource</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single resource</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a resource.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.resource.Resource" title="ecl.telemetry.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">Resource</span></code></a> or
+None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_sample">
+<code class="descname">find_sample</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single sample</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a sample.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.sample.Sample" title="ecl.telemetry.v2.sample.Sample"><code class="xref py py-class docutils literal"><span class="pre">Sample</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.find_statistics">
+<code class="descname">find_statistics</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.find_statistics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.find_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single statistics</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a statistics.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.telemetry.v2.statistics.Statistics" title="ecl.telemetry.v2.statistics.Statistics"><code class="xref py py-class docutils literal"><span class="pre">Statistics</span></code></a>
+or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.get_alarm">
+<code class="descname">get_alarm</code><span class="sig-paren">(</span><em>alarm</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.get_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.get_alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single alarm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alarm</strong> &#8211; The value can be the ID of an alarm or a
+<a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.get_resource">
+<code class="descname">get_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.get_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.get_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single resource</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> &#8211; The value can be the ID of a resource or a
+<a class="reference internal" href="#ecl.telemetry.v2.resource.Resource" title="ecl.telemetry.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">Resource</span></code></a>
+instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.telemetry.v2.resource.Resource" title="ecl.telemetry.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">Resource</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.meters">
+<code class="descname">meters</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.meters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.meters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of meters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of meter objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.meter.Meter" title="ecl.telemetry.v2.meter.Meter"><code class="xref py py-class docutils literal"><span class="pre">Meter</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.resources">
+<code class="descname">resources</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of resources</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of resource objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.resource.Resource" title="ecl.telemetry.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">Resource</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.samples">
+<code class="descname">samples</code><span class="sig-paren">(</span><em>meter</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of samples</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> &#8211; Meter resource or name for a meter.</li>
+<li><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A generator of sample objects</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.telemetry.v2.sample.Sample" title="ecl.telemetry.v2.sample.Sample"><code class="xref py py-class docutils literal"><span class="pre">Sample</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.statistics">
+<code class="descname">statistics</code><span class="sig-paren">(</span><em>meter</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.statistics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of statistics</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>meter</strong> &#8211; Meter resource or name for a meter.</li>
+<li><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A generator of statistics objects</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.telemetry.v2.statistics.Statistics" title="ecl.telemetry.v2.statistics.Statistics"><code class="xref py py-class docutils literal"><span class="pre">Statistics</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2._proxy.Proxy.update_alarm">
+<code class="descname">update_alarm</code><span class="sig-paren">(</span><em>alarm</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/_proxy.html#Proxy.update_alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2._proxy.Proxy.update_alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a alarm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alarm</strong> &#8211; Either the id of a alarm or a
+<a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the alarm represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated alarm</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.telemetry.v2.alarm.Alarm" title="ecl.telemetry.v2.alarm.Alarm"><code class="xref py py-class docutils literal"><span class="pre">Alarm</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.alarm">
+<span id="alarm"></span><h1>alarm<a class="headerlink" href="#module-ecl.telemetry.v2.alarm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.alarm.Alarm">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.alarm.</code><code class="descname">Alarm</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/alarm.html#Alarm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.alarm_actions">
+<code class="descname">alarm_actions</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.alarm_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actions to do when alarm state changes to alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.alarm_id">
+<code class="descname">alarm_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.alarm_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.base_path">
+<code class="descname">base_path</code><em class="property"> = '/alarms'</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2.alarm.Alarm.change_state">
+<code class="descname">change_state</code><span class="sig-paren">(</span><em>session</em>, <em>next_state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/alarm.html#Alarm.change_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.change_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the state of an alarm.</p>
+<p>The next_state may be one of: &#8216;ok&#8217; &#8216;insufficient data&#8217; &#8216;alarm&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2.alarm.Alarm.check_state">
+<code class="descname">check_state</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/alarm.html#Alarm.check_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.check_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the current state of an alarm from the service.</p>
+<p>The properties of the alarm are not modified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.combination_rule">
+<code class="descname">combination_rule</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.combination_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The description of the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'alarm_id'</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.insufficient_data_actions">
+<code class="descname">insufficient_data_actions</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.insufficient_data_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actions to do when alarm state changes to insufficient data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">True</span></code> if this alarm is enabled. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.is_repeat_actions">
+<code class="descname">is_repeat_actions</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.is_repeat_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actions should be re-triggered on each evaluation cycle.
+<em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name for the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.ok_actions">
+<code class="descname">ok_actions</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.ok_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actions to do when alarm state change to ok</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the project that owns the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.severity">
+<code class="descname">severity</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The severity of the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.state">
+<code class="descname">state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state off the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.state_changed_at">
+<code class="descname">state_changed_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.state_changed_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp of the last alarm state change.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.threshold_rule">
+<code class="descname">threshold_rule</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.threshold_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.time_constraints">
+<code class="descname">time_constraints</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.time_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describe time constraints for the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Explicit type specifier to select which rule to follow</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp of the last alarm definition update.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm.Alarm.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm.Alarm.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the user who created the alarm</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.alarm_change">
+<span id="alarm-change"></span><h1>alarm_change<a class="headerlink" href="#module-ecl.telemetry.v2.alarm_change" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.alarm_change.</code><code class="descname">AlarmChange</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/alarm_change.html#AlarmChange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.alarm_id">
+<code class="descname">alarm_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.alarm_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.base_path">
+<code class="descname">base_path</code><em class="property"> = '/alarms/%(alarm_id)s/history'</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.detail">
+<code class="descname">detail</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data describing the change</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.event_id">
+<code class="descname">event_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.event_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the change event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'event_id'</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.list">
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>limit=None</em>, <em>marker=None</em>, <em>path_args=None</em>, <em>paginated=False</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/alarm_change.html#AlarmChange.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.on_behalf_of_id">
+<code class="descname">on_behalf_of_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.on_behalf_of_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The project ID on behalf of which the change is being made</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The project ID of the initiating identity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'alarm_change'</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.triggered_at">
+<code class="descname">triggered_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.triggered_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time/date of the alarm change.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of change</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.alarm_change.AlarmChange.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.alarm_change.AlarmChange.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user ID of the initiating identity</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.capability">
+<span id="capability"></span><h1>capability<a class="headerlink" href="#module-ecl.telemetry.v2.capability" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.capability.Capability">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.capability.</code><code class="descname">Capability</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/capability.html#Capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.capability.Capability.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.capability.Capability.base_path">
+<code class="descname">base_path</code><em class="property"> = '/capabilities'</em><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.capability.Capability.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.telemetry.v2.capability.Capability.list">
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>limit=None</em>, <em>marker=None</em>, <em>path_args=None</em>, <em>paginated=False</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/capability.html#Capability.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.capability.Capability.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'capability'</em><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.capability.Capability.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'capabilities'</em><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.capability.Capability.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.capability.Capability.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.meter">
+<span id="meter"></span><h1>meter<a class="headerlink" href="#module-ecl.telemetry.v2.meter" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.meter.Meter">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.meter.</code><code class="descname">Meter</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/meter.html#Meter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.base_path">
+<code class="descname">base_path</code><em class="property"> = '/meters'</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'meter_id'</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.meter_id">
+<code class="descname">meter_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.meter_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the meter</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique name for the meter</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the project that owns the resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.resource_id">
+<code class="descname">resource_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.resource_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the resource for which the measurements are taken</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'meter'</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.source">
+<code class="descname">source</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the source where the meter comes from</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The meter type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.unit">
+<code class="descname">unit</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unit of measure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.meter.Meter.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.meter.Meter.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the user who last triggered an update to the resource</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.resource">
+<span id="resource"></span><h1>resource<a class="headerlink" href="#module-ecl.telemetry.v2.resource" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.resource.Resource">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/resource.html#Resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.base_path">
+<code class="descname">base_path</code><em class="property"> = '/resources'</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.first_sample_at">
+<code class="descname">first_sample_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.first_sample_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>UTC date &amp; time not later than the first sample known
+for this resource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'resource_id'</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.last_sample_at">
+<code class="descname">last_sample_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.last_sample_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>UTC date &amp; time not earlier than the last sample known
+for this resource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list containing a self link and associated meter links</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.metadata">
+<code class="descname">metadata</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arbitrary metadata associated with the resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the owning project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.resource_id">
+<code class="descname">resource_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.resource_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID for the resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.source">
+<code class="descname">source</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the source where the resource comes from</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.resource.Resource.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.resource.Resource.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the user who created the resource or updated it last</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.sample">
+<span id="sample"></span><h1>sample<a class="headerlink" href="#module-ecl.telemetry.v2.sample" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.sample.Sample">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.sample.</code><code class="descname">Sample</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/sample.html#Sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.base_path">
+<code class="descname">base_path</code><em class="property"> = '/meters/%(counter_name)s'</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.counter_name">
+<code class="descname">counter_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.counter_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The meter name this sample is for</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.telemetry.v2.sample.Sample.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/sample.html#Sample.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.generated_at">
+<code class="descname">generated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.generated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the sample has been generated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'sample_id'</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.telemetry.v2.sample.Sample.list">
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>limit=None</em>, <em>marker=None</em>, <em>path_args=None</em>, <em>paginated=False</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/sample.html#Sample.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.metadata">
+<code class="descname">metadata</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arbitrary metadata associated with the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the project this sample was taken for</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.recorded_at">
+<code class="descname">recorded_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.recorded_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the sample has been recorded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.resource_id">
+<code class="descname">resource_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.resource_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the resource this sample was taken for</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.source">
+<code class="descname">source</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the source that identifies where the sample comes from</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The meter type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.unit">
+<code class="descname">unit</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unit of measure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the user this sample was taken for</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.sample.Sample.volume">
+<code class="descname">volume</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.sample.Sample.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>The metered value</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.telemetry.v2.statistics">
+<span id="statistics"></span><h1>statistics<a class="headerlink" href="#module-ecl.telemetry.v2.statistics" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.telemetry.v2.statistics.Statistics">
+<em class="property">class </em><code class="descclassname">ecl.telemetry.v2.statistics.</code><code class="descname">Statistics</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/statistics.html#Statistics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This API is a work in progress and is subject to change.</p>
+</div>
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.aggregate">
+<code class="descname">aggregate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The selectable aggregate value(s)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.avg">
+<code class="descname">avg</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.avg" title="Permalink to this definition">¶</a></dt>
+<dd><p>The average of all of the volume values seen in the data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.base_path">
+<code class="descname">base_path</code><em class="property"> = '/meters/%(meter_name)s/statistics'</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.count">
+<code class="descname">count</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of samples seen</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.duration">
+<code class="descname">duration</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>The difference, in seconds, between the oldest and newest timestamp</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.duration_end_at">
+<code class="descname">duration_end_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.duration_end_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>UTC date and time of the oldest timestamp, or the query end time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.duration_start_at">
+<code class="descname">duration_start_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.duration_start_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>UTC date and time of the earliest timestamp, or the query start time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.group_by">
+<code class="descname">group_by</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.group_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of field names for group, if groupby statistics are requested</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'meter_name'</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.telemetry.v2.statistics.Statistics.list">
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>limit=None</em>, <em>marker=None</em>, <em>path_args=None</em>, <em>paginated=False</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/telemetry/v2/statistics.html#Statistics.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.max">
+<code class="descname">max</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum volume seen in the data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.meter_name">
+<code class="descname">meter_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.meter_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.min">
+<code class="descname">min</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum volume seen in the data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.period">
+<code class="descname">period</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.period" title="Permalink to this definition">¶</a></dt>
+<dd><p>The difference, in seconds, between the period start and end</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.period_end_at">
+<code class="descname">period_end_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.period_end_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>UTC date and time of the period end.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.period_start_at">
+<code class="descname">period_start_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.period_start_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>UTC date and time of the period start.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'statistics'</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'metering', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.sum">
+<code class="descname">sum</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>The total of all of the volume values seen in the data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.telemetry.v2.statistics.Statistics.unit">
+<code class="descname">unit</code><em class="property"> = None</em><a class="headerlink" href="#ecl.telemetry.v2.statistics.Statistics.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unit type of the data set</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ecl.telemetry.html" class="btn btn-neutral" title="telemetry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

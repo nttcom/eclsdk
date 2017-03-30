@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.connectivity.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.connectivity.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.connectivity.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="kn">from</span> <span class="nn">ecl.connectivity.v1.cic</span> <span class="k">import</span> <span class="n">CIC</span><span class="p">,</span> <span class="n">EIC</span>
+<span class="kn">from</span> <span class="nn">ecl.connectivity.v1.mcic</span> <span class="k">import</span> <span class="n">MCIC</span><span class="p">,</span> <span class="n">MEIC</span>
+<span class="kn">from</span> <span class="nn">ecl.connectivity.v1.operation</span> <span class="k">import</span> <span class="n">Operation</span>
+<span class="kn">from</span> <span class="nn">ecl.connectivity.v1.server_segment</span> <span class="k">import</span> <span class="n">ServerSegment</span>
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.mcics"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.mcics">[docs]</a>    <span class="k">def</span> <span class="nf">mcics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of MCICs</span>
+
+<span class="sd">        :param kwargs query: Query parameter to get mCICs.</span>
+<span class="sd">            * string tenant_id: ID of a tenant to retrieve mCICs.</span>
+
+<span class="sd">        :returns: A list of MCICs objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mcic_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">MCIC</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">mcic</span> <span class="k">for</span> <span class="n">mcic</span> <span class="ow">in</span> <span class="n">mcic_list</span> <span class="k">if</span> <span class="n">mcic</span><span class="o">.</span><span class="n">service_type</span> <span class="o">==</span> <span class="s2">&quot;NGC-colo&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Proxy.meics"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.meics">[docs]</a>    <span class="k">def</span> <span class="nf">meics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of MEICs</span>
+
+<span class="sd">        :param kwargs query: Query parameter to get mEICs.</span>
+<span class="sd">            * string tenant_id: ID of a tenant to retrieve mEICs.</span>
+
+<span class="sd">        :returns: A list of MEICs objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">meic_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">MEIC</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">meic</span> <span class="k">for</span> <span class="n">meic</span> <span class="ow">in</span> <span class="n">meic_list</span> <span class="k">if</span> <span class="n">meic</span><span class="o">.</span><span class="n">service_type</span> <span class="o">==</span> <span class="s2">&quot;NGC-EC&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Proxy.get_mcic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.get_mcic">[docs]</a>    <span class="k">def</span> <span class="nf">get_mcic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mcic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single mcic</span>
+
+<span class="sd">        :param mcic: The value can be the ID of a mcic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.mcic.MCIC` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.mcic.MCIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">MCIC</span><span class="p">,</span> <span class="n">mcic</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_meic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.get_meic">[docs]</a>    <span class="k">def</span> <span class="nf">get_meic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single meic</span>
+
+<span class="sd">        :param meic: The value can be the ID of a meic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.mcic.MEIC` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.mcic.MEIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">MEIC</span><span class="p">,</span> <span class="n">meic</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.cics"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.cics">[docs]</a>    <span class="k">def</span> <span class="nf">cics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mcic_id</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of CICs</span>
+
+<span class="sd">        :param string mcic_id: ID of a mcic that cics belong to</span>
+
+<span class="sd">        :returns: A list of CICs objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mcic_id</span><span class="o">=</span><span class="n">mcic_id</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.eics"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.eics">[docs]</a>    <span class="k">def</span> <span class="nf">eics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meic_id</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of EICs</span>
+
+<span class="sd">        :param string meic_id: ID of a meic that eics belong to</span>
+
+<span class="sd">        :returns: A list of EICs objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">EIC</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mcic_id</span><span class="o">=</span><span class="n">meic_id</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_cic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.get_cic">[docs]</a>    <span class="k">def</span> <span class="nf">get_cic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mcic_id</span><span class="p">,</span> <span class="n">cic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single cic</span>
+
+<span class="sd">        :param string mcic_id: ID of a mcic</span>
+<span class="sd">        :param cic: The value can be the ID of a cic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.cic.CIC` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.CIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">cic</span><span class="p">,</span> <span class="n">mcic_id</span><span class="o">=</span><span class="n">mcic_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">cic</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_eic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.get_eic">[docs]</a>    <span class="k">def</span> <span class="nf">get_eic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meic_id</span><span class="p">,</span> <span class="n">eic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single eic</span>
+
+<span class="sd">        :param string meic_id: ID of a meic</span>
+<span class="sd">        :param eic: The value can be the ID of a eic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.cic.EIC` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.EIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">eic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">EIC</span><span class="p">,</span> <span class="n">eic</span><span class="p">,</span> <span class="n">mcic_id</span><span class="o">=</span><span class="n">meic_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">eic</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_cic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.create_cic">[docs]</a>    <span class="k">def</span> <span class="nf">create_cic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mcic_id</span><span class="p">,</span> <span class="n">cic_name</span><span class="p">,</span> <span class="n">network_id</span><span class="p">,</span> <span class="n">colo_vlan</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a single cic</span>
+
+<span class="sd">        :param string mcic_id: The value is the ID of a mcic</span>
+<span class="sd">        :param string cic_name: The value is the name of a cic</span>
+<span class="sd">        :param string network_id: The value is the ID of network of a cic</span>
+<span class="sd">        :param int colo_vlan: The value indicates the colocation vlan of a cic</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.CIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;cic_name&quot;</span><span class="p">:</span> <span class="n">cic_name</span><span class="p">,</span>
+            <span class="s2">&quot;network_id&quot;</span><span class="p">:</span> <span class="n">network_id</span><span class="p">,</span>
+            <span class="s2">&quot;colo_vlan&quot;</span><span class="p">:</span> <span class="n">colo_vlan</span><span class="p">,</span>
+            <span class="s2">&quot;mcic_id&quot;</span><span class="p">:</span> <span class="n">mcic_id</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_eic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.create_eic">[docs]</a>    <span class="k">def</span> <span class="nf">create_eic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meic_id</span><span class="p">,</span> <span class="n">eic_name</span><span class="p">,</span> <span class="n">network_id</span><span class="p">,</span> <span class="n">server_segment_nbr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a single eic</span>
+
+<span class="sd">        :param string meic_id: The value is the ID of a meic</span>
+<span class="sd">        :param string eic_name: The value is the name of  eic</span>
+
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.EIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;cic_name&quot;</span><span class="p">:</span> <span class="n">eic_name</span><span class="p">,</span>
+            <span class="s2">&quot;network_id&quot;</span><span class="p">:</span> <span class="n">network_id</span><span class="p">,</span>
+            <span class="s2">&quot;server_segment_nbr&quot;</span><span class="p">:</span> <span class="n">server_segment_nbr</span><span class="p">,</span>
+            <span class="s2">&quot;mcic_id&quot;</span><span class="p">:</span> <span class="n">meic_id</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">EIC</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_cic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.delete_cic">[docs]</a>    <span class="k">def</span> <span class="nf">delete_cic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mcic_id</span><span class="p">,</span> <span class="n">cic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a single cic</span>
+
+<span class="sd">        :param string mcic_id: The value is the ID of a mcic</span>
+<span class="sd">        :param cic: The value can be the ID of a cic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.cic.CIC` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.CIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">cic</span><span class="p">,</span> <span class="n">mcic_id</span><span class="o">=</span><span class="n">mcic_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_eic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.delete_eic">[docs]</a>    <span class="k">def</span> <span class="nf">delete_eic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meic_id</span><span class="p">,</span> <span class="n">eic</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a single eic</span>
+
+<span class="sd">        :param string meic_id: The value is the ID of a meic</span>
+<span class="sd">        :param eic: The value can be the ID of a eic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.cic.EIC` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.EIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">EIC</span><span class="p">,</span> <span class="n">eic</span><span class="p">,</span> <span class="n">mcic_id</span><span class="o">=</span><span class="n">meic_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_cic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.update_cic">[docs]</a>    <span class="k">def</span> <span class="nf">update_cic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mcic_id</span><span class="p">,</span> <span class="n">cic</span><span class="p">,</span> <span class="n">cic_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a single cic</span>
+
+<span class="sd">        :param string mcic_id: The value is the ID of a mcic</span>
+<span class="sd">        :param cic: The value can be the ID of a cic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.cic.CIC` instance.</span>
+<span class="sd">        :param cic_name: The name of CIC to update</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.CIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cic_name&quot;</span><span class="p">:</span> <span class="n">cic_name</span><span class="p">}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">cic</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">mcic_id</span><span class="p">,</span> <span class="n">cic</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_eic"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.update_eic">[docs]</a>    <span class="k">def</span> <span class="nf">update_eic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meic_id</span><span class="p">,</span> <span class="n">eic</span><span class="p">,</span> <span class="n">eic_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a single eic</span>
+
+<span class="sd">        :param string meic_id: The value is the ID of a meic</span>
+<span class="sd">        :param eic: The value can be the ID of a eic or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.cic.EIC` instance.</span>
+<span class="sd">        :param eic_name: The name of EIC to update</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.cic.EIC`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cic_name&quot;</span><span class="p">:</span> <span class="n">eic_name</span><span class="p">}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">CIC</span><span class="p">,</span> <span class="n">eic</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">meic_id</span><span class="p">,</span> <span class="n">eic</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.operations"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.operations">[docs]</a>    <span class="k">def</span> <span class="nf">operations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of MCICs</span>
+
+<span class="sd">        :param kwargs query: Query parameter to get operations.</span>
+<span class="sd">            * string mcic_id: ID of a mcic</span>
+<span class="sd">            * string cic_id: ID of a cic</span>
+
+<span class="sd">        :returns: A list of Operation objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">Operation</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_operation"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.get_operation">[docs]</a>    <span class="k">def</span> <span class="nf">get_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single operation</span>
+
+<span class="sd">        :param operation: The value can be the ID of a operation or a</span>
+<span class="sd">                       :class:`~ecl.connectivity.v2.operation.Operation` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.connectivity.v2.operation.Operation`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">Operation</span><span class="p">,</span> <span class="n">operation</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.server_segments"><a class="viewcode-back" href="../../../../ecl.connectivity.v1.html#ecl.connectivity.v1._proxy.Proxy.server_segments">[docs]</a>    <span class="k">def</span> <span class="nf">server_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of Server Segments.</span>
+<span class="sd">        :param string service_id: Enterprise Cloud service ID</span>
+<span class="sd">        :returns: A list of ServerSegment objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">ServerSegment</span><span class="p">,</span> <span class="n">service_id</span><span class="o">=</span><span class="n">service_id</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

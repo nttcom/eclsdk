@@ -1,0 +1,1032 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.identity.v3._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.identity.v3._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.identity.v3._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">credential</span> <span class="k">as</span> <span class="n">_credential</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">domain</span> <span class="k">as</span> <span class="n">_domain</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">endpoint</span> <span class="k">as</span> <span class="n">_endpoint</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">group</span> <span class="k">as</span> <span class="n">_group</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">policy</span> <span class="k">as</span> <span class="n">_policy</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">project</span> <span class="k">as</span> <span class="n">_project</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">region</span> <span class="k">as</span> <span class="n">_region</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">service</span> <span class="k">as</span> <span class="n">_service</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">trust</span> <span class="k">as</span> <span class="n">_trust</span>
+<span class="kn">from</span> <span class="nn">ecl.identity.v3</span> <span class="k">import</span> <span class="n">user</span> <span class="k">as</span> <span class="n">_user</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.create_credential"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_credential">[docs]</a>    <span class="k">def</span> <span class="nf">create_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new credential from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">            a :class:`~ecl.identity.v3.credential.Credential`,</span>
+<span class="sd">            comprised of the properties on the Credential class.</span>
+
+<span class="sd">        :returns: The results of credential creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.credential.Credential`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_credential</span><span class="o">.</span><span class="n">Credential</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_credential"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_credential">[docs]</a>    <span class="k">def</span> <span class="nf">delete_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a credential</span>
+
+<span class="sd">        :param credential: The value can be either the ID of a credential or a</span>
+<span class="sd">               :class:`~ecl.identity.v3.credential.Credential` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the credential does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent credential.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_credential</span><span class="o">.</span><span class="n">Credential</span><span class="p">,</span> <span class="n">credential</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_credential"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_credential">[docs]</a>    <span class="k">def</span> <span class="nf">find_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single credential</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a credential.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.credential.Credential`</span>
+<span class="sd">                  or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_credential</span><span class="o">.</span><span class="n">Credential</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_credential"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_credential">[docs]</a>    <span class="k">def</span> <span class="nf">get_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single credential</span>
+
+<span class="sd">        :param credential: The value can be the ID of a credential or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.credential.Credential` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.credential.Credential`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_credential</span><span class="o">.</span><span class="n">Credential</span><span class="p">,</span> <span class="n">credential</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.credentials"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.credentials">[docs]</a>    <span class="k">def</span> <span class="nf">credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of credentials</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of credentials instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.credential.Credential`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_credential</span><span class="o">.</span><span class="n">Credential</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_credential"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_credential">[docs]</a>    <span class="k">def</span> <span class="nf">update_credential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credential</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a credential</span>
+
+<span class="sd">        :param credential: Either the ID of a credential or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.credential.Credential` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the credential represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated credential</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.credential.Credential`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_credential</span><span class="o">.</span><span class="n">Credential</span><span class="p">,</span> <span class="n">credential</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_domain"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_domain">[docs]</a>    <span class="k">def</span> <span class="nf">create_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new domain from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.domain.Domain`,</span>
+<span class="sd">                           comprised of the properties on the Domain class.</span>
+
+<span class="sd">        :returns: The results of domain creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.domain.Domain`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_domain</span><span class="o">.</span><span class="n">Domain</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_domain"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_domain">[docs]</a>    <span class="k">def</span> <span class="nf">delete_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a domain</span>
+
+<span class="sd">        :param domain: The value can be either the ID of a domain or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.domain.Domain` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the domain does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent domain.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_domain</span><span class="o">.</span><span class="n">Domain</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_domain"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_domain">[docs]</a>    <span class="k">def</span> <span class="nf">find_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single domain</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a domain.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.domain.Domain` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_domain</span><span class="o">.</span><span class="n">Domain</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_domain"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_domain">[docs]</a>    <span class="k">def</span> <span class="nf">get_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single domain</span>
+
+<span class="sd">        :param domain: The value can be the ID of a domain or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.domain.Domain` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.domain.Domain`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_domain</span><span class="o">.</span><span class="n">Domain</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.domains"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.domains">[docs]</a>    <span class="k">def</span> <span class="nf">domains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of domains</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of domain instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.domain.Domain`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_domain</span><span class="o">.</span><span class="n">Domain</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_domain"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_domain">[docs]</a>    <span class="k">def</span> <span class="nf">update_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a domain</span>
+
+<span class="sd">        :param domain: Either the ID of a domain or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.domain.Domain` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the domain represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated domain</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.domain.Domain`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_domain</span><span class="o">.</span><span class="n">Domain</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_endpoint"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">create_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new endpoint from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.endpoint.Endpoint`,</span>
+<span class="sd">                           comprised of the properties on the Endpoint class.</span>
+
+<span class="sd">        :returns: The results of endpoint creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.endpoint.Endpoint`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_endpoint</span><span class="o">.</span><span class="n">Endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_endpoint"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">delete_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete an endpoint</span>
+
+<span class="sd">        :param endpoint: The value can be either the ID of an endpoint or a</span>
+<span class="sd">               :class:`~ecl.identity.v3.endpoint.Endpoint` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the endpoint does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent endpoint.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_endpoint</span><span class="o">.</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_endpoint"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">find_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single endpoint</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a endpoint.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.endpoint.Endpoint` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_endpoint</span><span class="o">.</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_endpoint"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single endpoint</span>
+
+<span class="sd">        :param endpoint: The value can be the ID of an endpoint or a</span>
+<span class="sd">                         :class:`~ecl.identity.v3.endpoint.Endpoint`</span>
+<span class="sd">                         instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.endpoint.Endpoint`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_endpoint</span><span class="o">.</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.endpoints"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.endpoints">[docs]</a>    <span class="k">def</span> <span class="nf">endpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of endpoints</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of endpoint instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.endpoint.Endpoint`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_endpoint</span><span class="o">.</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_endpoint"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">update_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a endpoint</span>
+
+<span class="sd">        :param endpoint: Either the ID of a endpoint or a</span>
+<span class="sd">                         :class:`~ecl.identity.v3.endpoint.Endpoint`</span>
+<span class="sd">                         instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the endpoint represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated endpoint</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.endpoint.Endpoint`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_endpoint</span><span class="o">.</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_group"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new group from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.group.Group`,</span>
+<span class="sd">                           comprised of the properties on the Group class.</span>
+
+<span class="sd">        :returns: The results of group creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.group.Group`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_group</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_group"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_group">[docs]</a>    <span class="k">def</span> <span class="nf">delete_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a group</span>
+
+<span class="sd">        :param group: The value can be either the ID of a group or a</span>
+<span class="sd">                      :class:`~ecl.identity.v3.group.Group` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the group does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent group.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_group</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_group"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_group">[docs]</a>    <span class="k">def</span> <span class="nf">find_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single group</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a group.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.group.Group` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_group</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_group"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_group">[docs]</a>    <span class="k">def</span> <span class="nf">get_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single group</span>
+
+<span class="sd">        :param group: The value can be the ID of a group or a</span>
+<span class="sd">                      :class:`~ecl.identity.v3.group.Group`</span>
+<span class="sd">                      instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.group.Group`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_group</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.groups"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.groups">[docs]</a>    <span class="k">def</span> <span class="nf">groups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of groups</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of group instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.group.Group`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_group</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_group"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_group">[docs]</a>    <span class="k">def</span> <span class="nf">update_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a group</span>
+
+<span class="sd">        :param group: Either the ID of a group or a</span>
+<span class="sd">                      :class:`~ecl.identity.v3.group.Group` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the group represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated group</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.group.Group`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_group</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_policy"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_policy">[docs]</a>    <span class="k">def</span> <span class="nf">create_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new policy from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.policy.Policy`,</span>
+<span class="sd">                           comprised of the properties on the Policy class.</span>
+
+<span class="sd">        :returns: The results of policy creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.policy.Policy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_policy</span><span class="o">.</span><span class="n">Policy</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_policy"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_policy">[docs]</a>    <span class="k">def</span> <span class="nf">delete_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a policy</span>
+
+<span class="sd">        :param policy: The value can be either the ID of a policy or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.policy.Policy` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the policy does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent policy.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_policy</span><span class="o">.</span><span class="n">Policy</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_policy"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_policy">[docs]</a>    <span class="k">def</span> <span class="nf">find_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single policy</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a policy.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.policy.Policy` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_policy</span><span class="o">.</span><span class="n">Policy</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_policy"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_policy">[docs]</a>    <span class="k">def</span> <span class="nf">get_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single policy</span>
+
+<span class="sd">        :param policy: The value can be the ID of a policy or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.policy.Policy` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.policy.Policy`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_policy</span><span class="o">.</span><span class="n">Policy</span><span class="p">,</span> <span class="n">policy</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.policies"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.policies">[docs]</a>    <span class="k">def</span> <span class="nf">policies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of policies</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of policy instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.policy.Policy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_policy</span><span class="o">.</span><span class="n">Policy</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_policy"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_policy">[docs]</a>    <span class="k">def</span> <span class="nf">update_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a policy</span>
+
+<span class="sd">        :param policy: Either the ID of a policy or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.policy.Policy` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the policy represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated policy</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.policy.Policy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_policy</span><span class="o">.</span><span class="n">Policy</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_project"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_project">[docs]</a>    <span class="k">def</span> <span class="nf">create_project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new project from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.project.Project`,</span>
+<span class="sd">                           comprised of the properties on the Project class.</span>
+
+<span class="sd">        :returns: The results of project creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.project.Project`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_project</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_project"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_project">[docs]</a>    <span class="k">def</span> <span class="nf">delete_project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a project</span>
+
+<span class="sd">        :param project: The value can be either the ID of a project or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.project.Project` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the project does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent project.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_project</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_project"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_project">[docs]</a>    <span class="k">def</span> <span class="nf">find_project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single project</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a project.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.project.Project` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_project</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_project"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_project">[docs]</a>    <span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single project</span>
+
+<span class="sd">        :param project: The value can be the ID of a project or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.project.Project` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.project.Project`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_project</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">project</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.projects"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.projects">[docs]</a>    <span class="k">def</span> <span class="nf">projects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of projects</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of project instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.project.Project`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_project</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_project"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_project">[docs]</a>    <span class="k">def</span> <span class="nf">update_project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a project</span>
+
+<span class="sd">        :param project: Either the ID of a project or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.project.Project` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the project represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated project</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.project.Project`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_project</span><span class="o">.</span><span class="n">Project</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_service"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_service">[docs]</a>    <span class="k">def</span> <span class="nf">create_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new service from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.service.Service`,</span>
+<span class="sd">                           comprised of the properties on the Service class.</span>
+
+<span class="sd">        :returns: The results of service creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.service.Service`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_service</span><span class="o">.</span><span class="n">Service</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_service"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_service">[docs]</a>    <span class="k">def</span> <span class="nf">delete_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a service</span>
+
+<span class="sd">        :param service: The value can be either the ID of a service or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.service.Service` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the service does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent service.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_service</span><span class="o">.</span><span class="n">Service</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_service"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_service">[docs]</a>    <span class="k">def</span> <span class="nf">find_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single service</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a service.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.service.Service` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_service</span><span class="o">.</span><span class="n">Service</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_service"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_service">[docs]</a>    <span class="k">def</span> <span class="nf">get_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single service</span>
+
+<span class="sd">        :param service: The value can be the ID of a service or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.service.Service` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.service.Service`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_service</span><span class="o">.</span><span class="n">Service</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.services"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.services">[docs]</a>    <span class="k">def</span> <span class="nf">services</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of services</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of service instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.service.Service`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_service</span><span class="o">.</span><span class="n">Service</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_service"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_service">[docs]</a>    <span class="k">def</span> <span class="nf">update_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a service</span>
+
+<span class="sd">        :param service: Either the ID of a service or a</span>
+<span class="sd">            :class:`~ecl.identity.v3.service.Service` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the service represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated service</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.service.Service`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_service</span><span class="o">.</span><span class="n">Service</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_user"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_user">[docs]</a>    <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new user from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.user.User`,</span>
+<span class="sd">                           comprised of the properties on the User class.</span>
+
+<span class="sd">        :returns: The results of user creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.user.User`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_user"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_user">[docs]</a>    <span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a user</span>
+
+<span class="sd">        :param user: The value can be either the ID of a user or a</span>
+<span class="sd">                     :class:`~ecl.identity.v3.user.User` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the user does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent user.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_user"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_user">[docs]</a>    <span class="k">def</span> <span class="nf">find_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single user</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a user.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.user.User` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_user"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single user</span>
+
+<span class="sd">        :param user: The value can be the ID of a user or a</span>
+<span class="sd">                     :class:`~ecl.identity.v3.user.User` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.user.User`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.users"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of users</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of user instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.user.User`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_user"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_user">[docs]</a>    <span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a user</span>
+
+<span class="sd">        :param user: Either the ID of a user or a</span>
+<span class="sd">                     :class:`~ecl.identity.v3.user.User` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the user represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated user</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.user.User`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_user</span><span class="o">.</span><span class="n">User</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_trust"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_trust">[docs]</a>    <span class="k">def</span> <span class="nf">create_trust</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new trust from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.trust.Trust`,</span>
+<span class="sd">                           comprised of the properties on the Trust class.</span>
+
+<span class="sd">        :returns: The results of trust creation</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.trust.Trust`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_trust</span><span class="o">.</span><span class="n">Trust</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_trust"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_trust">[docs]</a>    <span class="k">def</span> <span class="nf">delete_trust</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trust</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a trust</span>
+
+<span class="sd">        :param trust: The value can be either the ID of a trust or a</span>
+<span class="sd">               :class:`~ecl.identity.v3.trust.Trust` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the credential does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent credential.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_trust</span><span class="o">.</span><span class="n">Trust</span><span class="p">,</span> <span class="n">trust</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_trust"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_trust">[docs]</a>    <span class="k">def</span> <span class="nf">find_trust</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single trust</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a trust.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.trust.Trust` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_trust</span><span class="o">.</span><span class="n">Trust</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_trust"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_trust">[docs]</a>    <span class="k">def</span> <span class="nf">get_trust</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trust</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single trust</span>
+
+<span class="sd">        :param trust: The value can be the ID of a trust or a</span>
+<span class="sd">                      :class:`~ecl.identity.v3.trust.Trust` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.trust.Trust`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_trust</span><span class="o">.</span><span class="n">Trust</span><span class="p">,</span> <span class="n">trust</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.trusts"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.trusts">[docs]</a>    <span class="k">def</span> <span class="nf">trusts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of trusts</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of trust instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.trust.Trust`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_trust</span><span class="o">.</span><span class="n">Trust</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_region"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.create_region">[docs]</a>    <span class="k">def</span> <span class="nf">create_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new region from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.identity.v3.region.Region`,</span>
+<span class="sd">                           comprised of the properties on the Region class.</span>
+
+<span class="sd">        :returns: The results of region creation.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.region.Region`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_region</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_region"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.delete_region">[docs]</a>    <span class="k">def</span> <span class="nf">delete_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a region</span>
+
+<span class="sd">        :param region: The value can be either the ID of a region or a</span>
+<span class="sd">               :class:`~ecl.identity.v3.region.Region` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the region does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be thrown when</span>
+<span class="sd">                    attempting to delete a nonexistent region.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_region</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_region"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.find_region">[docs]</a>    <span class="k">def</span> <span class="nf">find_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single region</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a region.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the region does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent region.</span>
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.region.Region` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_region</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_region"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.get_region">[docs]</a>    <span class="k">def</span> <span class="nf">get_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single region</span>
+
+<span class="sd">        :param region: The value can be the ID of a region or a</span>
+<span class="sd">                       :class:`~ecl.identity.v3.region.Region` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.identity.v3.region.Region`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no matching region can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_region</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.regions"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.regions">[docs]</a>    <span class="k">def</span> <span class="nf">regions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a generator of regions</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the regions being returned.</span>
+
+<span class="sd">        :returns: A generator of region instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.region.Region`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This is paginated but requires base list changes.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_region</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_region"><a class="viewcode-back" href="../../../../ecl.identity.v3.html#ecl.identity.v3._proxy.Proxy.update_region">[docs]</a>    <span class="k">def</span> <span class="nf">update_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a region</span>
+
+<span class="sd">        :param region: Either the ID of a region or a</span>
+<span class="sd">                      :class:`~ecl.identity.v3.region.Region` instance.</span>
+<span class="sd">        :attrs kwargs: The attributes to update on the region represented</span>
+<span class="sd">                       by ``value``.</span>
+
+<span class="sd">        :returns: The updated region.</span>
+<span class="sd">        :rtype: :class:`~ecl.identity.v3.region.Region`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_region</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

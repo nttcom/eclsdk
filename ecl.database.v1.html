@@ -1,0 +1,1105 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>database methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="database" href="ecl.database.html"/>
+        <link rel="next" title="dedicated_hypervisor" href="ecl.dedicated_hypervisor.html"/>
+        <link rel="prev" title="database" href="ecl.database.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.database.html">database</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">database methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.database.v1.database">database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.database.v1.flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.database.v1.instance">instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.database.v1.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.database.html">database</a> &raquo;</li>
+        
+      <li>database methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.database.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.database.v1._proxy">
+<span id="database-methods"></span><h1>database methods<a class="headerlink" href="#module-ecl.database.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.database.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.database.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.create_database">
+<code class="descname">create_database</code><span class="sig-paren">(</span><em>instance_id</em>, <em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.create_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.create_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new database from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_id</strong> (<em>string</em>) &#8211; ID of instance to assciate creating database</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of database</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of database creation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Database</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.create_instance">
+<code class="descname">create_instance</code><span class="sig-paren">(</span><em>name</em>, <em>flavor_id</em>, <em>volume</em>, <em>databases</em>, <em>users</em>, <em>datastores</em>, <em>nics</em>, <em>availability_zone=None</em>, <em>backup_window=None</em>, <em>backup_retension_period=None</em>, <em>maintenance_window=None</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.create_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.create_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of instance</li>
+<li><strong>flavor_id</strong> (<em>string</em>) &#8211; Flavor ID of server</li>
+<li><strong>volue</strong> (<em>dict</em>) &#8211; Volume configuration dict which has volume_size inside</li>
+<li><strong>databases</strong> &#8211; Database definition
+list to initialize database on creating instance</li>
+<li><strong>users</strong> &#8211; List of users to connect to defined databases</li>
+<li><strong>datastores</strong> (<em>dict</em>) &#8211; Datastore name and version of instance</li>
+<li><strong>nics</strong> (<em>dict</em>) &#8211; Network difinition of instance</li>
+<li><strong>availability_zone</strong> &#8211; Availability zone for instance</li>
+<li><strong>backup_window</strong> &#8211; Backup window time range</li>
+<li><strong>backup_retension_period</strong> &#8211; Number of the day to retain backup</li>
+<li><strong>maintenance_window</strong> &#8211; Maintenance window time range by
+the day of the week and from/to time</li>
+<li><strong>attrs</strong> (<em>kwargs</em>) &#8211; Keyword arguments which will be used to create
+a <code class="xref py py-class docutils literal"><span class="pre">Instance</span></code>,
+comprised of the properties on the Instance class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of instance creation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.create_user">
+<code class="descname">create_user</code><span class="sig-paren">(</span><em>instance_id</em>, <em>name</em>, <em>password</em>, <em>databases=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.create_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new user from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_id</strong> (<em>string</em>) &#8211; ID of instance to assciate creating user</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of user</li>
+<li><strong>password</strong> (<em>string</em>) &#8211; Password of user</li>
+<li><strong>databases</strong> &#8211; Database list of user to grant</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of user creation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.databases">
+<code class="descname">databases</code><span class="sig-paren">(</span><em>instance_id</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.databases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.databases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a list of databases assciated with instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_id</strong> &#8211; Instance id to find databases</li>
+<li><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the instances being returned.  Available parameters include:</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of database instances.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.delete_database">
+<code class="descname">delete_database</code><span class="sig-paren">(</span><em>instance_id</em>, <em>database</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.delete_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.delete_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a database</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_id</strong> &#8211; The value can be either the ID of a server or a
+<a class="reference internal" href="#ecl.database.v1.instance.Instance" title="ecl.database.v1.instance.Instance"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent database</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.delete_instance">
+<code class="descname">delete_instance</code><span class="sig-paren">(</span><em>instance</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.delete_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.delete_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance</strong> &#8211; The value can be either the ID of a server or a
+<a class="reference internal" href="#ecl.database.v1.instance.Instance" title="ecl.database.v1.instance.Instance"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the server does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent instance</li>
+<li><strong>force</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">True</span></code>, the instance deletion will be
+forced immediatly.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.delete_user">
+<code class="descname">delete_user</code><span class="sig-paren">(</span><em>instance_id</em>, <em>user</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.delete_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_id</strong> &#8211; The value can be either the ID of a server or a
+<a class="reference internal" href="#ecl.database.v1.instance.Instance" title="ecl.database.v1.instance.Instance"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.find_database">
+<code class="descname">find_database</code><span class="sig-paren">(</span><em>instance_id</em>, <em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.find_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.find_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single database</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a database.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.database.v1.database.Database" title="ecl.database.v1.database.Database"><code class="xref py py-class docutils literal"><span class="pre">Database</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.find_flavor">
+<code class="descname">find_flavor</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.find_flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.find_flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single flavor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a flavor.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.database.v1.flavor.Flavor" title="ecl.database.v1.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">Flavor</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.find_instance">
+<code class="descname">find_instance</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.find_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.find_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a server.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.database.v1.instance.Instance" title="ecl.database.v1.instance.Instance"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.find_user">
+<code class="descname">find_user</code><span class="sig-paren">(</span><em>instance_id</em>, <em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.find_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.find_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a user.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.database.v1.user.User" title="ecl.database.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.flavors">
+<code class="descname">flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of flavors
+:returns: A list of flavor objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.get_flavor">
+<code class="descname">get_flavor</code><span class="sig-paren">(</span><em>flavor</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.get_flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.get_flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single flavor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flavor</strong> &#8211; The value can be the ID of a flavor or a
+<a class="reference internal" href="#ecl.database.v1.flavor.Flavor" title="ecl.database.v1.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">Flavor</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.database.v1.flavor.Flavor" title="ecl.database.v1.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">Flavor</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.get_instance">
+<code class="descname">get_instance</code><span class="sig-paren">(</span><em>instance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.get_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.get_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance</strong> &#8211; The value can be the ID of a instance or a
+<a class="reference internal" href="#ecl.database.v1.instance.Instance" title="ecl.database.v1.instance.Instance"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.database.v1.instance.Instance" title="ecl.database.v1.instance.Instance"><code class="xref py py-class docutils literal"><span class="pre">Instance</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.instances">
+<code class="descname">instances</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a list of instances</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the instances being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of database instances.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.users">
+<code class="descname">users</code><span class="sig-paren">(</span><em>instance_id</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a list of users assciated with instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance_di</strong> &#8211; Instance id to find users</li>
+<li><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the instances being returned.  Available parameters include:</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of database instances.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.database.v1._proxy.Proxy.wait_for_server">
+<code class="descname">wait_for_server</code><span class="sig-paren">(</span><em>instance, status='ACTIVE', failures=['ERROR'], interval=2, wait=120</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/_proxy.html#Proxy.wait_for_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1._proxy.Proxy.wait_for_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.database.v1.database">
+<span id="database"></span><h1>database<a class="headerlink" href="#module-ecl.database.v1.database" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.database.v1.database.Database">
+<em class="property">class </em><code class="descclassname">ecl.database.v1.database.</code><code class="descname">Database</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/database.html#Database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1.database.Database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.database.Database.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.database.Database.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.database.v1.database.Database.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.database.Database.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.database.v1.database.Database.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.base_path">
+<code class="descname">base_path</code><em class="property"> = '/instances/%(instance_id)s/databases'</em><a class="headerlink" href="#ecl.database.v1.database.Database.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.instance_id">
+<code class="descname">instance_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.database.Database.instance_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of instance associated with this database</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.database.Database.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s name of Database.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'database'</em><a class="headerlink" href="#ecl.database.v1.database.Database.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'databases'</em><a class="headerlink" href="#ecl.database.v1.database.Database.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.database.Database.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'database', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.database.v1.database.Database.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.database.v1.flavor">
+<span id="flavor"></span><h1>flavor<a class="headerlink" href="#module-ecl.database.v1.flavor" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.database.v1.flavor.Flavor">
+<em class="property">class </em><code class="descclassname">ecl.database.v1.flavor.</code><code class="descname">Flavor</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/flavor.html#Flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1.flavor.Flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.base_path">
+<code class="descname">base_path</code><em class="property"> = '/flavors'</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.disk">
+<code class="descname">disk</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the disk this flavor offers. <em>Type: int</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.ephemeral">
+<code class="descname">ephemeral</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.ephemeral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the ephemeral data disk attached to this server. <em>Type: int</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.is_disabled">
+<code class="descname">is_disabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.is_disabled" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">True</span></code> if this flavor is disabled, <code class="docutils literal"><span class="pre">False</span></code> if not. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.is_public">
+<code class="descname">is_public</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.is_public" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">True</span></code> if this is a publicly visible flavor. <code class="docutils literal"><span class="pre">False</span></code> if this is
+a private image. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Links pertaining to this flavor. This is a list of dictionaries,
+each including keys <code class="docutils literal"><span class="pre">href</span></code> and <code class="docutils literal"><span class="pre">rel</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this flavor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.ram">
+<code class="descname">ram</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.ram" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of RAM (in MB) this flavor offers. <em>Type: int</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'flavor'</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'flavors'</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.rxtx_factor">
+<code class="descname">rxtx_factor</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.rxtx_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bandwidth scaling factor this flavor receives on the network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'database', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.swap">
+<code class="descname">swap</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the swap partitions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.flavor.Flavor.vcpus">
+<code class="descname">vcpus</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.flavor.Flavor.vcpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of virtual CPUs this flavor offers. <em>Type: int</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.database.v1.instance">
+<span id="instance"></span><h1>instance<a class="headerlink" href="#module-ecl.database.v1.instance" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.database.v1.instance.Instance">
+<em class="property">class </em><code class="descclassname">ecl.database.v1.instance.</code><code class="descname">Instance</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/instance.html#Instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1.instance.Instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.availability_zone">
+<code class="descname">availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.backup_retention_period">
+<code class="descname">backup_retention_period</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.backup_retention_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backup retension period of this instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.backup_window">
+<code class="descname">backup_window</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.backup_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backup window of instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.base_path">
+<code class="descname">base_path</code><em class="property"> = '/instances'</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of when the instance was created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.databases">
+<code class="descname">databases</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.databases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Databases list of instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.datastore">
+<code class="descname">datastore</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The datastore property returned as instence property.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.database.v1.instance.Instance.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/instance.html#Instance.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1.instance.Instance.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.flavor">
+<code class="descname">flavor</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flavor property returned from instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.flavor_id">
+<code class="descname">flavor_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flavor reference, as a ID or full URL,
+in case create instane.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.hostname">
+<code class="descname">hostname</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>An ID representing the host of this instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the server</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of dictionaries holding links relevant to this instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.maintenance_window">
+<code class="descname">maintenance_window</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.maintenance_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maintenance window of instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the instance</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.nics">
+<code class="descname">nics</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.nics" title="Permalink to this definition">¶</a></dt>
+<dd><p>A nic definition object. Required parameter when there are multiple
+networks defined for the tenant.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.region">
+<code class="descname">region</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region of the instance</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'instance'</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'instances'</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'database', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state this instance is in.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of when this instance was last updated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.users">
+<code class="descname">users</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Users list of instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.instance.Instance.volume">
+<code class="descname">volume</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.instance.Instance.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>The volume property returned from instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.database.v1.user">
+<span id="user"></span><h1>user<a class="headerlink" href="#module-ecl.database.v1.user" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.database.v1.user.User">
+<em class="property">class </em><code class="descclassname">ecl.database.v1.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/database/v1/user.html#User"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.database.v1.user.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.user.User.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.user.User.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.database.v1.user.User.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.database.v1.user.User.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.database.v1.user.User.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.base_path">
+<code class="descname">base_path</code><em class="property"> = '/instances/%(instance_id)s/users'</em><a class="headerlink" href="#ecl.database.v1.user.User.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.databases">
+<code class="descname">databases</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.user.User.databases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relevant database of this user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.host">
+<code class="descname">host</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.user.User.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowed access host of user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.instance_id">
+<code class="descname">instance_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.user.User.instance_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of instance associated with this user</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.user.User.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s name of Database instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.password">
+<code class="descname">password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.database.v1.user.User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s password of Database instance.
+This parameter is only used in instance creation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'user'</em><a class="headerlink" href="#ecl.database.v1.user.User.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'users'</em><a class="headerlink" href="#ecl.database.v1.user.User.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.database.v1.user.User.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'database', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.database.v1.user.User.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.dedicated_hypervisor.html" class="btn btn-neutral float-right" title="dedicated_hypervisor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.database.html" class="btn btn-neutral" title="database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.provider_connectivity.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.provider_connectivity.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.provider_connectivity.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">ecl.provider_connectivity.v1</span> <span class="k">import</span> <span class="n">aws_connection</span> <span class="k">as</span> <span class="n">_aws_connection</span>
+<span class="kn">from</span> <span class="nn">ecl.provider_connectivity.v1</span> <span class="k">import</span> <span class="n">exchange_point</span> <span class="k">as</span> <span class="n">_exchange_point</span>
+<span class="kn">from</span> <span class="nn">ecl.provider_connectivity.v1</span> <span class="k">import</span> <span class="n">operation</span> <span class="k">as</span> <span class="n">_operation</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.aws_connections"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.aws_connections">[docs]</a>    <span class="k">def</span> <span class="nf">aws_connections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List connection resource between ECL2.0 and AWS.</span>
+
+<span class="sd">        :param params: The parameters as query string</span>
+<span class="sd">            to get connections by specified condition.</span>
+<span class="sd">        :returns: A list of connection objects</span>
+<span class="sd">        :rtype: list of :class:`~ecl.provider_connectivity.v1.aws_connection.AWSConnection`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span>
+                               <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="o">**</span><span class="n">params</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_aws_connection"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.get_aws_connection">[docs]</a>    <span class="k">def</span> <span class="nf">get_aws_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show connection resource between ECL2.0 and AWS.</span>
+
+<span class="sd">        :param string connection_id: ID of specified connection.</span>
+<span class="sd">        :return: :class:`~ecl.provider_connectivity.v1.aws_connection.AWSConnection`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span> <span class="n">connection_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_aws_connection"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.find_aws_connection">[docs]</a>    <span class="k">def</span> <span class="nf">find_aws_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single connection</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a connection.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.network.v2.connection.AWSConnection` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span>
+                          <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_aws_connection"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.update_aws_connection">[docs]</a>    <span class="k">def</span> <span class="nf">update_aws_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update connection between ECL2.0 and AWS.</span>
+
+<span class="sd">        :param string connection_id: The ID of a connection.</span>
+<span class="sd">        :attrs \*\*params: Parameters for connection update.</span>
+
+<span class="sd">            * string name: Name of connection.</span>
+<span class="sd">            * string description: Description of connection.</span>
+<span class="sd">            * string bandwidth: Bandwidth. If you selected BestEffort</span>
+<span class="sd">                in the qos_type, can update 100 or 1000 Mbps.</span>
+<span class="sd">                However, in case of Guarantee, this parameter can not update.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">):</span>
+            <span class="n">connection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">_body</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_aws_connection"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.delete_aws_connection">[docs]</a>    <span class="k">def</span> <span class="nf">delete_aws_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete connection between ECL2.0 and AWS.</span>
+
+<span class="sd">        :param connection_id: The ID of a connection.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the port does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent port.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span>
+                     <span class="n">connection_id</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.prepare_aws_connection"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.prepare_aws_connection">[docs]</a>    <span class="k">def</span> <span class="nf">prepare_aws_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aws_account_id</span><span class="p">,</span> <span class="n">connected_network_address</span><span class="p">,</span>
+                           <span class="n">bandwidth</span><span class="p">,</span> <span class="n">qos_type</span><span class="p">,</span> <span class="n">exchange_point_id</span><span class="p">,</span>
+                           <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create connection between ECL2.0 and AWS.</span>
+
+<span class="sd">        :param string aws_account_id: AWS Account ID of owner.</span>
+<span class="sd">        :param string connected_network_address: Connected network address</span>
+<span class="sd">            for AWS connectivity.(/28)</span>
+<span class="sd">        :param string bandwidth: Bandwidth(Mbps). If you choose BestEffort in</span>
+<span class="sd">            the qos_type, can select 100 or 1000.</span>
+<span class="sd">            When you select Guarantee, choose from 50 to 500.</span>
+<span class="sd">        :param string qos_type: QoS type of network.</span>
+<span class="sd">            You can choose from &quot;BestEffort&quot; or &quot;Guarantee&quot;.</span>
+<span class="sd">        :param string exchange_point_id: ID of exchange_points.</span>
+<span class="sd">        :param string name: Name of connection.</span>
+<span class="sd">        :param string description: Description of connection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;aws_account_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aws_account_id</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;connected_network_address&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">connected_network_address</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;bandwidth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bandwidth</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;qos_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">qos_type</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;exchange_point_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exchange_point_id</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.approve_aws_connection"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.approve_aws_connection">[docs]</a>    <span class="k">def</span> <span class="nf">approve_aws_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_id</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Approve/Disapprove connection between ECL2.0 and AWS.</span>
+
+<span class="sd">        :param connection_id: ID of specified connection.</span>
+<span class="sd">        :param type: Action type. You can choose from &quot;approve&quot; or &quot;disapprove&quot;.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">_aws_connection</span><span class="o">.</span><span class="n">AWSConnection</span><span class="p">()</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">approve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">connection_id</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.exchange_points"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.exchange_points">[docs]</a>    <span class="k">def</span> <span class="nf">exchange_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List exchange ponts.</span>
+
+<span class="sd">        :param params: The parameters as query string</span>
+<span class="sd">            to get exchange points by specified condition.</span>
+<span class="sd">        :returns: A list of exchange point objects</span>
+<span class="sd">        :rtype: list of :class:`~ecl.provider_connectivity.v1.exchange_point.</span>
+<span class="sd">            ExchangePoint`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_exchange_point</span><span class="o">.</span><span class="n">ExchangePoint</span><span class="p">,</span>
+                               <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="o">**</span><span class="n">params</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.operations"><a class="viewcode-back" href="../../../../ecl.provider_connectivity.v1.html#ecl.provider_connectivity.v1._proxy.Proxy.operations">[docs]</a>    <span class="k">def</span> <span class="nf">operations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List operations.</span>
+
+<span class="sd">        :param params: The parameters as query string</span>
+<span class="sd">            to get operations by specified condition.</span>
+<span class="sd">        :returns: A list of operation objects</span>
+<span class="sd">        :rtype: list of :class:`~ecl.provider_connectivity.v1.operation.</span>
+<span class="sd">            Operation`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_operation</span><span class="o">.</span><span class="n">Operation</span><span class="p">,</span>
+                               <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="o">**</span><span class="n">params</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.image.v2.schema &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.image.v2.schema</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.image.v2.schema</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.image</span> <span class="k">import</span> <span class="n">image_service</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+
+<div class="viewcode-block" id="Scheme"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme">[docs]</a><span class="k">class</span> <span class="nc">Scheme</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">image_service</span><span class="o">.</span><span class="n">ImageService</span><span class="p">()</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span> <span class="o">+</span> <span class="s1">&#39;/schemas&#39;</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: Image&#39;s additionalProperties.</span>
+    <span class="n">additionalProperties</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;additionalProperties&#39;</span><span class="p">)</span>
+    <span class="c1">#: Image&#39;s links.</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;links&#39;</span><span class="p">)</span>
+    <span class="c1">#: Image&#39;s name.</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1">#: Properties for image.</span>
+    <span class="c1">#: Properties list:</span>
+    <span class="c1">#: architecture: Operating system architecture as specified in URL.</span>
+    <span class="c1">#: status: The image status.</span>
+    <span class="c1">#: container_format: The container format of image.</span>
+    <span class="c1">#: min_ram: The minimum amount of RAM in MB that is required to boot the image..</span>
+    <span class="c1">#: updated_at: The date and time when the resource was updated.The date and time stamp format is ISO 8601.</span>
+    <span class="c1">#: owner: The ID of the owner, or tenant, of the image.</span>
+    <span class="c1">#: min_disk: The minimum disk size in GB that is required to boot the image.</span>
+    <span class="c1">#: tags: A list of Image tag.</span>
+    <span class="c1">#: visibility: The image visibility.</span>
+    <span class="c1">#: id: The unique ID for the image.</span>
+    <span class="c1">#: size: The size of the image data, in bytes.</span>
+    <span class="c1">#: virtual_size: The virtual size of the image.</span>
+    <span class="c1">#: name: The name of the image.</span>
+    <span class="c1">#: checksum: Hash of the image data used. The Image service uses this value for verification.</span>
+    <span class="c1">#: created_at: The date and time when the resource was created.The date and time stamp format is ISO 8601.</span>
+    <span class="c1">#: disk_format: The disk format of the image.</span>
+    <span class="c1">#: properties: Properties, if any, that are associated with the image.</span>
+    <span class="c1">#: protected: Indicates whether the image can be deleted.</span>
+    <span class="c1">#: location: URL to access the image file kept in external store.</span>
+    <span class="c1">#: self: URL for the virtual machine image.</span>
+    <span class="c1">#: schema: URL for schema of the virtual machine image/member.</span>
+    <span class="c1">#: direct_url: URL to access the image file kept in external store.</span>
+    <span class="c1">#: instance_uuid: ID of instance used to create this image.</span>
+    <span class="c1">#: kernel_id: ID of image stored in Glance that should be used as the kernel when booting an AMI-style image.</span>
+    <span class="c1">#: os_distro: Common name of operating system distribution as specified in URL.</span>
+    <span class="c1">#: os_version: Operating system version as specified by the distributor.</span>
+    <span class="c1">#: ramdisk_id: ID of image stored in Glance that should be used as the ramdisk when booting an AMI-style image.</span>
+    <span class="c1">#: member_id: Image member ID. For example, the tenant ID of the user with whom the image is being shared.</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;properties&#39;</span><span class="p">)</span>
+    <span class="c1">#: Metadata&#39;s definition.</span>
+    <span class="n">definitions</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;definitions&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Scheme.get_image_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_image_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents an image</span>
+<span class="sd">        entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/image&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scheme.get_images_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_images_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_images_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents an images</span>
+<span class="sd">        entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/images&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scheme.get_image_member_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_image_member_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_member_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents an image member</span>
+<span class="sd">        entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/member&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scheme.get_metadata_namespace_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_metadata_namespace_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_namespace_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition namespace entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/metadefs/namespace&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scheme.get_metadata_object_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_metadata_object_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_object_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition object entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/metadefs/object&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scheme.get_metadata_property_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_metadata_property_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_property_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition property entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/metadefs/property&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Scheme.get_metadata_resource_type_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.schema.Scheme.get_metadata_resource_type_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_resource_type_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a JSON schema document that represents a metadata definition namespace resource type association entity.&quot;&quot;&quot;</span>
+
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">+</span> <span class="s1">&#39;/metadefs/resource_type&#39;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

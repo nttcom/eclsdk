@@ -1,0 +1,1512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>storage methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="storage" href="ecl.storage.html"/>
+        <link rel="next" title="telemetry" href="ecl.telemetry.html"/>
+        <link rel="prev" title="storage" href="ecl.storage.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.storage.html">storage</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">storage methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.storage.v1.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.storage.v1.snapshot">snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.storage.v1.storage">storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.storage.v1.volume">volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.storage.v1.volume_type">volume_type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.storage.html">storage</a> &raquo;</li>
+        
+      <li>storage methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.storage.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.storage.v1._proxy">
+<span id="storage-methods"></span><h1>storage methods<a class="headerlink" href="#module-ecl.storage.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.storage.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.availability_zones">
+<code class="descname">availability_zones</code><span class="sig-paren">(</span><em>details=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.availability_zones"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.availability_zones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of availability zones</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>details</strong> (<em>bool</em>) &#8211; When <code class="docutils literal"><span class="pre">True</span></code>, returns
+<a class="reference internal" href="#ecl.storage.v1.availability_zone.AvailabilityZoneDetail" title="ecl.storage.v1.availability_zone.AvailabilityZoneDetail"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZoneDetail</span></code></a>
+objects, otherwise <a class="reference internal" href="#ecl.storage.v1.availability_zone.AvailabilityZone" title="ecl.storage.v1.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZone</span></code></a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of availability zone objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.create_snapshot">
+<code class="descname">create_snapshot</code><span class="sig-paren">(</span><em>volume_id</em>, <em>name</em>, <em>description=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.create_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API create snapshot of volume.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>volume_id</strong> &#8211; Parent volume ID.</li>
+<li><strong>name</strong> &#8211; Name of snapshot.</li>
+<li><strong>description</strong> &#8211; Description of snapshot.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.storage.v1.snapshot.Snapshot" title="ecl.storage.v1.snapshot.Snapshot"><code class="xref py py-class docutils literal"><span class="pre">Snapshot</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.create_storage">
+<code class="descname">create_storage</code><span class="sig-paren">(</span><em>network_id</em>, <em>subnet_id</em>, <em>ip_addr_pool</em>, <em>name</em>, <em>volume_type_id</em>, <em>description=None</em>, <em>host_routes=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.create_storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.create_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API create additional Storage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>network_id</strong> &#8211; Network ID.</li>
+<li><strong>subnet_id</strong> &#8211; Subnetwork ID.</li>
+<li><strong>ip_addr_pool</strong> &#8211; The pool of IP addresses for storage nodes used by the volume.
+The IP address range may be overwraped with subnet&#8217;s allocation_pools.
+The range should be included in CIDR of the subnet.</li>
+<li><strong>name</strong> &#8211; Name of Virtual Storage.</li>
+<li><strong>volume_type_id</strong> &#8211; volume type ID.</li>
+<li><strong>description</strong> &#8211; Description of Virtual Storage.</li>
+<li><strong>host_routes</strong> &#8211; Static routes settings for each virtual storages.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.storage.v1.storage.Storage" title="ecl.storage.v1.storage.Storage"><code class="xref py py-class docutils literal"><span class="pre">Storage</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.create_volume">
+<code class="descname">create_volume</code><span class="sig-paren">(</span><em>virtual_storage_id</em>, <em>name</em>, <em>size</em>, <em>description=None</em>, <em>iops_per_gb=None</em>, <em>initiator_iqns=None</em>, <em>throughput=None</em>, <em>availability_zone=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.create_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API create additional Volume.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>virtual_storage_id</strong> &#8211; Virtual Storage ID.</li>
+<li><strong>name</strong> &#8211; Name of volume.</li>
+<li><strong>size</strong> &#8211; Size of volume in Gigabyte.</li>
+<li><strong>description</strong> &#8211; Description of volume.</li>
+<li><strong>iops_per_gb</strong> &#8211; Provisioned IOPS/GB for volume.</li>
+<li><strong>throughput</strong> &#8211; Provisioned throughput for volume.</li>
+<li><strong>initiator_iqns</strong> &#8211; List of initiator IQN who can access to this volume.</li>
+<li><strong>availability_zone</strong> &#8211; Availability zone.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.storage.v1.volume.Volume" title="ecl.storage.v1.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.delete_snapshot">
+<code class="descname">delete_snapshot</code><span class="sig-paren">(</span><em>snapshot_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.delete_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API deletes a specified snapshot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>snapshot_id</strong> &#8211; ID for the specified snapshot.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.delete_storage">
+<code class="descname">delete_storage</code><span class="sig-paren">(</span><em>storage_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.delete_storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.delete_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API deletes a specified storage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>storage_id</strong> &#8211; ID for the specified storage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.delete_volume">
+<code class="descname">delete_volume</code><span class="sig-paren">(</span><em>volume_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.delete_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API deletes a specified volume.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volume_id</strong> &#8211; ID for the specified volume.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.find_availability_zone">
+<code class="descname">find_availability_zone</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.find_availability_zone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.find_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single availability_zone</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a availability_zone.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.storage.v1.availability_zone.AvailabilityZone" title="ecl.storage.v1.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZone</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.find_volume_type">
+<code class="descname">find_volume_type</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.find_volume_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.find_volume_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a volume type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> (<em>string</em>) &#8211; The name or ID of a volume type.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeType" title="ecl.storage.v1.volume_type.VolumeType"><code class="xref py py-class docutils literal"><span class="pre">VolumeType</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.get_snapshot">
+<code class="descname">get_snapshot</code><span class="sig-paren">(</span><em>snapshot_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.get_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.get_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single snapshot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>snapshot_id</strong> &#8211; The value is the ID of a snapshot</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.storage.v1.snapshot.Snapshot" title="ecl.storage.v1.snapshot.Snapshot"><code class="xref py py-class docutils literal"><span class="pre">Snapshot</span></code></a>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.get_storage">
+<code class="descname">get_storage</code><span class="sig-paren">(</span><em>storage_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.get_storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.get_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single storage</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>storage_id</strong> &#8211; The value is the ID of a storage</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.storage.v1.storage.Storage" title="ecl.storage.v1.storage.Storage"><code class="xref py py-class docutils literal"><span class="pre">Storage</span></code></a>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show Storage API version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.get_volume">
+<code class="descname">get_volume</code><span class="sig-paren">(</span><em>volume_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.get_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.get_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volume_id</strong> &#8211; The value is the ID of a volume</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.storage.v1.volume.Volume" title="ecl.storage.v1.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></a>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.get_volume_type">
+<code class="descname">get_volume_type</code><span class="sig-paren">(</span><em>volume_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.get_volume_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.get_volume_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single volume type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volume_type_id</strong> &#8211; The value is the ID of a volume type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeType" title="ecl.storage.v1.volume_type.VolumeType"><code class="xref py py-class docutils literal"><span class="pre">VolumeType</span></code></a>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.restore_snapshot">
+<code class="descname">restore_snapshot</code><span class="sig-paren">(</span><em>snapshot_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.restore_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.restore_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore volume from snapshot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>snapshot_id</strong> &#8211; Snapshot ID to utilize as restore source.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">&lt;Response 202&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.snapshots">
+<code class="descname">snapshots</code><span class="sig-paren">(</span><em>details=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.snapshots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of snapshots.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>details</strong> (<em>bool</em>) &#8211; When <code class="docutils literal"><span class="pre">True</span></code>, returns
+<a class="reference internal" href="#ecl.storage.v1.snapshot.SnapshotDetail" title="ecl.storage.v1.snapshot.SnapshotDetail"><code class="xref py py-class docutils literal"><span class="pre">SnapshotDetail</span></code></a> objects,
+otherwise <a class="reference internal" href="#ecl.storage.v1.snapshot.Snapshot" title="ecl.storage.v1.snapshot.Snapshot"><code class="xref py py-class docutils literal"><span class="pre">Snapshot</span></code></a>.
+<em>Default: ``True``</em></li>
+<li><strong>params</strong> (<em>kwargs</em>) &#8211; parameter used as query parameter
+for GET request.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of snapshot objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.storages">
+<code class="descname">storages</code><span class="sig-paren">(</span><em>details=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.storages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.storages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of storages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>details</strong> (<em>bool</em>) &#8211; When <code class="docutils literal"><span class="pre">True</span></code>, returns
+<a class="reference internal" href="#ecl.storage.v1.storage.StorageDetail" title="ecl.storage.v1.storage.StorageDetail"><code class="xref py py-class docutils literal"><span class="pre">StorageDetail</span></code></a> objects,
+otherwise <a class="reference internal" href="#ecl.storage.v1.storage.Storage" title="ecl.storage.v1.storage.Storage"><code class="xref py py-class docutils literal"><span class="pre">Storage</span></code></a>.
+<em>Default: ``True``</em></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of storage objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.update_snapshot">
+<code class="descname">update_snapshot</code><span class="sig-paren">(</span><em>snapshot_id</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.update_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.update_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API update existing snapshot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>snapshot_id</strong> &#8211; ID for the requested snapshot.</li>
+<li><strong>name</strong> &#8211; Name of snapshot.</li>
+<li><strong>description</strong> &#8211; Description of snapshot.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.storage.v1.snapshot.Snapshot" title="ecl.storage.v1.snapshot.Snapshot"><code class="xref py py-class docutils literal"><span class="pre">Snapshot</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.update_storage">
+<code class="descname">update_storage</code><span class="sig-paren">(</span><em>storage_id</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.update_storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.update_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API update existing storage</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>body</strong> (<em>kwargs</em>) &#8211; <p>Request parameter to update storage.</p>
+<ul class="simple">
+<li>storage_id: ID for the requested storage.</li>
+<li>name: Name of Virtual Storage.</li>
+<li>description: Description of Virtual Storage.</li>
+<li>ip_addr_pool: The pool of IP addresses for storage nodes used by the volume. The IP address range may be overwraped with subnet&#8217;s allocation_pools. The range should be included in CIDR of the subnet.</li>
+<li>host_routes: Static routes settings for each virtual storages.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.storage.v1.storage.Storage" title="ecl.storage.v1.storage.Storage"><code class="xref py py-class docutils literal"><span class="pre">Storage</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.update_volume">
+<code class="descname">update_volume</code><span class="sig-paren">(</span><em>volume_id</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.update_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.update_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API update existing volume.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>body</strong> (<em>kwargs</em>) &#8211; <p>Request parameter to update volume.</p>
+<ul class="simple">
+<li>volume_id: ID for the requested volume.</li>
+<li>name: Name of volume.</li>
+<li>description: Description of volume.</li>
+<li>initiator_iqns: List of initiator IQN who can access to this volume.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.storage.v1.volume.Volume" title="ecl.storage.v1.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.versions">
+<code class="descname">versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.versions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.versions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List Storage API version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A generator of version objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.volume_types">
+<code class="descname">volume_types</code><span class="sig-paren">(</span><em>details=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.volume_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.volume_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of volume types</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>details</strong> (<em>bool</em>) &#8211; When <code class="docutils literal"><span class="pre">True</span></code>, returns
+<a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeTypeDetail" title="ecl.storage.v1.volume_type.VolumeTypeDetail"><code class="xref py py-class docutils literal"><span class="pre">VolumeTypeDetail</span></code></a> objects,
+otherwise <a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeType" title="ecl.storage.v1.volume_type.VolumeType"><code class="xref py py-class docutils literal"><span class="pre">VolumeType</span></code></a>.
+<em>Default: ``True``</em></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of volume type objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.Proxy.volumes">
+<code class="descname">volumes</code><span class="sig-paren">(</span><em>details=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#Proxy.volumes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.Proxy.volumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of volumes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>details</strong> (<em>bool</em>) &#8211; When <code class="docutils literal"><span class="pre">True</span></code>, returns
+<a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeTypeDetail" title="ecl.storage.v1.volume_type.VolumeTypeDetail"><code class="xref py py-class docutils literal"><span class="pre">VolumeTypeDetail</span></code></a> objects,
+otherwise <a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeType" title="ecl.storage.v1.volume_type.VolumeType"><code class="xref py py-class docutils literal"><span class="pre">VolumeType</span></code></a>.
+<em>Default: ``True``</em></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of volume type objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.storage.v1._proxy.VersionSession">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1._proxy.</code><code class="descname">VersionSession</code><span class="sig-paren">(</span><em>profile</em>, <em>user_agent=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#VersionSession"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.VersionSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.session.Session</span></code></p>
+<dl class="method">
+<dt id="ecl.storage.v1._proxy.VersionSession.get_endpoint">
+<code class="descname">get_endpoint</code><span class="sig-paren">(</span><em>auth=None</em>, <em>interface='public'</em>, <em>service_type=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/_proxy.html#VersionSession.get_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1._proxy.VersionSession.get_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override get endpoint to automate endpoint filtering
+This method uses the service catalog to find the root URI of
+each service and then gets all available versions directly
+from the service, not from the service catalog.
+Endpoints are cached per service type and interface combination
+so that they&#8217;re only requested from the remote service once
+per instance of this class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.storage.v1.availability_zone">
+<span id="availability-zone"></span><h1>availability_zone<a class="headerlink" href="#module-ecl.storage.v1.availability_zone" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.availability_zone.</code><code class="descname">AvailabilityZone</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/availability_zone.html#AvailabilityZone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.base_path">
+<code class="descname">base_path</code><em class="property"> = '/availability_zone'</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/availability_zone.html#AvailabilityZone.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'availabilityZoneInfo'</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'storage', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.state">
+<code class="descname">state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>state of availability zone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.zoneName">
+<code class="descname">zoneName</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.zoneName" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of availability zone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZone.zoneState">
+<code class="descname">zoneState</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZone.zoneState" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZoneDetail">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.availability_zone.</code><code class="descname">AvailabilityZoneDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/availability_zone.html#AvailabilityZoneDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZoneDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.storage.v1.availability_zone.AvailabilityZone" title="ecl.storage.v1.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">ecl.storage.v1.availability_zone.AvailabilityZone</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZoneDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/availability_zone/detail'</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZoneDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.availability_zone.AvailabilityZoneDetail.zoneName">
+<code class="descname">zoneName</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.availability_zone.AvailabilityZoneDetail.zoneName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.storage.v1.snapshot">
+<span id="snapshot"></span><h1>snapshot<a class="headerlink" href="#module-ecl.storage.v1.snapshot" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.storage.v1.snapshot.Snapshot">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.snapshot.</code><code class="descname">Snapshot</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/snapshot.html#Snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.base_path">
+<code class="descname">base_path</code><em class="property"> = '/snapshots'</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.snapshot.Snapshot.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/snapshot.html#Snapshot.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation timestamp of snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.delete_reason">
+<code class="descname">delete_reason</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.delete_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason of automatic deletion</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.deleted_at">
+<code class="descname">deleted_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.deleted_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete timestamp of snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.error_message">
+<code class="descname">error_message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message for snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of snapshot(UUID)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'snapshot'</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'snapshots'</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.snapshot.Snapshot.restore">
+<code class="descname">restore</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/snapshot.html#Snapshot.restore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore volume from specified snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'storage', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.snapshot_type_id">
+<code class="descname">snapshot_type_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.snapshot_type_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID (UUID) of snapshot type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>status of volume</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.snapshot.Snapshot.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>volume_id</em>, <em>has_body=True</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/snapshot.html#Snapshot.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update timestamp of snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.usage">
+<code class="descname">usage</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Usage of snapshot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.Snapshot.volume_id">
+<code class="descname">volume_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.snapshot.Snapshot.volume_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID (UUID) of parent volume</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.storage.v1.snapshot.SnapshotDetail">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.snapshot.</code><code class="descname">SnapshotDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/snapshot.html#SnapshotDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.snapshot.SnapshotDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.storage.v1.snapshot.Snapshot" title="ecl.storage.v1.snapshot.Snapshot"><code class="xref py py-class docutils literal"><span class="pre">ecl.storage.v1.snapshot.Snapshot</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.SnapshotDetail.allow_create">
+<code class="descname">allow_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.snapshot.SnapshotDetail.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.SnapshotDetail.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.snapshot.SnapshotDetail.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.SnapshotDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.snapshot.SnapshotDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.SnapshotDetail.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.snapshot.SnapshotDetail.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.snapshot.SnapshotDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/snapshots/detail'</em><a class="headerlink" href="#ecl.storage.v1.snapshot.SnapshotDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.storage.v1.storage">
+<span id="storage"></span><h1>storage<a class="headerlink" href="#module-ecl.storage.v1.storage" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.storage.v1.storage.Storage">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.storage.</code><code class="descname">Storage</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/storage.html#Storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.storage.Storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.base_path">
+<code class="descname">base_path</code><em class="property"> = '/virtual_storages'</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.storage.Storage.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/storage.html#Storage.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.storage.Storage.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>creation timestamp of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.error_message">
+<code class="descname">error_message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>error description of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.host_routes">
+<code class="descname">host_routes</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.host_routes" title="Permalink to this definition">¶</a></dt>
+<dd><p>static routes settings of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of storage(UUID)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.ip_addr_pool">
+<code class="descname">ip_addr_pool</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.ip_addr_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>The pool of IP addresses for storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.network_id">
+<code class="descname">network_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.network_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network id(UUID) of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'virtual_storage'</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'virtual_storages'</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'storage', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>status of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.subnet_id">
+<code class="descname">subnet_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.subnet_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subnet id(UUID) of storage</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.storage.Storage.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>storage_id</em>, <em>has_body=True</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/storage.html#Storage.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.storage.Storage.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>update timestamp of storage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.Storage.volume_type_id">
+<code class="descname">volume_type_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.storage.Storage.volume_type_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>volume type id(UUID) of storage</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.storage.v1.storage.StorageDetail">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.storage.</code><code class="descname">StorageDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/storage.html#StorageDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.storage.StorageDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.storage.v1.storage.Storage" title="ecl.storage.v1.storage.Storage"><code class="xref py py-class docutils literal"><span class="pre">ecl.storage.v1.storage.Storage</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.StorageDetail.allow_create">
+<code class="descname">allow_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.storage.StorageDetail.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.StorageDetail.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.storage.StorageDetail.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.StorageDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.storage.StorageDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.StorageDetail.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.storage.StorageDetail.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.storage.StorageDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/virtual_storages/detail'</em><a class="headerlink" href="#ecl.storage.v1.storage.StorageDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.storage.v1.volume">
+<span id="volume"></span><h1>volume<a class="headerlink" href="#module-ecl.storage.v1.volume" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.storage.v1.volume.Volume">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.volume.</code><code class="descname">Volume</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume.html#Volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume.Volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.availability_zone">
+<code class="descname">availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>An availability_zone in which the volume belongs to</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volumes'</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.volume.Volume.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume.html#Volume.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume.Volume.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation timestamp of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.error_message">
+<code class="descname">error_message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>error description of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.export_rules">
+<code class="descname">export_rules</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.export_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of IPv4 CIDRc who can access to this volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of volume(UUID)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.initiator_iqns">
+<code class="descname">initiator_iqns</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.initiator_iqns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of initiator IQN who can access to this volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.initiator_secret">
+<code class="descname">initiator_secret</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.initiator_secret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiator&#8217;s secret (password) for CHAP auth of iSCSI</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.iops_per_gb">
+<code class="descname">iops_per_gb</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.iops_per_gb" title="Permalink to this definition">¶</a></dt>
+<dd><p>The provisioned IOPS/GB for volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.metadata">
+<code class="descname">metadata</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>One or more metadata key and value pairs to associate with the volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.percentage_snapshot_reserve_used">
+<code class="descname">percentage_snapshot_reserve_used</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.percentage_snapshot_reserve_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of Used Snapshots</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'volume'</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'volumes'</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'storage', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.size">
+<code class="descname">size</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of volume in gigabyte</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.snapshot_ids">
+<code class="descname">snapshot_ids</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.snapshot_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of Snapshot IDs taken from this volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>status of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.target_ips">
+<code class="descname">target_ips</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.target_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of IPv4 addresses of the volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.target_secret">
+<code class="descname">target_secret</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.target_secret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target&#8217;s secret (password) for CHAP auth of iSCSI</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.throughput">
+<code class="descname">throughput</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.throughput" title="Permalink to this definition">¶</a></dt>
+<dd><p>The provisioned throughput for volume in MB/s</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.storage.v1.volume.Volume.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>volume_id</em>, <em>has_body=True</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume.html#Volume.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume.Volume.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>update timestamp of volume</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.Volume.virtual_storage_id">
+<code class="descname">virtual_storage_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume.Volume.virtual_storage_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>storage ID (UUID) volume belongs to</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.storage.v1.volume.VolumeDetail">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.volume.</code><code class="descname">VolumeDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume.html#VolumeDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume.VolumeDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.storage.v1.volume.Volume" title="ecl.storage.v1.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">ecl.storage.v1.volume.Volume</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.VolumeDetail.allow_create">
+<code class="descname">allow_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.volume.VolumeDetail.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.VolumeDetail.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.volume.VolumeDetail.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.VolumeDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.volume.VolumeDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.VolumeDetail.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.volume.VolumeDetail.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume.VolumeDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volumes/detail'</em><a class="headerlink" href="#ecl.storage.v1.volume.VolumeDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.storage.v1.volume_type">
+<span id="volume-type"></span><h1>volume_type<a class="headerlink" href="#module-ecl.storage.v1.volume_type" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.storage.v1.volume_type.VolumeType">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.volume_type.</code><code class="descname">VolumeType</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume_type.html#VolumeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volume_types'</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.extra_specs">
+<code class="descname">extra_specs</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.extra_specs" title="Permalink to this definition">¶</a></dt>
+<dd><p>state of volume type</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.storage.v1.volume_type.VolumeType.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume_type.html#VolumeType.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of volume type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of volume type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'volume_type'</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'volume_types'</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeType.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'storage', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeType.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.storage.v1.volume_type.VolumeTypeDetail">
+<em class="property">class </em><code class="descclassname">ecl.storage.v1.volume_type.</code><code class="descname">VolumeTypeDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/storage/v1/volume_type.html#VolumeTypeDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeTypeDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.storage.v1.volume_type.VolumeType" title="ecl.storage.v1.volume_type.VolumeType"><code class="xref py py-class docutils literal"><span class="pre">ecl.storage.v1.volume_type.VolumeType</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeTypeDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeTypeDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.storage.v1.volume_type.VolumeTypeDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volume_types/detail'</em><a class="headerlink" href="#ecl.storage.v1.volume_type.VolumeTypeDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.telemetry.html" class="btn btn-neutral float-right" title="telemetry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.storage.html" class="btn btn-neutral" title="storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

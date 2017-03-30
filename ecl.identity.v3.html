@@ -1,0 +1,2477 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>identity methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="identity" href="ecl.identity.html"/>
+        <link rel="next" title="image" href="ecl.image.html"/>
+        <link rel="prev" title="identity" href="ecl.identity.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.identity.html">identity</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">identity methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.credential">credential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.domain">domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.endpoint">endpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.group">group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.policy">policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.project">project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.region">region</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.service">service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.trust">trust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.identity.v3.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.identity.html">identity</a> &raquo;</li>
+        
+      <li>identity methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.identity.v3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.identity.v3._proxy">
+<span id="identity-methods"></span><h1>identity methods<a class="headerlink" href="#module-ecl.identity.v3._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_credential">
+<code class="descname">create_credential</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new credential from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a>,
+comprised of the properties on the Credential class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of credential creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_domain">
+<code class="descname">create_domain</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new domain from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a>,
+comprised of the properties on the Domain class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of domain creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_endpoint">
+<code class="descname">create_endpoint</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new endpoint from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a>,
+comprised of the properties on the Endpoint class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of endpoint creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_group">
+<code class="descname">create_group</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new group from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a>,
+comprised of the properties on the Group class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of group creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_policy">
+<code class="descname">create_policy</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new policy from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a>,
+comprised of the properties on the Policy class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of policy creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_project">
+<code class="descname">create_project</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new project from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a>,
+comprised of the properties on the Project class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of project creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_region">
+<code class="descname">create_region</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new region from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a>,
+comprised of the properties on the Region class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of region creation.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_service">
+<code class="descname">create_service</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new service from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a>,
+comprised of the properties on the Service class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of service creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_trust">
+<code class="descname">create_trust</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_trust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_trust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new trust from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a>,
+comprised of the properties on the Trust class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of trust creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.create_user">
+<code class="descname">create_user</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.create_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new user from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a>,
+comprised of the properties on the User class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of user creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.credentials">
+<code class="descname">credentials</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of credentials</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of credentials instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_credential">
+<code class="descname">delete_credential</code><span class="sig-paren">(</span><em>credential</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a credential</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>credential</strong> &#8211; The value can be either the ID of a credential or a
+<a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the credential does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent credential.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_domain">
+<code class="descname">delete_domain</code><span class="sig-paren">(</span><em>domain</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>domain</strong> &#8211; The value can be either the ID of a domain or a
+<a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the domain does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent domain.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_endpoint">
+<code class="descname">delete_endpoint</code><span class="sig-paren">(</span><em>endpoint</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an endpoint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>endpoint</strong> &#8211; The value can be either the ID of an endpoint or a
+<a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the endpoint does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent endpoint.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_group">
+<code class="descname">delete_group</code><span class="sig-paren">(</span><em>group</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>group</strong> &#8211; The value can be either the ID of a group or a
+<a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the group does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent group.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_policy">
+<code class="descname">delete_policy</code><span class="sig-paren">(</span><em>policy</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a policy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>policy</strong> &#8211; The value can be either the ID of a policy or a
+<a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the policy does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent policy.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_project">
+<code class="descname">delete_project</code><span class="sig-paren">(</span><em>project</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>project</strong> &#8211; The value can be either the ID of a project or a
+<a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the project does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent project.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_region">
+<code class="descname">delete_region</code><span class="sig-paren">(</span><em>region</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>region</strong> &#8211; The value can be either the ID of a region or a
+<a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the region does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be thrown when
+attempting to delete a nonexistent region.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_service">
+<code class="descname">delete_service</code><span class="sig-paren">(</span><em>service</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a service</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> &#8211; The value can be either the ID of a service or a
+<a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the service does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent service.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_trust">
+<code class="descname">delete_trust</code><span class="sig-paren">(</span><em>trust</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_trust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_trust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a trust</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trust</strong> &#8211; The value can be either the ID of a trust or a
+<a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the credential does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent credential.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.delete_user">
+<code class="descname">delete_user</code><span class="sig-paren">(</span><em>user</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.delete_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user</strong> &#8211; The value can be either the ID of a user or a
+<a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the user does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent user.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.domains">
+<code class="descname">domains</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.domains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.domains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of domains</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of domain instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.endpoints">
+<code class="descname">endpoints</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.endpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of endpoints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of endpoint instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_credential">
+<code class="descname">find_credential</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single credential</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a credential.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a>
+or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_domain">
+<code class="descname">find_domain</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a domain.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_endpoint">
+<code class="descname">find_endpoint</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single endpoint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a endpoint.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_group">
+<code class="descname">find_group</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a group.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_policy">
+<code class="descname">find_policy</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single policy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a policy.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_project">
+<code class="descname">find_project</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a project.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_region">
+<code class="descname">find_region</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a region.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the region does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent region.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_service">
+<code class="descname">find_service</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single service</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a service.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_trust">
+<code class="descname">find_trust</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_trust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_trust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single trust</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a trust.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.find_user">
+<code class="descname">find_user</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.find_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.find_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a user.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_credential">
+<code class="descname">get_credential</code><span class="sig-paren">(</span><em>credential</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single credential</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>credential</strong> &#8211; The value can be the ID of a credential or a
+<a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_domain">
+<code class="descname">get_domain</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domain</strong> &#8211; The value can be the ID of a domain or a
+<a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_endpoint">
+<code class="descname">get_endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single endpoint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>endpoint</strong> &#8211; The value can be the ID of an endpoint or a
+<a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a>
+instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_group">
+<code class="descname">get_group</code><span class="sig-paren">(</span><em>group</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> &#8211; The value can be the ID of a group or a
+<a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a>
+instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_policy">
+<code class="descname">get_policy</code><span class="sig-paren">(</span><em>policy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single policy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>policy</strong> &#8211; The value can be the ID of a policy or a
+<a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_project">
+<code class="descname">get_project</code><span class="sig-paren">(</span><em>project</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> &#8211; The value can be the ID of a project or a
+<a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_region">
+<code class="descname">get_region</code><span class="sig-paren">(</span><em>region</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>region</strong> &#8211; The value can be the ID of a region or a
+<a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no matching region can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_service">
+<code class="descname">get_service</code><span class="sig-paren">(</span><em>service</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single service</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>service</strong> &#8211; The value can be the ID of a service or a
+<a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_trust">
+<code class="descname">get_trust</code><span class="sig-paren">(</span><em>trust</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_trust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_trust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single trust</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trust</strong> &#8211; The value can be the ID of a trust or a
+<a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.get_user">
+<code class="descname">get_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; The value can be the ID of a user or a
+<a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.groups">
+<code class="descname">groups</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of groups</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of group instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.policies">
+<code class="descname">policies</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.policies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.policies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of policies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of policy instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.projects">
+<code class="descname">projects</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of projects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of project instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.regions">
+<code class="descname">regions</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.regions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of regions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the regions being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of region instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.services">
+<code class="descname">services</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.services"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of services</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of service instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.trusts">
+<code class="descname">trusts</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.trusts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.trusts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of trusts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of trust instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.trust.Trust" title="ecl.identity.v3.trust.Trust"><code class="xref py py-class docutils literal"><span class="pre">Trust</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_credential">
+<code class="descname">update_credential</code><span class="sig-paren">(</span><em>credential</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a credential</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>credential</strong> &#8211; Either the ID of a credential or a
+<a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the credential represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated credential</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.credential.Credential" title="ecl.identity.v3.credential.Credential"><code class="xref py py-class docutils literal"><span class="pre">Credential</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_domain">
+<code class="descname">update_domain</code><span class="sig-paren">(</span><em>domain</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domain</strong> &#8211; Either the ID of a domain or a
+<a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the domain represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated domain</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.domain.Domain" title="ecl.identity.v3.domain.Domain"><code class="xref py py-class docutils literal"><span class="pre">Domain</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_endpoint">
+<code class="descname">update_endpoint</code><span class="sig-paren">(</span><em>endpoint</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a endpoint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>endpoint</strong> &#8211; Either the ID of a endpoint or a
+<a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a>
+instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the endpoint represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated endpoint</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.endpoint.Endpoint" title="ecl.identity.v3.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">Endpoint</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_group">
+<code class="descname">update_group</code><span class="sig-paren">(</span><em>group</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> &#8211; Either the ID of a group or a
+<a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the group represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated group</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.group.Group" title="ecl.identity.v3.group.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_policy">
+<code class="descname">update_policy</code><span class="sig-paren">(</span><em>policy</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a policy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>policy</strong> &#8211; Either the ID of a policy or a
+<a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the policy represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated policy</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.policy.Policy" title="ecl.identity.v3.policy.Policy"><code class="xref py py-class docutils literal"><span class="pre">Policy</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_project">
+<code class="descname">update_project</code><span class="sig-paren">(</span><em>project</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>project</strong> &#8211; Either the ID of a project or a
+<a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the project represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated project</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.project.Project" title="ecl.identity.v3.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_region">
+<code class="descname">update_region</code><span class="sig-paren">(</span><em>region</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>region</strong> &#8211; Either the ID of a region or a
+<a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the region represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated region.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.region.Region" title="ecl.identity.v3.region.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_service">
+<code class="descname">update_service</code><span class="sig-paren">(</span><em>service</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a service</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>service</strong> &#8211; Either the ID of a service or a
+<a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the service represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated service</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.service.Service" title="ecl.identity.v3.service.Service"><code class="xref py py-class docutils literal"><span class="pre">Service</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.update_user">
+<code class="descname">update_user</code><span class="sig-paren">(</span><em>user</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.update_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; Either the ID of a user or a
+<a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs kwargs:</th><td class="field-body">The attributes to update on the user represented
+by <code class="docutils literal"><span class="pre">value</span></code>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The updated user</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.identity.v3._proxy.Proxy.users">
+<code class="descname">users</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/_proxy.html#Proxy.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3._proxy.Proxy.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a generator of users</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of user instances.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.identity.v3.user.User" title="ecl.identity.v3.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.credential">
+<span id="credential"></span><h1>credential<a class="headerlink" href="#module-ecl.identity.v3.credential" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.credential.Credential">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.credential.</code><code class="descname">Credential</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/credential.html#Credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.credential.Credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.base_path">
+<code class="descname">base_path</code><em class="property"> = '/credentials'</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.blob">
+<code class="descname">blob</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.blob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arbitrary blob of the credential data, to be parsed according to the
+<code class="docutils literal"><span class="pre">type</span></code>. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References a project ID which limits the scope the credential applies
+to. This attribute is <strong>mandatory</strong> if the credential type is <code class="docutils literal"><span class="pre">ec2</span></code>.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'credential'</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'credentials'</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representing the credential type, such as <code class="docutils literal"><span class="pre">ec2</span></code> or <code class="docutils literal"><span class="pre">cert</span></code>.
+A specific implementation may determine the list of supported types.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.credential.Credential.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.credential.Credential.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the user ID which owns the credential. <em>Type: string</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.domain">
+<span id="domain"></span><h1>domain<a class="headerlink" href="#module-ecl.identity.v3.domain" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.domain.Domain">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.domain.</code><code class="descname">Domain</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/domain.html#Domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.domain.Domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.base_path">
+<code class="descname">base_path</code><em class="property"> = '/domains'</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The description of this domain. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this attribute to <code class="docutils literal"><span class="pre">False</span></code> prevents users from authorizing
+against this domain or any projects owned by this domain, and prevents
+users owned by this domain from authenticating or receiving any other
+authorization. Additionally, all pre-existing tokens applicable
+to the above entities are immediately invalidated.
+Re-enabling a domain does not re-enable pre-existing tokens.
+<em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The globally unique name of this domain. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'domain'</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'domains'</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.domain.Domain.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.domain.Domain.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.endpoint">
+<span id="endpoint"></span><h1>endpoint<a class="headerlink" href="#module-ecl.identity.v3.endpoint" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.endpoint.Endpoint">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.endpoint.</code><code class="descname">Endpoint</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/endpoint.html#Endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.base_path">
+<code class="descname">base_path</code><em class="property"> = '/endpoints'</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.interface">
+<code class="descname">interface</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the interface of the endpoint according to one of the
+following values:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><cite>public</cite>: intended for consumption by end users, generally on a</dt>
+<dd>publicly available network interface</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>internal</cite>: not intended for consumption by end users, generally on an</dt>
+<dd>unmetered internal network interface</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>admin</cite>: intended only for consumption by those needing administrative</dt>
+<dd>access to the service, generally on a secure network interface</dd>
+</dl>
+</li>
+</ul>
+<p><em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this value to <code class="docutils literal"><span class="pre">False</span></code> prevents the endpoint from appearing
+in the service catalog. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.region_id">
+<code class="descname">region_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.region_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the containing region ID of the service endpoint.
+<em>New in v3.2</em> <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'endpoint'</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'endpoints'</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.service_id">
+<code class="descname">service_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.service_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the service ID to which the endpoint belongs. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.endpoint.Endpoint.url">
+<code class="descname">url</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.endpoint.Endpoint.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fully qualified URL of the service endpoint. <em>Type: string</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.group">
+<span id="group"></span><h1>group<a class="headerlink" href="#module-ecl.identity.v3.group" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.group.Group">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.group.</code><code class="descname">Group</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/group.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.group.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.group.Group.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.group.Group.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.group.Group.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.group.Group.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.group.Group.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.base_path">
+<code class="descname">base_path</code><em class="property"> = '/groups'</em><a class="headerlink" href="#ecl.identity.v3.group.Group.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.group.Group.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The description of this group. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.domain_id">
+<code class="descname">domain_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.group.Group.domain_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the domain ID which owns the group; if a domain ID is not
+specified by the client, the Identity service implementation will
+default it to the domain ID to which the client&#8217;s token is scoped.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.group.Group.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique group name, within the owning domain. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.group.Group.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'group'</em><a class="headerlink" href="#ecl.identity.v3.group.Group.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'groups'</em><a class="headerlink" href="#ecl.identity.v3.group.Group.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.group.Group.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.group.Group.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.policy">
+<span id="policy"></span><h1>policy<a class="headerlink" href="#module-ecl.identity.v3.policy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.policy.Policy">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.policy.</code><code class="descname">Policy</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/policy.html#Policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.policy.Policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.base_path">
+<code class="descname">base_path</code><em class="property"> = '/policies'</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.blob">
+<code class="descname">blob</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.blob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The policy rule set itself, as a serialized blob. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'policy'</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'policies'</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.policy.Policy.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.policy.Policy.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The MIME Media Type of the serialized policy blob. <em>Type: string</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.project">
+<span id="project"></span><h1>project<a class="headerlink" href="#module-ecl.identity.v3.project" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.project.Project">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.project.</code><code class="descname">Project</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/project.html#Project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.project.Project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.project.Project.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.project.Project.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.project.Project.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.project.Project.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.project.Project.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.base_path">
+<code class="descname">base_path</code><em class="property"> = '/projects'</em><a class="headerlink" href="#ecl.identity.v3.project.Project.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.project.Project.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The description of the project. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.domain_id">
+<code class="descname">domain_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.project.Project.domain_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the domain ID which owns the project; if a domain ID is not
+specified by the client, the Identity service implementation will
+default it to the domain ID to which the client&#8217;s token is scoped.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.project.Project.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this attribute to <code class="docutils literal"><span class="pre">False</span></code> prevents users from authorizing
+against this project. Additionally, all pre-existing tokens authorized
+for the project are immediately invalidated. Re-enabling a project
+does not re-enable pre-existing tokens. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.project.Project.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique project name, within the owning domain. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.project.Project.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'project'</em><a class="headerlink" href="#ecl.identity.v3.project.Project.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'projects'</em><a class="headerlink" href="#ecl.identity.v3.project.Project.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.project.Project.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.project.Project.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.region">
+<span id="region"></span><h1>region<a class="headerlink" href="#module-ecl.identity.v3.region" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.region.Region">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.region.</code><code class="descname">Region</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/region.html#Region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.region.Region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.region.Region.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.region.Region.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.region.Region.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.region.Region.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.region.Region.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.base_path">
+<code class="descname">base_path</code><em class="property"> = '/regions'</em><a class="headerlink" href="#ecl.identity.v3.region.Region.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.region.Region.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>User-facing description of the region. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.parent_region_id">
+<code class="descname">parent_region_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.region.Region.parent_region_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of parent region, if any. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.region.Region.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'region'</em><a class="headerlink" href="#ecl.identity.v3.region.Region.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'regions'</em><a class="headerlink" href="#ecl.identity.v3.region.Region.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.region.Region.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.region.Region.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.service">
+<span id="service"></span><h1>service<a class="headerlink" href="#module-ecl.identity.v3.service" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.service.Service">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.service.</code><code class="descname">Service</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/service.html#Service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.service.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.service.Service.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.service.Service.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.service.Service.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.service.Service.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.service.Service.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.base_path">
+<code class="descname">base_path</code><em class="property"> = '/services'</em><a class="headerlink" href="#ecl.identity.v3.service.Service.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.service.Service.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>User-facing description of the service. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.service.Service.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this value to <code class="docutils literal"><span class="pre">False</span></code> prevents the service and
+its endpoints from appearing in the service catalog. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.service.Service.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>User-facing name of the service. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.service.Service.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'service'</em><a class="headerlink" href="#ecl.identity.v3.service.Service.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'services'</em><a class="headerlink" href="#ecl.identity.v3.service.Service.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.service.Service.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.service.Service.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.service.Service.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the API implemented by the service. The following values are
+recognized within the OpenStack ecosystem: <code class="docutils literal"><span class="pre">compute</span></code>, <code class="docutils literal"><span class="pre">image</span></code>,
+<code class="docutils literal"><span class="pre">ec2</span></code>, <code class="docutils literal"><span class="pre">identity</span></code>, <code class="docutils literal"><span class="pre">volume</span></code>, <code class="docutils literal"><span class="pre">network</span></code>. To support non-core and
+future projects, the value should not be validated against this list.
+<em>Type: string</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.trust">
+<span id="trust"></span><h1>trust<a class="headerlink" href="#module-ecl.identity.v3.trust" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.trust.Trust">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.trust.</code><code class="descname">Trust</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/trust.html#Trust"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.trust.Trust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.base_path">
+<code class="descname">base_path</code><em class="property"> = '/OS-TRUST/trusts'</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.expires_at">
+<code class="descname">expires_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.expires_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the expiration time of the trust. A trust may be revoked
+ahead of expiration. If the value represents a time in the past,
+the trust is deactivated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the trust object. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.is_impersonation">
+<code class="descname">is_impersonation</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.is_impersonation" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <code class="docutils literal"><span class="pre">impersonation</span></code> is set to true, then the <code class="docutils literal"><span class="pre">user</span></code> attribute
+of tokens that are generated based on the trust will represent
+that of the trustor rather than the trustee, thus allowing the trustee
+to impersonate the trustor.
+If <code class="docutils literal"><span class="pre">impersonation</span></code> is set to <code class="docutils literal"><span class="pre">False</span></code>, then the token&#8217;s <code class="docutils literal"><span class="pre">user</span></code>
+attribute will represent that of the trustee. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the project upon which the trustor is
+delegating authorization. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.redelegation_count">
+<code class="descname">redelegation_count</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.redelegation_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redelegation count</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'trust'</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'trusts'</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.roles">
+<code class="descname">roles</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.roles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the subset of the trustor&#8217;s roles on the <code class="docutils literal"><span class="pre">project_id</span></code>
+to be granted to the trustee when the token in consumed. The
+trustor must already be granted these roles in the project referenced
+by the <code class="docutils literal"><span class="pre">project_id</span></code> attribute. <em>Type: list</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.trustee_user_id">
+<code class="descname">trustee_user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.trustee_user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the user ID who is capable of consuming the trust.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.trust.Trust.trustor_user_id">
+<code class="descname">trustor_user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.trust.Trust.trustor_user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the user ID who created the trust, and who&#8217;s authorization is
+being delegated. <em>Type: string</em></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.identity.v3.user">
+<span id="user"></span><h1>user<a class="headerlink" href="#module-ecl.identity.v3.user" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.identity.v3.user.User">
+<em class="property">class </em><code class="descclassname">ecl.identity.v3.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/identity/v3/user.html#User"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.identity.v3.user.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.user.User.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.user.User.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.user.User.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.user.User.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.user.User.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.base_path">
+<code class="descname">base_path</code><em class="property"> = '/users'</em><a class="headerlink" href="#ecl.identity.v3.user.User.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.default_project_id">
+<code class="descname">default_project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.default_project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the user&#8217;s default project ID against which to authorize,
+if the API user does not explicitly specify one when creating a token.
+Setting this attribute does not grant any actual authorization on the
+project, and is merely provided for the user&#8217;s convenience.
+Therefore, the referenced project does not need to exist within the
+user&#8217;s domain.</p>
+<p><em>New in version 3.1</em> If the user does not have authorization to
+their default project, the default project will be ignored at token
+creation. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The description of this user. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.domain_id">
+<code class="descname">domain_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.domain_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the domain ID which owns the user; if a domain ID is not
+specified by the client, the Identity service implementation will
+default it to the domain ID to which the client&#8217;s token is scoped.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.email">
+<code class="descname">email</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>The email of this user. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.is_enabled">
+<code class="descname">is_enabled</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this value to <code class="docutils literal"><span class="pre">False</span></code> prevents the user from authenticating or
+receiving authorization. Additionally, all pre-existing tokens held by
+the user are immediately invalidated. Re-enabling a user does not
+re-enable pre-existing tokens. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique user name, within the owning domain. <em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.password">
+<code class="descname">password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.identity.v3.user.User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default form of credential used during authentication.
+<em>Type: string</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.identity.v3.user.User.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'user'</em><a class="headerlink" href="#ecl.identity.v3.user.User.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'users'</em><a class="headerlink" href="#ecl.identity.v3.user.User.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.identity.v3.user.User.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'identity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.identity.v3.user.User.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.image.html" class="btn btn-neutral float-right" title="image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.identity.html" class="btn btn-neutral" title="identity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1015 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>connectivity methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="connectivity" href="ecl.connectivity.html"/>
+        <link rel="next" title="database" href="ecl.database.html"/>
+        <link rel="prev" title="connectivity" href="ecl.connectivity.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.connectivity.html">connectivity</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">connectivity methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.connectivity.v1.cic">cic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.connectivity.v1.mcic">mcic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.connectivity.v1.operation">operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.connectivity.v1.server_segment">server_segment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.connectivity.html">connectivity</a> &raquo;</li>
+        
+      <li>connectivity methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.connectivity.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.connectivity.v1._proxy">
+<span id="connectivity-methods"></span><h1>connectivity methods<a class="headerlink" href="#module-ecl.connectivity.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.connectivity.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.cics">
+<code class="descname">cics</code><span class="sig-paren">(</span><em>mcic_id</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.cics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.cics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of CICs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mcic_id</strong> (<em>string</em>) &#8211; ID of a mcic that cics belong to</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of CICs objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.create_cic">
+<code class="descname">create_cic</code><span class="sig-paren">(</span><em>mcic_id</em>, <em>cic_name</em>, <em>network_id</em>, <em>colo_vlan</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.create_cic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.create_cic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a single cic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mcic_id</strong> (<em>string</em>) &#8211; The value is the ID of a mcic</li>
+<li><strong>cic_name</strong> (<em>string</em>) &#8211; The value is the name of a cic</li>
+<li><strong>network_id</strong> (<em>string</em>) &#8211; The value is the ID of network of a cic</li>
+<li><strong>colo_vlan</strong> (<em>int</em>) &#8211; The value indicates the colocation vlan of a cic</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">CIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.create_eic">
+<code class="descname">create_eic</code><span class="sig-paren">(</span><em>meic_id</em>, <em>eic_name</em>, <em>network_id</em>, <em>server_segment_nbr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.create_eic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.create_eic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a single eic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>meic_id</strong> (<em>string</em>) &#8211; The value is the ID of a meic</li>
+<li><strong>eic_name</strong> (<em>string</em>) &#8211; The value is the name of  eic</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">EIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.delete_cic">
+<code class="descname">delete_cic</code><span class="sig-paren">(</span><em>mcic_id</em>, <em>cic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.delete_cic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.delete_cic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a single cic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mcic_id</strong> (<em>string</em>) &#8211; The value is the ID of a mcic</li>
+<li><strong>cic</strong> &#8211; The value can be the ID of a cic or a
+<code class="xref py py-class docutils literal"><span class="pre">CIC</span></code> instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">CIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.delete_eic">
+<code class="descname">delete_eic</code><span class="sig-paren">(</span><em>meic_id</em>, <em>eic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.delete_eic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.delete_eic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a single eic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>meic_id</strong> (<em>string</em>) &#8211; The value is the ID of a meic</li>
+<li><strong>eic</strong> &#8211; The value can be the ID of a eic or a
+<code class="xref py py-class docutils literal"><span class="pre">EIC</span></code> instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">EIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.eics">
+<code class="descname">eics</code><span class="sig-paren">(</span><em>meic_id</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.eics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.eics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of EICs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>meic_id</strong> (<em>string</em>) &#8211; ID of a meic that eics belong to</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of EICs objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.get_cic">
+<code class="descname">get_cic</code><span class="sig-paren">(</span><em>mcic_id</em>, <em>cic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.get_cic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.get_cic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single cic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mcic_id</strong> (<em>string</em>) &#8211; ID of a mcic</li>
+<li><strong>cic</strong> &#8211; The value can be the ID of a cic or a
+<code class="xref py py-class docutils literal"><span class="pre">CIC</span></code> instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">CIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.get_eic">
+<code class="descname">get_eic</code><span class="sig-paren">(</span><em>meic_id</em>, <em>eic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.get_eic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.get_eic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single eic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>meic_id</strong> (<em>string</em>) &#8211; ID of a meic</li>
+<li><strong>eic</strong> &#8211; The value can be the ID of a eic or a
+<code class="xref py py-class docutils literal"><span class="pre">EIC</span></code> instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">EIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.get_mcic">
+<code class="descname">get_mcic</code><span class="sig-paren">(</span><em>mcic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.get_mcic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.get_mcic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single mcic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mcic</strong> &#8211; The value can be the ID of a mcic or a
+<code class="xref py py-class docutils literal"><span class="pre">MCIC</span></code> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <code class="xref py py-class docutils literal"><span class="pre">MCIC</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.get_meic">
+<code class="descname">get_meic</code><span class="sig-paren">(</span><em>meic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.get_meic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.get_meic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single meic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>meic</strong> &#8211; The value can be the ID of a meic or a
+<code class="xref py py-class docutils literal"><span class="pre">MEIC</span></code> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <code class="xref py py-class docutils literal"><span class="pre">MEIC</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.get_operation">
+<code class="descname">get_operation</code><span class="sig-paren">(</span><em>operation</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.get_operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.get_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>operation</strong> &#8211; The value can be the ID of a operation or a
+<code class="xref py py-class docutils literal"><span class="pre">Operation</span></code> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <code class="xref py py-class docutils literal"><span class="pre">Operation</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.mcics">
+<code class="descname">mcics</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.mcics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.mcics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of MCICs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>query</strong> (<em>kwargs</em>) &#8211; Query parameter to get mCICs.
+* string tenant_id: ID of a tenant to retrieve mCICs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of MCICs objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.meics">
+<code class="descname">meics</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.meics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.meics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of MEICs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>query</strong> (<em>kwargs</em>) &#8211; Query parameter to get mEICs.
+* string tenant_id: ID of a tenant to retrieve mEICs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of MEICs objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.operations">
+<code class="descname">operations</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.operations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.operations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of MCICs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>query</strong> (<em>kwargs</em>) &#8211; Query parameter to get operations.
+* string mcic_id: ID of a mcic
+* string cic_id: ID of a cic</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of Operation objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.server_segments">
+<code class="descname">server_segments</code><span class="sig-paren">(</span><em>service_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.server_segments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.server_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of Server Segments.
+:param string service_id: Enterprise Cloud service ID
+:returns: A list of ServerSegment objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.update_cic">
+<code class="descname">update_cic</code><span class="sig-paren">(</span><em>mcic_id</em>, <em>cic</em>, <em>cic_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.update_cic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.update_cic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a single cic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mcic_id</strong> (<em>string</em>) &#8211; The value is the ID of a mcic</li>
+<li><strong>cic</strong> &#8211; The value can be the ID of a cic or a
+<code class="xref py py-class docutils literal"><span class="pre">CIC</span></code> instance.</li>
+<li><strong>cic_name</strong> &#8211; The name of CIC to update</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">CIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1._proxy.Proxy.update_eic">
+<code class="descname">update_eic</code><span class="sig-paren">(</span><em>meic_id</em>, <em>eic</em>, <em>eic_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/_proxy.html#Proxy.update_eic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1._proxy.Proxy.update_eic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a single eic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>meic_id</strong> (<em>string</em>) &#8211; The value is the ID of a meic</li>
+<li><strong>eic</strong> &#8211; The value can be the ID of a eic or a
+<code class="xref py py-class docutils literal"><span class="pre">EIC</span></code> instance.</li>
+<li><strong>eic_name</strong> &#8211; The name of EIC to update</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <code class="xref py py-class docutils literal"><span class="pre">EIC</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.connectivity.v1.cic">
+<span id="cic"></span><h1>cic<a class="headerlink" href="#module-ecl.connectivity.v1.cic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.connectivity.v1.cic.CIC">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1.cic.</code><code class="descname">CIC</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/cic.html#CIC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.bandwidth">
+<code class="descname">bandwidth</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.bandwidth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.base_path">
+<code class="descname">base_path</code><em class="property"> = '/mCICs/%(mcic_id)s/CICs'</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.cic_id">
+<code class="descname">cic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.cic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.cic_name">
+<code class="descname">cic_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.cic_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.cic_status">
+<code class="descname">cic_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.cic_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.colo_vlan">
+<code class="descname">colo_vlan</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.colo_vlan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.destination_vlan">
+<code class="descname">destination_vlan</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.destination_vlan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.mcic_id">
+<code class="descname">mcic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.mcic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.network_id">
+<code class="descname">network_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.network_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.network_name">
+<code class="descname">network_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.network_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.CIC.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'interconnectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.connectivity.v1.cic.CIC.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>mcic_id</em>, <em>cic_id</em>, <em>has_body=True</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/cic.html#CIC.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.cic.CIC.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.connectivity.v1.cic.EIC">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1.cic.</code><code class="descname">EIC</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/cic.html#EIC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.cic.EIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.connectivity.v1.cic.CIC" title="ecl.connectivity.v1.cic.CIC"><code class="xref py py-class docutils literal"><span class="pre">ecl.connectivity.v1.cic.CIC</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.EIC.cic_id">
+<code class="descname">cic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.EIC.cic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.EIC.colo_vlan">
+<code class="descname">colo_vlan</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.EIC.colo_vlan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.EIC.destination_vlan">
+<code class="descname">destination_vlan</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.EIC.destination_vlan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.EIC.server_segment_name">
+<code class="descname">server_segment_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.EIC.server_segment_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.cic.EIC.server_segment_nbr">
+<code class="descname">server_segment_nbr</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.cic.EIC.server_segment_nbr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.connectivity.v1.mcic">
+<span id="mcic"></span><h1>mcic<a class="headerlink" href="#module-ecl.connectivity.v1.mcic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.connectivity.v1.mcic.MCIC">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1.mcic.</code><code class="descname">MCIC</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/mcic.html#MCIC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.base_path">
+<code class="descname">base_path</code><em class="property"> = '/mCICs'</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.colo">
+<code class="descname">colo</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.colo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.mcic_id">
+<code class="descname">mcic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.mcic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.mcic_name">
+<code class="descname">mcic_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.mcic_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.mcic_status">
+<code class="descname">mcic_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.mcic_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.ngc">
+<code class="descname">ngc</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.ngc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'interconnectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.service_type">
+<code class="descname">service_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.service_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.tenant_name">
+<code class="descname">tenant_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.tenant_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MCIC.timezone">
+<code class="descname">timezone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MCIC.timezone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.connectivity.v1.mcic.MEIC">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1.mcic.</code><code class="descname">MEIC</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/mcic.html#MEIC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.mcic.MEIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.connectivity.v1.mcic.MCIC" title="ecl.connectivity.v1.mcic.MCIC"><code class="xref py py-class docutils literal"><span class="pre">ecl.connectivity.v1.mcic.MCIC</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MEIC.colo">
+<code class="descname">colo</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MEIC.colo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MEIC.ec">
+<code class="descname">ec</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MEIC.ec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MEIC.mcic_id">
+<code class="descname">mcic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MEIC.mcic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MEIC.service_id">
+<code class="descname">service_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MEIC.service_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.mcic.MEIC.tenant_name">
+<code class="descname">tenant_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.mcic.MEIC.tenant_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.connectivity.v1.operation">
+<span id="operation"></span><h1>operation<a class="headerlink" href="#module-ecl.connectivity.v1.operation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.connectivity.v1.operation.Operation">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1.operation.</code><code class="descname">Operation</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/operation.html#Operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.base_path">
+<code class="descname">base_path</code><em class="property"> = '/operations'</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.cic_id">
+<code class="descname">cic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.cic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.error_messages">
+<code class="descname">error_messages</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.error_messages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.mcic_id">
+<code class="descname">mcic_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.mcic_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.operation_body">
+<code class="descname">operation_body</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.operation_body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.operation_id">
+<code class="descname">operation_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.operation_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.operation_status">
+<code class="descname">operation_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.operation_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.operation_type">
+<code class="descname">operation_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.operation_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.receipt_date">
+<code class="descname">receipt_date</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.receipt_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'interconnectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.operation.Operation.user_name">
+<code class="descname">user_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.operation.Operation.user_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.connectivity.v1.server_segment">
+<span id="server-segment"></span><h1>server_segment<a class="headerlink" href="#module-ecl.connectivity.v1.server_segment" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment">
+<em class="property">class </em><code class="descclassname">ecl.connectivity.v1.server_segment.</code><code class="descname">ServerSegment</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/connectivity/v1/server_segment.html#ServerSegment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.base_path">
+<code class="descname">base_path</code><em class="property"> = '/ec_services/%(service_id)s/server_segments'</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'server_segments'</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.server_segment_name">
+<code class="descname">server_segment_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.server_segment_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>server segment name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.server_segment_nbr">
+<code class="descname">server_segment_nbr</code><em class="property"> = None</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.server_segment_nbr" title="Permalink to this definition">¶</a></dt>
+<dd><p>server segment number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.connectivity.v1.server_segment.ServerSegment.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'interconnectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.connectivity.v1.server_segment.ServerSegment.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.database.html" class="btn btn-neutral float-right" title="database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.connectivity.html" class="btn btn-neutral" title="connectivity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

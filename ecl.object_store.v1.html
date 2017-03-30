@@ -1,0 +1,1234 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>object_store methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="object_store" href="ecl.object_store.html"/>
+        <link rel="next" title="orchestration" href="ecl.orchestration.html"/>
+        <link rel="prev" title="object_store" href="ecl.object_store.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.object_store.html">object_store</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">object_store methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.object_store.v1.account">account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.object_store.v1.container">container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.object_store.v1.obj">obj</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.object_store.html">object_store</a> &raquo;</li>
+        
+      <li>object_store methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.object_store.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.object_store.v1._proxy">
+<span id="object-store-methods"></span><h1>object_store methods<a class="headerlink" href="#module-ecl.object_store.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.object_store.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.object_store.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.containers">
+<code class="descname">containers</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.containers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.containers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain Container objects for this account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A generator of
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> objects.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.copy_object">
+<code class="descname">copy_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.copy_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.copy_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy an object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.create_container">
+<code class="descname">create_container</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.create_container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.create_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new container from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>,
+comprised of the properties on the Container class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of container creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.delete_account_metadata">
+<code class="descname">delete_account_metadata</code><span class="sig-paren">(</span><em>keys</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.delete_account_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.delete_account_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete metadata for this account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keys</strong> &#8211; The keys of metadata to be deleted.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.delete_container">
+<code class="descname">delete_container</code><span class="sig-paren">(</span><em>container</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.delete_container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.delete_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a container</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> &#8211; The value can be either the name of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the container does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.delete_container_metadata">
+<code class="descname">delete_container_metadata</code><span class="sig-paren">(</span><em>container</em>, <em>keys</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.delete_container_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.delete_container_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete metadata for a container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> &#8211; The value can be the ID of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>keys</strong> &#8211; The keys of metadata to be deleted.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.delete_object">
+<code class="descname">delete_object</code><span class="sig-paren">(</span><em>obj</em>, <em>ignore_missing=True</em>, <em>container=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.delete_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.delete_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; The value can be either the name of an object or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>container</strong> &#8211; The value can be the ID of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the object does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.delete_object_metadata">
+<code class="descname">delete_object_metadata</code><span class="sig-paren">(</span><em>obj</em>, <em>container=None</em>, <em>keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.delete_object_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.delete_object_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete metadata for an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> &#8211; The value can be the name of an object or a
+<a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a> instance.</li>
+<li><strong>container</strong> &#8211; The value can be the ID of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>keys</strong> &#8211; The keys of metadata to be deleted.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.download_object">
+<code class="descname">download_object</code><span class="sig-paren">(</span><em>obj</em>, <em>container=None</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.download_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.download_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download the data contained inside an object to disk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; The value can be the name of an object or a
+<a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a> instance.</li>
+<li><strong>container</strong> &#8211; The value can be the name of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>str</strong> (<em>path</em>) &#8211; Location to write the object contents.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.get_account_metadata">
+<code class="descname">get_account_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.get_account_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.get_account_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata for this account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.object_store.v1.account.Account" title="ecl.object_store.v1.account.Account"><code class="xref py py-class docutils literal"><span class="pre">Account</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.get_container_metadata">
+<code class="descname">get_container_metadata</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.get_container_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.get_container_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata for a container</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>container</strong> &#8211; The value can be the name of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.get_object">
+<code class="descname">get_object</code><span class="sig-paren">(</span><em>obj</em>, <em>container=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.get_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.get_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data associated with an object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; The value can be the name of an object or a
+<a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a> instance.</li>
+<li><strong>container</strong> &#8211; The value can be the name of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The contents of the object.  Use the
+<a class="reference internal" href="#ecl.object_store.v1._proxy.Proxy.get_object_metadata" title="ecl.object_store.v1._proxy.Proxy.get_object_metadata"><code class="xref py py-func docutils literal"><span class="pre">get_object_metadata()</span></code></a>
+method if you want an object resource.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.get_object_metadata">
+<code class="descname">get_object_metadata</code><span class="sig-paren">(</span><em>obj</em>, <em>container=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.get_object_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.get_object_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get metadata for an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; The value can be the name of an object or a
+<a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a> instance.</li>
+<li><strong>container</strong> &#8211; The value can be the ID of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.objects">
+<code class="descname">objects</code><span class="sig-paren">(</span><em>container</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator that yields the Container&#8217;s objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> (<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>) &#8211; A container object or the name of a container
+that you want to retrieve objects from.</li>
+<li><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A generator of
+<a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a> objects.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.set_account_metadata">
+<code class="descname">set_account_metadata</code><span class="sig-paren">(</span><em>**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.set_account_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.set_account_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set metadata for this account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>metadata</strong> (<em>kwargs</em>) &#8211; Key/value pairs to be set as metadata
+on the container. Custom  metadata can be set.
+Custom metadata are keys and values defined
+by the user.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.set_container_metadata">
+<code class="descname">set_container_metadata</code><span class="sig-paren">(</span><em>container</em>, <em>**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.set_container_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.set_container_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set metadata for a container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> &#8211; The value can be the name of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>metadata</strong> (<em>kwargs</em>) &#8211; <p>Key/value pairs to be set as metadata
+on the container. Both custom and system
+metadata can be set. Custom metadata are keys
+and values defined by the user. System
+metadata are keys defined by the Object Store
+and values defined by the user. The system
+metadata keys are:</p>
+<ul>
+<li><cite>content_type</cite></li>
+<li><cite>is_content_type_detected</cite></li>
+<li><cite>versions_location</cite></li>
+<li><cite>read_ACL</cite></li>
+<li><cite>write_ACL</cite></li>
+<li><cite>sync_to</cite></li>
+<li><cite>sync_key</cite></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.set_object_metadata">
+<code class="descname">set_object_metadata</code><span class="sig-paren">(</span><em>obj</em>, <em>container=None</em>, <em>**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.set_object_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.set_object_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set metadata for an object.</p>
+<p>Note: This method will do an extra HEAD call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> &#8211; The value can be the name of an object or a
+<a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a> instance.</li>
+<li><strong>container</strong> &#8211; The value can be the name of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</li>
+<li><strong>metadata</strong> (<em>kwargs</em>) &#8211; <p>Key/value pairs to be set as metadata
+on the container. Both custom and system
+metadata can be set. Custom metadata are keys
+and values defined by the user. System
+metadata are keys defined by the Object Store
+and values defined by the user. The system
+metadata keys are:</p>
+<ul>
+<li><cite>content_type</cite></li>
+<li><cite>content_encoding</cite></li>
+<li><cite>content_disposition</cite></li>
+<li><cite>delete_after</cite></li>
+<li><cite>delete_at</cite></li>
+<li><cite>is_content_type_detected</cite></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1._proxy.Proxy.upload_object">
+<code class="descname">upload_object</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/_proxy.html#Proxy.upload_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1._proxy.Proxy.upload_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload a new object from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.object_store.v1.obj.Object" title="ecl.object_store.v1.obj.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a>,
+comprised of the properties on the Object class.
+<strong>Required</strong>: A <cite>container</cite> argument must be specified,
+which is either the ID of a container or a
+<a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>
+instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of object creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.object_store.v1.container.Container" title="ecl.object_store.v1.container.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.object_store.v1.account">
+<span id="account"></span><h1>account<a class="headerlink" href="#module-ecl.object_store.v1.account" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.object_store.v1.account.Account">
+<em class="property">class </em><code class="descclassname">ecl.object_store.v1.account.</code><code class="descname">Account</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/account.html#Account"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.account.Account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.object_store.v1._base.BaseResource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.account_bytes_used">
+<code class="descname">account_bytes_used</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.account_bytes_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>The total number of bytes that are stored in Object Storage for
+the account.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.account_container_count">
+<code class="descname">account_container_count</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.account_container_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of containers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.account_object_count">
+<code class="descname">account_object_count</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.account_object_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of objects in the account.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.allow_head">
+<code class="descname">allow_head</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.allow_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.base_path">
+<code class="descname">base_path</code><em class="property"> = '/'</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.meta_temp_url_key">
+<code class="descname">meta_temp_url_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.meta_temp_url_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The secret key value for temporary URLs. If not set,
+this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.meta_temp_url_key_2">
+<code class="descname">meta_temp_url_key_2</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.meta_temp_url_key_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A second secret key value for temporary URLs. If not set,
+this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.account.Account.timestamp">
+<code class="descname">timestamp</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.account.Account.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp of the transaction.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.object_store.v1.container">
+<span id="container"></span><h1>container<a class="headerlink" href="#module-ecl.object_store.v1.container" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.object_store.v1.container.Container">
+<em class="property">class </em><code class="descclassname">ecl.object_store.v1.container.</code><code class="descname">Container</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/container.html#Container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.container.Container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.object_store.v1._base.BaseResource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.allow_head">
+<code class="descname">allow_head</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.allow_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.base_path">
+<code class="descname">base_path</code><em class="property"> = '/'</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.bytes">
+<code class="descname">bytes</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The total number of bytes that are stored in Object Storage
+for the container.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.bytes_used">
+<code class="descname">bytes_used</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.bytes_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>The count of bytes used in total.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.content_type">
+<code class="descname">content_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.content_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The MIME type of the list of names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.count">
+<code class="descname">count</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of objects in the container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1.container.Container.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/container.html#Container.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.container.Container.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Resource from this instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">This instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.object_store.v1.container.Container.create_by_id">
+<em class="property">classmethod </em><code class="descname">create_by_id</code><span class="sig-paren">(</span><em>session</em>, <em>attrs</em>, <em>resource_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/container.html#Container.create_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.container.Container.create_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Resource from its attributes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>attrs</strong> (<em>dict</em>) &#8211; The attributes to be sent in the body
+of the request.</li>
+<li><strong>resource_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A <code class="docutils literal"><span class="pre">dict</span></code> representing the response headers.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'name'</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.if_none_match">
+<code class="descname">if_none_match</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.if_none_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>In combination with Expect: 100-Continue, specify an
+&#8220;If-None-Match: *&#8221; header to query whether the server already
+has a copy of the object before any data is sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.is_content_type_detected">
+<code class="descname">is_content_type_detected</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.is_content_type_detected" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set to true, Object Storage guesses the content type based
+on the file extension and ignores the value sent in the
+Content-Type header, if present. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.is_newest">
+<code class="descname">is_newest</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.is_newest" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set to True, Object Storage queries all replicas to return the
+most recent one. If you omit this header, Object Storage responds
+faster after it finds one valid replica. Because setting this
+header to True is more expensive for the back end, use it only
+when it is absolutely needed. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the container.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.object_count">
+<code class="descname">object_count</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.object_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.read_ACL">
+<code class="descname">read_ACL</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.read_ACL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ACL that grants read access. If not set, this header is not
+returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.sync_key">
+<code class="descname">sync_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.sync_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The secret key for container synchronization. If not set,
+this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.sync_to">
+<code class="descname">sync_to</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.sync_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>The destination for container synchronization. If not set,
+this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.timestamp">
+<code class="descname">timestamp</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp of the transaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.versions_location">
+<code class="descname">versions_location</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.versions_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables versioning on this container. The value is the name
+of another container. You must UTF-8-encode and then URL-encode
+the name before you include it in the header. To disable
+versioning, set the header to an empty string.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.container.Container.write_ACL">
+<code class="descname">write_ACL</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.container.Container.write_ACL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ACL that grants write access. If not set, this header is not
+returned by this operation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.object_store.v1.obj">
+<span id="obj"></span><h1>obj<a class="headerlink" href="#module-ecl.object_store.v1.obj" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.object_store.v1.obj.Object">
+<em class="property">class </em><code class="descclassname">ecl.object_store.v1.obj.</code><code class="descname">Object</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/obj.html#Object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.obj.Object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.object_store.v1._base.BaseResource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.accept_ranges">
+<code class="descname">accept_ranges</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.accept_ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of ranges that the object accepts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.allow_head">
+<code class="descname">allow_head</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.allow_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.base_path">
+<code class="descname">base_path</code><em class="property"> = '/%(container)s'</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.bytes">
+<code class="descname">bytes</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.container">
+<code class="descname">container</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.container" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique name for the container.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.content_disposition">
+<code class="descname">content_disposition</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.content_disposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, specifies the override behavior for the browser.
+For example, this header might specify that the browser use
+a download program to save this file rather than show the file,
+which is the default.
+If not set, this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.content_encoding">
+<code class="descname">content_encoding</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.content_encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, the value of the Content-Encoding metadata.
+If not set, this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.content_length">
+<code class="descname">content_length</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.content_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>HEAD operations do not return content. However, in this
+operation the value in the Content-Length header is not the
+size of the response body. Instead it contains the size of
+the object, in bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.content_type">
+<code class="descname">content_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.content_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The MIME type of the object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.copy_from">
+<code class="descname">copy_from</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.copy_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, this is the name of an object used to create the new
+object by copying the X-Copy-From object. The value is in form
+{container}/{object}. You must UTF-8-encode and then URL-encode
+the names of the container and object before you include them
+in the header.
+Using PUT with X-Copy-From has the same effect as using the
+COPY operation to copy an object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1.obj.Object.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/obj.html#Object.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.obj.Object.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.data">
+<code class="descname">data</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.delete_after">
+<code class="descname">delete_after</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.delete_after" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the number of seconds after which the object is
+removed. Internally, the Object Storage system stores this
+value in the X-Delete-At metadata item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.delete_at">
+<code class="descname">delete_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.delete_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, the time when the object will be deleted by the system
+in the format of a UNIX Epoch timestamp.
+If not set, this header is not returned by this operation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1.obj.Object.delete_metadata">
+<code class="descname">delete_metadata</code><span class="sig-paren">(</span><em>session</em>, <em>keys</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/obj.html#Object.delete_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.obj.Object.delete_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.etag">
+<code class="descname">etag</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.etag" title="Permalink to this definition">¶</a></dt>
+<dd><p>For objects smaller than 5 GB, this value is the MD5 checksum
+of the object content. The value is not quoted.
+For manifest objects, this value is the MD5 checksum of the
+concatenated string of MD5 checksums and ETags for each of
+the segments in the manifest, and not the MD5 checksum of
+the content that was downloaded. Also the value is enclosed
+in double-quote characters.
+You are strongly recommended to compute the MD5 checksum of
+the response body as it is received and compare this value
+with the one in the ETag header. If they differ, the content
+was corrupted, so retry the operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.expires_at">
+<code class="descname">expires_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.expires_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used with temporary URLs to specify the expiry time of the
+signature. For more information about temporary URLs, see
+OpenStack Object Storage API v1 Reference.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1.obj.Object.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>include_headers=False</em>, <em>args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/obj.html#Object.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.obj.Object.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.hash">
+<code class="descname">hash</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'name'</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.if_match">
+<code class="descname">if_match</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.if_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.if_modified_since">
+<code class="descname">if_modified_since</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.if_modified_since" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.if_none_match">
+<code class="descname">if_none_match</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.if_none_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>In combination with Expect: 100-Continue, specify an
+&#8220;If-None-Match: *&#8221; header to query whether the server already
+has a copy of the object before any data is sent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.if_unmodified_since">
+<code class="descname">if_unmodified_since</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.if_unmodified_since" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.is_content_type_detected">
+<code class="descname">is_content_type_detected</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.is_content_type_detected" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set to true, Object Storage guesses the content type based
+on the file extension and ignores the value sent in the
+Content-Type header, if present. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.is_newest">
+<code class="descname">is_newest</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.is_newest" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set to True, Object Storage queries all replicas to return
+the most recent one. If you omit this header, Object Storage
+responds faster after it finds one valid replica. Because
+setting this header to True is more expensive for the back end,
+use it only when it is absolutely needed. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.is_static_large_object">
+<code class="descname">is_static_large_object</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.is_static_large_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to True if this object is a static large object manifest object.
+<em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.last_modified_at">
+<code class="descname">last_modified_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.last_modified_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time that the object was created or the last
+time that the metadata was changed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.multipart_manifest">
+<code class="descname">multipart_manifest</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.multipart_manifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>If you include the multipart-manifest=get query parameter and
+the object is a large object, the object contents are not
+returned. Instead, the manifest is returned in the
+X-Object-Manifest response header for dynamic large objects
+or in the response body for static large objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique name for the object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.object_manifest">
+<code class="descname">object_manifest</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.object_manifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, to this is a dynamic large object manifest object.
+The value is the container and object name prefix of the
+segment objects in the form container/prefix.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.range">
+<code class="descname">range</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO(briancurtin) there&#8217;s a lot of content here...</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'object-store', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.object_store.v1.obj.Object.set_metadata">
+<code class="descname">set_metadata</code><span class="sig-paren">(</span><em>session</em>, <em>metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/object_store/v1/obj.html#Object.set_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.object_store.v1.obj.Object.set_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.signature">
+<code class="descname">signature</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used with temporary URLs to sign the request. For more
+information about temporary URLs, see OpenStack Object Storage
+API v1 Reference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.timestamp">
+<code class="descname">timestamp</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp of the transaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.object_store.v1.obj.Object.transfer_encoding">
+<code class="descname">transfer_encoding</code><em class="property"> = None</em><a class="headerlink" href="#ecl.object_store.v1.obj.Object.transfer_encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to chunked to enable chunked transfer encoding. If used,
+do not set the Content-Length header to a non-zero value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.orchestration.html" class="btn btn-neutral float-right" title="orchestration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.object_store.html" class="btn btn-neutral" title="object_store" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

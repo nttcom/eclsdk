@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.baremetal.v2.server &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.baremetal.v2.server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.baremetal.v2.server</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.baremetal</span> <span class="k">import</span> <span class="n">baremetal_service</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+
+
+<div class="viewcode-block" id="Server"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.Server">[docs]</a><span class="k">class</span> <span class="nc">Server</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="s2">&quot;servers&quot;</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="s2">&quot;server&quot;</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">baremetal_service</span><span class="o">.</span><span class="n">BaremetalService</span><span class="p">()</span>
+
+    <span class="c1"># Capabilities</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: UUID of the Baremetal server.</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="c1">#: Link of the Baremetal server.</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;links&#39;</span><span class="p">)</span>
+    <span class="c1">#: Name of the Baremetal server.</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1">#: Password for the administrator.</span>
+    <span class="c1">#: This parameter is shown only once, so you have to memo.</span>
+    <span class="c1">#: Please refer OS specific limitations adminPass raw to know the</span>
+    <span class="c1">#: required administrator name for each OS.</span>
+    <span class="n">adminPass</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;adminPass&#39;</span><span class="p">)</span>
+    <span class="n">admin_pass</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;adminPass&#39;</span><span class="p">)</span>
+    <span class="c1">#: SSH Keypair name you created on KeyPairs API.</span>
+    <span class="n">key_name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;key_name&#39;</span><span class="p">)</span>
+    <span class="c1">#: Power state: {&quot;RUNNING&quot;:&quot;The server is running.&quot;,</span>
+    <span class="c1">#: &quot;SHUTDOWN&quot;:&quot;The server was shut down.&quot;,</span>
+    <span class="c1">#: &quot;CRASHED&quot;:&quot;The server lost powor controll information temporary.</span>
+    <span class="c1">#: Status transfer RUNNING/SHUTDOWN Automatically.&quot;}</span>
+    <span class="n">OS_EXT_STS_power_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:power_state&#39;</span><span class="p">)</span>
+    <span class="n">power_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:power_state&#39;</span><span class="p">)</span>
+    <span class="c1">#: Task state: {None:&quot;There are no tasks. Only this status can be</span>
+    <span class="c1">#: received API requests.&quot;, &quot;BUILDING&quot;:&quot;The task is building the</span>
+    <span class="c1">#: Baremetal Server. This status is transfered by Create Server.&quot;,</span>
+    <span class="c1">#: &quot;DELETING&quot;:&quot;The task is deleting the Baremetal Server. This status</span>
+    <span class="c1">#: is transfered by Delete Server.&quot;, &quot;STOPPING&quot;:&quot;The task is stopping</span>
+    <span class="c1">#: the Baremetal Server. This status is transfered by Stop Server.&quot;,</span>
+    <span class="c1">#: &quot;STARTING&quot;:&quot;The task is starting the Baremetal Server. This status</span>
+    <span class="c1">#: is transfered by Start Server.&quot;, &quot;REBOOTING&quot;:&quot;The task is rebooting</span>
+    <span class="c1">#: the Baremetal Server. This status is transfered by Reboot Server.&quot;}</span>
+    <span class="n">OS_EXT_STS_task_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:task_state&#39;</span><span class="p">)</span>
+    <span class="n">task_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:task_state&#39;</span><span class="p">)</span>
+    <span class="c1">#: VM state: {&quot;ACTIVE&quot;:&quot;The Baremetal server is active.</span>
+    <span class="c1">#: This status is target of billing.&quot;, &quot;BUILD&quot;:&quot;The Baremetal server</span>
+    <span class="c1">#: is built.&quot;, &quot;ERROR&quot;: &quot;The Baremetal server is outputing a error.</span>
+    <span class="c1">#: There is necessity to report to our support.&quot;, &quot;DELETED&quot;:&quot;The</span>
+    <span class="c1">#: Baremetal server is deleted.&quot;}</span>
+    <span class="n">OS_EXT_STS_vm_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:vm_state&#39;</span><span class="p">)</span>
+    <span class="n">vm_state</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-STS:vm_state&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s availability zone.</span>
+    <span class="n">OS_EXT_AZ_availability_zone</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-AZ:availability_zone&#39;</span><span class="p">)</span>
+    <span class="n">availability_zone</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;OS-EXT-AZ:availability_zone&#39;</span><span class="p">)</span>
+    <span class="c1">#: Sever&#39;s created time.</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s flavor information.</span>
+    <span class="n">flavor</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;flavor&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s host ID.</span>
+    <span class="n">hostId</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;hostId&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s ID.</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s image information.</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;metadata&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s links information.</span>
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;progress&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s metadata information.</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s tenant id.</span>
+    <span class="n">tenant_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s updated time.</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;updated&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s user id.</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s raid arrays information.</span>
+    <span class="n">raid_arrays</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;raid_arrays&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s lvm volume groups information.</span>
+    <span class="n">lvm_volume_groups</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;lvm_volume_groups&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s file system information.</span>
+    <span class="n">filesystems</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;filesystems&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s nic physical ports information.</span>
+    <span class="n">nic_physical_ports</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;nic_physical_ports&#39;</span><span class="p">)</span>
+    <span class="c1">#: Server&#39;s chassis status information.</span>
+    <span class="n">chassis_status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;chassis-status&#39;</span><span class="p">)</span>
+    <span class="c1">#: managed_by_service</span>
+    <span class="n">managed_by_service</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;managed_by_service&#39;</span><span class="p">)</span>
+    <span class="n">media_attachments</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;media_attachments&#39;</span><span class="p">)</span>
+    <span class="c1">#: key_pair name</span>
+    <span class="n">key_name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;key_name&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Server.create"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.Server.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;server&quot;</span><span class="p">:</span> <span class="n">attrs</span><span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+
+
+<div class="viewcode-block" id="ServerDetail"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerDetail">[docs]</a><span class="k">class</span> <span class="nc">ServerDetail</span><span class="p">(</span><span class="n">Server</span><span class="p">):</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers/detail&#39;</span>
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+
+<div class="viewcode-block" id="ServerAction"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction">[docs]</a><span class="k">class</span> <span class="nc">ServerAction</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="s2">&quot;console&quot;</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/servers/</span><span class="si">%s</span><span class="s1">/action&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">baremetal_service</span><span class="o">.</span><span class="n">BaremetalService</span><span class="p">()</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: Type of the remote console. Valid values are IPMI or IMM.</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+    <span class="c1">#: URL to access the remote console.</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span>
+    <span class="c1">#: User ID for sign in to the remote console.</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: Password for sign in to the remote console.</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ServerAction.start"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">boot_mode</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;os-start&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;boot_mode&quot;</span><span class="p">:</span> <span class="n">boot_mode</span><span class="p">}}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ServerAction.stop"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;os-stop&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ServerAction.reboot"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.reboot">[docs]</a>    <span class="k">def</span> <span class="nf">reboot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">boot_mode</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;reboot&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+                <span class="s2">&quot;boot_mode&quot;</span><span class="p">:</span> <span class="n">boot_mode</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ServerAction.media_attach"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.media_attach">[docs]</a>    <span class="k">def</span> <span class="nf">media_attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;media-attach&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;imageRef&quot;</span><span class="p">:</span> <span class="n">image</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ServerAction.media_detach"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.media_detach">[docs]</a>    <span class="k">def</span> <span class="nf">media_detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;media-detach&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;imageRef&quot;</span><span class="p">:</span> <span class="n">image</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ServerAction.get_management_console"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.get_management_console">[docs]</a>    <span class="k">def</span> <span class="nf">get_management_console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span> <span class="o">%</span> <span class="n">server_id</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;os-getManagementConsole&quot;</span><span class="p">:</span> <span class="kc">None</span>
+        <span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">uri</span><span class="p">,</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ServerAction.find"><a class="viewcode-back" href="../../../../ecl.baremetal.v2.html#ecl.baremetal.v2.server.ServerAction.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a resource by its name or id.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+<span class="sd">        :param name_or_id: This resource&#39;s identifier, if needed by</span>
+<span class="sd">                           the request. The default is ``None``.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :param dict params: Any additional parameters to be passed into</span>
+<span class="sd">                            underlying methods, such as to</span>
+<span class="sd">                            :meth:`~ecl.resource2.Resource.existing`</span>
+<span class="sd">                            in order to pass on URI parameters.</span>
+
+<span class="sd">        :return: The :class:`Resource` object matching the given name or id</span>
+<span class="sd">                 or None if nothing matches.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.DuplicateResource` if more</span>
+<span class="sd">                 than one resource is found for this request.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.ResourceNotFound` if nothing</span>
+<span class="sd">                 is found and ignore_missing is ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Try to short-circuit by looking directly for a matching ID.</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_one_match</span><span class="p">(</span><span class="n">name_or_id</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">if</span> <span class="n">ignore_missing</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceNotFound</span><span class="p">(</span>
+            <span class="s2">&quot;No </span><span class="si">%s</span><span class="s2"> found for </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

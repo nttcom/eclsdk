@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.image.v2.image &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.image.v2.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.image.v2.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">ecl.image</span> <span class="k">import</span> <span class="n">image_service</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<div class="viewcode-block" id="Image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.image.Image">[docs]</a><span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="s1">&#39;images&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">image_service</span><span class="o">.</span><span class="n">ImageService</span><span class="p">()</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">service</span><span class="o">.</span><span class="n">version</span> <span class="o">+</span> <span class="s1">&#39;/images&#39;</span>
+
+
+    <span class="c1"># capabilities</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">patch_update</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">_query_mapping</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">QueryParameters</span><span class="p">(</span>
+        <span class="s2">&quot;limit&quot;</span><span class="p">,</span> <span class="s2">&quot;marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;member_status&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;size_min&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;size_max&quot;</span><span class="p">,</span> <span class="s2">&quot;sort_key&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sort_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;tag&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># NOTE: Do not add &quot;self&quot; support here. If you&#39;ve used Python before,</span>
+    <span class="c1"># you know that self, while not being a reserved word, has special</span>
+    <span class="c1"># meaning. You can&#39;t call a class initializer with the self name</span>
+    <span class="c1"># as the first argument and then additionally in kwargs, as we</span>
+    <span class="c1"># do when we&#39;re constructing instances from the JSON body.</span>
+    <span class="c1"># Resource.list explicitly pops off any &quot;self&quot; keys from bodies so</span>
+    <span class="c1"># that we don&#39;t end up getting the following:</span>
+    <span class="c1"># TypeError: __init__() got multiple values for argument &#39;self&#39;</span>
+
+    <span class="c1"># The image data (bytes or a file-like object)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: Descriptive name for the image</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="c1">#: Status of the image</span>
+    <span class="n">image_status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="c1">#: String related to the image</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+    <span class="c1">#: The container format refers to whether the VM image is in a file</span>
+    <span class="c1">#: format that also contains metadata about the actual VM.</span>
+    <span class="c1">#: Container formats include OVF and Amazon AMI. In addition,</span>
+    <span class="c1">#: a VM image might not have a container format - instead,</span>
+    <span class="c1">#: the image is just a blob of unstructured data.</span>
+    <span class="n">container_format</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;container_format&#39;</span><span class="p">)</span>
+    <span class="c1">#: Date and time of image registration</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">)</span>
+    <span class="c1">#: Valid values are: aki, ari, ami, raw, iso, vhd, vdi, qcow2, or vmdk.</span>
+    <span class="c1">#: The disk format of a VM image is the format of the underlying</span>
+    <span class="c1">#: disk image. Virtual appliance vendors have different formats</span>
+    <span class="c1">#: for laying out the information contained in a VM disk image.</span>
+    <span class="n">disk_format</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;disk_format&#39;</span><span class="p">)</span>
+    <span class="c1">#: Include location_url and location_metadata.</span>
+    <span class="c1">#: location_url: URL to access the image file kept in external store</span>
+    <span class="c1">#: (it is shown when &#39;show_multiple_locations&#39; option is enabled)</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;locations&#39;</span><span class="p">)</span>
+    <span class="c1">#: The URL to access the image file kept in external store. It appears</span>
+    <span class="c1">#: when you set the show_image_direct_url option to true in the</span>
+    <span class="c1">#: Image service&#39;s configuration file.</span>
+    <span class="n">direct_url</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;direct_url&#39;</span><span class="p">)</span>
+    <span class="c1">#: Date and time of the last image modification.</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;updated_at&#39;</span><span class="p">)</span>
+    <span class="c1">#: The image visibility.</span>
+    <span class="n">visibility</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;visibility&#39;</span><span class="p">)</span>
+    <span class="c1">#: Amount of disk space (in GB) required to boot image.</span>
+    <span class="n">min_disk</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;min_disk&#39;</span><span class="p">)</span>
+    <span class="c1">#: If true, image will not be deletable.</span>
+    <span class="n">protected</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;protected&#39;</span><span class="p">)</span>
+    <span class="c1">#: An identifier for the image.</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="c1">#: URL for the virtual machine image file.</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
+    <span class="c1">#: md5 hash of image contents</span>
+    <span class="n">checksum</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;checksum&#39;</span><span class="p">)</span>
+    <span class="c1">#: Owner of the image.</span>
+    <span class="n">owner</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;owner&#39;</span><span class="p">)</span>
+    <span class="c1">#: Size of image file in bytes.</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">)</span>
+    <span class="c1">#: Amount of ram (in MB) required to boot image.</span>
+    <span class="n">min_ram</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;min_ram&#39;</span><span class="p">)</span>
+    <span class="c1">#: URL for schema of the virtual machine image.</span>
+    <span class="n">image_schema</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;image_schema&#39;</span><span class="p">)</span>
+    <span class="c1">##: URL for the virtual machine image.</span>
+    <span class="bp">self</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">)</span>
+
+    <span class="c1">#: URL for schema of the virtual machine images.</span>
+    <span class="n">images_schema</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;images_schema&#39;</span><span class="p">)</span>
+    <span class="c1">#: URL for the first page of response</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+
+    <span class="c1">#: The key of the extra properties.</span>
+    <span class="n">extra_key</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;extra_key&#39;</span><span class="p">)</span>
+    <span class="c1">#: The value of the extra properties.</span>
+    <span class="n">extra_value</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;extra_value&#39;</span><span class="p">)</span>
+    <span class="c1">#: OS information of this image.</span>
+    <span class="n">os_type</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;.os.type&#39;</span><span class="p">)</span>
+    <span class="c1">#: Service information of this image.</span>
+    <span class="n">service_type</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;.service.type&#39;</span><span class="p">)</span>
+
+    <span class="c1"># def _get_image_with_extra_key(self, attr):</span>
+    <span class="c1">#     image = self.existing(**attr)</span>
+    <span class="c1">#</span>
+    <span class="c1">#     for key in attr.keys():</span>
+    <span class="c1">#         if not hasattr(image, key):</span>
+    <span class="c1">#             image.__setattr__(key, attr[key])</span>
+    <span class="c1">#     return image</span>
+    <span class="c1">#</span>
+    <span class="c1"># def list(self, session, **query):</span>
+    <span class="c1">#     &quot;&quot;&quot;Lists virtual machine (VM) images.&quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1">#     if query != None:</span>
+    <span class="c1">#         query_params = self._query_mapping._transpose(query)</span>
+    <span class="c1">#         uri = self.base_path</span>
+    <span class="c1">#</span>
+    <span class="c1">#         params = []</span>
+    <span class="c1">#         for key in query_params.keys():</span>
+    <span class="c1">#             item = &quot;%s=%s&quot; % (str(key), str(query_params[key]))</span>
+    <span class="c1">#             params.append(item)</span>
+    <span class="c1">#</span>
+    <span class="c1">#         if len(params) != 0:</span>
+    <span class="c1">#             uri += &#39;?&#39;</span>
+    <span class="c1">#             for item in params:</span>
+    <span class="c1">#                 uri += item + &#39;&amp;&#39;</span>
+    <span class="c1">#             uri = uri[:-1]</span>
+    <span class="c1">#</span>
+    <span class="c1">#     resp = session.get(</span>
+    <span class="c1">#         uri,</span>
+    <span class="c1">#         headers={&quot;Accept&quot;: &quot;application/json&quot;},</span>
+    <span class="c1">#         endpoint_filter=self.service</span>
+    <span class="c1">#     )</span>
+    <span class="c1">#     resp = resp.json()</span>
+    <span class="c1">#     images_schema = resp[&#39;schema&#39;]</span>
+    <span class="c1">#     first = resp[&#39;first&#39;]</span>
+    <span class="c1">#     resp = resp[self.resources_key]</span>
+    <span class="c1">#</span>
+    <span class="c1">#     for data in resp:</span>
+    <span class="c1">#         # Do not allow keys called &quot;self&quot; through. Glance chose</span>
+    <span class="c1">#         # to name a key &quot;self&quot;, so we need to pop it out because</span>
+    <span class="c1">#         # we can&#39;t send it through cls.existing and into the</span>
+    <span class="c1">#         # Resource initializer. &quot;self&quot; is already the first</span>
+    <span class="c1">#         # argument and is practically a reserved word.</span>
+    <span class="c1">#         data.pop(&quot;self&quot;, None)</span>
+    <span class="c1">#</span>
+    <span class="c1">#         image = self._get_image_with_extra_key(data)</span>
+    <span class="c1">#         image.images_schema = images_schema</span>
+    <span class="c1">#         image.first = first</span>
+    <span class="c1">#</span>
+    <span class="c1">#         yield image</span>
+
+<div class="viewcode-block" id="Image.get"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.image.Image.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single image&#39;s detailed information.&quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="n">image_id</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">url</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+            <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span>
+        <span class="p">)</span>
+        <span class="c1">#For extra key/value use.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Image.update"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.image.Image.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">attrs_list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Updates a specified image.&quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="n">image_id</span><span class="p">)</span>
+        <span class="n">attrs_list</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">attrs_list</span><span class="p">)</span>
+
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">attrs_list</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/openstack-images-v2.1-json-patch&quot;</span><span class="p">,</span> <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Image.upload"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.image.Image.upload">[docs]</a>    <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">image_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Upload data into an existing image&quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+                    <span class="n">data</span><span class="o">=</span><span class="n">image_data</span><span class="p">,</span>
+                    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/octet-stream&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Image.download"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.image.Image.download">[docs]</a>    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download the data contained in an image&quot;&quot;&quot;</span>
+        <span class="c1"># TODO(briancurtin): This method should probably offload the get</span>
+        <span class="c1"># operation into another thread or something of that nature.</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_path</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">content</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Image.find"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2.image.Image.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a resource by its name or id.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+<span class="sd">        :param name_or_id: This resource&#39;s identifier, if needed by</span>
+<span class="sd">                           the request. The default is ``None``.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :param dict params: Any additional parameters to be passed into</span>
+<span class="sd">                            underlying methods, such as to</span>
+<span class="sd">                            :meth:`~ecl.resource2.Resource.existing`</span>
+<span class="sd">                            in order to pass on URI parameters.</span>
+
+<span class="sd">        :return: The :class:`Resource` object matching the given name or id</span>
+<span class="sd">                 or None if nothing matches.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.DuplicateResource` if more</span>
+<span class="sd">                 than one resource is found for this request.</span>
+<span class="sd">        :raises: :class:`ecl.exceptions.ResourceNotFound` if nothing</span>
+<span class="sd">                 is found and ignore_missing is ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Try to short-circuit by looking directly for a matching ID.</span>
+        <span class="n">params</span><span class="p">[</span><span class="s2">&quot;limit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10000</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_one_match</span><span class="p">(</span><span class="n">name_or_id</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">if</span> <span class="n">ignore_missing</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceNotFound</span><span class="p">(</span>
+            <span class="s2">&quot;No </span><span class="si">%s</span><span class="s2"> found for </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

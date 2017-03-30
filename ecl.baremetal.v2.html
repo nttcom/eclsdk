@@ -1,0 +1,2176 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>baremetal methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="baremetal" href="ecl.baremetal.html"/>
+        <link rel="next" title="block_store" href="ecl.block_store.html"/>
+        <link rel="prev" title="baremetal" href="ecl.baremetal.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.baremetal.html">baremetal</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">baremetal methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.keypair">keypair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.limits">limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.metadata">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.nic_physical_port">nic_physical_port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.server">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.stock">stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.baremetal.v2.uefi">uefi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.baremetal.html">baremetal</a> &raquo;</li>
+        
+      <li>baremetal methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.baremetal.v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.baremetal.v2._proxy">
+<span id="baremetal-methods"></span><h1>baremetal methods<a class="headerlink" href="#module-ecl.baremetal.v2._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.availability_zones">
+<code class="descname">availability_zones</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.availability_zones"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.availability_zones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of availability zones for baremetal servers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone" title="ecl.baremetal.v2.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZone</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.create_keypair">
+<code class="descname">create_keypair</code><span class="sig-paren">(</span><em>name</em>, <em>public_key=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.create_keypair"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.create_keypair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate or import SSH keys. After generating a KeyPair,
+please specify the key_name parameter in the request body
+in Create Server request to associate the new server with SSH keys.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; The name associated with a KeyPair.</li>
+<li><strong>public_key</strong> (<em>string</em>) &#8211; Keypair&#8217;s public key.
+If you do not specify this parameter,
+You can get the private key from Responce.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Keypair</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.create_server">
+<code class="descname">create_server</code><span class="sig-paren">(</span><em>name</em>, <em>networks</em>, <em>flavor</em>, <em>admin_pass=None</em>, <em>image=None</em>, <em>key_name=None</em>, <em>availability_zone=None</em>, <em>user_data=None</em>, <em>raid_arrays=None</em>, <em>lvm_volume_groups=None</em>, <em>filesystems=None</em>, <em>metadata=None</em>, <em>personality=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.create_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.create_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API create additional Baremetal server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of your Baremetal server as a string.</li>
+<li><strong>networks</strong> (<em>array</em>) &#8211; Network Array.
+If it is specified greater than two, default gateway is
+first network.</li>
+<li><strong>flavor</strong> (<em>string</em>) &#8211; The flavor reference for the desired flavor for your
+Baremetal server.</li>
+<li><strong>admin_pass</strong> (<em>string</em>) &#8211; Password for the administrator.</li>
+<li><strong>image</strong> (<em>string</em>) &#8211; The image reference for the desired image for your
+Baremetal server.</li>
+<li><strong>key_name</strong> (<em>string</em>) &#8211; SSH Keypair name you created on KeyPairs API.</li>
+<li><strong>availability_zone</strong> (<em>string</em>) &#8211; The availability zone name in which to launch
+the server.</li>
+<li><strong>user_data</strong> (<em>string</em>) &#8211; Configuration information or scripts to use upon
+launch. Must be Base64 encoded. Maximum size is 65535 bytes.</li>
+<li><strong>raid_arrays</strong> (<em>array</em>) &#8211; Raid Arrays information.</li>
+<li><strong>lvm_volume_groups</strong> (<em>array</em>) &#8211; LVM information. must be sure to specify
+if you have to true lvm parameters Raid Arrays.</li>
+<li><strong>filesystems</strong> (<em>array</em>) &#8211; Partition filesystem / mount point information.</li>
+<li><strong>metadata</strong> (<em>dict</em>) &#8211; Metadata key and value pairs. The maximum size of the
+metadata key and value is 255 bytes each.</li>
+<li><strong>personality</strong> (<em>array</em>) &#8211; File path and contents (text only) to inject into
+your Baremetal server at launch. This parameter is not supported in
+esxi.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.server.Server" title="ecl.baremetal.v2.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.delete_keypair">
+<code class="descname">delete_keypair</code><span class="sig-paren">(</span><em>keypair_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.delete_keypair"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.delete_keypair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete KeyPair associated with keypair_name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keypair_name</strong> (<em>string</em>) &#8211; The name associated with a KeyPair.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.delete_metadata">
+<code class="descname">delete_metadata</code><span class="sig-paren">(</span><em>server_id</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.delete_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.delete_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API deletes metadata item (key and value) by specifying
+key for a specified server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</li>
+<li><strong>key</strong> (<em>string</em>) &#8211; A string. Maximum length is 255 characters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.delete_server">
+<code class="descname">delete_server</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.delete_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.delete_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API deletes a specified Baremetal server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for the specified server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.find_availability_zone">
+<code class="descname">find_availability_zone</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.find_availability_zone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.find_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single availability_zone</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> (<em>string</em>) &#8211; The name or ID of an availability zone.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone" title="ecl.baremetal.v2.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZone</span></code></a> or <code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.find_flavor">
+<code class="descname">find_flavor</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.find_flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.find_flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single flavor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> (<em>string</em>) &#8211; Name or ID of a flavor.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.flavor.Flavor" title="ecl.baremetal.v2.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">Flavor</span></code></a> or <code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.find_server">
+<code class="descname">find_server</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.find_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.find_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single baremetal server</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> (<em>string</em>) &#8211; Name or ID of a server.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.server.Server" title="ecl.baremetal.v2.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a> or <code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.flavors">
+<code class="descname">flavors</code><span class="sig-paren">(</span><em>details=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists all Flavor. That hash only id, links and name.
+If you want to get detail flavor information, call List Flavors
+Detail API. A flavor is a hardware configuration for a server.
+Each flavor is a unique combination of disk space and memory
+capacity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A List of <a class="reference internal" href="#ecl.baremetal.v2.flavor.Flavor" title="ecl.baremetal.v2.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">Flavor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_flavor">
+<code class="descname">get_flavor</code><span class="sig-paren">(</span><em>flavor_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets details for a FlavorDetail associated with flavor_id.
+A flavor is a hardware configuration for a server.
+Each flavor is a unique combination of disk space and memory
+capacity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flavor_id</strong> (<em>string</em>) &#8211; ID of a flavor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.baremetal.v2.flavor.Flavor" title="ecl.baremetal.v2.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">Flavor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_keypair">
+<code class="descname">get_keypair</code><span class="sig-paren">(</span><em>keypair_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_keypair"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_keypair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a KeyPair associated with keypair_name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keypair</strong> (<em>string</em>) &#8211; The name associated with a KeyPair.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.baremetal.v2.keypair.Keypair" title="ecl.baremetal.v2.keypair.Keypair"><code class="xref py py-class docutils literal"><span class="pre">Keypair</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_limits">
+<code class="descname">get_limits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API lists the current limits for the account</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.baremetal.v2.limits.Limits" title="ecl.baremetal.v2.limits.Limits"><code class="xref py py-class docutils literal"><span class="pre">Limits</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_management_console">
+<code class="descname">get_management_console</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_management_console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_management_console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets information to access the remote console of Baremetal
+Server. This request will be accepted only when the task_state
+is None.
+This API response console parameters are used at Remote Console
+Access - Get Started. To access your Baremetal Server, you have
+to create VPN user and connect to VPN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.baremetal.v2.server.ServerAction" title="ecl.baremetal.v2.server.ServerAction"><code class="xref py py-class docutils literal"><span class="pre">ServerAction</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_nic_physical_port">
+<code class="descname">get_nic_physical_port</code><span class="sig-paren">(</span><em>server_id</em>, <em>port_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_nic_physical_port"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_nic_physical_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API shows the specified NicPhysicalPort information for
+specified server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the specified server.</li>
+<li><strong>port_id</strong> (<em>string</em>) &#8211; ID for the specified network interface port.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort" title="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort"><code class="xref py py-class docutils literal"><span class="pre">NicPhysicalPort</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_server">
+<code class="descname">get_server</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show your Baremetal server&#8217;s information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.baremetal.v2.server.Server" title="ecl.baremetal.v2.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_stock">
+<code class="descname">get_stock</code><span class="sig-paren">(</span><em>flavor_id</em>, <em>availability_zone=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_stock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API show which Baremetal server stock is available or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>flavor_id</strong> (<em>string</em>) &#8211; UUID of the flavor for search stock.</li>
+<li><strong>availability_zone</strong> (<em>string</em>) &#8211; Name of the AvailabilityZone.
+If you specified this parameter, search stock from Baremetal
+server that matching AvailabilityZone and flavor_id.
+If you omit this parameter, stock search from all Baremetal
+server that matching flavor_id.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.stock.Stock" title="ecl.baremetal.v2.stock.Stock"><code class="xref py py-class docutils literal"><span class="pre">Stock</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_uefi">
+<code class="descname">get_uefi</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_uefi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_uefi" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API shows the UEFI setting information for specified Baremetal server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for the requested server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">UEFI</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show Baremetal Server API version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.keypairs">
+<code class="descname">keypairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.keypairs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.keypairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists name, public_key and finger_print for all KeyPairs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of <a class="reference internal" href="#ecl.baremetal.v2.keypair.Keypair" title="ecl.baremetal.v2.keypair.Keypair"><code class="xref py py-class docutils literal"><span class="pre">Keypair</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.media_attach">
+<code class="descname">media_attach</code><span class="sig-paren">(</span><em>server_id</em>, <em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.media_attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.media_attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach media to the Baremetal Server associated with server_id.
+This request will be accepted only when the task_state is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</li>
+<li><strong>image</strong> (<em>string</em>) &#8211; ID of the image you want to attach.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.media_detach">
+<code class="descname">media_detach</code><span class="sig-paren">(</span><em>server_id</em>, <em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.media_detach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.media_detach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach media from the Baremetal Server associated with server_id.
+This request will be accepted only when the task_state is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</li>
+<li><strong>image</strong> (<em>string</em>) &#8211; ID of the image you want to detach.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.merge_metadata">
+<code class="descname">merge_metadata</code><span class="sig-paren">(</span><em>server_id</em>, <em>**attr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.merge_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.merge_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API creates or merges metadata for a specified server.
+This API replaces items which match the specified keys in the
+request. This API does not remove items, unlike Replace Server
+Metadata Items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</li>
+<li><strong>attr</strong> (<em>kwargs</em>) &#8211; Keyword arguments which will be used to do update
+process for <code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.metadata.Metadata" title="ecl.baremetal.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.metadata">
+<code class="descname">metadata</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API lists metadata for a specified server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of <a class="reference internal" href="#ecl.baremetal.v2.metadata.Metadata" title="ecl.baremetal.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.nic_physical_ports">
+<code class="descname">nic_physical_ports</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.nic_physical_ports"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.nic_physical_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API lists all NicPhysicalPort information for the
+specified server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for the specified server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of <a class="reference internal" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort" title="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort"><code class="xref py py-class docutils literal"><span class="pre">NicPhysicalPort</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.reboot_server">
+<code class="descname">reboot_server</code><span class="sig-paren">(</span><em>server_id</em>, <em>type</em>, <em>boot_mode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.reboot_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.reboot_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot the Baremetal Server associated with server_id.
+This request will be accepted only when the task_state is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</li>
+<li><strong>type</strong> (<em>string</em>) &#8211; Baremetal Server shutdown mode.
+A valid value is HARD or SOFT. HARD is force restart by IPMI.
+This operations is equal to power down.
+SOFT is restated by ACPI.</li>
+<li><strong>boot_mode</strong> (<em>string</em>) &#8211; Baremetal Server boot mode.
+A valid value is DISK, PXE, LEGACY or ISO.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.replace_metadata">
+<code class="descname">replace_metadata</code><span class="sig-paren">(</span><em>server_id</em>, <em>**attr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.replace_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.replace_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API creates or replaces metadata for a specified server.
+All existing metadata items are removed and completely replaced
+by the metadata items in the request. If you don&#8217;t want to remove
+existing items, please use Merge Server Metadata Items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</li>
+<li><strong>attr</strong> (<em>kwargs</em>) &#8211; Keyword arguments which will be used to do update
+process for <code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.metadata.Metadata" title="ecl.baremetal.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.servers">
+<code class="descname">servers</code><span class="sig-paren">(</span><em>details=True</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.servers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.servers" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API lists your Baremetal servers information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>details</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<a class="reference internal" href="#ecl.baremetal.v2.server.Server" title="ecl.baremetal.v2.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a> instance
+will be returned. The default, <code class="docutils literal"><span class="pre">True</span></code>, will cause
+<a class="reference internal" href="#ecl.baremetal.v2.server.ServerDetail" title="ecl.baremetal.v2.server.ServerDetail"><code class="xref py py-class docutils literal"><span class="pre">ServerDetail</span></code></a>
+instances to be returned.</li>
+<li><strong>attrs</strong> &#8211; Attributes to be passed onto the
+<code class="xref py py-meth docutils literal"><span class="pre">list()</span></code> method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list of <a class="reference internal" href="#ecl.baremetal.v2.server.Server" title="ecl.baremetal.v2.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.show_metadata">
+<code class="descname">show_metadata</code><span class="sig-paren">(</span><em>server_id</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.show_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.show_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API shows metadata item (key and value) by specifying key
+for a specified server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</li>
+<li><strong>key</strong> (<em>string</em>) &#8211; A string. Maximum length is 255 characters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.metadata.Metadata" title="ecl.baremetal.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.start_server">
+<code class="descname">start_server</code><span class="sig-paren">(</span><em>server_id</em>, <em>boot_mode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.start_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.start_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power on the Baremetal Server associated with server_id.
+This request will be accepted only when the task_state is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</li>
+<li><strong>boot_mode</strong> (<em>string</em>) &#8211; Baremetal Server boot mode.
+A valid value is DISK, PXE, LEGACY or ISO.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.stop_server">
+<code class="descname">stop_server</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.stop_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.stop_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the Baremetal Server associated with server_id.
+This request will be accepted only when the task_state is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.update_metadata">
+<code class="descname">update_metadata</code><span class="sig-paren">(</span><em>server_id</em>, <em>key</em>, <em>**attr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.update_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.update_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>This API sets additonal metadata item (key and value) by
+specifying key for a specified server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for specified server.</li>
+<li><strong>key</strong> (<em>string</em>) &#8211; A string. Maximum length is 255 characters.</li>
+<li><strong>attr</strong> (<em>kwargs</em>) &#8211; Keyword arguments which will be used to do update
+process for <code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.baremetal.v2.metadata.Metadata" title="ecl.baremetal.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">Metadata</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.update_uefi">
+<code class="descname">update_uefi</code><span class="sig-paren">(</span><em>server_id</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.update_uefi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.update_uefi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates UEFI setting of specified Baremetal server.
+This request will be accepted only when the task_state is None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the requested server.</li>
+<li><strong>attrs</strong> (<em>kwargs</em>) &#8211; Attributes to be passed onto the
+<code class="xref py py-meth docutils literal"><span class="pre">update()</span></code>
+method to be updated.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">UEFI</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.Proxy.versions">
+<code class="descname">versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#Proxy.versions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.Proxy.versions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List Baremetal Server API version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of <code class="xref py py-class docutils literal"><span class="pre">Version</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.baremetal.v2._proxy.VersionSession">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2._proxy.</code><code class="descname">VersionSession</code><span class="sig-paren">(</span><em>profile</em>, <em>user_agent=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#VersionSession"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.VersionSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.session.Session</span></code></p>
+<dl class="method">
+<dt id="ecl.baremetal.v2._proxy.VersionSession.get_endpoint">
+<code class="descname">get_endpoint</code><span class="sig-paren">(</span><em>auth=None</em>, <em>interface='public'</em>, <em>service_type=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/_proxy.html#VersionSession.get_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2._proxy.VersionSession.get_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override get endpoint to automate endpoint filtering</p>
+<p>This method uses the service catalog to find the root URI of
+each service and then gets all available versions directly
+from the service, not from the service catalog.</p>
+<p>Endpoints are cached per service type and interface combination
+so that they&#8217;re only requested from the remote service once
+per instance of this class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.availability_zone">
+<span id="availability-zone"></span><h1>availability_zone<a class="headerlink" href="#module-ecl.baremetal.v2.availability_zone" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.availability_zone.</code><code class="descname">AvailabilityZone</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/availability_zone.html#AvailabilityZone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.base_path">
+<code class="descname">base_path</code><em class="property"> = '/os-availability-zone'</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/availability_zone.html#AvailabilityZone.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.hosts">
+<code class="descname">hosts</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.hosts" title="Permalink to this definition">¶</a></dt>
+<dd><p>hosts of availability zone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'availabilityZoneInfo'</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.state">
+<code class="descname">state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.zoneName">
+<code class="descname">zoneName</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.zoneName" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of availability zone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.availability_zone.AvailabilityZone.zoneState">
+<code class="descname">zoneState</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.availability_zone.AvailabilityZone.zoneState" title="Permalink to this definition">¶</a></dt>
+<dd><p>state of availability zone</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.flavor">
+<span id="flavor"></span><h1>flavor<a class="headerlink" href="#module-ecl.baremetal.v2.flavor" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.flavor.Flavor">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.flavor.</code><code class="descname">Flavor</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/flavor.html#Flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.base_path">
+<code class="descname">base_path</code><em class="property"> = '/flavors'</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.disk">
+<code class="descname">disk</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of disk space, in GBs.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.baremetal.v2.flavor.Flavor.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/flavor.html#Flavor.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID for the flavor, which is a unique integer value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of flavor resource links.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the flavor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.ram">
+<code class="descname">ram</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.ram" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of RAM, in MBs, for this flavor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'flavor'</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'flavors'</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.Flavor.vcpus">
+<code class="descname">vcpus</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.Flavor.vcpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CPUs, in whole integer amount, for the flavor.
+In order to maintain compatibility with Nova API,
+we put the size of the physical cpu to vcpu.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.baremetal.v2.flavor.FlavorDetail">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.flavor.</code><code class="descname">FlavorDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/flavor.html#FlavorDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.flavor.FlavorDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.baremetal.v2.flavor.Flavor" title="ecl.baremetal.v2.flavor.Flavor"><code class="xref py py-class docutils literal"><span class="pre">ecl.baremetal.v2.flavor.Flavor</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.FlavorDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.FlavorDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.flavor.FlavorDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/flavors/detail'</em><a class="headerlink" href="#ecl.baremetal.v2.flavor.FlavorDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.keypair">
+<span id="keypair"></span><h1>keypair<a class="headerlink" href="#module-ecl.baremetal.v2.keypair" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.keypair.Keypair">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.keypair.</code><code class="descname">Keypair</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/keypair.html#Keypair"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.base_path">
+<code class="descname">base_path</code><em class="property"> = '/os-keypairs'</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.fingerprint">
+<code class="descname">fingerprint</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fingerprint of public key.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.keypair.Keypair.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>paginated=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/keypair.html#Keypair.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name to associate with the KeyPair. It is a unique name in
+the tenant. Available character is 1-255 character of
+alphabet(a-zA-Z), number(0-9) and slash(-).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.private_key">
+<code class="descname">private_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.private_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generated SSH private key.
+This parameter is visible only when did not specify public_key
+This parameter is only included in the response of Create Keypair.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.public_key">
+<code class="descname">public_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.public_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The public RSA or DSA SSH key to import. If not provided,
+a key is generated 2048bit RSA key.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'keypair'</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'keypairs'</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.keypair.Keypair.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.keypair.Keypair.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.limits">
+<span id="limits"></span><h1>limits<a class="headerlink" href="#module-ecl.baremetal.v2.limits" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.limits.</code><code class="descname">AbsoluteLimits</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/limits.html#AbsoluteLimits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.instances">
+<code class="descname">instances</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.instances_used">
+<code class="descname">instances_used</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.instances_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.keypairs">
+<code class="descname">keypairs</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.keypairs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.maxPersonality">
+<code class="descname">maxPersonality</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.maxPersonality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.maxPersonalitySize">
+<code class="descname">maxPersonalitySize</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.maxPersonalitySize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.maxServerMeta">
+<code class="descname">maxServerMeta</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.maxServerMeta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.maxTotalInstances">
+<code class="descname">maxTotalInstances</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.maxTotalInstances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.maxTotalKeypairs">
+<code class="descname">maxTotalKeypairs</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.maxTotalKeypairs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.personality">
+<code class="descname">personality</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.personality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.personality_size">
+<code class="descname">personality_size</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.personality_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.server_meta">
+<code class="descname">server_meta</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.server_meta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.AbsoluteLimits.totalInstancesUsed">
+<code class="descname">totalInstancesUsed</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.AbsoluteLimits.totalInstancesUsed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.baremetal.v2.limits.Limits">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.limits.</code><code class="descname">Limits</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/limits.html#Limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.Limits.absolute">
+<code class="descname">absolute</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.absolute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.Limits.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.Limits.base_path">
+<code class="descname">base_path</code><em class="property"> = '/limits'</em><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.limits.Limits.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>requires_id=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/limits.html#Limits.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Limits resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A Baremetal Limits instance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.baremetal.v2.limits.Limits" title="ecl.baremetal.v2.limits.Limits"><code class="xref py py-class docutils literal"><span class="pre">Limits</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.Limits.rate">
+<code class="descname">rate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.Limits.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'limits'</em><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.Limits.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.limits.Limits.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.baremetal.v2.limits.RateLimit">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.limits.</code><code class="descname">RateLimit</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/limits.html#RateLimit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.limits.RateLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.RateLimit.limits">
+<code class="descname">limits</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.RateLimit.limits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.RateLimit.regex">
+<code class="descname">regex</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.RateLimit.regex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.limits.RateLimit.uri">
+<code class="descname">uri</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.limits.RateLimit.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.metadata">
+<span id="metadata"></span><h1>metadata<a class="headerlink" href="#module-ecl.baremetal.v2.metadata" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.metadata.Metadata">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.metadata.</code><code class="descname">Metadata</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.allow_show">
+<code class="descname">allow_show</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.allow_show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/%(server_id)s/metadata'</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.metadata.Metadata.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.metadata.Metadata.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.metadata.Metadata.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.metadata.Metadata.merge">
+<code class="descname">merge</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.merge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.metadata">
+<code class="descname">metadata</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metadata of the server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.metadata.Metadata.replace">
+<code class="descname">replace</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata.replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.replace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.metadata.Metadata.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.metadata.Metadata.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>key</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/metadata.html#Metadata.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.metadata.Metadata.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.nic_physical_port">
+<span id="nic-physical-port"></span><h1>nic_physical_port<a class="headerlink" href="#module-ecl.baremetal.v2.nic_physical_port" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.nic_physical_port.</code><code class="descname">NicPhysicalPort</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/nic_physical_port.html#NicPhysicalPort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.attached_ports">
+<code class="descname">attached_ports</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.attached_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logical attached ports of host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/%(server_id)s/nic_physical_ports'</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>port_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/nic_physical_port.html#NicPhysicalPort.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.hardware_id">
+<code class="descname">hardware_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.hardware_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of hardware attaching the NicPhysicalPort.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>UUID of the NicPhysicalPort.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/nic_physical_port.html#NicPhysicalPort.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.mac_addr">
+<code class="descname">mac_addr</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.mac_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAC address of the NicPhysicalPort.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.network_physical_port_id">
+<code class="descname">network_physical_port_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.network_physical_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network controller port id of physical leaf switch.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.plane">
+<code class="descname">plane</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value = &#8216;data&#8217;(default) or &#8216;storage&#8217;. Assigning preferentially the
+order to the NIC physical port. data plane: all devices cloud be
+connected. storage plane: this plane type is only used and optimized
+for storages between servers.You can assigning each until 2 planes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'nic_physical_port'</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'nic_physical_ports'</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.server_id">
+<code class="descname">server_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.server_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID for the specified server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.nic_physical_port.NicPhysicalPort.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.server">
+<span id="server"></span><h1>server<a class="headerlink" href="#module-ecl.baremetal.v2.server" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.server.Server">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.server.</code><code class="descname">Server</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#Server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.OS_EXT_AZ_availability_zone">
+<code class="descname">OS_EXT_AZ_availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.OS_EXT_AZ_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s availability zone.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.OS_EXT_STS_power_state">
+<code class="descname">OS_EXT_STS_power_state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.OS_EXT_STS_power_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power state: {&#8220;RUNNING&#8221;:&#8221;The server is running.&#8221;,
+&#8220;SHUTDOWN&#8221;:&#8221;The server was shut down.&#8221;,
+&#8220;CRASHED&#8221;:&#8221;The server lost powor controll information temporary.
+Status transfer RUNNING/SHUTDOWN Automatically.&#8221;}</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.OS_EXT_STS_task_state">
+<code class="descname">OS_EXT_STS_task_state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.OS_EXT_STS_task_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task state: {None:&#8221;There are no tasks. Only this status can be
+received API requests.&#8221;, &#8220;BUILDING&#8221;:&#8221;The task is building the
+Baremetal Server. This status is transfered by Create Server.&#8221;,
+&#8220;DELETING&#8221;:&#8221;The task is deleting the Baremetal Server. This status
+is transfered by Delete Server.&#8221;, &#8220;STOPPING&#8221;:&#8221;The task is stopping
+the Baremetal Server. This status is transfered by Stop Server.&#8221;,
+&#8220;STARTING&#8221;:&#8221;The task is starting the Baremetal Server. This status
+is transfered by Start Server.&#8221;, &#8220;REBOOTING&#8221;:&#8221;The task is rebooting
+the Baremetal Server. This status is transfered by Reboot Server.&#8221;}</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.OS_EXT_STS_vm_state">
+<code class="descname">OS_EXT_STS_vm_state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.OS_EXT_STS_vm_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>VM state: {&#8220;ACTIVE&#8221;:&#8221;The Baremetal server is active.
+This status is target of billing.&#8221;, &#8220;BUILD&#8221;:&#8221;The Baremetal server
+is built.&#8221;, &#8220;ERROR&#8221;: &#8220;The Baremetal server is outputing a error.
+There is necessity to report to our support.&#8221;, &#8220;DELETED&#8221;:&#8221;The
+Baremetal server is deleted.&#8221;}</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.adminPass">
+<code class="descname">adminPass</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.adminPass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password for the administrator.
+This parameter is shown only once, so you have to memo.
+Please refer OS specific limitations adminPass raw to know the
+required administrator name for each OS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.admin_pass">
+<code class="descname">admin_pass</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.admin_pass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.availability_zone">
+<code class="descname">availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers'</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.chassis_status">
+<code class="descname">chassis_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.chassis_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s chassis status information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.Server.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#Server.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.Server.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.created">
+<code class="descname">created</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sever&#8217;s created time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.filesystems">
+<code class="descname">filesystems</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.filesystems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s file system information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.flavor">
+<code class="descname">flavor</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s flavor information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.hostId">
+<code class="descname">hostId</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.hostId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s host ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>UUID of the Baremetal server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.image">
+<code class="descname">image</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.key_name">
+<code class="descname">key_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.key_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>key_pair name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link of the Baremetal server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.lvm_volume_groups">
+<code class="descname">lvm_volume_groups</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.lvm_volume_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s lvm volume groups information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.managed_by_service">
+<code class="descname">managed_by_service</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.managed_by_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>managed_by_service</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.media_attachments">
+<code class="descname">media_attachments</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.media_attachments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.metadata">
+<code class="descname">metadata</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s image information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the Baremetal server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.nic_physical_ports">
+<code class="descname">nic_physical_ports</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.nic_physical_ports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s nic physical ports information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.power_state">
+<code class="descname">power_state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.power_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.progress">
+<code class="descname">progress</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s links information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.raid_arrays">
+<code class="descname">raid_arrays</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.raid_arrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s raid arrays information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'server'</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'servers'</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s metadata information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.task_state">
+<code class="descname">task_state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.task_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s tenant id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.updated">
+<code class="descname">updated</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s updated time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s user id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.Server.vm_state">
+<code class="descname">vm_state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.Server.vm_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.baremetal.v2.server.ServerAction">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.server.</code><code class="descname">ServerAction</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/%s/action'</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.baremetal.v2.server.ServerAction.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.ServerAction.get_management_console">
+<code class="descname">get_management_console</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.get_management_console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.get_management_console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.ServerAction.media_attach">
+<code class="descname">media_attach</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.media_attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.media_attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.ServerAction.media_detach">
+<code class="descname">media_detach</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.media_detach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.media_detach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.password">
+<code class="descname">password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password for sign in to the remote console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.ServerAction.reboot">
+<code class="descname">reboot</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>type</em>, <em>boot_mode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'console'</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.ServerAction.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>boot_mode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.server.ServerAction.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerAction.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of the remote console. Valid values are IPMI or IMM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.url">
+<code class="descname">url</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL to access the remote console.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerAction.user_id">
+<code class="descname">user_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerAction.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>User ID for sign in to the remote console.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.baremetal.v2.server.ServerDetail">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.server.</code><code class="descname">ServerDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/server.html#ServerDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.baremetal.v2.server.Server" title="ecl.baremetal.v2.server.Server"><code class="xref py py-class docutils literal"><span class="pre">ecl.baremetal.v2.server.Server</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerDetail.allow_create">
+<code class="descname">allow_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerDetail.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = False</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerDetail.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerDetail.allow_update">
+<code class="descname">allow_update</code><em class="property"> = False</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.server.ServerDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/detail'</em><a class="headerlink" href="#ecl.baremetal.v2.server.ServerDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.stock">
+<span id="stock"></span><h1>stock<a class="headerlink" href="#module-ecl.baremetal.v2.stock" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.stock.Stock">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.stock.</code><code class="descname">Stock</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/stock.html#Stock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.availability_zone">
+<code class="descname">availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Availability Zone name of Baremetal server stock search condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.base_path">
+<code class="descname">base_path</code><em class="property"> = '/stock'</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.flavor_id">
+<code class="descname">flavor_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flavor UUID of Baremetal server stock search condition.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.stock.Stock.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>flavor_id</em>, <em>availability_zone=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/stock.html#Stock.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'stock'</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.stock.Stock.stock">
+<code class="descname">stock</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.stock.Stock.stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Baremetal server stock is available or not.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.baremetal.v2.uefi">
+<span id="uefi"></span><h1>uefi<a class="headerlink" href="#module-ecl.baremetal.v2.uefi" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.baremetal.v2.uefi.UEFI">
+<em class="property">class </em><code class="descclassname">ecl.baremetal.v2.uefi.</code><code class="descname">UEFI</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/uefi.html#UEFI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/%(server_id)s/uefi'</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.flavor_id">
+<code class="descname">flavor_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.flavor_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID for the flavor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.flavor_name">
+<code class="descname">flavor_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.flavor_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name for the flavor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.uefi.UEFI.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/uefi.html#UEFI.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error messages when updating uefi setting is failed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'uefi'</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'uefi'</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'baremetal-server', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.setting">
+<code class="descname">setting</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.setting" title="Permalink to this definition">¶</a></dt>
+<dd><p>UEFI setting.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last result of applying uefi setting.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.baremetal.v2.uefi.UEFI.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>has_body=True</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/baremetal/v2/uefi.html#UEFI.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.baremetal.v2.uefi.UEFI.updated">
+<code class="descname">updated</code><em class="property"> = None</em><a class="headerlink" href="#ecl.baremetal.v2.uefi.UEFI.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updated time for UEFI</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.block_store.html" class="btn btn-neutral float-right" title="block_store" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.baremetal.html" class="btn btn-neutral" title="baremetal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

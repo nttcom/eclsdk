@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="next" title="baremetal" href="ecl.baremetal.html"/>
+        <link rel="prev" title="ECL2.0 Python SDK" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html">baremetal methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.keypair">keypair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.limits">limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.metadata">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.nic_physical_port">nic_physical_port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.server">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.stock">stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.v2.html#module-ecl.baremetal.v2.uefi">uefi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html">block_store methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.extension">extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.limit">limit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.metadata">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.type">type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.v2.html#module-ecl.block_store.v2.volume">volume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html">compute methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.extension">extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.image">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.keypair">keypair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.limits">limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.metadata">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.server">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.server_action">server_action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.server_interface">server_interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.server_volume">server_volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.v2.html#module-ecl.compute.v2.volume">volume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html">connectivity methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.cic">cic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.mcic">mcic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.operation">operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.server_segment">server_segment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.database.v1.html">database methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.database.v1.html#module-ecl.database.v1.database">database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.database.v1.html#module-ecl.database.v1.flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.database.v1.html#module-ecl.database.v1.instance">instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.database.v1.html#module-ecl.database.v1.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.v1.html">dedicated_hypervisor methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.v1.html#module-ecl.dedicated_hypervisor.v1.license">license</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.v1.html#module-ecl.dedicated_hypervisor.v1.license_type">license_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.v1.html#module-ecl.dedicated_hypervisor.v1.server">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.v1.html#module-ecl.dedicated_hypervisor.v1.usage">usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html">identity methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.credential">credential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.domain">domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.endpoint">endpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.group">group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.policy">policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.project">project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.region">region</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.service">service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.trust">trust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.identity.v3.html#module-ecl.identity.v3.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html">image methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html#module-ecl.image.v2.image">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html#module-ecl.image.v2.image_copy">image_copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html#module-ecl.image.v2.license">license</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html#module-ecl.image.v2.member">member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html#module-ecl.image.v2.schema">schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.v2.html#module-ecl.image.v2.tag">tag</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html">network methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.aws">aws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.base">base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.colocation_logical_link">colocation_logical_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.colocation_physical_link">colocation_physical_link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.colocation_space">colocation_space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.common_function">common_function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.common_function_gateway">common_function_gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.common_function_pool">common_function_pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.extension">extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.firewall">firewall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.firewall_action">firewall_action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.firewall_interface">firewall_interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.firewall_plan">firewall_plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.gw_interface">gw_interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.interdc">interdc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.internet">internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.load_balancer">load_balancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.load_balancer_action">load_balancer_action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.load_balancer_interface">load_balancer_interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.load_balancer_plan">load_balancer_plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.load_balancer_syslog_server">load_balancer_syslog_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.network">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.physical_port">physical_port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.port">port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.publicip">publicip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.qos_option">qos_option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.reserved_address">reserved_address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.static_route">static_route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.subnet">subnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.tenant_connection">tenant_connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.v2.html#module-ecl.network.v2.vpn">vpn</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.object_store.v1.html">object_store methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.object_store.v1.html#module-ecl.object_store.v1.account">account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.object_store.v1.html#module-ecl.object_store.v1.container">container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.object_store.v1.html#module-ecl.object_store.v1.obj">obj</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.orchestration.v1.html">orchestration methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.orchestration.v1.html#module-ecl.orchestration.v1.resource">resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.orchestration.v1.html#module-ecl.orchestration.v1.software_config">software_config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.orchestration.v1.html#module-ecl.orchestration.v1.software_deployment">software_deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.orchestration.v1.html#module-ecl.orchestration.v1.stack">stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.orchestration.v1.html#module-ecl.orchestration.v1.template">template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.v1.html">provider_connectivity methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.v1.html#module-ecl.provider_connectivity.v1.aws_connection">aws_connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.v1.html#module-ecl.provider_connectivity.v1.exchange_point">exchange_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.v1.html#module-ecl.provider_connectivity.v1.operation">operation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.rca.v1.html">rca methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.rca.v1.html#module-ecl.rca.v1.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html">sss methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.api_key">api_key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.channel">channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.contract">contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.iam_group">iam_group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.iam_role">iam_role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.role">role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.tenant">tenant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.v1.html#module-ecl.sss.v1.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.v1.html">storage methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.snapshot">snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.storage">storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.volume">volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.volume_type">volume_type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html">telemetry methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.alarm">alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.alarm_change">alarm_change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.capability">capability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.meter">meter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.resource">resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.sample">sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.telemetry.v2.html#module-ecl.telemetry.v2.statistics">statistics</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.baremetal.html" class="btn btn-neutral float-right" title="baremetal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="ECL2.0 Python SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

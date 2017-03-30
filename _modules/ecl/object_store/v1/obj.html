@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.object_store.v1.obj &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.object_store.v1.obj</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.object_store.v1.obj</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">from</span> <span class="nn">ecl.object_store</span> <span class="k">import</span> <span class="n">object_store_service</span>
+<span class="kn">from</span> <span class="nn">ecl.object_store.v1</span> <span class="k">import</span> <span class="n">_base</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource</span>
+
+
+<div class="viewcode-block" id="Object"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.obj.Object">[docs]</a><span class="k">class</span> <span class="nc">Object</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
+    <span class="n">_custom_metadata_prefix</span> <span class="o">=</span> <span class="s2">&quot;X-Object-Meta-&quot;</span>
+    <span class="n">_system_metadata</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;content_disposition&quot;</span><span class="p">:</span> <span class="s2">&quot;content-disposition&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content_encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;content-encoding&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content_type&quot;</span><span class="p">:</span> <span class="s2">&quot;content-type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;delete_after&quot;</span><span class="p">:</span> <span class="s2">&quot;x-delete-after&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;delete_at&quot;</span><span class="p">:</span> <span class="s2">&quot;x-delete-at&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_content_type_detected&quot;</span><span class="p">:</span> <span class="s2">&quot;x-detect-content-type&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s2">&quot;/</span><span class="si">%(container)s</span><span class="s2">&quot;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">object_store_service</span><span class="o">.</span><span class="n">ObjectStoreService</span><span class="p">()</span>
+    <span class="n">id_attribute</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_retrieve</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_head</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Data to be passed during a POST call to create an object on the server.</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># URL parameters</span>
+    <span class="c1">#: The unique name for the container.</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;container&quot;</span><span class="p">)</span>
+    <span class="c1">#: The unique name for the object.</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Object details</span>
+    <span class="nb">hash</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;hash&quot;</span><span class="p">)</span>
+    <span class="nb">bytes</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Headers for HEAD and GET requests</span>
+    <span class="c1">#: If set to True, Object Storage queries all replicas to return</span>
+    <span class="c1">#: the most recent one. If you omit this header, Object Storage</span>
+    <span class="c1">#: responds faster after it finds one valid replica. Because</span>
+    <span class="c1">#: setting this header to True is more expensive for the back end,</span>
+    <span class="c1">#: use it only when it is absolutely needed. *Type: bool*</span>
+    <span class="n">is_newest</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-newest&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="c1">#: TODO(briancurtin) there&#39;s a lot of content here...</span>
+    <span class="nb">range</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;range&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: See http://www.ietf.org/rfc/rfc2616.txt.</span>
+    <span class="n">if_match</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;if-match&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: In combination with Expect: 100-Continue, specify an</span>
+    <span class="c1">#: &quot;If-None-Match: \*&quot; header to query whether the server already</span>
+    <span class="c1">#: has a copy of the object before any data is sent.</span>
+    <span class="n">if_none_match</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;if-none-match&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: See http://www.ietf.org/rfc/rfc2616.txt.</span>
+    <span class="n">if_modified_since</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;if-modified-since&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="c1">#: See http://www.ietf.org/rfc/rfc2616.txt.</span>
+    <span class="n">if_unmodified_since</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;if-unmodified-since&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="c1"># Query parameters</span>
+    <span class="c1">#: Used with temporary URLs to sign the request. For more</span>
+    <span class="c1">#: information about temporary URLs, see OpenStack Object Storage</span>
+    <span class="c1">#: API v1 Reference.</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;signature&quot;</span><span class="p">)</span>
+    <span class="c1">#: Used with temporary URLs to specify the expiry time of the</span>
+    <span class="c1">#: signature. For more information about temporary URLs, see</span>
+    <span class="c1">#: OpenStack Object Storage API v1 Reference.</span>
+    <span class="n">expires_at</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;expires&quot;</span><span class="p">)</span>
+    <span class="c1">#: If you include the multipart-manifest=get query parameter and</span>
+    <span class="c1">#: the object is a large object, the object contents are not</span>
+    <span class="c1">#: returned. Instead, the manifest is returned in the</span>
+    <span class="c1">#: X-Object-Manifest response header for dynamic large objects</span>
+    <span class="c1">#: or in the response body for static large objects.</span>
+    <span class="n">multipart_manifest</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;multipart-manifest&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Response headers from HEAD and GET</span>
+    <span class="c1">#: HEAD operations do not return content. However, in this</span>
+    <span class="c1">#: operation the value in the Content-Length header is not the</span>
+    <span class="c1">#: size of the response body. Instead it contains the size of</span>
+    <span class="c1">#: the object, in bytes.</span>
+    <span class="n">content_length</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;content-length&quot;</span><span class="p">)</span>
+    <span class="c1">#: The MIME type of the object.</span>
+    <span class="n">content_type</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span>
+    <span class="c1">#: The type of ranges that the object accepts.</span>
+    <span class="n">accept_ranges</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;accept-ranges&quot;</span><span class="p">)</span>
+    <span class="c1">#: For objects smaller than 5 GB, this value is the MD5 checksum</span>
+    <span class="c1">#: of the object content. The value is not quoted.</span>
+    <span class="c1">#: For manifest objects, this value is the MD5 checksum of the</span>
+    <span class="c1">#: concatenated string of MD5 checksums and ETags for each of</span>
+    <span class="c1">#: the segments in the manifest, and not the MD5 checksum of</span>
+    <span class="c1">#: the content that was downloaded. Also the value is enclosed</span>
+    <span class="c1">#: in double-quote characters.</span>
+    <span class="c1">#: You are strongly recommended to compute the MD5 checksum of</span>
+    <span class="c1">#: the response body as it is received and compare this value</span>
+    <span class="c1">#: with the one in the ETag header. If they differ, the content</span>
+    <span class="c1">#: was corrupted, so retry the operation.</span>
+    <span class="n">etag</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;etag&quot;</span><span class="p">)</span>
+    <span class="c1">#: Set to True if this object is a static large object manifest object.</span>
+    <span class="c1">#: *Type: bool*</span>
+    <span class="n">is_static_large_object</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-static-large-object&quot;</span><span class="p">,</span>
+                                             <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="c1">#: If set, the value of the Content-Encoding metadata.</span>
+    <span class="c1">#: If not set, this header is not returned by this operation.</span>
+    <span class="n">content_encoding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;content-encoding&quot;</span><span class="p">)</span>
+    <span class="c1">#: If set, specifies the override behavior for the browser.</span>
+    <span class="c1">#: For example, this header might specify that the browser use</span>
+    <span class="c1">#: a download program to save this file rather than show the file,</span>
+    <span class="c1">#: which is the default.</span>
+    <span class="c1">#: If not set, this header is not returned by this operation.</span>
+    <span class="n">content_disposition</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;content-disposition&quot;</span><span class="p">)</span>
+    <span class="c1">#: Specifies the number of seconds after which the object is</span>
+    <span class="c1">#: removed. Internally, the Object Storage system stores this</span>
+    <span class="c1">#: value in the X-Delete-At metadata item.</span>
+    <span class="n">delete_after</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-delete-after&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1">#: If set, the time when the object will be deleted by the system</span>
+    <span class="c1">#: in the format of a UNIX Epoch timestamp.</span>
+    <span class="c1">#: If not set, this header is not returned by this operation.</span>
+    <span class="n">delete_at</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-delete-at&quot;</span><span class="p">)</span>
+    <span class="c1">#: If set, to this is a dynamic large object manifest object.</span>
+    <span class="c1">#: The value is the container and object name prefix of the</span>
+    <span class="c1">#: segment objects in the form container/prefix.</span>
+    <span class="n">object_manifest</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-object-manifest&quot;</span><span class="p">)</span>
+    <span class="c1">#: The timestamp of the transaction.</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-timestamp&quot;</span><span class="p">)</span>
+    <span class="c1">#: The date and time that the object was created or the last</span>
+    <span class="c1">#: time that the metadata was changed.</span>
+    <span class="n">last_modified_at</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;last_modified&quot;</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;last-modified&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Headers for PUT and POST requests</span>
+    <span class="c1">#: Set to chunked to enable chunked transfer encoding. If used,</span>
+    <span class="c1">#: do not set the Content-Length header to a non-zero value.</span>
+    <span class="n">transfer_encoding</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;transfer-encoding&quot;</span><span class="p">)</span>
+    <span class="c1">#: If set to true, Object Storage guesses the content type based</span>
+    <span class="c1">#: on the file extension and ignores the value sent in the</span>
+    <span class="c1">#: Content-Type header, if present. *Type: bool*</span>
+    <span class="n">is_content_type_detected</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-detect-content-type&quot;</span><span class="p">,</span>
+                                               <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="c1">#: If set, this is the name of an object used to create the new</span>
+    <span class="c1">#: object by copying the X-Copy-From object. The value is in form</span>
+    <span class="c1">#: {container}/{object}. You must UTF-8-encode and then URL-encode</span>
+    <span class="c1">#: the names of the container and object before you include them</span>
+    <span class="c1">#: in the header.</span>
+    <span class="c1">#: Using PUT with X-Copy-From has the same effect as using the</span>
+    <span class="c1">#: COPY operation to copy an object.</span>
+    <span class="n">copy_from</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-copy-from&quot;</span><span class="p">)</span>
+
+    <span class="c1"># The Object Store treats the metadata for its resources inconsistently so</span>
+    <span class="c1"># Object.set_metadata must override the BaseResource.set_metadata to</span>
+    <span class="c1"># account for it.</span>
+<div class="viewcode-block" id="Object.set_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.obj.Object.set_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">metadata</span><span class="p">):</span>
+        <span class="c1"># Filter out items with empty values so the create metadata behaviour</span>
+        <span class="c1"># is the same as account and container</span>
+        <span class="n">filtered_metadata</span> <span class="o">=</span> \
+            <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span><span class="p">}</span>
+
+        <span class="c1"># Get a copy of the original metadata so it doesn&#39;t get erased on POST</span>
+        <span class="c1"># and update it with the new metadata values.</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+        <span class="n">metadata2</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+        <span class="n">metadata2</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">filtered_metadata</span><span class="p">)</span>
+
+        <span class="c1"># Include any original system metadata so it doesn&#39;t get erased on POST</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_system_metadata</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">metadata2</span><span class="p">:</span>
+                <span class="n">metadata2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">metadata2</span><span class="p">)</span></div>
+
+    <span class="c1"># The Object Store treats the metadata for its resources inconsistently so</span>
+    <span class="c1"># Object.delete_metadata must override the BaseResource.delete_metadata to</span>
+    <span class="c1"># account for it.</span>
+<div class="viewcode-block" id="Object.delete_metadata"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.obj.Object.delete_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">keys</span><span class="p">):</span>
+        <span class="c1"># Get a copy of the original metadata so it doesn&#39;t get erased on POST</span>
+        <span class="c1"># and update it with the new metadata values.</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+        <span class="c1"># Include any original system metadata so it doesn&#39;t get erased on POST</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_system_metadata</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="c1"># Remove the metadata</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;delete_after&#39;</span><span class="p">:</span>
+                <span class="k">del</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;delete_at&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">del</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+                     <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_headers</span><span class="p">(</span><span class="n">metadata</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Object.get"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.obj.Object.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">include_headers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;bytes&#39;</span><span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">content</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">resp</span></div>
+
+<div class="viewcode-block" id="Object.create"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.obj.Object.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_headers</span><span class="p">()</span>
+        <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Accept&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+                               <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                               <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.orchestration.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.orchestration.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.orchestration.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">ecl.orchestration.v1</span> <span class="k">import</span> <span class="n">resource</span> <span class="k">as</span> <span class="n">_resource</span>
+<span class="kn">from</span> <span class="nn">ecl.orchestration.v1</span> <span class="k">import</span> <span class="n">software_config</span> <span class="k">as</span> <span class="n">_sc</span>
+<span class="kn">from</span> <span class="nn">ecl.orchestration.v1</span> <span class="k">import</span> <span class="n">software_deployment</span> <span class="k">as</span> <span class="n">_sd</span>
+<span class="kn">from</span> <span class="nn">ecl.orchestration.v1</span> <span class="k">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">_stack</span>
+<span class="kn">from</span> <span class="nn">ecl.orchestration.v1</span> <span class="k">import</span> <span class="n">template</span> <span class="k">as</span> <span class="n">_template</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.create_stack"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.create_stack">[docs]</a>    <span class="k">def</span> <span class="nf">create_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preview</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new stack from attributes</span>
+
+<span class="sd">        :param bool perview: When ``True``, returns</span>
+<span class="sd">            an :class:`~ecl.orchestration.v1.stack.StackPreview` object,</span>
+<span class="sd">            otherwise an :class:`~ecl.orchestration.v1.stack.Stack`</span>
+<span class="sd">            object.</span>
+<span class="sd">            *Default: ``False``*</span>
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.orchestration.v1.stack.Stack`,</span>
+<span class="sd">                           comprised of the properties on the Stack class.</span>
+
+<span class="sd">        :returns: The results of stack creation</span>
+<span class="sd">        :rtype: :class:`~ecl.orchestration.v1.stack.Stack`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res_type</span> <span class="o">=</span> <span class="n">_stack</span><span class="o">.</span><span class="n">StackPreview</span> <span class="k">if</span> <span class="n">preview</span> <span class="k">else</span> <span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">res_type</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_stack"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.find_stack">[docs]</a>    <span class="k">def</span> <span class="nf">find_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single stack</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a stack.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.orchestration.v1.stack.Stack` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.stacks"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.stacks">[docs]</a>    <span class="k">def</span> <span class="nf">stacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of stacks</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of stack objects</span>
+<span class="sd">        :rtype: :class:`~ecl.orchestration.v1.stack.Stack`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_stack"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.get_stack">[docs]</a>    <span class="k">def</span> <span class="nf">get_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single stack</span>
+
+<span class="sd">        :param stack: The value can be the ID of a stack or a</span>
+<span class="sd">               :class:`~ecl.orchestration.v1.stack.Stack` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.orchestration.v1.stack.Stack`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">,</span> <span class="n">stack</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_stack"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.update_stack">[docs]</a>    <span class="k">def</span> <span class="nf">update_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a stack</span>
+
+<span class="sd">        :param stack: The value can be the ID of a stack or a</span>
+<span class="sd">               :class:`~ecl.orchestration.v1.stack.Stack` instance.</span>
+<span class="sd">        :param kwargs \*\*attrs: The attributes to update on the stack</span>
+<span class="sd">                                 represented by ``value``.</span>
+
+<span class="sd">        :returns: The updated stack</span>
+<span class="sd">        :rtype: :class:`~ecl.orchestration.v1.stack.Stack`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_stack"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.delete_stack">[docs]</a>    <span class="k">def</span> <span class="nf">delete_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a stack</span>
+
+<span class="sd">        :param stack: The value can be either the ID of a stack or a</span>
+<span class="sd">                      :class:`~ecl.orchestration.v1.stack.Stack`</span>
+<span class="sd">                      instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the stack does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent stack.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.check_stack"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.check_stack">[docs]</a>    <span class="k">def</span> <span class="nf">check_stack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check a stack&#39;s status</span>
+
+<span class="sd">        Since this is an asynchronous action, the only way to check the result</span>
+<span class="sd">        is to track the stack&#39;s status.</span>
+
+<span class="sd">        :param stack: The value can be either the ID of a stack or an instance</span>
+<span class="sd">                      of :class:`~ecl.orchestration.v1.stack.Stack`.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">):</span>
+            <span class="n">stk_obj</span> <span class="o">=</span> <span class="n">stack</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stk_obj</span> <span class="o">=</span> <span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="o">.</span><span class="n">existing</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">stack</span><span class="p">)</span>
+
+        <span class="n">stk_obj</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.resources"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.resources">[docs]</a>    <span class="k">def</span> <span class="nf">resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of resources</span>
+
+<span class="sd">        :param stack: This can be a stack object, or the name of a stack</span>
+<span class="sd">                      for which the resources are to be listed.</span>
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of resource objects if the stack exists and</span>
+<span class="sd">                  there are resources in it. If the stack cannot be found,</span>
+<span class="sd">                  an exception is thrown.</span>
+<span class="sd">        :rtype: A generator of</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.resource.Resource`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when the stack cannot be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># first try treat the value as a stack object or an ID</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">):</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">stack</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_resource</span><span class="o">.</span><span class="n">Resource</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">stack_name</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">stack_id</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_software_config"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.create_software_config">[docs]</a>    <span class="k">def</span> <span class="nf">create_software_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new software config from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create a</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`,</span>
+<span class="sd">            comprised of the properties on the SoftwareConfig class.</span>
+
+<span class="sd">        :returns: The results of software config creation</span>
+<span class="sd">        :rtype:</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_sc</span><span class="o">.</span><span class="n">SoftwareConfig</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.software_configs"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.software_configs">[docs]</a>    <span class="k">def</span> <span class="nf">software_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a generator of software configs</span>
+
+<span class="sd">        :param dict query: Optional query parameters to be sent to limit the</span>
+<span class="sd">                           software configs returned.</span>
+<span class="sd">        :returns: A generator of software config objects.</span>
+<span class="sd">        :rtype:</span>
+<span class="sd">        :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_sc</span><span class="o">.</span><span class="n">SoftwareConfig</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_software_config"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.get_software_config">[docs]</a>    <span class="k">def</span> <span class="nf">get_software_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">software_config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get details about a specific software config.</span>
+
+<span class="sd">        :param software_config: The value can be the ID of a software config</span>
+<span class="sd">            or a instace of</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`,</span>
+
+<span class="sd">        :returns: An object of type</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_sc</span><span class="o">.</span><span class="n">SoftwareConfig</span><span class="p">,</span> <span class="n">software_config</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_software_config"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.delete_software_config">[docs]</a>    <span class="k">def</span> <span class="nf">delete_software_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">software_config</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a software config</span>
+
+<span class="sd">        :param software_config: The value can be either the ID of a software</span>
+<span class="sd">            config or an instance of</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the software config does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent software config.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_sc</span><span class="o">.</span><span class="n">SoftwareConfig</span><span class="p">,</span> <span class="n">software_config</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_software_deployment"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.create_software_deployment">[docs]</a>    <span class="k">def</span> <span class="nf">create_software_deployment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new software deployment from attributes</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create a</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`,</span>
+<span class="sd">            comprised of the properties on the SoftwareDeployment class.</span>
+
+<span class="sd">        :returns: The results of software deployment creation</span>
+<span class="sd">        :rtype:</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_sd</span><span class="o">.</span><span class="n">SoftwareDeployment</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.software_deployments"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.software_deployments">[docs]</a>    <span class="k">def</span> <span class="nf">software_deployments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a generator of software deployments</span>
+
+<span class="sd">        :param dict query: Optional query parameters to be sent to limit the</span>
+<span class="sd">                           software deployments returned.</span>
+<span class="sd">        :returns: A generator of software deployment objects.</span>
+<span class="sd">        :rtype:</span>
+<span class="sd">        :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_sd</span><span class="o">.</span><span class="n">SoftwareDeployment</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_software_deployment"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.get_software_deployment">[docs]</a>    <span class="k">def</span> <span class="nf">get_software_deployment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">software_deployment</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get details about a specific software deployment resource</span>
+
+<span class="sd">        :param software_deployment: The value can be the ID of a software</span>
+<span class="sd">            deployment or an instace of</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`,</span>
+
+<span class="sd">        :returns: An object of type</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_sd</span><span class="o">.</span><span class="n">SoftwareDeployment</span><span class="p">,</span> <span class="n">software_deployment</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_software_deployment"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.delete_software_deployment">[docs]</a>    <span class="k">def</span> <span class="nf">delete_software_deployment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">software_deployment</span><span class="p">,</span>
+                                   <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a software deployment</span>
+
+<span class="sd">        :param software_deployment: The value can be either the ID of a</span>
+<span class="sd">            software deployment or an instance of</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the software deployment does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent software deployment.</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_sd</span><span class="o">.</span><span class="n">SoftwareDeployment</span><span class="p">,</span> <span class="n">software_deployment</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_software_deployment"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.update_software_deployment">[docs]</a>    <span class="k">def</span> <span class="nf">update_software_deployment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">software_deployment</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a software deployment</span>
+
+<span class="sd">        :param server: Either the ID of a software deployment or an instance of</span>
+<span class="sd">            :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`</span>
+<span class="sd">        :param dict attrs: The attributes to update on the software deployment</span>
+<span class="sd">                           represented by ``software_deployment``.</span>
+
+<span class="sd">        :returns: The updated software deployment</span>
+<span class="sd">        :rtype:</span>
+<span class="sd">        :class:`~ecl.orchestration.v1.software_deployment.SoftwareDeployment`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">_sd</span><span class="o">.</span><span class="n">SoftwareDeployment</span><span class="p">,</span> <span class="n">software_deployment</span><span class="p">,</span>
+                            <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.validate_template"><a class="viewcode-back" href="../../../../ecl.orchestration.v1.html#ecl.orchestration.v1._proxy.Proxy.validate_template">[docs]</a>    <span class="k">def</span> <span class="nf">validate_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">environment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">template_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Validates a template.</span>
+
+<span class="sd">        :param template: The stack template on which the validation is</span>
+<span class="sd">                         performed.</span>
+<span class="sd">        :param environment: A JSON environment for the stack, if provided.</span>
+<span class="sd">        :param template_url: A URI to the location containing the stack</span>
+<span class="sd">                             template for validation. This parameter is only</span>
+<span class="sd">                             required if the ``template`` parameter is None.</span>
+<span class="sd">                             This parameter is ignored if ``template`` is</span>
+<span class="sd">                             specified.</span>
+<span class="sd">        :param ignore_errors: A string containing comma separated error codes</span>
+<span class="sd">                              to ignore. Currently the only valid error code</span>
+<span class="sd">                              is &#39;99001&#39;.</span>
+<span class="sd">        :returns: The result of template validation.</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.InvalidRequest` if neither</span>
+<span class="sd">                 `template` not `template_url` is provided.</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.HttpException` if the template</span>
+<span class="sd">                 fails the validation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">template</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">template_url</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">InvalidRequest</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;template_url&#39; must be specified when template is None&quot;</span><span class="p">)</span>
+
+        <span class="n">tmpl</span> <span class="o">=</span> <span class="n">_template</span><span class="o">.</span><span class="n">Template</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">tmpl</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">environment</span><span class="o">=</span><span class="n">environment</span><span class="p">,</span>
+                             <span class="n">template_url</span><span class="o">=</span><span class="n">template_url</span><span class="p">,</span>
+                             <span class="n">ignore_errors</span><span class="o">=</span><span class="n">ignore_errors</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

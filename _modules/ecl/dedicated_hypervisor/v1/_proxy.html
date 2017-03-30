@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.dedicated_hypervisor.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.dedicated_hypervisor.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.dedicated_hypervisor.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.dedicated_hypervisor.v1</span> <span class="k">import</span> <span class="n">license</span> <span class="k">as</span> <span class="n">_license</span>
+<span class="kn">from</span> <span class="nn">ecl.dedicated_hypervisor.v1</span> <span class="k">import</span> <span class="n">license_type</span> <span class="k">as</span> <span class="n">_license_type</span>
+<span class="kn">from</span> <span class="nn">ecl.dedicated_hypervisor.v1</span> <span class="k">import</span> <span class="n">server</span> <span class="k">as</span> <span class="n">_server</span>
+<span class="kn">from</span> <span class="nn">ecl.dedicated_hypervisor.v1</span> <span class="k">import</span> <span class="n">usage</span> <span class="k">as</span> <span class="n">_usage</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.servers"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.servers">[docs]</a>    <span class="k">def</span> <span class="nf">servers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List your Dedicated Hypervisor servers information.</span>
+
+<span class="sd">        :param query: Query parameters to select results</span>
+<span class="sd">        :return: list of the servers</span>
+<span class="sd">        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerDetail</span> <span class="k">if</span> <span class="n">details</span> <span class="k">else</span> <span class="n">_server</span><span class="o">.</span><span class="n">Server</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_server"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.get_server">[docs]</a>    <span class="k">def</span> <span class="nf">get_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shows your Dedicated Hypervisor server information.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`</span>
+<span class="sd">            instance.</span>
+<span class="sd">        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_server"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.create_server">[docs]</a>    <span class="k">def</span> <span class="nf">create_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">networks</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">flavor</span><span class="p">,</span>
+                      <span class="n">admin_pass</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">availability_zone</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create additional Dedicated Hypervisor server.</span>
+
+<span class="sd">        :param string name: Name of your Dedicated Hypervisor/Baremetal server</span>
+<span class="sd">            as a string.</span>
+<span class="sd">        :param string description: Description of your Dedicated Hypervisor</span>
+<span class="sd">            server as a string.</span>
+<span class="sd">        :param array networks: If it is specified greater than two,</span>
+<span class="sd">            default gateway is first network.</span>
+<span class="sd">        :param string flavor: The flavor reference for the desired flavor</span>
+<span class="sd">            for your Dedicated Hypervisor server.</span>
+<span class="sd">            Specify as an UUID or full URL.</span>
+<span class="sd">            Parameters of id or links -&gt; href in api_list_flavors page</span>
+<span class="sd">            can be used as flavorRef parameter.</span>
+<span class="sd">        :param string admin_pass: Password for the administrator.</span>
+<span class="sd">        :param string image: The image reference for the desired image</span>
+<span class="sd">            for your Dedicated Hypervisor server.</span>
+<span class="sd">            Specify as an UUID or full URL.</span>
+<span class="sd">        :param string availability_zone: The availability zone name</span>
+<span class="sd">            in which to launch the server.</span>
+<span class="sd">            If omit this parameter, target availability_zone is random.</span>
+<span class="sd">        :param dict metadata: Metadata key and value pairs.</span>
+<span class="sd">            The maximum size of the metadata key and value is 255 bytes each.</span>
+<span class="sd">        :return: The results of server createion.</span>
+<span class="sd">        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;networks&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">networks</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;imageRef&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;flavorRef&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flavor</span>
+        <span class="k">if</span> <span class="n">admin_pass</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;adminPass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">admin_pass</span>
+        <span class="k">if</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="k">if</span> <span class="n">availability_zone</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;availability_zone&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">availability_zone</span>
+        <span class="k">if</span> <span class="n">metadata</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_server"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.delete_server">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a specified Dedicated Hypervisor server.</span>
+<span class="sd">        You can delete server when specified server status is</span>
+<span class="sd">        ACTIVE or ERROR status.</span>
+
+<span class="sd">        :param string server_id: ID for the server.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the server does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_server</span><span class="o">.</span><span class="n">Server</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span>
+                            <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.license_types"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.license_types">[docs]</a>    <span class="k">def</span> <span class="nf">license_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists your Guest Image license on Dedicated Hypervisor servers</span>
+<span class="sd">        information.</span>
+
+<span class="sd">        :return: list of the license types.</span>
+<span class="sd">        :rtype: list of</span>
+<span class="sd">            :class:`~ecl.dedicated_hypervisor.v1.license_type.LicenseType`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_license_type</span><span class="o">.</span><span class="n">LicenseType</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.find_license_type"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.find_license_type">[docs]</a>    <span class="k">def</span> <span class="nf">find_license_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single license type</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a license type.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.dedicated_hypervisor.v1.license_type.LicenseType` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_license_type</span><span class="o">.</span><span class="n">LicenseType</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.licenses"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.licenses">[docs]</a>    <span class="k">def</span> <span class="nf">licenses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">license_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists your Guest Image license key information.</span>
+
+<span class="sd">        :return: list of the licenses.</span>
+<span class="sd">        :rtype: list of</span>
+<span class="sd">            :class:`~ecl.dedicated_hypervisor.v1.license.License`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_license</span><span class="o">.</span><span class="n">License</span><span class="p">,</span> <span class="n">license_type</span><span class="o">=</span><span class="n">license_type</span><span class="p">,</span>
+                               <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.create_license"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.create_license">[docs]</a>    <span class="k">def</span> <span class="nf">create_license</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">license_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create additional Guest Image license key.</span>
+<span class="sd">        You can create additional license key only for the licenses which</span>
+<span class="sd">        `has_license_key` property is True.</span>
+
+<span class="sd">        :param string license_type: Name of your Guest Image license type</span>
+<span class="sd">            as a string.</span>
+<span class="sd">        :return: The results of license createion.</span>
+<span class="sd">        :rtype: :class:`~ecl.dedicated_hypervisor.v1.license.License`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">lic</span> <span class="o">=</span> <span class="n">_license</span><span class="o">.</span><span class="n">License</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">lic</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">license_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_license"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.delete_license">[docs]</a>    <span class="k">def</span> <span class="nf">delete_license</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">license_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete a specified Guest Image license key.</span>
+
+<span class="sd">        :param string license_id: ID for the license</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the server does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent server</span>
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_license</span><span class="o">.</span><span class="n">License</span><span class="p">,</span> <span class="n">license_id</span><span class="p">,</span>
+                            <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.usages"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.usages">[docs]</a>    <span class="k">def</span> <span class="nf">usages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists your Guest Image usage information.</span>
+
+<span class="sd">        :return: list of the usages</span>
+<span class="sd">        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.usage.Usage`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_usage</span><span class="o">.</span><span class="n">Usage</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_usage_histories"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.get_usage_histories">[docs]</a>    <span class="k">def</span> <span class="nf">get_usage_histories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history_id</span><span class="p">,</span> <span class="n">From</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shows your Guest Image usage history information.</span>
+
+<span class="sd">        :param string history_id: ID for the history.</span>
+<span class="sd">        :param dateTime From: date to list usage from. `YYYY-MM-DD hh:mm:ss` .</span>
+<span class="sd">        :param dateTime to: date to list usage to. month of the parameter</span>
+<span class="sd">            must be the same as `from` . `YYYY-MM-DD hh:mm:ss` .</span>
+<span class="sd">        :return: :class:`~ecl.dedicated_hypervisor.v1.usage.Usage`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">From</span><span class="p">:</span>
+            <span class="n">query</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">From</span>
+        <span class="k">if</span> <span class="n">to</span><span class="p">:</span>
+            <span class="n">query</span><span class="p">[</span><span class="s2">&quot;to&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to</span>
+        <span class="n">usage</span> <span class="o">=</span> <span class="n">_usage</span><span class="o">.</span><span class="n">Usage</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">usage</span><span class="o">.</span><span class="n">get_usage_histories</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span>
+                                         <span class="n">history_id</span><span class="o">=</span><span class="n">history_id</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.add_license"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.add_license">[docs]</a>    <span class="k">def</span> <span class="nf">add_license</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">license_types</span><span class="p">,</span> <span class="n">vm_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vm_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add license to VM on hyper visor</span>
+
+<span class="sd">        :param string server_id: ID of server that have VM to add license</span>
+<span class="sd">        :param array license_types: Array of license type&#39;s Name</span>
+<span class="sd">        :param string vm_id: VM ID, Specify either vm_id or vm_name</span>
+<span class="sd">        :param string vm_name: VM Name, Specify either vm_id or vm_name</span>
+<span class="sd">        :returns: dict of job_id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">add_license</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">license_types</span><span class="p">,</span>
+                                  <span class="n">vm_id</span><span class="o">=</span><span class="n">vm_id</span><span class="p">,</span> <span class="n">vm_name</span><span class="o">=</span><span class="n">vm_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_add_license_job"><a class="viewcode-back" href="../../../../ecl.dedicated_hypervisor.v1.html#ecl.dedicated_hypervisor.v1._proxy.Proxy.get_add_license_job">[docs]</a>    <span class="k">def</span> <span class="nf">get_add_license_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get add license job status</span>
+
+<span class="sd">        :param string server_id: Server ID</span>
+<span class="sd">        :param string job_id: Job ID</span>
+<span class="sd">        :returns: Job object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">_server</span><span class="o">.</span><span class="n">ServerAction</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">server</span><span class="o">.</span><span class="n">get_add_license_job</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

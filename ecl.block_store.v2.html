@@ -1,0 +1,1293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>block_store methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="block_store" href="ecl.block_store.html"/>
+        <link rel="next" title="compute" href="ecl.compute.html"/>
+        <link rel="prev" title="block_store" href="ecl.block_store.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.block_store.html">block_store</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">block_store methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.availability_zone">availability_zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.extension">extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.limit">limit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.metadata">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.type">type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.block_store.v2.volume">volume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.block_store.html">block_store</a> &raquo;</li>
+        
+      <li>block_store methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.block_store.v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.block_store.v2._proxy">
+<span id="block-store-methods"></span><h1>block_store methods<a class="headerlink" href="#module-ecl.block_store.v2._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.availability_zones">
+<code class="descname">availability_zones</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.availability_zones"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.availability_zones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of availability zones</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of availability zone</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.block_store.v2.availability_zone.AvailabilityZone" title="ecl.block_store.v2.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZone</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.create_metadata">
+<code class="descname">create_metadata</code><span class="sig-paren">(</span><em>volume_id</em>, <em>**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.create_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.create_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.create_volume">
+<code class="descname">create_volume</code><span class="sig-paren">(</span><em>size</em>, <em>name=None</em>, <em>description=None</em>, <em>availability_zone=None</em>, <em>imageRef=None</em>, <em>metadata=None</em>, <em>snapshot_id=None</em>, <em>volume_type=None</em>, <em>source_volid=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.create_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.create_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new volume from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> (<em>int</em>) &#8211; size of volume to create</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; name of volume to create</li>
+<li><strong>description</strong> (<em>string</em>) &#8211; description of volume to create</li>
+<li><strong>availability_zone</strong> (<em>string</em>) &#8211; availability zone of volume to create</li>
+<li><strong>imageRef</strong> (<em>string</em>) &#8211; image ID of volume to create from</li>
+<li><strong>metadata</strong> (<em>dict</em>) &#8211; metadata of volume to create</li>
+<li><strong>snapshot_id</strong> (<em>string</em>) &#8211; snapshot ID of volume to create</li>
+<li><strong>volume_type</strong> (<em>string</em>) &#8211; type of volume to create</li>
+<li><strong>source_volid</strong> (<em>string</em>) &#8211; source volume id of volume to create from</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of volume creation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.delete_volume">
+<code class="descname">delete_volume</code><span class="sig-paren">(</span><em>volume</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.delete_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.delete_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>volume</strong> &#8211; The value can be either the ID of a volume or a
+<code class="xref py py-class docutils literal"><span class="pre">Volume</span></code> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the volume does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent volume.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.extend_volume">
+<code class="descname">extend_volume</code><span class="sig-paren">(</span><em>volume</em>, <em>new_size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.extend_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.extend_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend size of a volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>volume</strong> &#8211; The value can be the ID of a volume or a
+<code class="xref py py-class docutils literal"><span class="pre">Volume</span></code> instance.</li>
+<li><strong>new_size</strong> (<em>string</em>) &#8211; size of volume to extend</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of volume extend size</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.extensions">
+<code class="descname">extensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.extensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of Extensions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of Extension objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.block_store.v2.extension.Extension" title="ecl.block_store.v2.extension.Extension"><code class="xref py py-class docutils literal"><span class="pre">Extension</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.find_availability_zone">
+<code class="descname">find_availability_zone</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.find_availability_zone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.find_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single availability_zone</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a availability_zone.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.block_store.v2.availability_zone.AvailabilityZone" title="ecl.block_store.v2.availability_zone.AvailabilityZone"><code class="xref py py-class docutils literal"><span class="pre">AvailabilityZone</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.find_volume">
+<code class="descname">find_volume</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.find_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.find_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a server.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="ecl.compute.v2.html#ecl.compute.v2.volume.Volume" title="ecl.compute.v2.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.find_volume_type">
+<code class="descname">find_volume_type</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.find_volume_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.find_volume_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a volume type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a volume type.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.block_store.v2.type.Type" title="ecl.block_store.v2.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.get_default_quota">
+<code class="descname">get_default_quota</code><span class="sig-paren">(</span><em>tenant_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.get_default_quota"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.get_default_quota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get default quota of a tenant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tenant_id</strong> &#8211; The ID for the tenant for which you want to show
+quotas. This ID is different from the tenant ID of authentication.
+That ID is for the admin tenant.</li>
+<li><strong>user_id</strong> &#8211; The user ID. Specify in the URI as a query string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <a class="reference internal" href="#ecl.block_store.v2.quota.DefaultQuota" title="ecl.block_store.v2.quota.DefaultQuota"><code class="xref py py-class docutils literal"><span class="pre">DefaultQuota</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.get_quota">
+<code class="descname">get_quota</code><span class="sig-paren">(</span><em>tenant_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.get_quota"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.get_quota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get quota info of a tenant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tenant_id</strong> &#8211; The ID for the tenant for which you want to show
+quotas. This ID is different from the tenant ID of authentication.
+That ID is for the admin tenant.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.block_store.v2.quota.Quota" title="ecl.block_store.v2.quota.Quota"><code class="xref py py-class docutils literal"><span class="pre">Quota</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.get_quota_detail">
+<code class="descname">get_quota_detail</code><span class="sig-paren">(</span><em>tenant_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.get_quota_detail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.get_quota_detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get quota info of a tenant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tenant_id</strong> &#8211; The ID for the tenant for which you want to show
+quotas. This ID is different from the tenant ID of authentication.
+That ID is for the admin tenant.</li>
+<li><strong>user_id</strong> &#8211; The user ID. Specify in the URI as a query string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <a class="reference internal" href="#ecl.block_store.v2.quota.DetailQuota" title="ecl.block_store.v2.quota.DetailQuota"><code class="xref py py-class docutils literal"><span class="pre">DetailQuota</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.get_volume">
+<code class="descname">get_volume</code><span class="sig-paren">(</span><em>volume</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.get_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.get_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volume</strong> &#8211; The value can be the ID of a volume or a
+<code class="xref py py-class docutils literal"><span class="pre">Volume</span></code> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.limits">
+<code class="descname">limits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of Limit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">show Limit objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.block_store.v2.limit.Limit" title="ecl.block_store.v2.limit.Limit"><code class="xref py py-class docutils literal"><span class="pre">Limit</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.types">
+<code class="descname">types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of types</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of Type objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.block_store.v2.type.Type" title="ecl.block_store.v2.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.update_bootable">
+<code class="descname">update_bootable</code><span class="sig-paren">(</span><em>volume</em>, <em>bootable=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.update_bootable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.update_bootable" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>volume</strong> &#8211; The value can be the ID of a volume or a
+<code class="xref py py-class docutils literal"><span class="pre">Volume</span></code> instance.</li>
+<li><strong>bootable</strong> (<em>boolean</em>) &#8211; bootable status to update</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.update_metadata">
+<code class="descname">update_metadata</code><span class="sig-paren">(</span><em>volume_id</em>, <em>**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.update_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.update_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.update_volume">
+<code class="descname">update_volume</code><span class="sig-paren">(</span><em>volume</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.update_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.update_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new volume from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>volume</strong> &#8211; The value can be the ID of a volume or a
+<code class="xref py py-class docutils literal"><span class="pre">Volume</span></code> instance.</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; name of volume to update</li>
+<li><strong>description</strong> (<em>string</em>) &#8211; description of volume to update</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of volume update</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.upload_to_image">
+<code class="descname">upload_to_image</code><span class="sig-paren">(</span><em>volume</em>, <em>container_format=None</em>, <em>disk_format=None</em>, <em>image_name=None</em>, <em>force=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.upload_to_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.upload_to_image" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>volume</strong> &#8211; The value can be the ID of a volume or a
+<code class="xref py py-class docutils literal"><span class="pre">Volume</span></code> instance.</li>
+<li><strong>container_format</strong> (<em>string</em>) &#8211; Select one of the following
+(bare, ovf, ami, aki, ari)</li>
+<li><strong>disk_format</strong> (<em>string</em>) &#8211; Select one of the following
+(raw, vmdk, vdi, qcow2)</li>
+<li><strong>image_name</strong> (<em>string</em>) &#8211; Name of image to upload</li>
+<li><strong>force</strong> (<em>boolean</em>) &#8211; Whether to upload a volume of attached state.
+When the state of volume is available,
+the value of force option does not affect the operation.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Object describes detail of volume_upload_image</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2._proxy.Proxy.volumes">
+<code class="descname">volumes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/_proxy.html#Proxy.volumes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2._proxy.Proxy.volumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of Volume objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.block_store.v2.volume.Volume" title="ecl.block_store.v2.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">Volume</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.availability_zone">
+<span id="availability-zone"></span><h1>availability_zone<a class="headerlink" href="#module-ecl.block_store.v2.availability_zone" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.availability_zone.</code><code class="descname">AvailabilityZone</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/availability_zone.html#AvailabilityZone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.base_path">
+<code class="descname">base_path</code><em class="property"> = '/os-availability-zone'</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.hosts">
+<code class="descname">hosts</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.hosts" title="Permalink to this definition">¶</a></dt>
+<dd><p>hosts of availability zone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.id_attribute">
+<code class="descname">id_attribute</code><em class="property"> = 'name'</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.id_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of availability zone</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'availabilityZoneInfo'</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.availability_zone.AvailabilityZone.state">
+<code class="descname">state</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.availability_zone.AvailabilityZone.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>state of availability zone</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.extension">
+<span id="extension"></span><h1>extension<a class="headerlink" href="#module-ecl.block_store.v2.extension" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.extension.Extension">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.extension.</code><code class="descname">Extension</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/extension.html#Extension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.extension.Extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.alias">
+<code class="descname">alias</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of the extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.base_path">
+<code class="descname">base_path</code><em class="property"> = '/extensions'</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of links.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.namespace">
+<code class="descname">namespace</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.namespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Namespace of the extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'extension'</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'extensions'</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.extension.Extension.updated">
+<code class="descname">updated</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.extension.Extension.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A updated representing this Extension.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.limit">
+<span id="limit"></span><h1>limit<a class="headerlink" href="#module-ecl.block_store.v2.limit" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.limit.Limit">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.limit.</code><code class="descname">Limit</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/limit.html#Limit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.limit.Limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.absolute">
+<code class="descname">absolute</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of absolute props of the Limit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.base_path">
+<code class="descname">base_path</code><em class="property"> = '/limits'</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.rate">
+<code class="descname">rate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A rate representing this Limit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'limits'</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'limits'</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.limit.Limit.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.limit.Limit.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.metadata">
+<span id="metadata"></span><h1>metadata<a class="headerlink" href="#module-ecl.block_store.v2.metadata" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.metadata.Metadata">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.metadata.</code><code class="descname">Metadata</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/metadata.html#Metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volumes/%(volume_id)s/metadata'</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'metadata'</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'metadata'</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.metadata.Metadata.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.metadata.Metadata.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.quota">
+<span id="quota"></span><h1>quota<a class="headerlink" href="#module-ecl.block_store.v2.quota" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.quota.DefaultQuota">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.quota.</code><code class="descname">DefaultQuota</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/quota.html#DefaultQuota"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DefaultQuota.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DefaultQuota.base_path">
+<code class="descname">base_path</code><em class="property"> = '/os-quota-sets/%(tenant_id)s/defaults'</em><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DefaultQuota.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DefaultQuota.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'quota_set'</em><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DefaultQuota.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'quota_sets'</em><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DefaultQuota.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.quota.DefaultQuota.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.block_store.v2.quota.DetailQuota">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.quota.</code><code class="descname">DetailQuota</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/quota.html#DetailQuota"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DetailQuota.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DetailQuota.base_path">
+<code class="descname">base_path</code><em class="property"> = '/os-quota-sets/%(tenant_id)s/detail'</em><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DetailQuota.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DetailQuota.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'quota_set'</em><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DetailQuota.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'quota_sets'</em><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.DetailQuota.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.quota.DetailQuota.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.block_store.v2.quota.Quota">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.quota.</code><code class="descname">Quota</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/quota.html#Quota"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.quota.Quota" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.Quota.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.quota.Quota.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.Quota.base_path">
+<code class="descname">base_path</code><em class="property"> = '/os-quota-sets'</em><a class="headerlink" href="#ecl.block_store.v2.quota.Quota.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.Quota.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.quota.Quota.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.Quota.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'quota_set'</em><a class="headerlink" href="#ecl.block_store.v2.quota.Quota.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.Quota.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'quota_sets'</em><a class="headerlink" href="#ecl.block_store.v2.quota.Quota.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.quota.Quota.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.quota.Quota.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.type">
+<span id="type"></span><h1>type<a class="headerlink" href="#module-ecl.block_store.v2.type" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.type.Type">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.type.</code><code class="descname">Type</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/type.html#Type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.type.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.base_path">
+<code class="descname">base_path</code><em class="property"> = '/types'</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.extra_specs">
+<code class="descname">extra_specs</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.extra_specs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dict of extra specifications. &#8220;capabilities&#8221; is a usual key.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A ID representing this type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'volume_type'</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'volume_types'</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.type.Type.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.type.Type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.block_store.v2.volume">
+<span id="volume"></span><h1>volume<a class="headerlink" href="#module-ecl.block_store.v2.volume" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.block_store.v2.volume.Volume">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.volume.</code><code class="descname">Volume</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/volume.html#Volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.volume.Volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.allow_retrieve">
+<code class="descname">allow_retrieve</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.allow_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.attachments">
+<code class="descname">attachments</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.attachments" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO(briancurtin): This is currently undocumented in the API.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.availability_zone">
+<code class="descname">availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>The availability zone.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volumes'</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp of this volume creation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The volume description.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2.volume.Volume.extend_size">
+<code class="descname">extend_size</code><span class="sig-paren">(</span><em>session</em>, <em>new_size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/volume.html#Volume.extend_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.extend_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A ID representing this volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.image_id">
+<code class="descname">image_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.image_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the image from which you want to create the volume.
+Required to create a bootable volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.is_bootable">
+<code class="descname">is_bootable</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.is_bootable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the bootable attribute. You can boot an
+instance from a bootable volume. <em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of links associated with this volume. <em>Type: list</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.metadata">
+<code class="descname">metadata</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>One or more metadata key and value pairs to associate with the volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'volume'</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'volumes'</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'volumev2', 'requires_project_id': True, 'api_version': None}</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.size">
+<code class="descname">size</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the volume, in GBs. <em>Type: int</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.snapshot_id">
+<code class="descname">snapshot_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.snapshot_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>To create a volume from an existing snapshot, specify the ID of
+the existing volume snapshot. If specified, the volume is created
+in same availability zone and with same size of the snapshot.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.source_volume_id">
+<code class="descname">source_volume_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.source_volume_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>To create a volume from an existing volume, specify the ID of
+the existing volume. If specified, the volume is created with
+same size of the source volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>One of the following values: creating, available, attaching, in-use
+deleting, error, error_deleting, backing-up, restoring-backup,
+error_restoring. For details on these statuses, see the
+Block Storage API documentation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2.volume.Volume.update_bootable">
+<code class="descname">update_bootable</code><span class="sig-paren">(</span><em>session</em>, <em>bootable=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/volume.html#Volume.update_bootable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.update_bootable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.block_store.v2.volume.Volume.upload_to_image">
+<code class="descname">upload_to_image</code><span class="sig-paren">(</span><em>session</em>, <em>container_format=None</em>, <em>disk_format=None</em>, <em>image_name=None</em>, <em>force=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/volume.html#Volume.upload_to_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.upload_to_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.Volume.volume_type">
+<code class="descname">volume_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.Volume.volume_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the associated volume type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.block_store.v2.volume.VolumeDetail">
+<em class="property">class </em><code class="descclassname">ecl.block_store.v2.volume.</code><code class="descname">VolumeDetail</code><span class="sig-paren">(</span><em>attrs=None</em>, <em>loaded=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/block_store/v2/volume.html#VolumeDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.block_store.v2.volume.Volume" title="ecl.block_store.v2.volume.Volume"><code class="xref py py-class docutils literal"><span class="pre">ecl.block_store.v2.volume.Volume</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/volumes/detail'</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.consistency_group_id">
+<code class="descname">consistency_group_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.consistency_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the consistency group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.extended_replication_status">
+<code class="descname">extended_replication_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.extended_replication_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extended replication status on this volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.host">
+<code class="descname">host</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>The volume&#8217;s current back-end.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.is_encrypted">
+<code class="descname">is_encrypted</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.is_encrypted" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">True</span></code> if this volume is encrypted, <code class="docutils literal"><span class="pre">False</span></code> if not.
+<em>Type: bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.migration_id">
+<code class="descname">migration_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.migration_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The volume ID that this volume&#8217;s name on the back-end is based on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.migration_status">
+<code class="descname">migration_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.migration_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of this volume&#8217;s migration (None means that a migration
+is not currently in progress).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.project_id">
+<code class="descname">project_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.project_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The project ID associated with current back-end.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.replication_driver_data">
+<code class="descname">replication_driver_data</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.replication_driver_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data set by the replication driver</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.block_store.v2.volume.VolumeDetail.replication_status">
+<code class="descname">replication_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.block_store.v2.volume.VolumeDetail.replication_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of replication on this volume.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.compute.html" class="btn btn-neutral float-right" title="compute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.block_store.html" class="btn btn-neutral" title="block_store" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

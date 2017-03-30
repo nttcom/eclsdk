@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.object_store.v1.container &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.object_store.v1.container</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.object_store.v1.container</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.object_store.v1</span> <span class="k">import</span> <span class="n">_base</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource</span>
+
+
+<div class="viewcode-block" id="Container"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.container.Container">[docs]</a><span class="k">class</span> <span class="nc">Container</span><span class="p">(</span><span class="n">_base</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
+    <span class="n">_custom_metadata_prefix</span> <span class="o">=</span> <span class="s2">&quot;X-Container-Meta-&quot;</span>
+    <span class="n">_system_metadata</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;content_type&quot;</span><span class="p">:</span> <span class="s2">&quot;content-type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_content_type_detected&quot;</span><span class="p">:</span> <span class="s2">&quot;x-detect-content-type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;versions_location&quot;</span><span class="p">:</span> <span class="s2">&quot;x-versions-location&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;read_ACL&quot;</span><span class="p">:</span> <span class="s2">&quot;x-container-read&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;write_ACL&quot;</span><span class="p">:</span> <span class="s2">&quot;x-container-write&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sync_to&quot;</span><span class="p">:</span> <span class="s2">&quot;x-container-sync-to&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sync_key&quot;</span><span class="p">:</span> <span class="s2">&quot;x-container-sync-key&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
+    <span class="n">id_attribute</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_retrieve</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_head</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Container body data (when id=None)</span>
+    <span class="c1">#: The name of the container.</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="c1">#: The number of objects in the container.</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+    <span class="c1">#: The total number of bytes that are stored in Object Storage</span>
+    <span class="c1">#: for the container.</span>
+    <span class="nb">bytes</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Container metadata (when id=name)</span>
+    <span class="c1">#: The number of objects.</span>
+    <span class="n">object_count</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-container-object-count&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1">#: The count of bytes used in total.</span>
+    <span class="n">bytes_used</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-container-bytes-used&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1">#: The timestamp of the transaction.</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-timestamp&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Request headers (when id=None)</span>
+    <span class="c1">#: If set to True, Object Storage queries all replicas to return the</span>
+    <span class="c1">#: most recent one. If you omit this header, Object Storage responds</span>
+    <span class="c1">#: faster after it finds one valid replica. Because setting this</span>
+    <span class="c1">#: header to True is more expensive for the back end, use it only</span>
+    <span class="c1">#: when it is absolutely needed. *Type: bool*</span>
+    <span class="n">is_newest</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-newest&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+    <span class="c1"># Request headers (when id=name)</span>
+    <span class="c1">#: The ACL that grants read access. If not set, this header is not</span>
+    <span class="c1">#: returned by this operation.</span>
+    <span class="n">read_ACL</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-container-read&quot;</span><span class="p">)</span>
+    <span class="c1">#: The ACL that grants write access. If not set, this header is not</span>
+    <span class="c1">#: returned by this operation.</span>
+    <span class="n">write_ACL</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-container-write&quot;</span><span class="p">)</span>
+    <span class="c1">#: The destination for container synchronization. If not set,</span>
+    <span class="c1">#: this header is not returned by this operation.</span>
+    <span class="n">sync_to</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-container-sync-to&quot;</span><span class="p">)</span>
+    <span class="c1">#: The secret key for container synchronization. If not set,</span>
+    <span class="c1">#: this header is not returned by this operation.</span>
+    <span class="n">sync_key</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-container-sync-key&quot;</span><span class="p">)</span>
+    <span class="c1">#: Enables versioning on this container. The value is the name</span>
+    <span class="c1">#: of another container. You must UTF-8-encode and then URL-encode</span>
+    <span class="c1">#: the name before you include it in the header. To disable</span>
+    <span class="c1">#: versioning, set the header to an empty string.</span>
+    <span class="n">versions_location</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-versions-location&quot;</span><span class="p">)</span>
+    <span class="c1">#: The MIME type of the list of names.</span>
+    <span class="n">content_type</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span>
+    <span class="c1">#: If set to true, Object Storage guesses the content type based</span>
+    <span class="c1">#: on the file extension and ignores the value sent in the</span>
+    <span class="c1">#: Content-Type header, if present. *Type: bool*</span>
+    <span class="n">is_content_type_detected</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;x-detect-content-type&quot;</span><span class="p">,</span>
+                                               <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="c1">#: In combination with Expect: 100-Continue, specify an</span>
+    <span class="c1">#: &quot;If-None-Match: \*&quot; header to query whether the server already</span>
+    <span class="c1">#: has a copy of the object before any data is sent.</span>
+    <span class="n">if_none_match</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s2">&quot;if-none-match&quot;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Container.create_by_id"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.container.Container.create_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">create_by_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a Resource from its attributes.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+<span class="sd">        :param dict attrs: The attributes to be sent in the body</span>
+<span class="sd">                           of the request.</span>
+<span class="sd">        :param resource_id: This resource&#39;s identifier, if needed by</span>
+<span class="sd">                            the request. The default is ``None``.</span>
+
+<span class="sd">        :return: A ``dict`` representing the response headers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_url</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">HEADERS</span><span class="p">,</span> <span class="nb">dict</span><span class="p">())</span>
+        <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Accept&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+                           <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span></div>
+
+<div class="viewcode-block" id="Container.create"><a class="viewcode-back" href="../../../../ecl.object_store.v1.html#ecl.object_store.v1.container.Container.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a Resource from this instance.</span>
+
+<span class="sd">        :param session: The session to use for making this request.</span>
+<span class="sd">        :type session: :class:`~ecl.session.Session`</span>
+
+<span class="sd">        :return: This instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_by_id</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_dirty</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

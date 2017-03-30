@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rca methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="rca" href="ecl.rca.html"/>
+        <link rel="next" title="sss" href="ecl.sss.html"/>
+        <link rel="prev" title="rca" href="ecl.rca.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.rca.html">rca</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rca methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.rca.v1.user">user</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.rca.html">rca</a> &raquo;</li>
+        
+      <li>rca methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.rca.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.rca.v1._proxy">
+<span id="rca-methods"></span><h1>rca methods<a class="headerlink" href="#module-ecl.rca.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.rca.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.rca.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.create_user">
+<code class="descname">create_user</code><span class="sig-paren">(</span><em>password</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.create_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create VPN user. One VPN user can create per one tenant.
+And username equal to tenant_id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>password</strong> &#8211; The passowrd of VPN connection.
+Available character is 8-127 character of alphabet[a-zA-Z],
+number[0-9] and Symbols[.-_/<a href="#id1"><span class="problematic" id="id2">*</span></a>+,!#$%&amp;()~|].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of user creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.rca.v1.user.User" title="ecl.rca.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.delete_user">
+<code class="descname">delete_user</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.delete_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete VPN user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>username</strong> &#8211; The username of VPN user.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.find_user">
+<code class="descname">find_user</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.find_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.find_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single VPN user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a user.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.rca.v1.user.User" title="ecl.rca.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.get_user">
+<code class="descname">get_user</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show VPN user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>username</strong> &#8211; Query user name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.rca.v1.user.User" title="ecl.rca.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> or
+:class:<a href="#id3"><span class="problematic" id="id4">`</span></a>~ecl.exceptions.ResourceNotFound`when no
+resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.get_version">
+<code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.get_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show VPN version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.update_user">
+<code class="descname">update_user</code><span class="sig-paren">(</span><em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.update_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update VPN user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> &#8211; The username of VPN user.</li>
+<li><strong>password</strong> &#8211; The passowrd of VPN connection. Available character is
+8-127 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+.-_/<a href="#id5"><span class="problematic" id="id6">*</span></a>+,!#$%&amp;()~|].</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.rca.v1.user.User" title="ecl.rca.v1.user.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.users">
+<code class="descname">users</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>List VPN user. Now, VPN user can create per one tenant, so user
+list hash only one user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A generator of user objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.Proxy.versions">
+<code class="descname">versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#Proxy.versions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.Proxy.versions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List VPN versions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A generator of version objects</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.rca.v1._proxy.VersionSession">
+<em class="property">class </em><code class="descclassname">ecl.rca.v1._proxy.</code><code class="descname">VersionSession</code><span class="sig-paren">(</span><em>profile</em>, <em>user_agent=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#VersionSession"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.VersionSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.session.Session</span></code></p>
+<dl class="method">
+<dt id="ecl.rca.v1._proxy.VersionSession.get_endpoint">
+<code class="descname">get_endpoint</code><span class="sig-paren">(</span><em>auth=None</em>, <em>interface='public'</em>, <em>service_type=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/_proxy.html#VersionSession.get_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1._proxy.VersionSession.get_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override get endpoint to automate endpoint filtering</p>
+<p>This method uses the service catalog to find the root URI of
+each service and then gets all available versions directly
+from the service, not from the service catalog.</p>
+<p>Endpoints are cached per service type and interface combination
+so that they&#8217;re only requested from the remote service once
+per instance of this class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.rca.v1.user">
+<span id="user"></span><h1>user<a class="headerlink" href="#module-ecl.rca.v1.user" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.rca.v1.user.User">
+<em class="property">class </em><code class="descclassname">ecl.rca.v1.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/user.html#User"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1.user.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.rca.v1.user.User.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.rca.v1.user.User.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.rca.v1.user.User.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.rca.v1.user.User.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.rca.v1.user.User.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.base_path">
+<code class="descname">base_path</code><em class="property"> = '/users'</em><a class="headerlink" href="#ecl.rca.v1.user.User.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.rca.v1.user.User.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/rca/v1/user.html#User.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.rca.v1.user.User.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.rca.v1.user.User.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s name of VPN connection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.password">
+<code class="descname">password</code><em class="property"> = None</em><a class="headerlink" href="#ecl.rca.v1.user.User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>User&#8217;s password of VPN connection.
+This parameter is only included in the response of Create User.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'user'</em><a class="headerlink" href="#ecl.rca.v1.user.User.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'users'</em><a class="headerlink" href="#ecl.rca.v1.user.User.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'rca', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.rca.v1.user.User.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.rca.v1.user.User.vpn_endpoints">
+<code class="descname">vpn_endpoints</code><em class="property"> = None</em><a class="headerlink" href="#ecl.rca.v1.user.User.vpn_endpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>VPN user information list id = resource2.Body(&#8216;name&#8217;, alternate_id=True)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.sss.html" class="btn btn-neutral float-right" title="sss" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.rca.html" class="btn btn-neutral" title="rca" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

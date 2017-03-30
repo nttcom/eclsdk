@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.image.v2._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.image.v2._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.image.v2._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1"># not use this file except in compliance with the License. You may obtain</span>
+<span class="c1"># a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#      http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT</span>
+<span class="c1"># WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<span class="c1"># License for the specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">ecl.image.v2</span> <span class="k">import</span> <span class="n">image</span> <span class="k">as</span> <span class="n">_image</span>
+<span class="kn">from</span> <span class="nn">ecl.image.v2</span> <span class="k">import</span> <span class="n">image_copy</span> <span class="k">as</span> <span class="n">_copy</span>
+<span class="kn">from</span> <span class="nn">ecl.image.v2</span> <span class="k">import</span> <span class="n">member</span> <span class="k">as</span> <span class="n">_member</span>
+<span class="kn">from</span> <span class="nn">ecl.image.v2</span> <span class="k">import</span> <span class="n">license</span> <span class="k">as</span> <span class="n">_license</span>
+<span class="kn">from</span> <span class="nn">ecl.image.v2</span> <span class="k">import</span> <span class="n">tag</span> <span class="k">as</span> <span class="n">_tag</span>
+<span class="kn">from</span> <span class="nn">ecl.image.v2</span> <span class="k">import</span> <span class="n">schema</span> <span class="k">as</span> <span class="n">_schema</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.create_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.create_image">[docs]</a>    <span class="k">def</span> <span class="nf">create_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a virtual machine (VM) image.</span>
+
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.image.v2.image.Image`,</span>
+<span class="sd">                           comprised of the properties on the Image class.</span>
+
+<span class="sd">        :returns: The results of image creation</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.image.Image`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">img</span></div>
+
+<div class="viewcode-block" id="Proxy.upload_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.upload_image">[docs]</a>    <span class="k">def</span> <span class="nf">upload_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">image_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Uploads binary image data.</span>
+
+<span class="sd">        :param image_id: An identifier for the image.</span>
+<span class="sd">        :param image_data: raw binary data that represents the actual virtual disk.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">image_data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.download_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.download_image">[docs]</a>    <span class="k">def</span> <span class="nf">download_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download an image</span>
+
+<span class="sd">        :param image: The value can be either the ID of an image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance.</span>
+
+<span class="sd">        :returns: The bytes comprising the given Image.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.delete_image">[docs]</a>    <span class="k">def</span> <span class="nf">delete_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete an image</span>
+
+<span class="sd">        :param image: The value can be either the ID of an image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the image does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent image.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.find_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.find_image">[docs]</a>    <span class="k">def</span> <span class="nf">find_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Find a single image</span>
+
+<span class="sd">        :param name_or_id: The name or ID of a image.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the resource does not exist.</span>
+<span class="sd">                    When set to ``True``, None will be returned when</span>
+<span class="sd">                    attempting to find a nonexistent resource.</span>
+<span class="sd">        :returns: One :class:`~ecl.image.v2.image.Image` or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">name_or_id</span><span class="p">,</span>
+                          <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_image">[docs]</a>    <span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single image</span>
+
+<span class="sd">        :param image: The value can be the ID of a image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance.</span>
+
+<span class="sd">        :returns: One :class:`~ecl.image.v2.image.Image`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.images"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.images">[docs]</a>    <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of images</span>
+
+<span class="sd">        :param kwargs \*\*query: Optional query parameters to be sent to limit</span>
+<span class="sd">                                 the resources being returned.</span>
+
+<span class="sd">        :returns: A generator of image objects</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.image.Image`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;limit&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">query</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">query</span><span class="p">[</span><span class="s2">&quot;limit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="o">**</span><span class="n">query</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Proxy.update_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.update_image">[docs]</a>    <span class="k">def</span> <span class="nf">update_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">image_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update a image.</span>
+
+<span class="sd">        :param image_id: ID of a image.</span>
+<span class="sd">        :param image_data: List of attributes(dict) to update on the image.</span>
+<span class="sd">        :return: :class:`~ecl.image.v2.image.Image`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">image_data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.copy_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.copy_image">[docs]</a>    <span class="k">def</span> <span class="nf">copy_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">tenant_id_dst</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Copy image to a specified region.</span>
+
+<span class="sd">        :param image_id: An identifier for the image.</span>
+<span class="sd">        :param tenant_id_dst: An identifier for the image tenant for destination region.</span>
+<span class="sd">        :return: :class:`~ecl.image.v2.image_copy.ImageCopy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="n">_copy</span><span class="o">.</span><span class="n">ImageCopy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy_image</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">tenant_id_dst</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.cancel_copy_image"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.cancel_copy_image">[docs]</a>    <span class="k">def</span> <span class="nf">cancel_copy_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists details for image copy jobs.</span>
+
+<span class="sd">        :param job_id: JOB_ID that has been paid out in the Copy API.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="n">_copy</span><span class="o">.</span><span class="n">ImageCopy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">cancel_copy_image</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.list_image_copy_jobs"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.list_image_copy_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">list_image_copy_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists details for image copy jobs.</span>
+
+<span class="sd">        :return: A generator of ImageCopy instances.</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.image_copy.ImageCopy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="n">_copy</span><span class="o">.</span><span class="n">ImageCopy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">list_image_copy_jobs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_image_copy_job"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_image_copy_job">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_copy_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get details for a specified image copy job.</span>
+
+<span class="sd">        :param job_id: JOB_ID that has been paid out in the Copy API.</span>
+<span class="sd">        :return: :class:`~ecl.image.v2.image_copy.ImageCopy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="n">_copy</span><span class="o">.</span><span class="n">ImageCopy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">get_image_copy_job</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">add_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a tag to an image</span>
+
+<span class="sd">        :param image: The value can be the ID of a image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance</span>
+<span class="sd">                      that the member will be created for.</span>
+<span class="sd">        :param str tag: The tag to be added</span>
+
+<span class="sd">        :returns: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Proxy.remove_tag"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.remove_tag">[docs]</a>    <span class="k">def</span> <span class="nf">remove_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove a tag to an image</span>
+
+<span class="sd">        :param image: The value can be the ID of a image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance</span>
+<span class="sd">                      that the member will be created for.</span>
+<span class="sd">        :param str tag: The tag to be removed</span>
+
+<span class="sd">        :returns: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource</span><span class="p">(</span><span class="n">_image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">remove_tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_member"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.create_member">[docs]</a>    <span class="k">def</span> <span class="nf">create_member</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new member from attributes</span>
+
+<span class="sd">        :param image: The value can be the ID of a image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance</span>
+<span class="sd">                      that the member will be created for.</span>
+<span class="sd">        :param dict attrs: Keyword arguments which will be used to create</span>
+<span class="sd">                           a :class:`~ecl.image.v2.member.Member`,</span>
+<span class="sd">                           comprised of the properties on the Member class.</span>
+
+<span class="sd">        :returns: The results of member creation</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.member.Member`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_member</span><span class="o">.</span><span class="n">Member</span><span class="p">,</span> <span class="n">image_id</span><span class="o">=</span><span class="n">image_id</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_member"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.delete_member">[docs]</a>    <span class="k">def</span> <span class="nf">delete_member</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">member</span><span class="p">,</span> <span class="n">ignore_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a member</span>
+
+<span class="sd">        :param member: The value can be either the ID of a member or a</span>
+<span class="sd">                       :class:`~ecl.image.v2.member.Member` instance.</span>
+<span class="sd">        :param bool ignore_missing: When set to ``False``</span>
+<span class="sd">                    :class:`~ecl.exceptions.ResourceNotFound` will be</span>
+<span class="sd">                    raised when the member does not exist.</span>
+<span class="sd">                    When set to ``True``, no exception will be set when</span>
+<span class="sd">                    attempting to delete a nonexistent member.</span>
+
+<span class="sd">        :returns: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">member_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">_member</span><span class="o">.</span><span class="n">Member</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">image_id</span><span class="o">=</span><span class="n">image_id</span><span class="p">,</span>
+                     <span class="n">ignore_missing</span><span class="o">=</span><span class="n">ignore_missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_member"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_member">[docs]</a>    <span class="k">def</span> <span class="nf">get_member</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">member</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single member on an image</span>
+
+<span class="sd">        :param member: The value can be the ID of a member or a</span>
+<span class="sd">                       :class:`~ecl.image.v2.member.Member` instance.</span>
+<span class="sd">        :param image: This is the image that the member belongs to.</span>
+<span class="sd">                      The value can be the ID of a image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance.</span>
+<span class="sd">        :returns: One :class:`~ecl.image.v2.member.Member`</span>
+<span class="sd">        :raises: :class:`~ecl.exceptions.ResourceNotFound`</span>
+<span class="sd">                 when no resource can be found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">member_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+        <span class="n">image_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="n">_member</span><span class="o">.</span><span class="n">Member</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">image_id</span><span class="o">=</span><span class="n">image_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.members"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.members">[docs]</a>    <span class="k">def</span> <span class="nf">members</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a generator of members</span>
+
+<span class="sd">        :param image: This is the image that the member belongs to,</span>
+<span class="sd">                      the value can be the ID of a image or a</span>
+<span class="sd">                      :class:`~ecl.image.v2.image.Image` instance.</span>
+
+<span class="sd">        :returns: A generator of member objects</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.member.Member`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="o">.</span><span class="n">_get_id</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_member</span><span class="o">.</span><span class="n">Member</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">image_id</span><span class="o">=</span><span class="n">image_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_member"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.update_member">[docs]</a>    <span class="k">def</span> <span class="nf">update_member</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the member of an image.</span>
+
+<span class="sd">        :param image_id: ID of a member.</span>
+<span class="sd">        :param member_id: ID of the image that the member belongs to.</span>
+<span class="sd">        :param status: The status of this image member.</span>
+<span class="sd">        :returns: The updated member</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.member.Member`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">member</span> <span class="o">=</span> <span class="n">_member</span><span class="o">.</span><span class="n">Member</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">member</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">member_id</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.licenses"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.licenses">[docs]</a>    <span class="k">def</span> <span class="nf">licenses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List image license switch types.</span>
+
+<span class="sd">        :returns: A generator of license objects</span>
+<span class="sd">        :rtype: :class:`~ecl.image.v2.license.License`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">license</span> <span class="o">=</span> <span class="n">_license</span><span class="o">.</span><span class="n">License</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">license</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.add_tag"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.add_tag">[docs]</a>    <span class="k">def</span> <span class="nf">add_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">tag_to_add</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a specified tag to a specified image.</span>
+
+<span class="sd">        :param image_id: Image ID stored through the image API.</span>
+<span class="sd">                        Typically a UUID.</span>
+<span class="sd">        :param tag: Image tag to add.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">_tag</span><span class="o">.</span><span class="n">Tag</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">tag</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">tag_to_add</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_tag"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.delete_tag">[docs]</a>    <span class="k">def</span> <span class="nf">delete_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">tag_to_delete</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a specified tag from a specified image.</span>
+
+<span class="sd">        :param image_id: Image ID stored through the image API.</span>
+<span class="sd">                        Typically a UUID.</span>
+<span class="sd">        :param tag_to_delete: Image tag to delete.</span>
+<span class="sd">        :return: ``None``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">_tag</span><span class="o">.</span><span class="n">Tag</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">tag</span><span class="o">.</span><span class="n">delete_tag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">tag_to_delete</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_image_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_image_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents an image entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_image_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_images_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_images_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_images_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents an images entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_images_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_image_member_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_image_member_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_image_member_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents an image member</span>
+<span class="sd">        entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_image_member_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_metadata_namespace_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_metadata_namespace_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_namespace_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition namespace entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_metadata_namespace_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_metadata_object_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_metadata_object_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_object_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition object entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_metadata_object_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_metadata_property_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_metadata_property_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_property_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition property entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_metadata_property_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_metadata_resource_type_schema"><a class="viewcode-back" href="../../../../ecl.image.v2.html#ecl.image.v2._proxy.Proxy.get_metadata_resource_type_schema">[docs]</a>    <span class="k">def</span> <span class="nf">get_metadata_resource_type_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a JSON schema document that represents a metadata</span>
+<span class="sd">        definition namespace resource type association entity.</span>
+
+<span class="sd">        :return: :class:`~ecl.image.v2.scheme.Scheme`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">_schema</span><span class="o">.</span><span class="n">Scheme</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">schema</span><span class="o">.</span><span class="n">get_metadata_resource_type_schema</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

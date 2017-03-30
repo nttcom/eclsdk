@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>provider_connectivity methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="provider_connectivity" href="ecl.provider_connectivity.html"/>
+        <link rel="next" title="rca" href="ecl.rca.html"/>
+        <link rel="prev" title="provider_connectivity" href="ecl.provider_connectivity.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">provider_connectivity methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.provider_connectivity.v1.aws_connection">aws_connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.provider_connectivity.v1.exchange_point">exchange_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.provider_connectivity.v1.operation">operation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.provider_connectivity.html">provider_connectivity</a> &raquo;</li>
+        
+      <li>provider_connectivity methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.provider_connectivity.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.provider_connectivity.v1._proxy">
+<span id="provider-connectivity-methods"></span><h1>provider_connectivity methods<a class="headerlink" href="#module-ecl.provider_connectivity.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.provider_connectivity.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.approve_aws_connection">
+<code class="descname">approve_aws_connection</code><span class="sig-paren">(</span><em>connection_id</em>, <em>action</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.approve_aws_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.approve_aws_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approve/Disapprove connection between ECL2.0 and AWS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>connection_id</strong> &#8211; ID of specified connection.</li>
+<li><strong>type</strong> &#8211; Action type. You can choose from &#8220;approve&#8221; or &#8220;disapprove&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.aws_connections">
+<code class="descname">aws_connections</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.aws_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.aws_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>List connection resource between ECL2.0 and AWS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; The parameters as query string
+to get connections by specified condition.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of connection objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection" title="ecl.provider_connectivity.v1.aws_connection.AWSConnection"><code class="xref py py-class docutils literal"><span class="pre">AWSConnection</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.delete_aws_connection">
+<code class="descname">delete_aws_connection</code><span class="sig-paren">(</span><em>connection_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.delete_aws_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.delete_aws_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete connection between ECL2.0 and AWS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>connection_id</strong> &#8211; The ID of a connection.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the port does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent port.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.exchange_points">
+<code class="descname">exchange_points</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.exchange_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.exchange_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>List exchange ponts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; The parameters as query string
+to get exchange points by specified condition.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of exchange point objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of <code class="xref py py-class docutils literal">
+<span class="pre">ExchangePoint</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.find_aws_connection">
+<code class="descname">find_aws_connection</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.find_aws_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.find_aws_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a connection.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <code class="xref py py-class docutils literal"><span class="pre">AWSConnection</span></code> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.get_aws_connection">
+<code class="descname">get_aws_connection</code><span class="sig-paren">(</span><em>connection_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.get_aws_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.get_aws_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show connection resource between ECL2.0 and AWS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connection_id</strong> (<em>string</em>) &#8211; ID of specified connection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection" title="ecl.provider_connectivity.v1.aws_connection.AWSConnection"><code class="xref py py-class docutils literal"><span class="pre">AWSConnection</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.operations">
+<code class="descname">operations</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.operations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.operations" title="Permalink to this definition">¶</a></dt>
+<dd><p>List operations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; The parameters as query string
+to get operations by specified condition.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of operation objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of <code class="xref py py-class docutils literal">
+<span class="pre">Operation</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.prepare_aws_connection">
+<code class="descname">prepare_aws_connection</code><span class="sig-paren">(</span><em>aws_account_id</em>, <em>connected_network_address</em>, <em>bandwidth</em>, <em>qos_type</em>, <em>exchange_point_id</em>, <em>name=None</em>, <em>description=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.prepare_aws_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.prepare_aws_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create connection between ECL2.0 and AWS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>aws_account_id</strong> (<em>string</em>) &#8211; AWS Account ID of owner.</li>
+<li><strong>connected_network_address</strong> (<em>string</em>) &#8211; Connected network address
+for AWS connectivity.(/28)</li>
+<li><strong>bandwidth</strong> (<em>string</em>) &#8211; Bandwidth(Mbps). If you choose BestEffort in
+the qos_type, can select 100 or 1000.
+When you select Guarantee, choose from 50 to 500.</li>
+<li><strong>qos_type</strong> (<em>string</em>) &#8211; QoS type of network.
+You can choose from &#8220;BestEffort&#8221; or &#8220;Guarantee&#8221;.</li>
+<li><strong>exchange_point_id</strong> (<em>string</em>) &#8211; ID of exchange_points.</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of connection.</li>
+<li><strong>description</strong> (<em>string</em>) &#8211; Description of connection.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1._proxy.Proxy.update_aws_connection">
+<code class="descname">update_aws_connection</code><span class="sig-paren">(</span><em>connection</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/_proxy.html#Proxy.update_aws_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1._proxy.Proxy.update_aws_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update connection between ECL2.0 and AWS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>connection_id</strong> (<em>string</em>) &#8211; The ID of a connection.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attrs **params:</th><td class="field-body"><p class="first">Parameters for connection update.</p>
+<ul class="last simple">
+<li>string name: Name of connection.</li>
+<li>string description: Description of connection.</li>
+<li><dl class="first docutils">
+<dt>string bandwidth: Bandwidth. If you selected BestEffort</dt>
+<dd>in the qos_type, can update 100 or 1000 Mbps.
+However, in case of Guarantee, this parameter can not update.</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.provider_connectivity.v1.aws_connection">
+<span id="aws-connection"></span><h1>aws_connection<a class="headerlink" href="#module-ecl.provider_connectivity.v1.aws_connection" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection">
+<em class="property">class </em><code class="descclassname">ecl.provider_connectivity.v1.aws_connection.</code><code class="descname">AWSConnection</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/aws_connection.html#AWSConnection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.approve">
+<code class="descname">approve</code><span class="sig-paren">(</span><em>session</em>, <em>connection_id</em>, <em>action</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/aws_connection.html#AWSConnection.approve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.approve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approve/Disapprove connection between ECL2.0 and AWS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.aws_account_id">
+<code class="descname">aws_account_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.aws_account_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.aws_network1">
+<code class="descname">aws_network1</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.aws_network1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network params between ECL2.0 and UNO.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.aws_network2">
+<code class="descname">aws_network2</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.aws_network2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network params between UNO and AWS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.bandwidth">
+<code class="descname">bandwidth</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.bandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bandwidth assigned with this connection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v1.0/icc/aws/connections'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.connected_network_address">
+<code class="descname">connected_network_address</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.connected_network_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of connection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.exchange_point_id">
+<code class="descname">exchange_point_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.exchange_point_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of exchange_points.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>It identifies connection resource uniquely.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of connection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.qos_type">
+<code class="descname">qos_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.qos_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>QoS type assigned with this connection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'connection'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'connections'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v1.0', 'service_type': 'provider-connectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of connection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.aws_connection.AWSConnection.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.aws_connection.AWSConnection.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant ID of the owner.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.provider_connectivity.v1.exchange_point">
+<span id="exchange-point"></span><h1>exchange_point<a class="headerlink" href="#module-ecl.provider_connectivity.v1.exchange_point" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint">
+<em class="property">class </em><code class="descclassname">ecl.provider_connectivity.v1.exchange_point.</code><code class="descname">ExchangePoint</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/exchange_point.html#ExchangePoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v1.0/icc/exchange_points'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>It identifies exchange_point resource uniquely.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint.location_names">
+<code class="descname">location_names</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint.location_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pair of location name of AWS and ECL2.0.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'exchange_points'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.exchange_point.ExchangePoint.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v1.0', 'service_type': 'provider-connectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.provider_connectivity.v1.exchange_point.ExchangePoint.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.provider_connectivity.v1.operation">
+<span id="operation"></span><h1>operation<a class="headerlink" href="#module-ecl.provider_connectivity.v1.operation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.provider_connectivity.v1.operation.Operation">
+<em class="property">class </em><code class="descclassname">ecl.provider_connectivity.v1.operation.</code><code class="descname">Operation</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/provider_connectivity/v1/operation.html#Operation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v1.0/icc/operations'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.commit_datetime">
+<code class="descname">commit_datetime</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.commit_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>commit datetime. YYYY-MM-DD HH:MM:SS format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.connection_id">
+<code class="descname">connection_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.connection_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>It identifies connection resource uniquely.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.operation_status">
+<code class="descname">operation_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.operation_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of phase.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.order_type">
+<code class="descname">order_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.order_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>order type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.phase">
+<code class="descname">phase</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>operation phase.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.reception_datetime">
+<code class="descname">reception_datetime</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.reception_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>reception datetime. YYYY-MM-DD HH:MM:SS format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.request_body">
+<code class="descname">request_body</code><em class="property"> = None</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.request_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request body is stored.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'operations'</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.provider_connectivity.v1.operation.Operation.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v1.0', 'service_type': 'provider-connectivity', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.provider_connectivity.v1.operation.Operation.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.rca.html" class="btn btn-neutral float-right" title="rca" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.provider_connectivity.html" class="btn btn-neutral" title="provider_connectivity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

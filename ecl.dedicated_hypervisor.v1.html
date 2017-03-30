@@ -1,0 +1,1111 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dedicated_hypervisor methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="dedicated_hypervisor" href="ecl.dedicated_hypervisor.html"/>
+        <link rel="next" title="identity" href="ecl.identity.html"/>
+        <link rel="prev" title="dedicated_hypervisor" href="ecl.dedicated_hypervisor.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">dedicated_hypervisor methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.dedicated_hypervisor.v1.license">license</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.dedicated_hypervisor.v1.license_type">license_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.dedicated_hypervisor.v1.server">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.dedicated_hypervisor.v1.usage">usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a> &raquo;</li>
+        
+      <li>dedicated_hypervisor methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.dedicated_hypervisor.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.dedicated_hypervisor.v1._proxy">
+<span id="dedicated-hypervisor-methods"></span><h1>dedicated_hypervisor methods<a class="headerlink" href="#module-ecl.dedicated_hypervisor.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.add_license">
+<code class="descname">add_license</code><span class="sig-paren">(</span><em>server_id</em>, <em>license_types</em>, <em>vm_id=None</em>, <em>vm_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.add_license"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.add_license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add license to VM on hyper visor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID of server that have VM to add license</li>
+<li><strong>license_types</strong> (<em>array</em>) &#8211; Array of license type&#8217;s Name</li>
+<li><strong>vm_id</strong> (<em>string</em>) &#8211; VM ID, Specify either vm_id or vm_name</li>
+<li><strong>vm_name</strong> (<em>string</em>) &#8211; VM Name, Specify either vm_id or vm_name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of job_id</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.create_license">
+<code class="descname">create_license</code><span class="sig-paren">(</span><em>license_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.create_license"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.create_license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create additional Guest Image license key.
+You can create additional license key only for the licenses which
+<cite>has_license_key</cite> property is True.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>license_type</strong> (<em>string</em>) &#8211; Name of your Guest Image license type
+as a string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of license createion.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.dedicated_hypervisor.v1.license.License" title="ecl.dedicated_hypervisor.v1.license.License"><code class="xref py py-class docutils literal"><span class="pre">License</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.create_server">
+<code class="descname">create_server</code><span class="sig-paren">(</span><em>name</em>, <em>networks</em>, <em>image</em>, <em>flavor</em>, <em>admin_pass=None</em>, <em>description=None</em>, <em>availability_zone=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.create_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.create_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create additional Dedicated Hypervisor server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; Name of your Dedicated Hypervisor/Baremetal server
+as a string.</li>
+<li><strong>description</strong> (<em>string</em>) &#8211; Description of your Dedicated Hypervisor
+server as a string.</li>
+<li><strong>networks</strong> (<em>array</em>) &#8211; If it is specified greater than two,
+default gateway is first network.</li>
+<li><strong>flavor</strong> (<em>string</em>) &#8211; The flavor reference for the desired flavor
+for your Dedicated Hypervisor server.
+Specify as an UUID or full URL.
+Parameters of id or links -&gt; href in api_list_flavors page
+can be used as flavorRef parameter.</li>
+<li><strong>admin_pass</strong> (<em>string</em>) &#8211; Password for the administrator.</li>
+<li><strong>image</strong> (<em>string</em>) &#8211; The image reference for the desired image
+for your Dedicated Hypervisor server.
+Specify as an UUID or full URL.</li>
+<li><strong>availability_zone</strong> (<em>string</em>) &#8211; The availability zone name
+in which to launch the server.
+If omit this parameter, target availability_zone is random.</li>
+<li><strong>metadata</strong> (<em>dict</em>) &#8211; Metadata key and value pairs.
+The maximum size of the metadata key and value is 255 bytes each.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of server createion.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.dedicated_hypervisor.v1.server.Server" title="ecl.dedicated_hypervisor.v1.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.delete_license">
+<code class="descname">delete_license</code><span class="sig-paren">(</span><em>license_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.delete_license"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.delete_license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a specified Guest Image license key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>license_id</strong> (<em>string</em>) &#8211; ID for the license</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the server does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.delete_server">
+<code class="descname">delete_server</code><span class="sig-paren">(</span><em>server_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.delete_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.delete_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a specified Dedicated Hypervisor server.
+You can delete server when specified server status is
+ACTIVE or ERROR status.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the server does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent server</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.find_license_type">
+<code class="descname">find_license_type</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.find_license_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.find_license_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single license type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a license type.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType" title="ecl.dedicated_hypervisor.v1.license_type.LicenseType"><code class="xref py py-class docutils literal"><span class="pre">LicenseType</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.get_add_license_job">
+<code class="descname">get_add_license_job</code><span class="sig-paren">(</span><em>server_id</em>, <em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.get_add_license_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.get_add_license_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get add license job status</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>server_id</strong> (<em>string</em>) &#8211; Server ID</li>
+<li><strong>job_id</strong> (<em>string</em>) &#8211; Job ID</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Job object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.get_server">
+<code class="descname">get_server</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.get_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.get_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows your Dedicated Hypervisor server information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; ID for the server.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <code class="xref py py-class docutils literal"><span class="pre">Sever</span></code>
+instance.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.dedicated_hypervisor.v1.server.Server" title="ecl.dedicated_hypervisor.v1.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.get_usage_histories">
+<code class="descname">get_usage_histories</code><span class="sig-paren">(</span><em>history_id</em>, <em>From=None</em>, <em>to=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.get_usage_histories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.get_usage_histories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows your Guest Image usage history information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>history_id</strong> (<em>string</em>) &#8211; ID for the history.</li>
+<li><strong>From</strong> (<em>dateTime</em>) &#8211; date to list usage from. <cite>YYYY-MM-DD hh:mm:ss</cite> .</li>
+<li><strong>to</strong> (<em>dateTime</em>) &#8211; date to list usage to. month of the parameter
+must be the same as <cite>from</cite> . <cite>YYYY-MM-DD hh:mm:ss</cite> .</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.dedicated_hypervisor.v1.usage.Usage" title="ecl.dedicated_hypervisor.v1.usage.Usage"><code class="xref py py-class docutils literal"><span class="pre">Usage</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.license_types">
+<code class="descname">license_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.license_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.license_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists your Guest Image license on Dedicated Hypervisor servers
+information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of the license types.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of
+<a class="reference internal" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType" title="ecl.dedicated_hypervisor.v1.license_type.LicenseType"><code class="xref py py-class docutils literal"><span class="pre">LicenseType</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.licenses">
+<code class="descname">licenses</code><span class="sig-paren">(</span><em>license_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.licenses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists your Guest Image license key information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of the licenses.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of
+<a class="reference internal" href="#ecl.dedicated_hypervisor.v1.license.License" title="ecl.dedicated_hypervisor.v1.license.License"><code class="xref py py-class docutils literal"><span class="pre">License</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.servers">
+<code class="descname">servers</code><span class="sig-paren">(</span><em>details=True</em>, <em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.servers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.servers" title="Permalink to this definition">¶</a></dt>
+<dd><p>List your Dedicated Hypervisor servers information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>query</strong> &#8211; Query parameters to select results</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of the servers</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="#ecl.dedicated_hypervisor.v1.server.Server" title="ecl.dedicated_hypervisor.v1.server.Server"><code class="xref py py-class docutils literal"><span class="pre">Server</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1._proxy.Proxy.usages">
+<code class="descname">usages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/_proxy.html#Proxy.usages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1._proxy.Proxy.usages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists your Guest Image usage information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of the usages</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="#ecl.dedicated_hypervisor.v1.usage.Usage" title="ecl.dedicated_hypervisor.v1.usage.Usage"><code class="xref py py-class docutils literal"><span class="pre">Usage</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.dedicated_hypervisor.v1.license">
+<span id="license"></span><h1>license<a class="headerlink" href="#module-ecl.dedicated_hypervisor.v1.license" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1.license.License">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1.license.</code><code class="descname">License</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/license.html#License"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.assigned_from">
+<code class="descname">assigned_from</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.assigned_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>date the license assigned from.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.base_path">
+<code class="descname">base_path</code><em class="property"> = '/licenses'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>session</em>, <em>l_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/license.html#License.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.expires_at">
+<code class="descname">expires_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.expires_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>expiration date for the license.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of Guest Image license.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.key">
+<code class="descname">key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>license key.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.license_type">
+<code class="descname">license_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.license_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>license_type of the license</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'license'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'licenses'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license.License.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'dedicated-hypervisor', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license.License.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.dedicated_hypervisor.v1.license_type">
+<span id="license-type"></span><h1>license_type<a class="headerlink" href="#module-ecl.dedicated_hypervisor.v1.license_type" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1.license_type.</code><code class="descname">LicenseType</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/license_type.html#LicenseType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.base_path">
+<code class="descname">base_path</code><em class="property"> = '/license_types'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of th elicense.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/license_type.html#LicenseType.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.has_license_key">
+<code class="descname">has_license_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.has_license_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if the you can create license key by API</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of license type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.license_switch">
+<code class="descname">license_switch</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.license_switch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of license type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'license_types'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'dedicated-hypervisor', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.license_type.LicenseType.unit">
+<code class="descname">unit</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.license_type.LicenseType.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>unit of the license</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.dedicated_hypervisor.v1.server">
+<span id="server"></span><h1>server<a class="headerlink" href="#module-ecl.dedicated_hypervisor.v1.server" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1.server.</code><code class="descname">Server</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/server.html#Server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.adminPass">
+<code class="descname">adminPass</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.adminPass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password for the administrator.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.admin_pass">
+<code class="descname">admin_pass</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.admin_pass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.availability_zone">
+<code class="descname">availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server&#8217;s availability zone.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.baremetal_server">
+<code class="descname">baremetal_server</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.baremetal_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>detail of baremetal server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.description">
+<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of Dedicated Hypervisor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.flavor">
+<code class="descname">flavor</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.flavor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.flavorRef">
+<code class="descname">flavorRef</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.flavorRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>flavor id of Dedicated Hypervisor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.hypervisor_type">
+<code class="descname">hypervisor_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.hypervisor_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>type of hypervisor. vsphere_esxi or hyper_v.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>id of Dedicated Hypervisor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.image">
+<code class="descname">image</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.imageRef">
+<code class="descname">imageRef</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.imageRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>image id of Dedicated Hypervisor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link of the Dedicated Hypervisor server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of Dedicated Hypervisor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.networks">
+<code class="descname">networks</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Networks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'server'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'servers'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'dedicated-hypervisor', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.Server.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.Server.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of the Dedicated Hypervisor instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1.server.</code><code class="descname">ServerAction</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/server.html#ServerAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.dedicated_hypervisor.v1.server.Server" title="ecl.dedicated_hypervisor.v1.server.Server"><code class="xref py py-class docutils literal"><span class="pre">ecl.dedicated_hypervisor.v1.server.Server</span></code></a></p>
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.add_license">
+<code class="descname">add_license</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>license_types</em>, <em>vm_id=None</em>, <em>vm_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/server.html#ServerAction.add_license"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.add_license" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = False</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.allow_list">
+<code class="descname">allow_list</code><em class="property"> = False</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/%s/action'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.get_add_license_job">
+<code class="descname">get_add_license_job</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em>, <em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/server.html#ServerAction.get_add_license_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.get_add_license_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.job_id">
+<code class="descname">job_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.job_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.license_types">
+<code class="descname">license_types</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.license_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.requested_param">
+<code class="descname">requested_param</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.requested_param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.vm_id">
+<code class="descname">vm_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.vm_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerAction.vm_name">
+<code class="descname">vm_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerAction.vm_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerDetail">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1.server.</code><code class="descname">ServerDetail</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/server.html#ServerDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ecl.dedicated_hypervisor.v1.server.Server" title="ecl.dedicated_hypervisor.v1.server.Server"><code class="xref py py-class docutils literal"><span class="pre">ecl.dedicated_hypervisor.v1.server.Server</span></code></a></p>
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_create">
+<code class="descname">allow_create</code><em class="property"> = False</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = False</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_get">
+<code class="descname">allow_get</code><em class="property"> = False</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerDetail.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.server.ServerDetail.base_path">
+<code class="descname">base_path</code><em class="property"> = '/servers/detail'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.server.ServerDetail.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.dedicated_hypervisor.v1.usage">
+<span id="usage"></span><h1>usage<a class="headerlink" href="#module-ecl.dedicated_hypervisor.v1.usage" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage">
+<em class="property">class </em><code class="descclassname">ecl.dedicated_hypervisor.v1.usage.</code><code class="descname">Usage</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/usage.html#Usage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.From">
+<code class="descname">From</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.From" title="Permalink to this definition">¶</a></dt>
+<dd><p>date to list usage from.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.base_path">
+<code class="descname">base_path</code><em class="property"> = '/usages'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.get_usage_histories">
+<code class="descname">get_usage_histories</code><span class="sig-paren">(</span><em>session</em>, <em>history_id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/dedicated_hypervisor/v1/usage.html#Usage.get_usage_histories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.get_usage_histories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows your Guest Image usage history information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.has_license_key">
+<code class="descname">has_license_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.has_license_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>if true, there is license key.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.histories">
+<code class="descname">histories</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.histories" title="Permalink to this definition">¶</a></dt>
+<dd><p>histories of the usage</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>history id of Guest Image usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.license_type">
+<code class="descname">license_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.license_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of license type to show.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>license type name for the usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.resource_id">
+<code class="descname">resource_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.resource_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>uuid for the resource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'usages'</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'dedicated-hypervisor', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.to">
+<code class="descname">to</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>date to list usage to.
+month of the parameter must be the same as <cite>from</cite> .</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>type of Guest Image usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.unit">
+<code class="descname">unit</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>unit for the usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.dedicated_hypervisor.v1.usage.Usage.value">
+<code class="descname">value</code><em class="property"> = None</em><a class="headerlink" href="#ecl.dedicated_hypervisor.v1.usage.Usage.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>usage value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.identity.html" class="btn btn-neutral float-right" title="identity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.dedicated_hypervisor.html" class="btn btn-neutral" title="dedicated_hypervisor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

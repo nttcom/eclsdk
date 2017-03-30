@@ -1,0 +1,1497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>image methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="image" href="ecl.image.html"/>
+        <link rel="next" title="network" href="ecl.network.html"/>
+        <link rel="prev" title="image" href="ecl.image.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.image.html">image</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">image methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.image.v2.image">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.image.v2.image_copy">image_copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.image.v2.license">license</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.image.v2.member">member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.image.v2.schema">schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ecl.image.v2.tag">tag</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="ecl.image.html">image</a> &raquo;</li>
+        
+      <li>image methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.image.v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.image.v2._proxy">
+<span id="image-methods"></span><h1>image methods<a class="headerlink" href="#module-ecl.image.v2._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.image.v2._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.add_tag">
+<code class="descname">add_tag</code><span class="sig-paren">(</span><em>image_id</em>, <em>tag_to_add</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.add_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.add_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a specified tag to a specified image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_id</strong> &#8211; Image ID stored through the image API.
+Typically a UUID.</li>
+<li><strong>tag</strong> &#8211; Image tag to add.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.cancel_copy_image">
+<code class="descname">cancel_copy_image</code><span class="sig-paren">(</span><em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.cancel_copy_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.cancel_copy_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists details for image copy jobs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job_id</strong> &#8211; JOB_ID that has been paid out in the Copy API.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.copy_image">
+<code class="descname">copy_image</code><span class="sig-paren">(</span><em>image_id</em>, <em>tenant_id_dst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.copy_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.copy_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy image to a specified region.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_id</strong> &#8211; An identifier for the image.</li>
+<li><strong>tenant_id_dst</strong> &#8211; An identifier for the image tenant for destination region.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.image.v2.image_copy.ImageCopy" title="ecl.image.v2.image_copy.ImageCopy"><code class="xref py py-class docutils literal"><span class="pre">ImageCopy</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.create_image">
+<code class="descname">create_image</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.create_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.create_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a virtual machine (VM) image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a>,
+comprised of the properties on the Image class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The results of image creation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.create_member">
+<code class="descname">create_member</code><span class="sig-paren">(</span><em>image</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.create_member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.create_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new member from attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image</strong> &#8211; The value can be the ID of a image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance
+that the member will be created for.</li>
+<li><strong>attrs</strong> (<em>dict</em>) &#8211; Keyword arguments which will be used to create
+a <a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a>,
+comprised of the properties on the Member class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The results of member creation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.delete_image">
+<code class="descname">delete_image</code><span class="sig-paren">(</span><em>image</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.delete_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.delete_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image</strong> &#8211; The value can be either the ID of an image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the image does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent image.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.delete_member">
+<code class="descname">delete_member</code><span class="sig-paren">(</span><em>image</em>, <em>member</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.delete_member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.delete_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a member</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>member</strong> &#8211; The value can be either the ID of a member or a
+<a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a> instance.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the member does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, no exception will be set when
+attempting to delete a nonexistent member.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.delete_tag">
+<code class="descname">delete_tag</code><span class="sig-paren">(</span><em>image_id</em>, <em>tag_to_delete</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.delete_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.delete_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a specified tag from a specified image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_id</strong> &#8211; Image ID stored through the image API.
+Typically a UUID.</li>
+<li><strong>tag_to_delete</strong> &#8211; Image tag to delete.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.download_image">
+<code class="descname">download_image</code><span class="sig-paren">(</span><em>image_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.download_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.download_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download an image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> &#8211; The value can be either the ID of an image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The bytes comprising the given Image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.find_image">
+<code class="descname">find_image</code><span class="sig-paren">(</span><em>name_or_id</em>, <em>ignore_missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.find_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.find_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a single image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name_or_id</strong> &#8211; The name or ID of a image.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">One <a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_image">
+<code class="descname">get_image</code><span class="sig-paren">(</span><em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> &#8211; The value can be the ID of a image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One <a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_image_copy_job">
+<code class="descname">get_image_copy_job</code><span class="sig-paren">(</span><em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_image_copy_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_image_copy_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get details for a specified image copy job.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job_id</strong> &#8211; JOB_ID that has been paid out in the Copy API.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ecl.image.v2.image_copy.ImageCopy" title="ecl.image.v2.image_copy.ImageCopy"><code class="xref py py-class docutils literal"><span class="pre">ImageCopy</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_image_member_schema">
+<code class="descname">get_image_member_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_image_member_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_image_member_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents an image member
+entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_image_schema">
+<code class="descname">get_image_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_image_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_image_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents an image entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_images_schema">
+<code class="descname">get_images_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_images_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_images_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents an images entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_member">
+<code class="descname">get_member</code><span class="sig-paren">(</span><em>image</em>, <em>member</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single member on an image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>member</strong> &#8211; The value can be the ID of a member or a
+<a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a> instance.</li>
+<li><strong>image</strong> &#8211; This is the image that the member belongs to.
+The value can be the ID of a image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One <a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code>
+when no resource can be found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_metadata_namespace_schema">
+<code class="descname">get_metadata_namespace_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_metadata_namespace_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_metadata_namespace_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition namespace entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_metadata_object_schema">
+<code class="descname">get_metadata_object_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_metadata_object_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_metadata_object_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition object entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_metadata_property_schema">
+<code class="descname">get_metadata_property_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_metadata_property_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_metadata_property_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition property entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.get_metadata_resource_type_schema">
+<code class="descname">get_metadata_resource_type_schema</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.get_metadata_resource_type_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.get_metadata_resource_type_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition namespace resource type association entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Scheme</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.images">
+<code class="descname">images</code><span class="sig-paren">(</span><em>**query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of images</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**query</strong> (<em>kwargs</em>) &#8211; Optional query parameters to be sent to limit
+the resources being returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of image objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.licenses">
+<code class="descname">licenses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.licenses" title="Permalink to this definition">¶</a></dt>
+<dd><p>List image license switch types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A generator of license objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.image.v2.license.License" title="ecl.image.v2.license.License"><code class="xref py py-class docutils literal"><span class="pre">License</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.list_image_copy_jobs">
+<code class="descname">list_image_copy_jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.list_image_copy_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.list_image_copy_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists details for image copy jobs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A generator of ImageCopy instances.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.image.v2.image_copy.ImageCopy" title="ecl.image.v2.image_copy.ImageCopy"><code class="xref py py-class docutils literal"><span class="pre">ImageCopy</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.members">
+<code class="descname">members</code><span class="sig-paren">(</span><em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.members"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.members" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator of members</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> &#8211; This is the image that the member belongs to,
+the value can be the ID of a image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A generator of member objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.remove_tag">
+<code class="descname">remove_tag</code><span class="sig-paren">(</span><em>image</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.remove_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.remove_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a tag to an image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image</strong> &#8211; The value can be the ID of a image or a
+<a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a> instance
+that the member will be created for.</li>
+<li><strong>tag</strong> (<em>str</em>) &#8211; The tag to be removed</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.update_image">
+<code class="descname">update_image</code><span class="sig-paren">(</span><em>image_id</em>, <em>image_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.update_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.update_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_id</strong> &#8211; ID of a image.</li>
+<li><strong>image_data</strong> &#8211; List of attributes(dict) to update on the image.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.image.v2.image.Image" title="ecl.image.v2.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.update_member">
+<code class="descname">update_member</code><span class="sig-paren">(</span><em>image_id</em>, <em>member_id</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.update_member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.update_member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the member of an image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_id</strong> &#8211; ID of a member.</li>
+<li><strong>member_id</strong> &#8211; ID of the image that the member belongs to.</li>
+<li><strong>status</strong> &#8211; The status of this image member.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The updated member</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ecl.image.v2.member.Member" title="ecl.image.v2.member.Member"><code class="xref py py-class docutils literal"><span class="pre">Member</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2._proxy.Proxy.upload_image">
+<code class="descname">upload_image</code><span class="sig-paren">(</span><em>image_id</em>, <em>image_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/_proxy.html#Proxy.upload_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2._proxy.Proxy.upload_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads binary image data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_id</strong> &#8211; An identifier for the image.</li>
+<li><strong>image_data</strong> &#8211; raw binary data that represents the actual virtual disk.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.image.v2.image">
+<span id="image"></span><h1>image<a class="headerlink" href="#module-ecl.image.v2.image" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2.image.Image">
+<em class="property">class </em><code class="descclassname">ecl.image.v2.image.</code><code class="descname">Image</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image.html#Image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image.Image.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image.Image.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image.Image.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image.Image.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image.Image.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v2/images'</em><a class="headerlink" href="#ecl.image.v2.image.Image.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.checksum">
+<code class="descname">checksum</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.checksum" title="Permalink to this definition">¶</a></dt>
+<dd><p>md5 hash of image contents</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.container_format">
+<code class="descname">container_format</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.container_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>The container format refers to whether the VM image is in a file
+format that also contains metadata about the actual VM.
+Container formats include OVF and Amazon AMI. In addition,
+a VM image might not have a container format - instead,
+the image is just a blob of unstructured data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date and time of image registration</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.data">
+<code class="descname">data</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.direct_url">
+<code class="descname">direct_url</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.direct_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL to access the image file kept in external store. It appears
+when you set the show_image_direct_url option to true in the
+Image service&#8217;s configuration file.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.disk_format">
+<code class="descname">disk_format</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.disk_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Valid values are: aki, ari, ami, raw, iso, vhd, vdi, qcow2, or vmdk.
+The disk format of a VM image is the format of the underlying
+disk image. Virtual appliance vendors have different formats
+for laying out the information contained in a VM disk image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image.Image.download">
+<code class="descname">download</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image.html#Image.download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image.Image.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download the data contained in an image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.extra_key">
+<code class="descname">extra_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.extra_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The key of the extra properties.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.extra_value">
+<code class="descname">extra_value</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.extra_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the extra properties.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.file">
+<code class="descname">file</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.file" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for the virtual machine image file.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="ecl.image.v2.image.Image.find">
+<em class="property">classmethod </em><code class="descname">find</code><span class="sig-paren">(</span><em>session</em>, <em>name_or_id</em>, <em>ignore_missing=True</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image.html#Image.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image.Image.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a resource by its name or id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<code class="xref py py-class docutils literal"><span class="pre">Session</span></code>) &#8211; The session to use for making this request.</li>
+<li><strong>name_or_id</strong> &#8211; This resource&#8217;s identifier, if needed by
+the request. The default is <code class="docutils literal"><span class="pre">None</span></code>.</li>
+<li><strong>ignore_missing</strong> (<em>bool</em>) &#8211; When set to <code class="docutils literal"><span class="pre">False</span></code>
+<code class="xref py py-class docutils literal"><span class="pre">ResourceNotFound</span></code> will be
+raised when the resource does not exist.
+When set to <code class="docutils literal"><span class="pre">True</span></code>, None will be returned when
+attempting to find a nonexistent resource.</li>
+<li><strong>params</strong> (<em>dict</em>) &#8211; Any additional parameters to be passed into
+underlying methods, such as to
+<code class="xref py py-meth docutils literal"><span class="pre">existing()</span></code>
+in order to pass on URI parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The <code class="xref py py-class docutils literal"><span class="pre">Resource</span></code> object matching the given name or id
+or None if nothing matches.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.DuplicateResource</span></code> if more
+than one resource is found for this request.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ecl.exceptions.ResourceNotFound</span></code> if nothing
+is found and ignore_missing is <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.first">
+<code class="descname">first</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.first" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for the first page of response</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image.Image.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image.html#Image.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image.Image.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single image&#8217;s detailed information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>An identifier for the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.image_schema">
+<code class="descname">image_schema</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.image_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for schema of the virtual machine image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.image_status">
+<code class="descname">image_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.image_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of the image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.images_schema">
+<code class="descname">images_schema</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.images_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for schema of the virtual machine images.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.locations">
+<code class="descname">locations</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include location_url and location_metadata.
+location_url: URL to access the image file kept in external store
+(it is shown when &#8216;show_multiple_locations&#8217; option is enabled)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.min_disk">
+<code class="descname">min_disk</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.min_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of disk space (in GB) required to boot image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.min_ram">
+<code class="descname">min_ram</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.min_ram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of ram (in MB) required to boot image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Descriptive name for the image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.os_type">
+<code class="descname">os_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.os_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>OS information of this image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.owner">
+<code class="descname">owner</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Owner of the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.patch_update">
+<code class="descname">patch_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image.Image.patch_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.protected">
+<code class="descname">protected</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.protected" title="Permalink to this definition">¶</a></dt>
+<dd><p>If true, image will not be deletable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'images'</em><a class="headerlink" href="#ecl.image.v2.image.Image.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.self">
+<code class="descname">self</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.self" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v2', 'service_type': 'image', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.image.v2.image.Image.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.service_type">
+<code class="descname">service_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.service_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Service information of this image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.size">
+<code class="descname">size</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of image file in bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.tags">
+<code class="descname">tags</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>String related to the image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image.Image.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em>, <em>attrs_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image.html#Image.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image.Image.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates a specified image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date and time of the last image modification.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image.Image.upload">
+<code class="descname">upload</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em>, <em>image_data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image.html#Image.upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image.Image.upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload data into an existing image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image.Image.visibility">
+<code class="descname">visibility</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image.Image.visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>The image visibility.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.image.v2.image_copy">
+<span id="image-copy"></span><h1>image_copy<a class="headerlink" href="#module-ecl.image.v2.image_copy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2.image_copy.ImageCopy">
+<em class="property">class </em><code class="descclassname">ecl.image.v2.image_copy.</code><code class="descname">ImageCopy</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image_copy.html#ImageCopy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v2/extension/image_replicator/jobs'</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image_copy.ImageCopy.cancel_copy_image">
+<code class="descname">cancel_copy_image</code><span class="sig-paren">(</span><em>session</em>, <em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image_copy.html#ImageCopy.cancel_copy_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.cancel_copy_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a specified image copy job.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image_copy.ImageCopy.copy_image">
+<code class="descname">copy_image</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em>, <em>tenant_id_dst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image_copy.html#ImageCopy.copy_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.copy_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy image to a specified region.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.copy_progress">
+<code class="descname">copy_progress</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.copy_progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>progress of the image copying</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.destination_image_id">
+<code class="descname">destination_image_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.destination_image_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>destination image_id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.destination_region_id">
+<code class="descname">destination_region_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.destination_region_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>destination region_id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.destination_tenant_id">
+<code class="descname">destination_tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.destination_tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>destination tenant_id</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image_copy.ImageCopy.get_image_copy_job">
+<code class="descname">get_image_copy_job</code><span class="sig-paren">(</span><em>session</em>, <em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image_copy.html#ImageCopy.get_image_copy_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.get_image_copy_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get details for a specified image copy job.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.job_id">
+<code class="descname">job_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.job_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>An identifier job&#8217;s id for the image copying.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.image_copy.ImageCopy.list_image_copy_jobs">
+<code class="descname">list_image_copy_jobs</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/image_copy.html#ImageCopy.list_image_copy_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.list_image_copy_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists details for image copy jobs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v2', 'service_type': 'image', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.source_image_id">
+<code class="descname">source_image_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.source_image_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>source image_id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.source_region_id">
+<code class="descname">source_region_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.source_region_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>source region_id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.source_tenant_id">
+<code class="descname">source_tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.source_tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>source tenant_id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.image_copy.ImageCopy.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.image_copy.ImageCopy.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>job status</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.image.v2.license">
+<span id="license"></span><h1>license<a class="headerlink" href="#module-ecl.image.v2.license" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2.license.License">
+<em class="property">class </em><code class="descclassname">ecl.image.v2.license.</code><code class="descname">License</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/license.html#License"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.license.License" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.image.v2.license.License.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v2/extension/license_switch/types'</em><a class="headerlink" href="#ecl.image.v2.license.License.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.license.License.license_switch_types">
+<code class="descname">license_switch_types</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.license.License.license_switch_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>(&#8220;WindowsServer_2012R2_Standard_64_ComLicense&#8221;,
+&#8220;WindowsServer_2012_Standard_64_ComLicense&#8221;,
+&#8220;WindowsServer_2008R2_Enterprise_64_ComLicense&#8221;,
+&#8220;WindowsServer_2008R2_Standard_64_ComLicense&#8221;,
+&#8220;Red_Hat_Enterprise_Linux_7_64bit_BYOL&#8221;)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.license.License.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/license.html#License.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.license.License.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List image license switch types.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.license.License.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v2', 'service_type': 'image', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.image.v2.license.License.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.image.v2.member">
+<span id="member"></span><h1>member<a class="headerlink" href="#module-ecl.image.v2.member" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2.member.Member">
+<em class="property">class </em><code class="descclassname">ecl.image.v2.member.</code><code class="descname">Member</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/member.html#Member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.member.Member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.member.Member.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.member.Member.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.member.Member.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.member.Member.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.image.v2.member.Member.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v2/images/%(image_id)s/members'</em><a class="headerlink" href="#ecl.image.v2.member.Member.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.created_at">
+<code class="descname">created_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time when the member was created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.image_id">
+<code class="descname">image_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.image_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image ID stored through the image API. Typically a UUID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.member">
+<code class="descname">member</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.member" title="Permalink to this definition">¶</a></dt>
+<dd><p>Member_id used to create a member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.member_id">
+<code class="descname">member_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.member_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the image member. An image member is a tenant
+with whom the image is shared.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'members'</em><a class="headerlink" href="#ecl.image.v2.member.Member.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.schema">
+<code class="descname">schema</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL for schema of the member.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v2', 'service_type': 'image', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.image.v2.member.Member.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.member.Member.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em>, <em>member_id</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/member.html#Member.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.member.Member.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the member of an image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.member.Member.updated_at">
+<code class="descname">updated_at</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.member.Member.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date and time when the member was updated.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.image.v2.schema">
+<span id="schema"></span><h1>schema<a class="headerlink" href="#module-ecl.image.v2.schema" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2.schema.Scheme">
+<em class="property">class </em><code class="descclassname">ecl.image.v2.schema.</code><code class="descname">Scheme</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.additionalProperties">
+<code class="descname">additionalProperties</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.additionalProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image&#8217;s additionalProperties.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v2/schemas'</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.definitions">
+<code class="descname">definitions</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.definitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metadata&#8217;s definition.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_image_member_schema">
+<code class="descname">get_image_member_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_image_member_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_image_member_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents an image member
+entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_image_schema">
+<code class="descname">get_image_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_image_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_image_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents an image
+entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_images_schema">
+<code class="descname">get_images_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_images_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_images_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents an images
+entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_metadata_namespace_schema">
+<code class="descname">get_metadata_namespace_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_metadata_namespace_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_metadata_namespace_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition namespace entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_metadata_object_schema">
+<code class="descname">get_metadata_object_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_metadata_object_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_metadata_object_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition object entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_metadata_property_schema">
+<code class="descname">get_metadata_property_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_metadata_property_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_metadata_property_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata
+definition property entity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.schema.Scheme.get_metadata_resource_type_schema">
+<code class="descname">get_metadata_resource_type_schema</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/schema.html#Scheme.get_metadata_resource_type_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.schema.Scheme.get_metadata_resource_type_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a JSON schema document that represents a metadata definition namespace resource type association entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.links">
+<code class="descname">links</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image&#8217;s links.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image&#8217;s name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.properties">
+<code class="descname">properties</code><em class="property"> = None</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties for image.
+Properties list:
+architecture: Operating system architecture as specified in URL.
+status: The image status.
+container_format: The container format of image.
+min_ram: The minimum amount of RAM in MB that is required to boot the image..
+updated_at: The date and time when the resource was updated.The date and time stamp format is ISO 8601.
+owner: The ID of the owner, or tenant, of the image.
+min_disk: The minimum disk size in GB that is required to boot the image.
+tags: A list of Image tag.
+visibility: The image visibility.
+id: The unique ID for the image.
+size: The size of the image data, in bytes.
+virtual_size: The virtual size of the image.
+name: The name of the image.
+checksum: Hash of the image data used. The Image service uses this value for verification.
+created_at: The date and time when the resource was created.The date and time stamp format is ISO 8601.
+disk_format: The disk format of the image.
+properties: Properties, if any, that are associated with the image.
+protected: Indicates whether the image can be deleted.
+location: URL to access the image file kept in external store.
+self: URL for the virtual machine image.
+schema: URL for schema of the virtual machine image/member.
+direct_url: URL to access the image file kept in external store.
+instance_uuid: ID of instance used to create this image.
+kernel_id: ID of image stored in Glance that should be used as the kernel when booting an AMI-style image.
+os_distro: Common name of operating system distribution as specified in URL.
+os_version: Operating system version as specified by the distributor.
+ramdisk_id: ID of image stored in Glance that should be used as the ramdisk when booting an AMI-style image.
+member_id: Image member ID. For example, the tenant ID of the user with whom the image is being shared.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.schema.Scheme.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v2', 'service_type': 'image', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.image.v2.schema.Scheme.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.image.v2.tag">
+<span id="tag"></span><h1>tag<a class="headerlink" href="#module-ecl.image.v2.tag" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.image.v2.tag.Tag">
+<em class="property">class </em><code class="descclassname">ecl.image.v2.tag.</code><code class="descname">Tag</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/tag.html#Tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.tag.Tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="method">
+<dt id="ecl.image.v2.tag.Tag.add_tag">
+<code class="descname">add_tag</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/tag.html#Tag.add_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.tag.Tag.add_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a specified tag to a specified image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.tag.Tag.base_path">
+<code class="descname">base_path</code><em class="property"> = '/v2/images/%(image_id)s/tags/%(tag)s'</em><a class="headerlink" href="#ecl.image.v2.tag.Tag.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.image.v2.tag.Tag.delete_tag">
+<code class="descname">delete_tag</code><span class="sig-paren">(</span><em>session</em>, <em>image_id</em>, <em>tag</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/image/v2/tag.html#Tag.delete_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.image.v2.tag.Tag.delete_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a specified tag from a specified image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.image.v2.tag.Tag.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': 'v2', 'service_type': 'image', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.image.v2.tag.Tag.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.network.html" class="btn btn-neutral float-right" title="network" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.image.html" class="btn btn-neutral" title="image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
