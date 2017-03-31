@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="python-eclsdk  documentation" href="#"/>
-        <link rel="next" title="&lt;no title&gt;" href="ecl.html"/> 
+        <link rel="next" title="components" href="ecl.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,22 +86,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.html">components</a></li>
 </ul>
 
             
@@ -167,24 +152,68 @@
             
   <div class="section" id="ecl2-0-python-sdk">
 <h1>ECL2.0 Python SDK<a class="headerlink" href="#ecl2-0-python-sdk" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">eclsdk</span></code> is a collection of libraries for building
+applications to work with Enterprise Cloud 2.0</p>
+<p>Install:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">eclsdk</span>
+</pre></div>
+</div>
+<p>The following example simply connects to an Enterprise Cloud 2.0:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ecl</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">ecl</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span>
+    <span class="n">auth_url</span><span class="o">=</span><span class="s2">&quot;https://keystone-&lt;region&gt;-ecl.api.ntt.com/v3/&quot;</span><span class="p">,</span>
+    <span class="n">project_id</span><span class="o">=</span><span class="s2">&quot;Tenant ID&quot;</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;API Key&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;API Secret Key&quot;</span><span class="p">,</span>
+    <span class="n">user_domain_id</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="n">project_domain_id</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+
+<span class="n">vols</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">block_store</span><span class="o">.</span><span class="n">volumes</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">vol</span> <span class="ow">in</span> <span class="n">vols</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">vol</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<p>Token can be used instead of username/password using auth_plugin=&#8217;token&#8217;:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ecl</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">ecl</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span>
+    <span class="n">auth_plugin</span><span class="o">=</span><span class="s1">&#39;token&#39;</span>
+    <span class="n">token</span><span class="o">=</span><span class="s1">&#39;my-fancy-token1234&#39;</span>
+    <span class="n">auth_url</span><span class="o">=</span><span class="s2">&quot;https://keystone-&lt;region&gt;-ecl.api.ntt.com/v3/&quot;</span><span class="p">,</span>
+    <span class="n">project_id</span><span class="o">=</span><span class="s2">&quot;Tenant ID&quot;</span><span class="p">)</span>
+
+<span class="n">vols</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">block_store</span><span class="o">.</span><span class="n">volumes</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">vol</span> <span class="ow">in</span> <span class="n">vols</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">vol</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<p>If you want to log the API&#8217;s REQ and RESP, please write the following code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">utils</span>
+
+<span class="n">utils</span><span class="o">.</span><span class="n">enable_logging</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;ecl.log&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="c1"># you may do as follows</span>
+<span class="c1"># utils.enable_logging(debug=True, stream=sys.stdout)</span>
+<span class="c1"># utils.enable_logging(debug=True, path=&#39;ecl.log&#39;)</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.html">components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -199,7 +228,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ecl.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ecl.html" class="btn btn-neutral float-right" title="components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

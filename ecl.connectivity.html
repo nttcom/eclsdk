@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
-        <link rel="up" title="&lt;no title&gt;" href="ecl.html"/>
+        <link rel="up" title="components" href="ecl.html"/>
         <link rel="next" title="connectivity methods" href="ecl.connectivity.v1.html"/>
         <link rel="prev" title="compute methods" href="ecl.compute.v2.html"/> 
 
@@ -88,29 +88,27 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.compute.html">compute</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">connectivity</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html">connectivity methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.cic">cic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.mcic">mcic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.operation">operation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.server_segment">server_segment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.html">components</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">connectivity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ecl.connectivity.v1.html">connectivity methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.cic">cic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.mcic">mcic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.operation">operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecl.connectivity.v1.html#module-ecl.connectivity.v1.server_segment">server_segment</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.database.html">database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.identity.html">identity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.image.html">image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.network.html">network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.object_store.html">object_store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.orchestration.html">orchestration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.rca.html">rca</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.sss.html">sss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.html">storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.telemetry.html">telemetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -155,7 +153,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="ecl.html">&lt;no title&gt;</a> &raquo;</li>
+          <li><a href="ecl.html">components</a> &raquo;</li>
         
       <li>connectivity</li>
     
@@ -178,6 +176,23 @@
             
   <div class="section" id="connectivity">
 <h1>connectivity<a class="headerlink" href="#connectivity" title="Permalink to this headline">¶</a></h1>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ecl</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">ecl</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span>
+    <span class="n">auth_url</span><span class="o">=</span><span class="s2">&quot;https://keystone-&lt;region&gt;-ecl.api.ntt.com/v3/&quot;</span><span class="p">,</span>
+    <span class="n">project_id</span><span class="o">=</span><span class="s2">&quot;Tenant ID&quot;</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;API Key&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;API Secret Key&quot;</span><span class="p">,</span>
+    <span class="n">user_domain_id</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="n">project_domain_id</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+
+<span class="n">cic</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">connectivity</span><span class="o">.</span><span class="n">get_cic</span><span class="p">(</span><span class="s2">&quot;&lt;mcic_id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;cic_id&gt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">cic</span><span class="o">.</span><span class="n">cic_name</span>
+</pre></div>
+</div>
+<p>You can use methods corresponding to API like <code class="docutils literal"><span class="pre">conn.connectivity.&lt;method&gt;</span></code></p>
+<p>Please refer to <code class="docutils literal"><span class="pre">connectivity</span> <span class="pre">methods</span></code> below to check available methods.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ecl.connectivity.v1.html">connectivity methods</a></li>
