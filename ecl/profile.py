@@ -69,6 +69,8 @@ from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
 from ecl.rca import rca_service
 from ecl.storage import storage_service
+# from ecl.security_order import security_order_service
+from ecl.security_portal import security_portal_service
 from ecl.sss import sss_service
 from ecl.telemetry import telemetry_service
 from ecl.database import database_service
@@ -109,6 +111,10 @@ class Profile(object):
         self._add_service(telemetry_service.TelemetryService(version="v2"))
         self._add_service(block_store_service.BlockStoreService(version="v2"))
         self._add_service(storage_service.StorageService(version="v1"))
+        # self._add_service(
+        #     security_order_service.SecurityOrderService(version="v1"))
+        self._add_service(
+            security_portal_service.SecurityPortalService(version="v1"))
         self._add_service(rca_service.RcaService(version="v1"))
         self._add_service(baremetal_service.BaremetalService(version="v2"))
         self._add_service(
