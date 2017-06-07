@@ -14,6 +14,7 @@ from ecl.database.v1 import instance as _instance
 from ecl.database.v1 import user as _user
 from ecl.database.v1 import database as _database
 from ecl.database.v1 import flavor as _flavor
+from ecl.database.v1 import datastore as _datastore
 
 from ecl import proxy2
 from ecl import resource2
@@ -37,7 +38,7 @@ class Proxy(proxy2.BaseProxy):
                         volume,
                         databases,
                         users,
-                        datastores,
+                        datastore,
                         nics,
                         availability_zone=None,
                         backup_window=None,
@@ -52,7 +53,7 @@ class Proxy(proxy2.BaseProxy):
         :param databases: Database definition
                 list to initialize database on creating instance
         :param users: List of users to connect to defined databases
-        :param dict datastores: Datastore name and version of instance
+        :param dict datastore: Datastore name and version of instance
         :param dict nics: Network difinition of instance
         :param availability_zone: Availability zone for instance
         :param backup_window: Backup window time range
@@ -71,7 +72,7 @@ class Proxy(proxy2.BaseProxy):
         attrs.update({"volume": volume})
         attrs.update({"databases": databases})
         attrs.update({"users": users})
-        attrs.update({"datastores": datastores})
+        attrs.update({"datastore": datastore})
         attrs.update({"nics": nics})
 
         if availability_zone:
@@ -165,10 +166,16 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(_flavor.Flavor, paginated=False))
 
+    def datastores(self):
+        """Return a list of datastores
+        :returns: A list of datastore objects
+        """
+        return list(self._list(_datastore.Datastore, paginated=False))
+
     def users(self, instance_id, **query):
         """Retrieve a list of users assciated with instance
 
-        :param instance_di: Instance id to find users
+        :param instance_id: Instance id to find users
         :param kwargs \*\*query: Optional query parameters to be sent to limit
             the instances being returned.  Available parameters include:
         :returns: A list of database instances.
@@ -198,6 +205,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param instance_id: The value can be either the ID of a server or a
                            :class:`~ecl.database.v1.instance.Instance` instance.
+        :param string user: Name of user.
         :param bool ignore_missing: When set to ``False``
                     :class:`~ecl.exceptions.ResourceNotFound` will be
                     raised when the resource does not exist.
@@ -223,6 +231,41 @@ class Proxy(proxy2.BaseProxy):
         return self._find(_user.User, name_or_id,
                           instance_id=instance_id,
                           ignore_missing=ignore_missing)
+
+    def get_user(self, instance_id, user):
+        """Show a user
+
+        :param instance_id: The value can be either the ID of a server or a
+                           :class:`~ecl.database.v1.instance.Instance` instance.
+        :param string user: Name of user.
+        :returns: One user.
+        :rtype: :class:`~ecl.compute.v1.user.User`
+        """
+        return self._get(_user.User, user, instance_id=instance_id)
+
+    def grant_user(self, instance_id, user, databases):
+        """Grants database access privilege to user in DB Instance.
+
+        :param instance_id: The value can be either the ID of a server or a
+                           :class:`~ecl.database.v1.instance.Instance` instance.
+        :param string user: Name of user.
+        :param array databases: Database names to grant access privilege.
+        :returns: ``None``
+        """
+        user = _user.User()
+        return user.grant(self.session, instance_id, user, databases)
+
+    def revoke_user(self, instance_id, user, database):
+        """Revoke the access privilege of user from database in DB Instance.
+
+        :param instance_id: The value can be either the ID of a server or a
+                           :class:`~ecl.database.v1.instance.Instance` instance.
+        :param string user: Name of user.
+        :param string database: Database name to revoke access privilege.
+        :returns: ``None``
+        """
+        user = _user.User()
+        return user.revoke(self.session, instance_id, user, database)
 
     def databases(self, instance_id, **query):
         """Retrieve a list of databases assciated with instance
