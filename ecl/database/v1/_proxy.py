@@ -82,6 +82,8 @@ class Proxy(proxy2.BaseProxy):
             attrs.update({"backup_window": backup_window})
         if backup_retension_period:
             attrs.update({"backup_retension_period": backup_retension_period})
+        if restore_point:
+            attrs.update({"restorePoint": restore_point})
         if maintenance_window:
             attrs.update({"maintenance_window": maintenance_window})
 
