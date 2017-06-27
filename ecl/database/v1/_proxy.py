@@ -282,7 +282,7 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(database, paginated=False,
                                instance_id=instance_id, **query))
 
-    def create_database(self, instance_id, name):
+    def create_database(self, instance_id, name, charset=None, collate=None):
         """Create a new database from attributes
 
         :param string instance_id: ID of instance to assciate creating database
@@ -292,6 +292,10 @@ class Proxy(proxy2.BaseProxy):
         :rtype: :class:`~ecl.compute.v1.database.Database`
         """
         attrs = {"name": name}
+        if charset:
+            attrs.update({"character_set": charset})
+        if collate:
+            attrs.update({"collate": collate})
         return self._create(_database.Database, instance_id=instance_id,
                             **attrs)
 
