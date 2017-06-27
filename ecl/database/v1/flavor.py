@@ -44,8 +44,10 @@ class Flavor(resource2.Resource):
     #: Size of the swap partitions.
     swap = resource2.Body('swap')
     #: Size of the ephemeral data disk attached to this server. *Type: int*
-    ephemeral = resource2.Body('OS-FLV-EXT-DATA:ephemeral', type=int)
+    ephemeral = resource2.Body('ephemeral', type=int)
     #: ``True`` if this flavor is disabled, ``False`` if not. *Type: bool*
     is_disabled = resource2.Body('OS-FLV-DISABLED:disabled', type=bool)
     #: The bandwidth scaling factor this flavor receives on the network.
     rxtx_factor = resource2.Body('rxtx_factor', type=float)
+    #: ID
+    id = resource2.Body('str_id')

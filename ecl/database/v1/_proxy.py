@@ -43,6 +43,7 @@ class Proxy(proxy2.BaseProxy):
                         availability_zone=None,
                         backup_window=None,
                         backup_retension_period=None,
+                        restore_point=None,
                         maintenance_window=None,
                         **attrs):
         """Create a new instance from attributes
@@ -134,31 +135,31 @@ class Proxy(proxy2.BaseProxy):
         return resource2.wait_for_status(self.session, instance, status,
                                          failures, interval, wait)
 
-    def find_flavor(self, name_or_id, ignore_missing=True):
-        """Find a single flavor
+    # def find_flavor(self, name_or_id, ignore_missing=True):
+    #     """Find a single flavor
 
-        :param name_or_id: The name or ID of a flavor.
-        :param bool ignore_missing: When set to ``False``
-                    :class:`~ecl.exceptions.ResourceNotFound` will be
-                    raised when the resource does not exist.
-                    When set to ``True``, None will be returned when
-                    attempting to find a nonexistent resource.
-        :returns: One :class:`~ecl.database.v1.flavor.Flavor` or None
-        """
-        return self._find(_flavor.Flavor, name_or_id,
-                          ignore_missing=ignore_missing)
+    #     :param name_or_id: The name or ID of a flavor.
+    #     :param bool ignore_missing: When set to ``False``
+    #                 :class:`~ecl.exceptions.ResourceNotFound` will be
+    #                 raised when the resource does not exist.
+    #                 When set to ``True``, None will be returned when
+    #                 attempting to find a nonexistent resource.
+    #     :returns: One :class:`~ecl.database.v1.flavor.Flavor` or None
+    #     """
+    #     return self._find(_flavor.Flavor, name_or_id,
+    #                       ignore_missing=ignore_missing)
 
-    def get_flavor(self, flavor):
-        """Get a single flavor
+    # def get_flavor(self, flavor):
+    #     """Get a single flavor
 
-        :param flavor: The value can be the ID of a flavor or a
-                       :class:`~ecl.database.v1.flavor.Flavor` instance.
+    #     :param flavor: The value can be the ID of a flavor or a
+    #                    :class:`~ecl.database.v1.flavor.Flavor` instance.
 
-        :returns: One :class:`~ecl.database.v1.flavor.Flavor`
-        :raises: :class:`~ecl.exceptions.ResourceNotFound`
-                 when no resource can be found.
-        """
-        return self._get(_flavor.Flavor, flavor)
+    #     :returns: One :class:`~ecl.database.v1.flavor.Flavor`
+    #     :raises: :class:`~ecl.exceptions.ResourceNotFound`
+    #              when no resource can be found.
+    #     """
+    #     return self._get(_flavor.Flavor, flavor)
 
     def flavors(self):
         """Return a list of flavors
