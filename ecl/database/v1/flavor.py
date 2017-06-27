@@ -50,4 +50,4 @@ class Flavor(resource2.Resource):
     #: The bandwidth scaling factor this flavor receives on the network.
     rxtx_factor = resource2.Body('rxtx_factor', type=float)
     #: ID
-    id = resource2.Body('str_id')
+    str_id = resource2.Body('str_id', alternate_id=True)

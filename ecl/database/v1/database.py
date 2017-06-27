@@ -36,6 +36,5 @@ class Database(resource2.Resource):
     character_set = resource2.Body('character_set')
     #: Collate of Database.
     collate = resource2.Body('collate')
-
     #: ID of instance associated with this database
     instance_id = resource2.URI('instance_id')
