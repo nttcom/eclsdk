@@ -194,14 +194,14 @@ class Proxy(proxy2.BaseProxy):
         :param string password: Password of user
         :param databases: Database list of user to grant
 
-        :returns: The results of user creation
-        :rtype: :class:`~ecl.compute.v1.user.User`
+        :returns: ``None``
         """
         attrs = {"name": name,
                  "password": password}
         if databases:
             attrs.update({"databases": databases})
-        return self._create(_user.User, instance_id=instance_id, **attrs)
+        user = _user.User()
+        return user.create(self.session, instance_id, **attrs)
 
     def delete_user(self, instance_id, user, ignore_missing=True):
         """Delete a user
@@ -246,7 +246,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_user.User, user, instance_id=instance_id)
 
-    def grant_user(self, instance_id, user, databases):
+    def grant_user(self, instance_id, user_name, databases):
         """Grants database access privilege to user in DB Instance.
 
         :param instance_id: The value can be either the ID of a server or a
@@ -256,9 +256,9 @@ class Proxy(proxy2.BaseProxy):
         :returns: ``None``
         """
         user = _user.User()
-        return user.grant(self.session, instance_id, user, databases)
+        return user.grant(self.session, instance_id, user_name, databases)
 
-    def revoke_user(self, instance_id, user, database):
+    def revoke_user(self, instance_id, user_name, database):
         """Revoke the access privilege of user from database in DB Instance.
 
         :param instance_id: The value can be either the ID of a server or a
@@ -268,7 +268,7 @@ class Proxy(proxy2.BaseProxy):
         :returns: ``None``
         """
         user = _user.User()
-        return user.revoke(self.session, instance_id, user, database)
+        return user.revoke(self.session, instance_id, user_name, database)
 
     def databases(self, instance_id, **query):
         """Retrieve a list of databases assciated with instance
@@ -288,16 +288,15 @@ class Proxy(proxy2.BaseProxy):
         :param string instance_id: ID of instance to assciate creating database
         :param string name: Name of database
 
-        :returns: The results of database creation
-        :rtype: :class:`~ecl.compute.v1.database.Database`
+        :returns: ``None``
         """
         attrs = {"name": name}
         if charset:
             attrs.update({"character_set": charset})
         if collate:
             attrs.update({"collate": collate})
-        return self._create(_database.Database, instance_id=instance_id,
-                            **attrs)
+        database = _database.Database()
+        return database.create(self.session, instance_id, **attrs)
 
     def delete_database(self, instance_id, database, ignore_missing=True):
         """Delete a database

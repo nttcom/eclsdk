@@ -38,3 +38,11 @@ class Database(resource2.Resource):
     collate = resource2.Body('collate')
     #: ID of instance associated with this database
     instance_id = resource2.URI('instance_id')
+
+    def create(self, session, instance_id, **attrs):
+        base = self.base_path % {"instance_id": instance_id}
+        body = {"databases": [attrs]}
+        resp = session.post(base, endpoint_filter=self.service, json=body,
+                            headers={"Accept": "application/json"})
+        self._translate_response(resp, has_body=False)
+        return self

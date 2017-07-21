@@ -47,6 +47,14 @@ class User(resource2.Resource):
     #: ID of instance associated with this user
     instance_id = resource2.URI('instance_id')
 
+    def create(self, session, instance_id, **attrs):
+        base = self.base_path % {"instance_id": instance_id}
+        body = {"users": [attrs]}
+        resp = session.post(base, endpoint_filter=self.service, json=body,
+                            headers={"Accept": "application/json"})
+        self._translate_response(resp, has_body=False)
+        return self
+
     def grant(self, session, instance_id, user, databases):
         base = self.base_path % {"instance_id": instance_id}
         uri = "%s/%s/databases" % (base, user)
@@ -56,7 +64,8 @@ class User(resource2.Resource):
         return self
 
     def revoke(self, session, instance_id, user, database):
-        uri = uri = "%s/%s/databases/%s" % (self.base_path, user, database)
+        base = self.base_path % {"instance_id": instance_id}
+        uri = uri = "%s/%s/databases/%s" % (base, user, database)
         resp = session.delete(uri, endpoint_filter=self.service)
         self._translate_response(resp, has_body=False)
         return self
