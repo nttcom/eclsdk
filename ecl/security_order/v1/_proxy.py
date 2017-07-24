@@ -21,11 +21,11 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
-        :return: List single Firwall/UTM.
+        :return: Single Firwall/UTM.
         :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
         """
         fgs = _fgs.SingleFirewall()
-        return list(fgs.list(self.session, locale=locale))
+        return fgs.list(self.session, locale=locale)
 
     def create_single_firewall(self, operatingmode, licensekind,
                                azgroup, sokind, locale=None):
