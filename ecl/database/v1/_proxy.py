@@ -80,7 +80,7 @@ class Proxy(proxy2.BaseProxy):
             attrs.update({"availability_zone": availability_zone})
         if backup_window:
             attrs.update({"backup_window": backup_window})
-        if backup_retention_period:
+        if backup_retention_period or backup_retention_period == 0:
             attrs.update({"backup_retention_period": backup_retention_period})
         if restore_point:
             attrs.update({"restorePoint": restore_point})
