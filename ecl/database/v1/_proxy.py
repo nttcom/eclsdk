@@ -42,7 +42,7 @@ class Proxy(proxy2.BaseProxy):
                         nics,
                         availability_zone=None,
                         backup_window=None,
-                        backup_retension_period=None,
+                        backup_retention_period=None,
                         restore_point=None,
                         maintenance_window=None,
                         **attrs):
@@ -58,7 +58,7 @@ class Proxy(proxy2.BaseProxy):
         :param dict nics: Network difinition of instance
         :param availability_zone: Availability zone for instance
         :param backup_window: Backup window time range
-        :param backup_retension_period: Number of the day to retain backup
+        :param backup_retention_period: Number of the day to retain backup
         :param maintenance_window: Maintenance window time range by
                 the day of the week and from/to time
         :param kwargs attrs: Keyword arguments which will be used to create
@@ -80,8 +80,8 @@ class Proxy(proxy2.BaseProxy):
             attrs.update({"availability_zone": availability_zone})
         if backup_window:
             attrs.update({"backup_window": backup_window})
-        if backup_retension_period:
-            attrs.update({"backup_retension_period": backup_retension_period})
+        if backup_retention_period:
+            attrs.update({"backup_retention_period": backup_retention_period})
         if restore_point:
             attrs.update({"restorePoint": restore_point})
         if maintenance_window:
