@@ -57,6 +57,28 @@ class SingleFirewall(resource2.Resource):
     #: List of device objects.
     devices = resource2.Body('devices')
 
+    def get_order_status(self, session, soid, locale=None):
+        tenant_id = session.get_project_id()
+        uri = '/API/ScreenEventFGSOrderProgressRate?tenant_id=%s&soid=%s' \
+              % (tenant_id, soid)
+        if locale is not None:
+            uri += '&locale=%s' % locale
+        headers = {'Content-Type': 'application/json'}
+        resp = session.get(uri, endpoint_filter=self.service, headers=headers)
+        self._translate_response(resp, has_body=True)
+        return self
+
+    def update(self, session, **body):
+        uri = self.base_path
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=True)
+        return self
+
+    def delete(self, session, body, locale=None):
+        uri = self.base_path
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=True)
+        return self
 
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
@@ -71,7 +93,7 @@ class SingleFirewall(resource2.Resource):
             device = {
                 'internal_use': row['cell'][0],
                 'rows': row['cell'][1],
-                'host_name': row['cell'][2],
+                'hostname': row['cell'][2],
                 'menu': row['cell'][3],
                 'plan': row['cell'][4],
                 'redundancy': row['cell'][5],
