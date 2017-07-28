@@ -3,6 +3,7 @@
 from ecl.security_order.v1 import single_firewall as _fgs
 from ecl.security_order.v1 import ha_firewall as _fgha
 from ecl.security_order.v1 import waf as _fgwaf
+from ecl.security_order.v1 import host_based as _hbs
 from ecl import proxy2
 
 
@@ -314,3 +315,18 @@ class Proxy(proxy2.BaseProxy):
             body["locale"] = locale
         fgwaf = _fgwaf.WAF()
         return fgwaf.delete(self.session, body, locale=locale)
+
+    def get_host_based_order_status(self, soid, locale=None):
+        """Check progress status of Host-based Security Service Order.
+
+        :param string soid: This value is returned value of when you execute API
+                            of Order Host-based Security, Change menu or
+                            quantity, or Cancel the order.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: HostBased Security.
+        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        """
+        hbs = _hbs.HostBased()
+        return hbs.get_order_status(self.session, soid, locale=locale)
