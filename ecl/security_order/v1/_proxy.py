@@ -159,7 +159,7 @@ class Proxy(proxy2.BaseProxy):
         return self._create(_fgha.HAFirewall, **body)
 
     def update_ha_firewall(self, hostname1, hostname2, operatingmode,
-                           licensekind1, licensekind2, locale=None):
+                           licensekind, locale=None):
         """Change menu (Firewall/Managed UTM) and/or plan of single device.
 
         :param string hostname1: Set the hostname.
@@ -177,11 +177,11 @@ class Proxy(proxy2.BaseProxy):
         body["gt_host"] = [{
             "hostname": hostname1,
             "operatingmode": operatingmode,
-            "licensekind": licensekind1
+            "licensekind": licensekind
         },{
             "hostname": hostname2,
             "operatingmode": operatingmode,
-            "licensekind": licensekind2
+            "licensekind": licensekind
         }]
         body["sokind"] = "MH"
         if locale:
