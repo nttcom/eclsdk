@@ -156,6 +156,36 @@ class Proxy(proxy2.BaseProxy):
             body["locale"] = locale
         return self._create(_fgha.HAFirewall, **body)
 
+    def update_ha_firewall(self, hostname1, hostname2, operatingmode,
+                           licensekind1, licensekind2, locale=None):
+        """Change menu (Firewall/Managed UTM) and/or plan of single device.
+
+        :param string operating_mode: Set "UTM_HA" or "FW_HA" to this value.
+        :param string licensekind: Set "02" or "08" as FW/UTM plan.
+        :param string hostname: Set the hostname.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: HA Firwall/UTM.
+        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["gt_host"] = [{
+            "hostname": hostname1,
+            "operatingmode": operatingmode,
+            "licensekind": licensekind1
+        },{
+            "hostname": hostname2,
+            "operatingmode": operatingmode,
+            "licensekind": licensekind2
+        }]
+        body["sokind"] = "MH"
+        if locale:
+            body.update({"locale": locale})
+        fgha = _fgha.HAFirewall()
+        return fgha.update(self.session, **body)
+
     def get_order_status(self, soid, locale=None):
         """Check progress status of Managed Firewall/UTM device Service Order.
 

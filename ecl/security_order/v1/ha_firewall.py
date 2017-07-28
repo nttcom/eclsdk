@@ -49,6 +49,12 @@ class HAFirewall(resource2.Resource):
     #: Percentage of Service Order Progress Status.
     progress_rate = resource2.Body('progressRate')
 
+    def update(self, session, **body):
+        uri = self.base_path
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=True)
+        return self
+
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
         uri = '/API/ScreenEventFGHADeviceGet?tenant_id=%s' % tenant_id
