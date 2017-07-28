@@ -23,7 +23,7 @@ class Proxy(proxy2.BaseProxy):
                                azgroup, locale=None):
         """Create a new Managed Firewall/UTM device of single constitution.
 
-        :param string operating_mode: Set "FW" or "UTM" to this value.
+        :param string operatingmode: Set "FW" or "UTM" to this value.
         :param string licensekind: Set "02" or "08" as FW/UTM plan.
         :param string azgroup: Availability Zone
         :param string locale: Messages are displayed in Japanese or English
@@ -48,7 +48,7 @@ class Proxy(proxy2.BaseProxy):
                                licensekind, locale=None):
         """Change menu (Firewall/Managed UTM) and/or plan of single device.
 
-        :param string operating_mode: Set "FW" or "UTM" to this value.
+        :param string operatingmode: Set "FW" or "UTM" to this value.
         :param string licensekind: Set "02" or "08" as FW/UTM plan.
         :param string hostname: Set the hostname.
         :param string locale: Messages are displayed in Japanese or English
@@ -110,7 +110,7 @@ class Proxy(proxy2.BaseProxy):
                            locale=None):
         """Create a new Managed Firewall/UTM device of single constitution.
 
-        :param string operating_mode: Set "UTM_HA" or "FW_HA" to this value.
+        :param string operatingmode: Set "UTM_HA" or "FW_HA" to this value.
         :param string licensekind: Set "02" or "08" as FW/UTM plan.
         :param string azgroup1: Availability Zone
         :param string azgroup2: Availability Zone
@@ -160,9 +160,10 @@ class Proxy(proxy2.BaseProxy):
                            licensekind1, licensekind2, locale=None):
         """Change menu (Firewall/Managed UTM) and/or plan of single device.
 
-        :param string operating_mode: Set "UTM_HA" or "FW_HA" to this value.
+        :param string hostname1: Set the hostname.
+        :param string hostname2: Set the hostname.
+        :param string operatingmode: Set "UTM_HA" or "FW_HA" to this value.
         :param string licensekind: Set "02" or "08" as FW/UTM plan.
-        :param string hostname: Set the hostname.
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
@@ -185,6 +186,28 @@ class Proxy(proxy2.BaseProxy):
             body.update({"locale": locale})
         fgha = _fgha.HAFirewall()
         return fgha.update(self.session, **body)
+
+    def delete_ha_firewall(self, hostname1, hostname2, locale=None):
+        """Delete a Managed Firewall/UTM device of single constitution.
+
+        :param string hostname1: Set the hostname.
+        :param string hostname2: Set the hostname.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["gt_host"] = [{
+            "hostname": hostname1
+        }, {
+            "hostname": hostname2
+        }]
+        body["sokind"] = "DH"
+        if locale:
+            body["locale"] = locale
+        fgha = _fgha.HAFirewall()
+        return fgha.delete(self.session, body, locale=locale)
 
     def get_order_status(self, soid, locale=None):
         """Check progress status of Managed Firewall/UTM device Service Order.

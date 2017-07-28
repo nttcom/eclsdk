@@ -55,6 +55,12 @@ class HAFirewall(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
+    def delete(self, session, body, locale=None):
+        uri = self.base_path
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=True)
+        return self
+
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
         uri = '/API/ScreenEventFGHADeviceGet?tenant_id=%s' % tenant_id
