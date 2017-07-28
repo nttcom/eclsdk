@@ -373,6 +373,30 @@ class Proxy(proxy2.BaseProxy):
             body["locale"] = locale
         return self._create(_hbs.HostBased, **body)
 
+    def change_menu(self, service_order_service, mailaddress,
+                    locale=None):
+        """Change menu of Host-based Security.
+
+        :param string service_order_service: Requested menu.
+            Set "Managed Anti-Virus", "Managed Virtual Patch"
+            or "Managed Host-based Security Package" to this field.
+        :param string mailaddress: Contactable mail address.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: Host Based Security.
+        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["service_order_service"] = service_order_service
+        body["mailaddress"] = mailaddress
+        body["sokind"] = "M1"
+        if locale:
+            body.update({"locale": locale})
+        hbs = _hbs.HostBased()
+        return hbs.update(self.session, **body)
+
     def cancel_host_based(self, locale=None):
         """Delete a Managed Firewall/UTM device of single constitution.
 
