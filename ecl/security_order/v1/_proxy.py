@@ -326,7 +326,19 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HostBased Security.
-        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
         """
         hbs = _hbs.HostBased()
         return hbs.get_order_status(self.session, soid, locale=locale)
+
+    def get_host_based_order_info(self, locale=None):
+        """Get Order Information that tied to tenant id.
+
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: HostBased Security.
+        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        """
+        hbs = _hbs.HostBased()
+        return hbs.get_order_info(self.session, locale=locale)

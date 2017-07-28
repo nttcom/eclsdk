@@ -28,3 +28,13 @@ class HostBased(resource2.Resource):
         resp = session.get(uri, endpoint_filter=self.service, headers=headers)
         self._translate_response(resp, has_body=True)
         return self
+
+    def get_order_info(self, session, locale=None):
+        tenant_id = session.get_project_id()
+        uri = '/API/ScreenEventHBSOrderInfoGet?tenant_id=%s' % tenant_id
+        if locale is not None:
+            uri += '&locale=%s' % locale
+        headers = {'Content-Type': 'application/json'}
+        resp = session.get(uri, endpoint_filter=self.service, headers=headers)
+        self._translate_response(resp, has_body=True)
+        return self
