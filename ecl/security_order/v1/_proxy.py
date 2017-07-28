@@ -272,3 +272,45 @@ class Proxy(proxy2.BaseProxy):
         """
         fgwaf = _fgwaf.WAF()
         return fgwaf.get_order_status(self.session, soid, locale=locale)
+
+    def update_waf(self, hostname, licensekind, locale=None):
+        """Change plan of device.
+
+        :param string licensekind: Set "02", "04" or "08" as WAF plan.
+        :param string hostname: Set the hostname.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: Single Firwall/UTM.
+        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["gt_host"] = [{
+            "hostname": hostname,
+            "licensekind": licensekind
+        }]
+        body["sokind"] = "M"
+        if locale:
+            body.update({"locale": locale})
+        fgwaf = _fgwaf.WAF()
+        return fgwaf.update(self.session, **body)
+
+    def delete_single_firewall(self, hostname, locale=None):
+        """Delete a WAF device.
+
+        :param string hostname: Set the hostname.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["gt_host"] = [{
+            "hostname": hostname
+        }]
+        body["sokind"] = "D"
+        if locale:
+            body["locale"] = locale
+        fgwaf = _fgwaf.WAF()
+        return fgwaf.delete(self.session, body, locale=locale)
