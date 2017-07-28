@@ -65,12 +65,12 @@ class HAFirewall(resource2.Resource):
                 'redundancy': row['cell'][6],
                 'availability_zone': row['cell'][7],
                 'zone_name': row['cell'][8],
-                'link1network_id': row['cell'][9],
-                'link1subnet_id': row['cell'][10],
-                'link1ip': row['cell'][11],
-                'link2network_id': row['cell'][12],
-                'link2subnet_id': row['cell'][13],
-                'link2ip': row['cell'][14],
+                'halink1networkid': row['cell'][9],
+                'halink1subnetid': row['cell'][10],
+                'halink1ipaddress': row['cell'][11],
+                'halink2networkid': row['cell'][12],
+                'halink2subnetid': row['cell'][13],
+                'halink2ipaddress': row['cell'][14],
             }
             devices.append(device)
         body.update({'devices': devices})
