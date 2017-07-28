@@ -38,3 +38,9 @@ class HostBased(resource2.Resource):
         resp = session.get(uri, endpoint_filter=self.service, headers=headers)
         self._translate_response(resp, has_body=True)
         return self
+
+    def delete(self, session, body, locale=None):
+        uri = self.base_path
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=True)
+        return self

@@ -342,3 +342,49 @@ class Proxy(proxy2.BaseProxy):
         """
         hbs = _hbs.HostBased()
         return hbs.get_order_info(self.session, locale=locale)
+
+    def order_host_based(self, service_order_service, max_agent_value,
+                         mailaddress, dsm_lang, time_zone, locale=None):
+        """Make a new application for Host-based Security.
+
+        :param string service_order_service: Requested menu.
+            Set "Managed Anti-Virus", "Managed Virtual Patch"
+            or "Managed Host-based Security Package" to this field.
+        :param string max_agent_value: Set maximum quantity of Agenet usage.
+        :param string mailaddress: Contactable mail address.
+        :param string dsm_lang: This value is used for language of Deep
+                                Security Manager. ja: Japanese, en: English.
+        :param string time_zone: Set "Asia/Tokyo" for JST or "Etc/GMT" for UTC.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: Host Based Security
+        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["service_order_service"] = service_order_service
+        body["max_agent_value"] = max_agent_value
+        body["mailaddress"] = mailaddress
+        body["dsm_lang"] = dsm_lang
+        body["time_zone"] = time_zone
+        body["sokind"] = "N"
+        if locale:
+            body["locale"] = locale
+        return self._create(_hbs.HostBased, **body)
+
+    def cancel_host_based(self, locale=None):
+        """Delete a Managed Firewall/UTM device of single constitution.
+
+        :param string hostname: Set the hostname.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["sokind"] = "C"
+        if locale:
+            body["locale"] = locale
+        hbs = _hbs.HostBased()
+        return hbs.delete(self.session, body, locale=locale)
