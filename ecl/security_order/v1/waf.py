@@ -6,10 +6,10 @@ from ecl import exceptions
 from ecl import utils
 
 
-class SingleFirewall(resource2.Resource):
+class WAF(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryFGS'
+    base_path = '/API/SoEntryFGWAF'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
@@ -23,8 +23,8 @@ class SingleFirewall(resource2.Resource):
     #: Tenant ID of the owner (UUID).
     tenant_id = resource2.Body('tenant_id')
     #: List of following objects.
-    #: operatingmode: Set "FW" or "UTM" to this value.
-    #: licensekind: Set "02" or "08" as FW/UTM plan.
+    #: operatingmode: Set "WAF" to this value.
+    #: licensekind: Set "02", "04" or "08" as WAF plan.
     #: azgroup: Availability Zone.
     gt_host = resource2.Body('gt_host')
     #: A: Create Single Constitution Device.
@@ -51,32 +51,9 @@ class SingleFirewall(resource2.Resource):
     #: Percentage of Service Order Progress Status.
     progress_rate = resource2.Body('progressRate')
 
-    def get_order_status(self, session, soid, locale=None):
-        tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGSOrderProgressRate?tenant_id=%s&soid=%s' \
-              % (tenant_id, soid)
-        if locale is not None:
-            uri += '&locale=%s' % locale
-        headers = {'Content-Type': 'application/json'}
-        resp = session.get(uri, endpoint_filter=self.service, headers=headers)
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def update(self, session, **body):
-        uri = self.base_path
-        resp = session.post(uri, endpoint_filter=self.service, json=body)
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def delete(self, session, body, locale=None):
-        uri = self.base_path
-        resp = session.post(uri, endpoint_filter=self.service, json=body)
-        self._translate_response(resp, has_body=True)
-        return self
-
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGSDeviceGet?tenant_id=%s' % tenant_id
+        uri = '/API/ScreenEventFGWAFDeviceGet?tenant_id=%s' % tenant_id
         if locale is not None:
             uri += '&locale=%s' % locale
         headers = {'Content-Type': 'application/json'}

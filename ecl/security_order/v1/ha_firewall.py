@@ -28,6 +28,8 @@ class HAFirewall(resource2.Resource):
     #: azgroup: Availability Zone.
     gt_host = resource2.Body('gt_host')
     #: A: Create Single Constitution Device.
+    #: M: Update Single Constitution Device.
+    #: D: Delete Single Constitution Device.
     sokind = resource2.Body('sokind')
     #: Messages are displayed in Japanese or English depending on this value.
     #: ja: Japanese, en: English. Default value is "en".
