@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from ecl.security_order import security_order_service
 from ecl import resource2
 from ecl import exceptions
@@ -26,12 +28,12 @@ class HAFirewall(resource2.Resource):
     #: azgroup: Availability Zone.
     gt_host = resource2.Body('gt_host')
     #: A: Create Single Constitution Device.
-    sokind = resource2.Body('sokind', alternate_id=True)
+    sokind = resource2.Body('sokind')
     #: Messages are displayed in Japanese or English depending on this value.
     #: ja: Japanese, en: English. Default value is "en".
     locale = resource2.Body('locale')
     #: This value indicates normal or abnormal. 1:normal, 2:abnormal.
-    code = resource2.Body('code')
+    code = resource2.Body('code', alternate_id=True)
     #: This message is shown when error has occurred.
     message = resource2.Body('message')
     #: Identification ID of Service Order.
@@ -44,6 +46,8 @@ class HAFirewall(resource2.Resource):
     rows = resource2.Body('rows')
     #: List of device objects.
     devices = resource2.Body('devices')
+    #: Percentage of Service Order Progress Status.
+    progress_rate = resource2.Body('progressRate')
 
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()

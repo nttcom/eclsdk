@@ -1,14 +1,4 @@
-# Licensed under the Apache License, Version 2.0 (the "License"); you may
-# not use this file except in compliance with the License. You may obtain
-# a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-# License for the specific language governing permissions and limitations
-# under the License.
+# -*- coding: utf-8 -*-
 
 from ecl.security_order import security_order_service
 from ecl import resource2
@@ -38,12 +28,12 @@ class SingleFirewall(resource2.Resource):
     #: azgroup: Availability Zone.
     gt_host = resource2.Body('gt_host')
     #: A: Create Single Constitution Device.
-    sokind = resource2.Body('sokind', alternate_id=True)
+    sokind = resource2.Body('sokind')
     #: Messages are displayed in Japanese or English depending on this value.
     #: ja: Japanese, en: English. Default value is "en".
     locale = resource2.Body('locale')
     #: This value indicates normal or abnormal. 1:normal, 2:abnormal.
-    code = resource2.Body('code')
+    code = resource2.Body('code', alternate_id=True)
     #: This message is shown when error has occurred.
     message = resource2.Body('message')
     #: Identification ID of Service Order.
@@ -56,6 +46,8 @@ class SingleFirewall(resource2.Resource):
     rows = resource2.Body('rows')
     #: List of device objects.
     devices = resource2.Body('devices')
+    #: Percentage of Service Order Progress Status.
+    progress_rate = resource2.Body('progressRate')
 
     def get_order_status(self, session, soid, locale=None):
         tenant_id = session.get_project_id()
