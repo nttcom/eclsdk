@@ -258,3 +258,17 @@ class Proxy(proxy2.BaseProxy):
         if locale:
             body["locale"] = locale
         return self._create(_fgwaf.WAF, **body)
+
+    def get_waf_order_status(self, soid, locale=None):
+        """Check progress status of Managed WAF device Service Order.
+
+        :param string soid: This value is returned value of when you execute
+                            Create Server, Update Server or Delete Server API.
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: Single Firwall/UTM.
+        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        """
+        fgwaf = _fgwaf.WAF()
+        return fgwaf.get_order_status(self.session, soid, locale=locale)

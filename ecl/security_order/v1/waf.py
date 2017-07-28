@@ -51,6 +51,17 @@ class WAF(resource2.Resource):
     #: Percentage of Service Order Progress Status.
     progress_rate = resource2.Body('progressRate')
 
+    def get_order_status(self, session, soid, locale=None):
+        tenant_id = session.get_project_id()
+        uri = '/API/ScreenEventFGWAFOrderProgressRate?tenant_id=%s&soid=%s' \
+              % (tenant_id, soid)
+        if locale is not None:
+            uri += '&locale=%s' % locale
+        headers = {'Content-Type': 'application/json'}
+        resp = session.get(uri, endpoint_filter=self.service, headers=headers)
+        self._translate_response(resp, has_body=True)
+        return self
+
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
         uri = '/API/ScreenEventFGWAFDeviceGet?tenant_id=%s' % tenant_id
