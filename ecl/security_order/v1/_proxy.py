@@ -235,3 +235,26 @@ class Proxy(proxy2.BaseProxy):
         """
         fgwaf = _fgwaf.WAF()
         return fgwaf.list(self.session, locale=locale)
+
+    def create_waf(self, licensekind, azgroup, locale=None):
+        """Create a new WAF device.
+
+        :param string licensekind: Set "02", "04" or "08" as WAF plan.
+        :param string azgroup: Availability Zone
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: WAF.
+        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        """
+        body = {}
+        body["tenant_id"] = self.session.get_project_id()
+        body["gt_host"] = [{
+            "operatingmode": "WAF",
+            "licensekind": licensekind,
+            "azgroup": azgroup
+        }]
+        body["sokind"] = "A"
+        if locale:
+            body["locale"] = locale
+        return self._create(_fgwaf.WAF, **body)
