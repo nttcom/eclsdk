@@ -11,6 +11,7 @@
 # under the License.
 
 from ecl.security_order.v1 import single_firewall as _fgs
+from ecl.security_order.v1 import ha_firewall as _fgha
 from ecl import proxy2
 
 
@@ -111,3 +112,15 @@ class Proxy(proxy2.BaseProxy):
             body["locale"] = locale
         fgs = _fgs.SingleFirewall()
         return fgs.delete(self.session, body, locale=locale)
+
+    def ha_firewalls(self, locale=None):
+        """List Managed Firwall/UTM devices of single constitution.
+
+        :param string locale: Messages are displayed in Japanese or English
+                              depending on this value.
+                              ja: Japanese, en: English. Default value is "en".
+        :return: HA Firwall/UTM.
+        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
+        """
+        fgha = _fgha.HAFirewall()
+        return fgha.list(self.session, locale=locale)
