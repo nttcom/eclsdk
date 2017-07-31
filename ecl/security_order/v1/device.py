@@ -6,10 +6,10 @@ from ecl import exceptions
 from ecl import utils
 
 
-class HAFirewall(resource2.Resource):
+class Device(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryFGHA'
+    base_path = '/API/SoEntryFGS'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
@@ -51,6 +51,17 @@ class HAFirewall(resource2.Resource):
     #: Percentage of Service Order Progress Status.
     progress_rate = resource2.Body('progressRate')
 
+    def get_order_status(self, session, soid, locale=None):
+        tenant_id = session.get_project_id()
+        uri = '/API/ScreenEventFGSOrderProgressRate?tenant_id=%s&soid=%s' \
+              % (tenant_id, soid)
+        if locale is not None:
+            uri += '&locale=%s' % locale
+        headers = {'Content-Type': 'application/json'}
+        resp = session.get(uri, endpoint_filter=self.service, headers=headers)
+        self._translate_response(resp, has_body=True)
+        return self
+
     def update(self, session, **body):
         uri = self.base_path
         resp = session.post(uri, endpoint_filter=self.service, json=body)
@@ -65,7 +76,7 @@ class HAFirewall(resource2.Resource):
 
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGHADeviceGet?tenant_id=%s' % tenant_id
+        uri = '/API/ScreenEventFGSDeviceGet?tenant_id=%s' % tenant_id
         if locale is not None:
             uri += '&locale=%s' % locale
         headers = {'Content-Type': 'application/json'}
@@ -76,19 +87,12 @@ class HAFirewall(resource2.Resource):
             device = {
                 'internal_use': row['cell'][0],
                 'rows': row['cell'][1],
-                'ha_id': row['cell'][2],
-                'hostname': row['cell'][3],
-                'menu': row['cell'][4],
-                'plan': row['cell'][5],
-                'redundancy': row['cell'][6],
-                'availability_zone': row['cell'][7],
-                'zone_name': row['cell'][8],
-                'halink1networkid': row['cell'][9],
-                'halink1subnetid': row['cell'][10],
-                'halink1ipaddress': row['cell'][11],
-                'halink2networkid': row['cell'][12],
-                'halink2subnetid': row['cell'][13],
-                'halink2ipaddress': row['cell'][14],
+                'hostname': row['cell'][2],
+                'menu': row['cell'][3],
+                'plan': row['cell'][4],
+                'redundancy': row['cell'][5],
+                'availability_zone': row['cell'][6],
+                'zone_name': row['cell'][7],
             }
             devices.append(device)
         body.update({'devices': devices})

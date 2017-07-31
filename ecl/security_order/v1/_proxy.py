@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_order.v1 import single_firewall as _fgs
-from ecl.security_order.v1 import ha_firewall as _fgha
+from ecl.security_order.v1 import device as _fgs
+from ecl.security_order.v1 import ha_device as _fgha
 from ecl.security_order.v1 import waf as _fgwaf
 from ecl.security_order.v1 import host_based_security as _hbs
 from ecl import proxy2
@@ -9,19 +9,19 @@ from ecl import proxy2
 
 class Proxy(proxy2.BaseProxy):
 
-    def single_firewalls(self, locale=None):
+    def devices(self, locale=None):
         """List Managed Firwall/UTM devices of single constitution.
 
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        :rtype: :class:`~ecl.security.v1.device.Device`
         """
-        fgs = _fgs.SingleFirewall()
+        fgs = _fgs.Device()
         return fgs.list(self.session, locale=locale)
 
-    def create_single_firewall(self, operatingmode, licensekind,
+    def create_device(self, operatingmode, licensekind,
                                azgroup, locale=None):
         """Create a new Managed Firewall/UTM device of single constitution.
 
@@ -32,7 +32,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        :rtype: :class:`~ecl.security.v1.device.Device`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -44,9 +44,9 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "A"
         if locale:
             body["locale"] = locale
-        return self._create(_fgs.SingleFirewall, **body)
+        return self._create(_fgs.Device, **body)
 
-    def update_single_firewall(self, hostname, operatingmode,
+    def update_device(self, hostname, operatingmode,
                                licensekind, locale=None):
         """Change menu (Firewall/Managed UTM) and/or plan of single device.
 
@@ -57,7 +57,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        :rtype: :class:`~ecl.security.v1.device.Device`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -69,10 +69,10 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "M"
         if locale:
             body.update({"locale": locale})
-        fgs = _fgs.SingleFirewall()
+        fgs = _fgs.Device()
         return fgs.update(self.session, **body)
 
-    def delete_single_firewall(self, hostname, locale=None):
+    def delete_device(self, hostname, locale=None):
         """Delete a Managed Firewall/UTM device of single constitution.
 
         :param string hostname: Set the hostname.
@@ -80,7 +80,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        :rtype: :class:`~ecl.security.v1.device.Device`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -90,22 +90,22 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "D"
         if locale:
             body["locale"] = locale
-        fgs = _fgs.SingleFirewall()
+        fgs = _fgs.Device()
         return fgs.delete(self.session, body, locale=locale)
 
-    def ha_firewalls(self, locale=None):
+    def ha_devices(self, locale=None):
         """List Managed Firwall/UTM devices of single constitution.
 
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
+        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
         """
-        fgha = _fgha.HAFirewall()
+        fgha = _fgha.HADevice()
         return fgha.list(self.session, locale=locale)
 
-    def create_ha_firewall(self, operatingmode, licensekind,
+    def create_ha_device(self, operatingmode, licensekind,
                            azgroup1, azgroup2,
                            halink1networkid, halink1subnetid,
                            halink1ipaddress1, halink1ipaddress2,
@@ -130,7 +130,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
+        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -158,9 +158,9 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "AH"
         if locale:
             body["locale"] = locale
-        return self._create(_fgha.HAFirewall, **body)
+        return self._create(_fgha.HADevice, **body)
 
-    def update_ha_firewall(self, hostname1, hostname2, operatingmode,
+    def update_ha_device(self, hostname1, hostname2, operatingmode,
                            licensekind, locale=None):
         """Change menu (Firewall/Managed UTM) and/or plan of single device.
 
@@ -172,7 +172,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
+        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -188,10 +188,10 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "MH"
         if locale:
             body.update({"locale": locale})
-        fgha = _fgha.HAFirewall()
+        fgha = _fgha.HADevice()
         return fgha.update(self.session, **body)
 
-    def delete_ha_firewall(self, hostname1, hostname2, locale=None):
+    def delete_ha_device(self, hostname1, hostname2, locale=None):
         """Delete a Managed Firewall/UTM device of single constitution.
 
         :param string hostname1: Set the hostname.
@@ -200,7 +200,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
+        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -212,7 +212,7 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "DH"
         if locale:
             body["locale"] = locale
-        fgha = _fgha.HAFirewall()
+        fgha = _fgha.HADevice()
         return fgha.delete(self.session, body, locale=locale)
 
     def get_device_order_status(self, soid, locale=None):
@@ -224,9 +224,9 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        :rtype: :class:`~ecl.security.v1.device.Device`
         """
-        fgs = _fgs.SingleFirewall()
+        fgs = _fgs.Device()
         return fgs.get_order_status(self.session, soid, locale=locale)
 
     def wafs(self, locale=None):
