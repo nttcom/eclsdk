@@ -297,7 +297,7 @@ class Proxy(proxy2.BaseProxy):
         fgwaf = _fgwaf.WAF()
         return fgwaf.update(self.session, **body)
 
-    def delete_single_firewall(self, hostname, locale=None):
+    def delete_waf(self, hostname, locale=None):
         """Delete a WAF device.
 
         :param string hostname: Set the hostname.
