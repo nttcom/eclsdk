@@ -417,7 +417,7 @@ class Proxy(proxy2.BaseProxy):
         hbs = _hbs.HostBased()
         return hbs.update(self.session, **body)
 
-    def cancel_host_based(self, locale=None):
+    def cancel_host_based(self, mailaddress, locale=None):
         """Delete a Managed Firewall/UTM device of single constitution.
 
         :param string hostname: Set the hostname.
@@ -427,6 +427,7 @@ class Proxy(proxy2.BaseProxy):
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
+        body["mailaddress"] = mailaddress
         body["sokind"] = "C"
         if locale:
             body["locale"] = locale
