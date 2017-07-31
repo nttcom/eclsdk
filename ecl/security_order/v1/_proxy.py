@@ -3,7 +3,7 @@
 from ecl.security_order.v1 import single_firewall as _fgs
 from ecl.security_order.v1 import ha_firewall as _fgha
 from ecl.security_order.v1 import waf as _fgwaf
-from ecl.security_order.v1 import host_based as _hbs
+from ecl.security_order.v1 import host_based_security as _hbs
 from ecl import proxy2
 
 
@@ -215,7 +215,7 @@ class Proxy(proxy2.BaseProxy):
         fgha = _fgha.HAFirewall()
         return fgha.delete(self.session, body, locale=locale)
 
-    def get_order_status(self, soid, locale=None):
+    def get_device_order_status(self, soid, locale=None):
         """Check progress status of Managed Firewall/UTM device Service Order.
 
         :param string soid: This value is returned value of when you execute
@@ -322,7 +322,7 @@ class Proxy(proxy2.BaseProxy):
         fgwaf = _fgwaf.WAF()
         return fgwaf.delete(self.session, body, locale=locale)
 
-    def get_host_based_order_status(self, soid, locale=None):
+    def get_hbs_order_status(self, soid, locale=None):
         """Check progress status of Host-based Security Service Order.
 
         :param string soid: This value is returned value of when you execute API
@@ -331,26 +331,27 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
-        :return: HostBased Security.
-        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        :return: Host Based Security.
+        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
         """
-        hbs = _hbs.HostBased()
+        hbs = _hbs.HostBasedSecurity()
         return hbs.get_order_status(self.session, soid, locale=locale)
 
-    def get_host_based_order_info(self, locale=None):
+    def get_hbs_order_info(self, locale=None):
         """Get Order Information that tied to tenant id.
 
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
-        :return: HostBased Security.
-        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        :return: Host Based Security.
+        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
         """
-        hbs = _hbs.HostBased()
+        hbs = _hbs.HostBasedSecurity()
         return hbs.get_order_info(self.session, locale=locale)
 
-    def order_host_based(self, service_order_service, max_agent_value,
-                         mailaddress, dsm_lang, time_zone, locale=None):
+    def order_hbs(self, service_order_service, max_agent_value,
+                                  mailaddress, dsm_lang, time_zone,
+                                  locale=None):
         """Make a new application for Host-based Security.
 
         :param string service_order_service: Requested menu.
@@ -365,7 +366,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security
-        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -377,9 +378,9 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "N"
         if locale:
             body["locale"] = locale
-        return self._create(_hbs.HostBased, **body)
+        return self._create(_hbs.HostBasedSecurity, **body)
 
-    def change_menu(self, service_order_service, mailaddress, locale=None):
+    def change_hbs_menu(self, service_order_service, mailaddress, locale=None):
         """Change menu of Host-based Security.
 
         :param string service_order_service: Requested menu.
@@ -390,7 +391,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -399,10 +400,10 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "M1"
         if locale:
             body.update({"locale": locale})
-        hbs = _hbs.HostBased()
+        hbs = _hbs.HostBasedSecurity()
         return hbs.update(self.session, **body)
 
-    def change_quantity(self, max_agent_value, mailaddress, locale=None):
+    def change_hbs_quantity(self, max_agent_value, mailaddress, locale=None):
         """Change maximum quantity of Agent usage.
 
         :param string max_agent_value: Set maximum quantity of Agenet usage.
@@ -411,7 +412,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -420,10 +421,10 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "M2"
         if locale:
             body.update({"locale": locale})
-        hbs = _hbs.HostBased()
+        hbs = _hbs.HostBasedSecurity()
         return hbs.update(self.session, **body)
 
-    def cancel_host_based(self, mailaddress, locale=None):
+    def cancel_hbs(self, mailaddress, locale=None):
         """Cancel the order of Host-based Security.
 
         :param string mailaddress: Contactable mail address.
@@ -431,7 +432,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
+        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -439,5 +440,5 @@ class Proxy(proxy2.BaseProxy):
         body["sokind"] = "C"
         if locale:
             body["locale"] = locale
-        hbs = _hbs.HostBased()
+        hbs = _hbs.HostBasedSecurity()
         return hbs.delete(self.session, body, locale=locale)

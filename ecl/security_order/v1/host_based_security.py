@@ -5,7 +5,7 @@ from ecl import resource2
 from ecl import exceptions
 from ecl import utils
 
-class HostBased(resource2.Resource):
+class HostBasedSecurity(resource2.Resource):
     resource_key = None
     resources_key = None
     base_path = '/API/SoEntryHBS'
