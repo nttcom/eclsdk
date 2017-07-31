@@ -79,6 +79,8 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
+        :return: Single Firwall/UTM.
+        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -197,6 +199,8 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
+        :return: HA Firwall/UTM.
+        :rtype: :class:`~ecl.security.v1.ha_firewall.HAFirewall`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -231,7 +235,7 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
-        :return: Single Firwall/UTM.
+        :return: WAF.
         :rtype: :class:`~ecl.security.v1.waf.WAF`
         """
         fgwaf = _fgwaf.WAF()
@@ -268,7 +272,7 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
-        :return: Single Firwall/UTM.
+        :return: WAF.
         :rtype: :class:`~ecl.security.v1.waf.WAF`
         """
         fgwaf = _fgwaf.WAF()
@@ -282,8 +286,8 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
-        :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.single_firewall.SingleFirewall`
+        :return: WAF.
+        :rtype: :class:`~ecl.security.v1.waf.WAF`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -304,6 +308,8 @@ class Proxy(proxy2.BaseProxy):
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
+        :return: WAF.
+        :rtype: :class:`~ecl.security.v1.waf.WAF`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -418,12 +424,14 @@ class Proxy(proxy2.BaseProxy):
         return hbs.update(self.session, **body)
 
     def cancel_host_based(self, mailaddress, locale=None):
-        """Delete a Managed Firewall/UTM device of single constitution.
+        """Cancel the order of Host-based Security.
 
-        :param string hostname: Set the hostname.
+        :param string mailaddress: Contactable mail address.
         :param string locale: Messages are displayed in Japanese or English
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
+        :return: Host Based Security.
+        :rtype: :class:`~ecl.security.v1.host_based.HostBased`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()

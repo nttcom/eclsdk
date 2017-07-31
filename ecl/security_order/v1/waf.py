@@ -50,6 +50,8 @@ class WAF(resource2.Resource):
     devices = resource2.Body('devices')
     #: Percentage of Service Order Progress Status.
     progress_rate = resource2.Body('progressRate')
+    #: List of device objects.
+    devices = resource2.Body('devices')
 
     def get_order_status(self, session, soid, locale=None):
         tenant_id = session.get_project_id()
