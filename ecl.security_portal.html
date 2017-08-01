@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>storage &mdash; python-eclsdk  documentation</title>
+  <title>security_portal &mdash; python-eclsdk  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
         <link rel="up" title="components" href="ecl.html"/>
-        <link rel="next" title="storage methods" href="ecl.storage.v1.html"/>
-        <link rel="prev" title="sss methods" href="ecl.sss.v1.html"/> 
+        <link rel="next" title="security_portal methods" href="ecl.security_portal.v1.html"/>
+        <link rel="prev" title="security_order methods" href="ecl.security_order.v1.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -99,17 +99,14 @@
 <li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ecl.rca.html">rca</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ecl.sss.html">sss</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">storage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ecl.storage.v1.html">storage methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.availability_zone">availability_zone</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.snapshot">snapshot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.storage">storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.volume">volume</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.volume_type">volume_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.security_order.html">security_order</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">security_portal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ecl.security_portal.v1.html">security_portal methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecl.security_portal.v1.html#module-ecl.security_portal.v1.security_device">security_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ecl.security_portal.v1.html#module-ecl.security_portal.v1.security_device_interface">security_device_interface</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ecl.security_order.html">security_order</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecl.security_portal.html">security_portal</a></li>
 </ul>
 </li>
 </ul>
@@ -158,13 +155,13 @@
         
           <li><a href="ecl.html">components</a> &raquo;</li>
         
-      <li>storage</li>
+      <li>security_portal</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/ecl.storage.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/ecl.security_portal.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -177,8 +174,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="storage">
-<h1>storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="security-portal">
+<h1>security_portal<a class="headerlink" href="#security-portal" title="Permalink to this headline">¶</a></h1>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ecl</span>
 
@@ -190,20 +187,17 @@
     <span class="n">user_domain_id</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
     <span class="n">project_domain_id</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
 
-<span class="n">storage</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">get_storage</span><span class="p">(</span><span class="s2">&quot;&lt;storage_id&gt;&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">storage</span><span class="o">.</span><span class="n">name</span>
+<span class="n">devices</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">security_portal</span><span class="o">.</span><span class="n">security_devices</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">devices</span>
 </pre></div>
 </div>
-<p>You can use methods corresponding to API like <code class="docutils literal"><span class="pre">conn.storage.&lt;method&gt;</span></code></p>
-<p>Please refer to <code class="docutils literal"><span class="pre">storage</span> <span class="pre">methods</span></code> below to check available methods.</p>
+<p>You can use methods corresponding to API like <code class="docutils literal"><span class="pre">conn.security_portal.&lt;method&gt;</span></code></p>
+<p>Please refer to <code class="docutils literal"><span class="pre">security_portal</span> <span class="pre">methods</span></code> below to check available methods.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.v1.html">storage methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.availability_zone">availability_zone</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.snapshot">snapshot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.storage">storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.volume">volume</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ecl.storage.v1.html#module-ecl.storage.v1.volume_type">volume_type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.security_portal.v1.html">security_portal methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.security_portal.v1.html#module-ecl.security_portal.v1.security_device">security_device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecl.security_portal.v1.html#module-ecl.security_portal.v1.security_device_interface">security_device_interface</a></li>
 </ul>
 </div>
 </div>
@@ -218,10 +212,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ecl.storage.v1.html" class="btn btn-neutral float-right" title="storage methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ecl.security_portal.v1.html" class="btn btn-neutral float-right" title="security_portal methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ecl.sss.v1.html" class="btn btn-neutral" title="sss methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ecl.security_order.v1.html" class="btn btn-neutral" title="security_order methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

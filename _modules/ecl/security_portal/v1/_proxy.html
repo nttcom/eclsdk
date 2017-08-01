@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.security_portal.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.html">components</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.security_portal.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.security_portal.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">ecl.security_portal.v1</span> <span class="k">import</span> <span class="n">security_device</span> <span class="k">as</span> <span class="n">_sd</span>
+<span class="kn">from</span> <span class="nn">ecl.security_portal.v1</span> <span class="k">import</span> <span class="n">security_device_interface</span> <span class="k">as</span> <span class="n">_sdi</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.security_portal.v1.html#ecl.security_portal.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="Proxy.security_devices"><a class="viewcode-back" href="../../../../ecl.security_portal.v1.html#ecl.security_portal.v1._proxy.Proxy.security_devices">[docs]</a>    <span class="k">def</span> <span class="nf">security_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Listing security devices associated with specific tenant.</span>
+
+<span class="sd">        :return: List security devices.</span>
+<span class="sd">        :rtype: :class:`~ecl.security_portal.v1.security_device.SecurityDevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_sd</span><span class="o">.</span><span class="n">SecurityDevice</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="n">tenantid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">(),</span>
+                               <span class="n">usertoken</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_token</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_security_device"><a class="viewcode-back" href="../../../../ecl.security_portal.v1.html#ecl.security_portal.v1._proxy.Proxy.get_security_device">[docs]</a>    <span class="k">def</span> <span class="nf">get_security_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show security device details associated with specific tenant.</span>
+
+<span class="sd">        :param string server_id: Server ID registered in Openstack(UUID).</span>
+<span class="sd">        :return: One security device.</span>
+<span class="sd">        :rtype: :class:`~ecl.security_portal.v1.security_device.SecurityDevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">_sd</span><span class="o">.</span><span class="n">SecurityDevice</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">sd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">server_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.security_device_interfaces"><a class="viewcode-back" href="../../../../ecl.security_portal.v1.html#ecl.security_portal.v1._proxy.Proxy.security_device_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">security_device_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Listing security device Interfaces associated with specific tenant.</span>
+
+<span class="sd">        :param string server_id: Server ID registered in Openstack(UUID).</span>
+<span class="sd">        :return: List security device interfaces.</span>
+<span class="sd">        :rtype: :class:`~ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">_sdi</span><span class="o">.</span><span class="n">SecurityDeviceInterface</span><span class="p">,</span> <span class="n">paginated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                               <span class="n">server_id</span><span class="o">=</span><span class="n">server_id</span><span class="p">,</span>
+                               <span class="n">tenantid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">(),</span>
+                               <span class="n">usertoken</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_token</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="Proxy.get_security_device_interface"><a class="viewcode-back" href="../../../../ecl.security_portal.v1.html#ecl.security_portal.v1._proxy.Proxy.get_security_device_interface">[docs]</a>    <span class="k">def</span> <span class="nf">get_security_device_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show security device Interface associated with specific tenant.</span>
+
+<span class="sd">        :param string port_id: Port ID registered in Openstack(UUID).</span>
+<span class="sd">        :return: One security device interface.</span>
+<span class="sd">        :rtype: :class:`~ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sdi</span> <span class="o">=</span> <span class="n">_sdi</span><span class="o">.</span><span class="n">SecurityDeviceInterface</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">sdi</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">port_id</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

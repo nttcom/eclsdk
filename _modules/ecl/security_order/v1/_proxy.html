@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.security_order.v1._proxy &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.html">components</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.security_order.v1._proxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.security_order.v1._proxy</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">ecl.security_order.v1</span> <span class="k">import</span> <span class="n">device</span> <span class="k">as</span> <span class="n">_fgs</span>
+<span class="kn">from</span> <span class="nn">ecl.security_order.v1</span> <span class="k">import</span> <span class="n">ha_device</span> <span class="k">as</span> <span class="n">_fgha</span>
+<span class="kn">from</span> <span class="nn">ecl.security_order.v1</span> <span class="k">import</span> <span class="n">waf</span> <span class="k">as</span> <span class="n">_fgwaf</span>
+<span class="kn">from</span> <span class="nn">ecl.security_order.v1</span> <span class="k">import</span> <span class="n">host_based_security</span> <span class="k">as</span> <span class="n">_hbs</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">proxy2</span>
+
+
+<div class="viewcode-block" id="Proxy"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy">[docs]</a><span class="k">class</span> <span class="nc">Proxy</span><span class="p">(</span><span class="n">proxy2</span><span class="o">.</span><span class="n">BaseProxy</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Proxy.devices"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.devices">[docs]</a>    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List Managed Firwall/UTM devices of single constitution.</span>
+
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Single Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.device.Device`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fgs</span> <span class="o">=</span> <span class="n">_fgs</span><span class="o">.</span><span class="n">Device</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgs</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_device"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.create_device">[docs]</a>    <span class="k">def</span> <span class="nf">create_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operatingmode</span><span class="p">,</span> <span class="n">licensekind</span><span class="p">,</span>
+                               <span class="n">azgroup</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new Managed Firewall/UTM device of single constitution.</span>
+
+<span class="sd">        :param string operatingmode: Set &quot;FW&quot; or &quot;UTM&quot; to this value.</span>
+<span class="sd">        :param string licensekind: Set &quot;02&quot; or &quot;08&quot; as FW/UTM plan.</span>
+<span class="sd">        :param string azgroup: Availability Zone</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Single Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.device.Device`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="n">operatingmode</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span><span class="p">,</span>
+            <span class="s2">&quot;azgroup&quot;</span><span class="p">:</span> <span class="n">azgroup</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_fgs</span><span class="o">.</span><span class="n">Device</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_device"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.update_device">[docs]</a>    <span class="k">def</span> <span class="nf">update_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">operatingmode</span><span class="p">,</span>
+                               <span class="n">licensekind</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change menu (Firewall/Managed UTM) and/or plan of single device.</span>
+
+<span class="sd">        :param string operatingmode: Set &quot;FW&quot; or &quot;UTM&quot; to this value.</span>
+<span class="sd">        :param string licensekind: Set &quot;02&quot; or &quot;08&quot; as FW/UTM plan.</span>
+<span class="sd">        :param string hostname: Set the hostname.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Single Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.device.Device`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname</span><span class="p">,</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="n">operatingmode</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;M&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="p">})</span>
+        <span class="n">fgs</span> <span class="o">=</span> <span class="n">_fgs</span><span class="o">.</span><span class="n">Device</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_device"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.delete_device">[docs]</a>    <span class="k">def</span> <span class="nf">delete_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a Managed Firewall/UTM device of single constitution.</span>
+
+<span class="sd">        :param string hostname: Set the hostname.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Single Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.device.Device`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;D&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="n">fgs</span> <span class="o">=</span> <span class="n">_fgs</span><span class="o">.</span><span class="n">Device</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgs</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.ha_devices"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.ha_devices">[docs]</a>    <span class="k">def</span> <span class="nf">ha_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List Managed Firwall/UTM devices of single constitution.</span>
+
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: HA Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fgha</span> <span class="o">=</span> <span class="n">_fgha</span><span class="o">.</span><span class="n">HADevice</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgha</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_ha_device"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.create_ha_device">[docs]</a>    <span class="k">def</span> <span class="nf">create_ha_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operatingmode</span><span class="p">,</span> <span class="n">licensekind</span><span class="p">,</span>
+                           <span class="n">azgroup1</span><span class="p">,</span> <span class="n">azgroup2</span><span class="p">,</span>
+                           <span class="n">halink1networkid</span><span class="p">,</span> <span class="n">halink1subnetid</span><span class="p">,</span>
+                           <span class="n">halink1ipaddress1</span><span class="p">,</span> <span class="n">halink1ipaddress2</span><span class="p">,</span>
+                           <span class="n">halink2networkid</span><span class="p">,</span> <span class="n">halink2subnetid</span><span class="p">,</span>
+                           <span class="n">halink2ipaddress1</span><span class="p">,</span> <span class="n">halink2ipaddress2</span><span class="p">,</span>
+                           <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new Managed Firewall/UTM device of single constitution.</span>
+
+<span class="sd">        :param string operatingmode: Set &quot;UTM_HA&quot; or &quot;FW_HA&quot; to this value.</span>
+<span class="sd">        :param string licensekind: Set &quot;02&quot; or &quot;08&quot; as FW/UTM plan.</span>
+<span class="sd">        :param string azgroup1: Availability Zone</span>
+<span class="sd">        :param string azgroup2: Availability Zone</span>
+<span class="sd">        :param string halink1networkid: Set Network ID to be used for HA line.</span>
+<span class="sd">        :param string halink1subnetid: Set Subnet ID to be used for HA line.</span>
+<span class="sd">        :param string halink1ipaddress1: Set value of IPv4.</span>
+<span class="sd">        :param string halink1ipaddress2: Set value of IPv4.</span>
+<span class="sd">        :param string halink2networkid: Set Network ID to be used for HA line.</span>
+<span class="sd">        :param string halink2subnetid: Set Subnet ID to be used for HA line.</span>
+<span class="sd">        :param string halink2ipaddress1: Set value of IPv4.</span>
+<span class="sd">        :param string halink2ipaddress2: Set value of IPv4.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: HA Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="n">operatingmode</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span><span class="p">,</span>
+            <span class="s2">&quot;azgroup&quot;</span><span class="p">:</span> <span class="n">azgroup1</span><span class="p">,</span>
+            <span class="s2">&quot;halink1networkid&quot;</span><span class="p">:</span> <span class="n">halink1networkid</span><span class="p">,</span>
+            <span class="s2">&quot;halink1subnetid&quot;</span><span class="p">:</span> <span class="n">halink1subnetid</span><span class="p">,</span>
+            <span class="s2">&quot;halink1ipaddress&quot;</span><span class="p">:</span> <span class="n">halink1ipaddress1</span><span class="p">,</span>
+            <span class="s2">&quot;halink2networkid&quot;</span><span class="p">:</span> <span class="n">halink2networkid</span><span class="p">,</span>
+            <span class="s2">&quot;halink2subnetid&quot;</span><span class="p">:</span> <span class="n">halink2subnetid</span><span class="p">,</span>
+            <span class="s2">&quot;halink2ipaddress&quot;</span><span class="p">:</span> <span class="n">halink2ipaddress1</span>
+        <span class="p">},{</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="n">operatingmode</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span><span class="p">,</span>
+            <span class="s2">&quot;azgroup&quot;</span><span class="p">:</span> <span class="n">azgroup2</span><span class="p">,</span>
+            <span class="s2">&quot;halink1networkid&quot;</span><span class="p">:</span> <span class="n">halink1networkid</span><span class="p">,</span>
+            <span class="s2">&quot;halink1subnetid&quot;</span><span class="p">:</span> <span class="n">halink1subnetid</span><span class="p">,</span>
+            <span class="s2">&quot;halink1ipaddress&quot;</span><span class="p">:</span> <span class="n">halink1ipaddress2</span><span class="p">,</span>
+            <span class="s2">&quot;halink2networkid&quot;</span><span class="p">:</span> <span class="n">halink2networkid</span><span class="p">,</span>
+            <span class="s2">&quot;halink2subnetid&quot;</span><span class="p">:</span> <span class="n">halink2subnetid</span><span class="p">,</span>
+            <span class="s2">&quot;halink2ipaddress&quot;</span><span class="p">:</span> <span class="n">halink2ipaddress2</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;AH&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_fgha</span><span class="o">.</span><span class="n">HADevice</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_ha_device"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.update_ha_device">[docs]</a>    <span class="k">def</span> <span class="nf">update_ha_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname1</span><span class="p">,</span> <span class="n">hostname2</span><span class="p">,</span> <span class="n">operatingmode</span><span class="p">,</span>
+                           <span class="n">licensekind</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change menu (Firewall/Managed UTM) and/or plan of single device.</span>
+
+<span class="sd">        :param string hostname1: Set the hostname.</span>
+<span class="sd">        :param string hostname2: Set the hostname.</span>
+<span class="sd">        :param string operatingmode: Set &quot;UTM_HA&quot; or &quot;FW_HA&quot; to this value.</span>
+<span class="sd">        :param string licensekind: Set &quot;02&quot; or &quot;08&quot; as FW/UTM plan.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: HA Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname1</span><span class="p">,</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="n">operatingmode</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span>
+        <span class="p">},{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname2</span><span class="p">,</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="n">operatingmode</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MH&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="p">})</span>
+        <span class="n">fgha</span> <span class="o">=</span> <span class="n">_fgha</span><span class="o">.</span><span class="n">HADevice</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgha</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_ha_device"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.delete_ha_device">[docs]</a>    <span class="k">def</span> <span class="nf">delete_ha_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname1</span><span class="p">,</span> <span class="n">hostname2</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a Managed Firewall/UTM device of single constitution.</span>
+
+<span class="sd">        :param string hostname1: Set the hostname.</span>
+<span class="sd">        :param string hostname2: Set the hostname.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: HA Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname1</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname2</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DH&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="n">fgha</span> <span class="o">=</span> <span class="n">_fgha</span><span class="o">.</span><span class="n">HADevice</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgha</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_device_order_status"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.get_device_order_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_device_order_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check progress status of Managed Firewall/UTM device Service Order.</span>
+
+<span class="sd">        :param string soid: This value is returned value of when you execute</span>
+<span class="sd">                            Create Server, Update Server or Delete Server API.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Single Firwall/UTM.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.device.Device`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fgs</span> <span class="o">=</span> <span class="n">_fgs</span><span class="o">.</span><span class="n">Device</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgs</span><span class="o">.</span><span class="n">get_order_status</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.wafs"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.wafs">[docs]</a>    <span class="k">def</span> <span class="nf">wafs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List active waf devices you ordered.</span>
+
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: WAF.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.waf.WAF`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fgwaf</span> <span class="o">=</span> <span class="n">_fgwaf</span><span class="o">.</span><span class="n">WAF</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgwaf</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.create_waf"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.create_waf">[docs]</a>    <span class="k">def</span> <span class="nf">create_waf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">licensekind</span><span class="p">,</span> <span class="n">azgroup</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new WAF device.</span>
+
+<span class="sd">        :param string licensekind: Set &quot;02&quot;, &quot;04&quot; or &quot;08&quot; as WAF plan.</span>
+<span class="sd">        :param string azgroup: Availability Zone</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: WAF.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.waf.WAF`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;operatingmode&quot;</span><span class="p">:</span> <span class="s2">&quot;WAF&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span><span class="p">,</span>
+            <span class="s2">&quot;azgroup&quot;</span><span class="p">:</span> <span class="n">azgroup</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_fgwaf</span><span class="o">.</span><span class="n">WAF</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_waf_order_status"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.get_waf_order_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_waf_order_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check progress status of Managed WAF device Service Order.</span>
+
+<span class="sd">        :param string soid: This value is returned value of when you execute</span>
+<span class="sd">                            Create Server, Update Server or Delete Server API.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: WAF.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.waf.WAF`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fgwaf</span> <span class="o">=</span> <span class="n">_fgwaf</span><span class="o">.</span><span class="n">WAF</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgwaf</span><span class="o">.</span><span class="n">get_order_status</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.update_waf"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.update_waf">[docs]</a>    <span class="k">def</span> <span class="nf">update_waf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">licensekind</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change plan of device.</span>
+
+<span class="sd">        :param string licensekind: Set &quot;02&quot;, &quot;04&quot; or &quot;08&quot; as WAF plan.</span>
+<span class="sd">        :param string hostname: Set the hostname.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: WAF.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.waf.WAF`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname</span><span class="p">,</span>
+            <span class="s2">&quot;licensekind&quot;</span><span class="p">:</span> <span class="n">licensekind</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;M&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="p">})</span>
+        <span class="n">fgwaf</span> <span class="o">=</span> <span class="n">_fgwaf</span><span class="o">.</span><span class="n">WAF</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgwaf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.delete_waf"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.delete_waf">[docs]</a>    <span class="k">def</span> <span class="nf">delete_waf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete a WAF device.</span>
+
+<span class="sd">        :param string hostname: Set the hostname.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: WAF.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.waf.WAF`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;gt_host&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="n">hostname</span>
+        <span class="p">}]</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;D&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="n">fgwaf</span> <span class="o">=</span> <span class="n">_fgwaf</span><span class="o">.</span><span class="n">WAF</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fgwaf</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_hbs_order_status"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.get_hbs_order_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_hbs_order_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check progress status of Host-based Security Service Order.</span>
+
+<span class="sd">        :param string soid: This value is returned value of when you execute API</span>
+<span class="sd">                            of Order Host-based Security, Change menu or</span>
+<span class="sd">                            quantity, or Cancel the order.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Host Based Security.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hbs</span> <span class="o">=</span> <span class="n">_hbs</span><span class="o">.</span><span class="n">HostBasedSecurity</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hbs</span><span class="o">.</span><span class="n">get_order_status</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.get_hbs_order_info"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.get_hbs_order_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_hbs_order_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get Order Information that tied to tenant id.</span>
+
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Host Based Security.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hbs</span> <span class="o">=</span> <span class="n">_hbs</span><span class="o">.</span><span class="n">HostBasedSecurity</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hbs</span><span class="o">.</span><span class="n">get_order_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.order_hbs"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.order_hbs">[docs]</a>    <span class="k">def</span> <span class="nf">order_hbs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_order_service</span><span class="p">,</span> <span class="n">max_agent_value</span><span class="p">,</span>
+                                  <span class="n">mailaddress</span><span class="p">,</span> <span class="n">dsm_lang</span><span class="p">,</span> <span class="n">time_zone</span><span class="p">,</span>
+                                  <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Make a new application for Host-based Security.</span>
+
+<span class="sd">        :param string service_order_service: Requested menu.</span>
+<span class="sd">            Set &quot;Managed Anti-Virus&quot;, &quot;Managed Virtual Patch&quot;</span>
+<span class="sd">            or &quot;Managed Host-based Security Package&quot; to this field.</span>
+<span class="sd">        :param string max_agent_value: Set maximum quantity of Agenet usage.</span>
+<span class="sd">        :param string mailaddress: Contactable mail address.</span>
+<span class="sd">        :param string dsm_lang: This value is used for language of Deep</span>
+<span class="sd">                                Security Manager. ja: Japanese, en: English.</span>
+<span class="sd">        :param string time_zone: Set &quot;Asia/Tokyo&quot; for JST or &quot;Etc/GMT&quot; for UTC.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Host Based Security</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;service_order_service&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">service_order_service</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;max_agent_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_agent_value</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mailaddress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mailaddress</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;dsm_lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dsm_lang</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;time_zone&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_zone</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;N&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span><span class="n">_hbs</span><span class="o">.</span><span class="n">HostBasedSecurity</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.change_hbs_menu"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.change_hbs_menu">[docs]</a>    <span class="k">def</span> <span class="nf">change_hbs_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_order_service</span><span class="p">,</span> <span class="n">mailaddress</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change menu of Host-based Security.</span>
+
+<span class="sd">        :param string service_order_service: Requested menu.</span>
+<span class="sd">            Set &quot;Managed Anti-Virus&quot;, &quot;Managed Virtual Patch&quot;</span>
+<span class="sd">            or &quot;Managed Host-based Security Package&quot; to this field.</span>
+<span class="sd">        :param string mailaddress: Contactable mail address.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Host Based Security.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;service_order_service&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">service_order_service</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mailaddress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mailaddress</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;M1&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="p">})</span>
+        <span class="n">hbs</span> <span class="o">=</span> <span class="n">_hbs</span><span class="o">.</span><span class="n">HostBasedSecurity</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hbs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.change_hbs_quantity"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.change_hbs_quantity">[docs]</a>    <span class="k">def</span> <span class="nf">change_hbs_quantity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_agent_value</span><span class="p">,</span> <span class="n">mailaddress</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change maximum quantity of Agent usage.</span>
+
+<span class="sd">        :param string max_agent_value: Set maximum quantity of Agenet usage.</span>
+<span class="sd">        :param string mailaddress: Contactable mail address.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Host Based Security.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;max_agent_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_agent_value</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mailaddress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mailaddress</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;M2&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="n">locale</span><span class="p">})</span>
+        <span class="n">hbs</span> <span class="o">=</span> <span class="n">_hbs</span><span class="o">.</span><span class="n">HostBasedSecurity</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hbs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Proxy.cancel_hbs"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1._proxy.Proxy.cancel_hbs">[docs]</a>    <span class="k">def</span> <span class="nf">cancel_hbs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mailaddress</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cancel the order of Host-based Security.</span>
+
+<span class="sd">        :param string mailaddress: Contactable mail address.</span>
+<span class="sd">        :param string locale: Messages are displayed in Japanese or English</span>
+<span class="sd">                              depending on this value.</span>
+<span class="sd">                              ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+<span class="sd">        :return: Host Based Security.</span>
+<span class="sd">        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;tenant_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;mailaddress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mailaddress</span>
+        <span class="n">body</span><span class="p">[</span><span class="s2">&quot;sokind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
+        <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;locale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locale</span>
+        <span class="n">hbs</span> <span class="o">=</span> <span class="n">_hbs</span><span class="o">.</span><span class="n">HostBasedSecurity</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hbs</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

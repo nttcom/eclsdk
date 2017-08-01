@@ -18,7 +18,7 @@
 #
 import os
 import sys
-sys.path.insert(0, u'/Users/htysh/.ghq/github.com/tamac-io/python-eclsdk')
+sys.path.insert(0, u'./')
 
 
 # -- General configuration ------------------------------------------------

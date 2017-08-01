@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>security_portal methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="security_portal" href="ecl.security_portal.html"/>
+        <link rel="prev" title="security_portal" href="ecl.security_portal.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.html">components</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.security_order.html">security_order</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="ecl.security_portal.html">security_portal</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">security_portal methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ecl.security_portal.v1.security_device">security_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ecl.security_portal.v1.security_device_interface">security_device_interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">components</a> &raquo;</li>
+        
+          <li><a href="ecl.security_portal.html">security_portal</a> &raquo;</li>
+        
+      <li>security_portal methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.security_portal.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.security_portal.v1._proxy">
+<span id="security-portal-methods"></span><h1>security_portal methods<a class="headerlink" href="#module-ecl.security_portal.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_portal.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.security_portal.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.security_portal.v1._proxy.Proxy.get_security_device">
+<code class="descname">get_security_device</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/_proxy.html#Proxy.get_security_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1._proxy.Proxy.get_security_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show security device details associated with specific tenant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; Server ID registered in Openstack(UUID).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One security device.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.security_portal.v1.security_device.SecurityDevice" title="ecl.security_portal.v1.security_device.SecurityDevice"><code class="xref py py-class docutils literal"><span class="pre">SecurityDevice</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_portal.v1._proxy.Proxy.get_security_device_interface">
+<code class="descname">get_security_device_interface</code><span class="sig-paren">(</span><em>port_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/_proxy.html#Proxy.get_security_device_interface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1._proxy.Proxy.get_security_device_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show security device Interface associated with specific tenant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port_id</strong> (<em>string</em>) &#8211; Port ID registered in Openstack(UUID).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">One security device interface.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface" title="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface"><code class="xref py py-class docutils literal"><span class="pre">SecurityDeviceInterface</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_portal.v1._proxy.Proxy.security_device_interfaces">
+<code class="descname">security_device_interfaces</code><span class="sig-paren">(</span><em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/_proxy.html#Proxy.security_device_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1._proxy.Proxy.security_device_interfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Listing security device Interfaces associated with specific tenant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>server_id</strong> (<em>string</em>) &#8211; Server ID registered in Openstack(UUID).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List security device interfaces.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface" title="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface"><code class="xref py py-class docutils literal"><span class="pre">SecurityDeviceInterface</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_portal.v1._proxy.Proxy.security_devices">
+<code class="descname">security_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/_proxy.html#Proxy.security_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1._proxy.Proxy.security_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Listing security devices associated with specific tenant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List security devices.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ecl.security_portal.v1.security_device.SecurityDevice" title="ecl.security_portal.v1.security_device.SecurityDevice"><code class="xref py py-class docutils literal"><span class="pre">SecurityDevice</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.security_portal.v1.security_device">
+<span id="security-device"></span><h1>security_device<a class="headerlink" href="#module-ecl.security_portal.v1.security_device" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice">
+<em class="property">class </em><code class="descclassname">ecl.security_portal.v1.security_device.</code><code class="descname">SecurityDevice</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/security_device.html#SecurityDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.base_path">
+<code class="descname">base_path</code><em class="property"> = '/ecl-api/devices'</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>server_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/security_device.html#SecurityDevice.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.interfaces">
+<code class="descname">interfaces</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.interfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interfaces details associated with the Security Device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.msa_device_id">
+<code class="descname">msa_device_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.msa_device_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>MSA Device External reference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.msa_device_type">
+<code class="descname">msa_device_type</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.msa_device_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>MSA Device Type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.os_admin_username">
+<code class="descname">os_admin_username</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.os_admin_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of admin.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.os_availability_zone">
+<code class="descname">os_availability_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.os_availability_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Availability zone information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.os_server_id">
+<code class="descname">os_server_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.os_server_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server id of Network-based Security devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.os_server_name">
+<code class="descname">os_server_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.os_server_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server name on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.os_server_status">
+<code class="descname">os_server_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.os_server_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server Status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'device'</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'devices'</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device.SecurityDevice.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'mss-msa', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.security_portal.v1.security_device.SecurityDevice.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.security_portal.v1.security_device_interface">
+<span id="security-device-interface"></span><h1>security_device_interface<a class="headerlink" href="#module-ecl.security_portal.v1.security_device_interface" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface">
+<em class="property">class </em><code class="descclassname">ecl.security_portal.v1.security_device_interface.</code><code class="descname">SecurityDeviceInterface</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/security_device_interface.html#SecurityDeviceInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.base_path">
+<code class="descname">base_path</code><em class="property"> = '/ecl-api/devices/%(server_id)s/interfaces'</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>port_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_portal/v1/security_device_interface.html#SecurityDeviceInterface.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.msa_port_id">
+<code class="descname">msa_port_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.msa_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port id on the Network-based Security devices (registered in MSA).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_ip_address">
+<code class="descname">os_ip_address</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_ip_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port IP address (if available).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_mac_address">
+<code class="descname">os_mac_address</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_mac_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port MAC address on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_network_id">
+<code class="descname">os_network_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_network_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network Id to which Port is associated on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_port_id">
+<code class="descname">os_port_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_port_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port id on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_port_name">
+<code class="descname">os_port_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_port_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port name on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_port_status">
+<code class="descname">os_port_status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_port_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port Status on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_server_id">
+<code class="descname">os_server_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_server_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server id of Network-based Security devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_subnet_id">
+<code class="descname">os_subnet_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.os_subnet_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subnet Id to which Port is associated on Openstack.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.resource_key">
+<code class="descname">resource_key</code><em class="property"> = 'device_interface'</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.resources_key">
+<code class="descname">resources_key</code><em class="property"> = 'device_interfaces'</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'mss-msa', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.security_portal.v1.security_device_interface.SecurityDeviceInterface.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ecl.security_portal.html" class="btn btn-neutral" title="security_portal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

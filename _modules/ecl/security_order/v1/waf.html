@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ecl.security_order.v1.waf &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ecl.html">components</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ecl.security_order.v1.waf</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ecl.security_order.v1.waf</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">ecl.security_order</span> <span class="k">import</span> <span class="n">security_order_service</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">resource2</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">ecl</span> <span class="k">import</span> <span class="n">utils</span>
+
+
+<div class="viewcode-block" id="WAF"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1.waf.WAF">[docs]</a><span class="k">class</span> <span class="nc">WAF</span><span class="p">(</span><span class="n">resource2</span><span class="o">.</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="n">resource_key</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">resources_key</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;/API/SoEntryFGWAF&#39;</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">security_order_service</span><span class="o">.</span><span class="n">SecurityOrderService</span><span class="p">()</span>
+
+    <span class="c1"># Capabilities</span>
+    <span class="n">allow_create</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_get</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_delete</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_list</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">allow_update</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Properties</span>
+    <span class="c1">#: Tenant ID of the owner (UUID).</span>
+    <span class="n">tenant_id</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">)</span>
+    <span class="c1">#: List of following objects.</span>
+    <span class="c1">#: operatingmode: Set &quot;WAF&quot; to this value.</span>
+    <span class="c1">#: licensekind: Set &quot;02&quot;, &quot;04&quot; or &quot;08&quot; as WAF plan.</span>
+    <span class="c1">#: azgroup: Availability Zone.</span>
+    <span class="n">gt_host</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;gt_host&#39;</span><span class="p">)</span>
+    <span class="c1">#: A: Create Single Constitution Device.</span>
+    <span class="c1">#: M: Update Single Constitution Device.</span>
+    <span class="c1">#: D: Delete Single Constitution Device.</span>
+    <span class="n">sokind</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;sokind&#39;</span><span class="p">)</span>
+    <span class="c1">#: Messages are displayed in Japanese or English depending on this value.</span>
+    <span class="c1">#: ja: Japanese, en: English. Default value is &quot;en&quot;.</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span>
+    <span class="c1">#: This value indicates normal or abnormal. 1:normal, 2:abnormal.</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">alternate_id</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: This message is shown when error has occurred.</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">)</span>
+    <span class="c1">#: Identification ID of Service Order.</span>
+    <span class="n">soid</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;soId&#39;</span><span class="p">)</span>
+    <span class="c1">#: This value indicates normal or abnormal. 1:normal, 2:abnormal.</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="c1">#: Number of devices.</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+    <span class="c1">#: Device list.</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+    <span class="c1">#: List of device objects.</span>
+    <span class="n">devices</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;devices&#39;</span><span class="p">)</span>
+    <span class="c1">#: Percentage of Service Order Progress Status.</span>
+    <span class="n">progress_rate</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;progressRate&#39;</span><span class="p">)</span>
+    <span class="c1">#: List of device objects.</span>
+    <span class="n">devices</span> <span class="o">=</span> <span class="n">resource2</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="s1">&#39;devices&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WAF.get_order_status"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1.waf.WAF.get_order_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_order_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">soid</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">tenant_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="s1">&#39;/API/ScreenEventFGWAFOrderProgressRate?tenant_id=</span><span class="si">%s</span><span class="s1">&amp;soid=</span><span class="si">%s</span><span class="s1">&#39;</span> \
+              <span class="o">%</span> <span class="p">(</span><span class="n">tenant_id</span><span class="p">,</span> <span class="n">soid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">locale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">uri</span> <span class="o">+=</span> <span class="s1">&#39;&amp;locale=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">locale</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="WAF.update"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1.waf.WAF.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="WAF.delete"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1.waf.WAF.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_path</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="WAF.list"><a class="viewcode-back" href="../../../../ecl.security_order.v1.html#ecl.security_order.v1.waf.WAF.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">tenant_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_project_id</span><span class="p">()</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="s1">&#39;/API/ScreenEventFGWAFDeviceGet?tenant_id=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">tenant_id</span>
+        <span class="k">if</span> <span class="n">locale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">uri</span> <span class="o">+=</span> <span class="s1">&#39;&amp;locale=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">locale</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">endpoint_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">body</span><span class="p">[</span><span class="s1">&#39;rows&#39;</span><span class="p">]:</span>
+            <span class="n">device</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;internal_use&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="s1">&#39;rows&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s1">&#39;hostname&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
+                <span class="s1">&#39;menu&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span>
+                <span class="s1">&#39;plan&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span>
+                <span class="s1">&#39;redundancy&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">5</span><span class="p">],</span>
+                <span class="s1">&#39;availability_zone&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">],</span>
+                <span class="s1">&#39;zone_name&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">][</span><span class="mi">7</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">devices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">body</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;devices&#39;</span><span class="p">:</span> <span class="n">devices</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate_list_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="k">def</span> <span class="nf">_translate_list_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">has_body</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">has_body</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_key</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_key</span> <span class="ow">in</span> <span class="n">body</span><span class="p">:</span>
+                <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_key</span><span class="p">]</span>
+
+            <span class="n">body</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_component</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body_mapping</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_component</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
+                                         <span class="bp">self</span><span class="o">.</span><span class="n">_header_mapping</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

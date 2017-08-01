@@ -1,0 +1,1440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>security_order methods &mdash; python-eclsdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="python-eclsdk  documentation" href="index.html"/>
+        <link rel="up" title="security_order" href="ecl.security_order.html"/>
+        <link rel="next" title="security_portal" href="ecl.security_portal.html"/>
+        <link rel="prev" title="security_order" href="ecl.security_order.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> python-eclsdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ecl.html">components</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ecl.baremetal.html">baremetal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.block_store.html">block_store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.compute.html">compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.connectivity.html">connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.dedicated_hypervisor.html">dedicated_hypervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.image.html">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.network.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.provider_connectivity.html">provider_connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.rca.html">rca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.sss.html">sss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.storage.html">storage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="ecl.security_order.html">security_order</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">security_order methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ecl.security_order.v1.device">device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ecl.security_order.v1.ha_device">ha_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ecl.security_order.v1.host_based_security">host_based_security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ecl.security_order.v1.waf">waf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ecl.security_portal.html">security_portal</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-eclsdk</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ecl.html">components</a> &raquo;</li>
+        
+          <li><a href="ecl.security_order.html">security_order</a> &raquo;</li>
+        
+      <li>security_order methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ecl.security_order.v1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-ecl.security_order.v1._proxy">
+<span id="security-order-methods"></span><h1>security_order methods<a class="headerlink" href="#module-ecl.security_order.v1._proxy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_order.v1._proxy.Proxy">
+<em class="property">class </em><code class="descclassname">ecl.security_order.v1._proxy.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.proxy2.BaseProxy</span></code></p>
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.cancel_hbs">
+<code class="descname">cancel_hbs</code><span class="sig-paren">(</span><em>mailaddress</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.cancel_hbs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.cancel_hbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel the order of Host-based Security.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mailaddress</strong> (<em>string</em>) &#8211; Contactable mail address.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Host Based Security.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HostBasedSecurity</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.change_hbs_menu">
+<code class="descname">change_hbs_menu</code><span class="sig-paren">(</span><em>service_order_service</em>, <em>mailaddress</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.change_hbs_menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.change_hbs_menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change menu of Host-based Security.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service_order_service</strong> (<em>string</em>) &#8211; Requested menu.
+Set &#8220;Managed Anti-Virus&#8221;, &#8220;Managed Virtual Patch&#8221;
+or &#8220;Managed Host-based Security Package&#8221; to this field.</li>
+<li><strong>mailaddress</strong> (<em>string</em>) &#8211; Contactable mail address.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Host Based Security.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HostBasedSecurity</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.change_hbs_quantity">
+<code class="descname">change_hbs_quantity</code><span class="sig-paren">(</span><em>max_agent_value</em>, <em>mailaddress</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.change_hbs_quantity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.change_hbs_quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change maximum quantity of Agent usage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>max_agent_value</strong> (<em>string</em>) &#8211; Set maximum quantity of Agenet usage.</li>
+<li><strong>mailaddress</strong> (<em>string</em>) &#8211; Contactable mail address.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Host Based Security.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HostBasedSecurity</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.create_device">
+<code class="descname">create_device</code><span class="sig-paren">(</span><em>operatingmode</em>, <em>licensekind</em>, <em>azgroup</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.create_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.create_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Managed Firewall/UTM device of single constitution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>operatingmode</strong> (<em>string</em>) &#8211; Set &#8220;FW&#8221; or &#8220;UTM&#8221; to this value.</li>
+<li><strong>licensekind</strong> (<em>string</em>) &#8211; Set &#8220;02&#8221; or &#8220;08&#8221; as FW/UTM plan.</li>
+<li><strong>azgroup</strong> (<em>string</em>) &#8211; Availability Zone</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Single Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.create_ha_device">
+<code class="descname">create_ha_device</code><span class="sig-paren">(</span><em>operatingmode</em>, <em>licensekind</em>, <em>azgroup1</em>, <em>azgroup2</em>, <em>halink1networkid</em>, <em>halink1subnetid</em>, <em>halink1ipaddress1</em>, <em>halink1ipaddress2</em>, <em>halink2networkid</em>, <em>halink2subnetid</em>, <em>halink2ipaddress1</em>, <em>halink2ipaddress2</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.create_ha_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.create_ha_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new Managed Firewall/UTM device of single constitution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>operatingmode</strong> (<em>string</em>) &#8211; Set &#8220;UTM_HA&#8221; or &#8220;FW_HA&#8221; to this value.</li>
+<li><strong>licensekind</strong> (<em>string</em>) &#8211; Set &#8220;02&#8221; or &#8220;08&#8221; as FW/UTM plan.</li>
+<li><strong>azgroup1</strong> (<em>string</em>) &#8211; Availability Zone</li>
+<li><strong>azgroup2</strong> (<em>string</em>) &#8211; Availability Zone</li>
+<li><strong>halink1networkid</strong> (<em>string</em>) &#8211; Set Network ID to be used for HA line.</li>
+<li><strong>halink1subnetid</strong> (<em>string</em>) &#8211; Set Subnet ID to be used for HA line.</li>
+<li><strong>halink1ipaddress1</strong> (<em>string</em>) &#8211; Set value of IPv4.</li>
+<li><strong>halink1ipaddress2</strong> (<em>string</em>) &#8211; Set value of IPv4.</li>
+<li><strong>halink2networkid</strong> (<em>string</em>) &#8211; Set Network ID to be used for HA line.</li>
+<li><strong>halink2subnetid</strong> (<em>string</em>) &#8211; Set Subnet ID to be used for HA line.</li>
+<li><strong>halink2ipaddress1</strong> (<em>string</em>) &#8211; Set value of IPv4.</li>
+<li><strong>halink2ipaddress2</strong> (<em>string</em>) &#8211; Set value of IPv4.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HA Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HADevice</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.create_waf">
+<code class="descname">create_waf</code><span class="sig-paren">(</span><em>licensekind</em>, <em>azgroup</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.create_waf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.create_waf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new WAF device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>licensekind</strong> (<em>string</em>) &#8211; Set &#8220;02&#8221;, &#8220;04&#8221; or &#8220;08&#8221; as WAF plan.</li>
+<li><strong>azgroup</strong> (<em>string</em>) &#8211; Availability Zone</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">WAF.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">WAF</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.delete_device">
+<code class="descname">delete_device</code><span class="sig-paren">(</span><em>hostname</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.delete_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.delete_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a Managed Firewall/UTM device of single constitution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hostname</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Single Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.delete_ha_device">
+<code class="descname">delete_ha_device</code><span class="sig-paren">(</span><em>hostname1</em>, <em>hostname2</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.delete_ha_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.delete_ha_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a Managed Firewall/UTM device of single constitution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hostname1</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>hostname2</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HA Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HADevice</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.delete_waf">
+<code class="descname">delete_waf</code><span class="sig-paren">(</span><em>hostname</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.delete_waf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.delete_waf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a WAF device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hostname</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">WAF.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">WAF</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.devices">
+<code class="descname">devices</code><span class="sig-paren">(</span><em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List Managed Firwall/UTM devices of single constitution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Single Firwall/UTM.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.get_device_order_status">
+<code class="descname">get_device_order_status</code><span class="sig-paren">(</span><em>soid</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.get_device_order_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.get_device_order_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check progress status of Managed Firewall/UTM device Service Order.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>soid</strong> (<em>string</em>) &#8211; This value is returned value of when you execute
+Create Server, Update Server or Delete Server API.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Single Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.get_hbs_order_info">
+<code class="descname">get_hbs_order_info</code><span class="sig-paren">(</span><em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.get_hbs_order_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.get_hbs_order_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Order Information that tied to tenant id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Host Based Security.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HostBasedSecurity</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.get_hbs_order_status">
+<code class="descname">get_hbs_order_status</code><span class="sig-paren">(</span><em>soid</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.get_hbs_order_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.get_hbs_order_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check progress status of Host-based Security Service Order.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>soid</strong> (<em>string</em>) &#8211; This value is returned value of when you execute API
+of Order Host-based Security, Change menu or
+quantity, or Cancel the order.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Host Based Security.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HostBasedSecurity</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.get_waf_order_status">
+<code class="descname">get_waf_order_status</code><span class="sig-paren">(</span><em>soid</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.get_waf_order_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.get_waf_order_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check progress status of Managed WAF device Service Order.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>soid</strong> (<em>string</em>) &#8211; This value is returned value of when you execute
+Create Server, Update Server or Delete Server API.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">WAF.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">WAF</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.ha_devices">
+<code class="descname">ha_devices</code><span class="sig-paren">(</span><em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.ha_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.ha_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List Managed Firwall/UTM devices of single constitution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HA Firwall/UTM.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HADevice</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.order_hbs">
+<code class="descname">order_hbs</code><span class="sig-paren">(</span><em>service_order_service</em>, <em>max_agent_value</em>, <em>mailaddress</em>, <em>dsm_lang</em>, <em>time_zone</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.order_hbs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.order_hbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a new application for Host-based Security.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service_order_service</strong> (<em>string</em>) &#8211; Requested menu.
+Set &#8220;Managed Anti-Virus&#8221;, &#8220;Managed Virtual Patch&#8221;
+or &#8220;Managed Host-based Security Package&#8221; to this field.</li>
+<li><strong>max_agent_value</strong> (<em>string</em>) &#8211; Set maximum quantity of Agenet usage.</li>
+<li><strong>mailaddress</strong> (<em>string</em>) &#8211; Contactable mail address.</li>
+<li><strong>dsm_lang</strong> (<em>string</em>) &#8211; This value is used for language of Deep
+Security Manager. ja: Japanese, en: English.</li>
+<li><strong>time_zone</strong> (<em>string</em>) &#8211; Set &#8220;Asia/Tokyo&#8221; for JST or &#8220;Etc/GMT&#8221; for UTC.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Host Based Security</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HostBasedSecurity</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.update_device">
+<code class="descname">update_device</code><span class="sig-paren">(</span><em>hostname</em>, <em>operatingmode</em>, <em>licensekind</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.update_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.update_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change menu (Firewall/Managed UTM) and/or plan of single device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>operatingmode</strong> (<em>string</em>) &#8211; Set &#8220;FW&#8221; or &#8220;UTM&#8221; to this value.</li>
+<li><strong>licensekind</strong> (<em>string</em>) &#8211; Set &#8220;02&#8221; or &#8220;08&#8221; as FW/UTM plan.</li>
+<li><strong>hostname</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Single Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.update_ha_device">
+<code class="descname">update_ha_device</code><span class="sig-paren">(</span><em>hostname1</em>, <em>hostname2</em>, <em>operatingmode</em>, <em>licensekind</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.update_ha_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.update_ha_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change menu (Firewall/Managed UTM) and/or plan of single device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hostname1</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>hostname2</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>operatingmode</strong> (<em>string</em>) &#8211; Set &#8220;UTM_HA&#8221; or &#8220;FW_HA&#8221; to this value.</li>
+<li><strong>licensekind</strong> (<em>string</em>) &#8211; Set &#8220;02&#8221; or &#8220;08&#8221; as FW/UTM plan.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HA Firwall/UTM.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HADevice</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.update_waf">
+<code class="descname">update_waf</code><span class="sig-paren">(</span><em>hostname</em>, <em>licensekind</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.update_waf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.update_waf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change plan of device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>licensekind</strong> (<em>string</em>) &#8211; Set &#8220;02&#8221;, &#8220;04&#8221; or &#8220;08&#8221; as WAF plan.</li>
+<li><strong>hostname</strong> (<em>string</em>) &#8211; Set the hostname.</li>
+<li><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">WAF.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">WAF</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1._proxy.Proxy.wafs">
+<code class="descname">wafs</code><span class="sig-paren">(</span><em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/_proxy.html#Proxy.wafs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1._proxy.Proxy.wafs" title="Permalink to this definition">¶</a></dt>
+<dd><p>List active waf devices you ordered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locale</strong> (<em>string</em>) &#8211; Messages are displayed in Japanese or English
+depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">WAF.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">WAF</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.security_order.v1.device">
+<span id="device"></span><h1>device<a class="headerlink" href="#module-ecl.security_order.v1.device" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_order.v1.device.Device">
+<em class="property">class </em><code class="descclassname">ecl.security_order.v1.device.</code><code class="descname">Device</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/device.html#Device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.device.Device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.base_path">
+<code class="descname">base_path</code><em class="property"> = '/API/SoEntryFGS'</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.code">
+<code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.device.Device.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em>, <em>body</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/device.html#Device.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.device.Device.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.devices">
+<code class="descname">devices</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of device objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.device.Device.get_order_status">
+<code class="descname">get_order_status</code><span class="sig-paren">(</span><em>session</em>, <em>soid</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/device.html#Device.get_order_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.device.Device.get_order_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.gt_host">
+<code class="descname">gt_host</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.gt_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of following objects.
+operatingmode: Set &#8220;FW&#8221; or &#8220;UTM&#8221; to this value.
+licensekind: Set &#8220;02&#8221; or &#8220;08&#8221; as FW/UTM plan.
+azgroup: Availability Zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.device.Device.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/device.html#Device.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.device.Device.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.locale">
+<code class="descname">locale</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.locale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Messages are displayed in Japanese or English depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>This message is shown when error has occurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.progress_rate">
+<code class="descname">progress_rate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.progress_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of Service Order Progress Status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.records">
+<code class="descname">records</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.rows">
+<code class="descname">rows</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device list.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'mss-rfg', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.soid">
+<code class="descname">soid</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.soid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification ID of Service Order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.sokind">
+<code class="descname">sokind</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.sokind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A: Create Single Constitution Device.
+M: Update Single Constitution Device.
+D: Delete Single Constitution Device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.device.Device.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.device.Device.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant ID of the owner (UUID).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.device.Device.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/device.html#Device.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.device.Device.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.security_order.v1.ha_device">
+<span id="ha-device"></span><h1>ha_device<a class="headerlink" href="#module-ecl.security_order.v1.ha_device" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_order.v1.ha_device.HADevice">
+<em class="property">class </em><code class="descclassname">ecl.security_order.v1.ha_device.</code><code class="descname">HADevice</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/ha_device.html#HADevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.base_path">
+<code class="descname">base_path</code><em class="property"> = '/API/SoEntryFGHA'</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.code">
+<code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.ha_device.HADevice.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em>, <em>body</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/ha_device.html#HADevice.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.devices">
+<code class="descname">devices</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of device objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.gt_host">
+<code class="descname">gt_host</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.gt_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of following objects.
+operatingmode: Set &#8220;FW&#8221; or &#8220;UTM&#8221; to this value.
+licensekind: Set &#8220;02&#8221; or &#8220;08&#8221; as FW/UTM plan.
+azgroup: Availability Zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.ha_device.HADevice.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/ha_device.html#HADevice.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.locale">
+<code class="descname">locale</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.locale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Messages are displayed in Japanese or English depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>This message is shown when error has occurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.progress_rate">
+<code class="descname">progress_rate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.progress_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of Service Order Progress Status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.records">
+<code class="descname">records</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.rows">
+<code class="descname">rows</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device list.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'mss-rfg', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.soid">
+<code class="descname">soid</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.soid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification ID of Service Order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.sokind">
+<code class="descname">sokind</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.sokind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A: Create Single Constitution Device.
+M: Update Single Constitution Device.
+D: Delete Single Constitution Device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.ha_device.HADevice.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant ID of the owner (UUID).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.ha_device.HADevice.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/ha_device.html#HADevice.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.ha_device.HADevice.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.security_order.v1.host_based_security">
+<span id="host-based-security"></span><h1>host_based_security<a class="headerlink" href="#module-ecl.security_order.v1.host_based_security" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity">
+<em class="property">class </em><code class="descclassname">ecl.security_order.v1.host_based_security.</code><code class="descname">HostBasedSecurity</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/host_based_security.html#HostBasedSecurity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.base_path">
+<code class="descname">base_path</code><em class="property"> = '/API/SoEntryHBS'</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.code">
+<code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.contract_id">
+<code class="descname">contract_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.contract_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contract ID which this tenant belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.customer_name">
+<code class="descname">customer_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.customer_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customer Name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em>, <em>body</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/host_based_security.html#HostBasedSecurity.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.dsm_lang">
+<code class="descname">dsm_lang</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.dsm_lang" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value is used for language of Deep Security Manager.
+ja: Japanese, en: English.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.get_order_info">
+<code class="descname">get_order_info</code><span class="sig-paren">(</span><em>session</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/host_based_security.html#HostBasedSecurity.get_order_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.get_order_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.get_order_status">
+<code class="descname">get_order_status</code><span class="sig-paren">(</span><em>session</em>, <em>soid</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/host_based_security.html#HostBasedSecurity.get_order_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.get_order_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.locale">
+<code class="descname">locale</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.locale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Messages are displayed in Japanese or English depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.mailaddress">
+<code class="descname">mailaddress</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.mailaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contactable mail address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.max_agent_value">
+<code class="descname">max_agent_value</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.max_agent_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set maximum quantity of Agenet usage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>This message is shown when error has occurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.progress_rate">
+<code class="descname">progress_rate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.progress_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of Service Order Progress Status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.region">
+<code class="descname">region</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region tenant you specified belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'mss-rfg', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.service_order_service">
+<code class="descname">service_order_service</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.service_order_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requested menu. Set &#8220;Managed Anti-Virus&#8221;, &#8220;Managed Virtual Patch&#8221;
+or &#8220;Managed Host-based Security Package&#8221; to this field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.soid">
+<code class="descname">soid</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.soid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification ID of Service Order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.sokind">
+<code class="descname">sokind</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.sokind" title="Permalink to this definition">¶</a></dt>
+<dd><p>N: Order New Host-based Security.
+M1: Change menu of Host-based Security.
+M2: Change quantity of Host-based Security.
+C: Cancel Host-based Security.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_description">
+<code class="descname">tenant_description</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description for this tenant.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_flg">
+<code class="descname">tenant_flg</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_flg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal Use. (true: Already applied, false: Not applied.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant ID of the owner (UUID).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_name">
+<code class="descname">tenant_name</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.tenant_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant Name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.time_zone">
+<code class="descname">time_zone</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.time_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set &#8220;Asia/Tokyo&#8221; for JST or &#8220;Etc/GMT&#8221; for UTC.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.host_based_security.HostBasedSecurity.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/host_based_security.html#HostBasedSecurity.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.host_based_security.HostBasedSecurity.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ecl.security_order.v1.waf">
+<span id="waf"></span><h1>waf<a class="headerlink" href="#module-ecl.security_order.v1.waf" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ecl.security_order.v1.waf.WAF">
+<em class="property">class </em><code class="descclassname">ecl.security_order.v1.waf.</code><code class="descname">WAF</code><span class="sig-paren">(</span><em>synchronized=False</em>, <em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/waf.html#WAF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.waf.WAF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ecl.resource2.Resource</span></code></p>
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.allow_create">
+<code class="descname">allow_create</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.allow_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.allow_delete">
+<code class="descname">allow_delete</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.allow_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.allow_get">
+<code class="descname">allow_get</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.allow_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.allow_list">
+<code class="descname">allow_list</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.allow_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.allow_update">
+<code class="descname">allow_update</code><em class="property"> = True</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.allow_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.base_path">
+<code class="descname">base_path</code><em class="property"> = '/API/SoEntryFGWAF'</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.base_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.code">
+<code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.waf.WAF.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>session</em>, <em>body</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/waf.html#WAF.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.devices">
+<code class="descname">devices</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of device objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.waf.WAF.get_order_status">
+<code class="descname">get_order_status</code><span class="sig-paren">(</span><em>session</em>, <em>soid</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/waf.html#WAF.get_order_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.get_order_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.gt_host">
+<code class="descname">gt_host</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.gt_host" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of following objects.
+operatingmode: Set &#8220;WAF&#8221; to this value.
+licensekind: Set &#8220;02&#8221;, &#8220;04&#8221; or &#8220;08&#8221; as WAF plan.
+azgroup: Availability Zone.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.waf.WAF.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>locale=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/waf.html#WAF.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.locale">
+<code class="descname">locale</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.locale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Messages are displayed in Japanese or English depending on this value.
+ja: Japanese, en: English. Default value is &#8220;en&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>This message is shown when error has occurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.progress_rate">
+<code class="descname">progress_rate</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.progress_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of Service Order Progress Status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.records">
+<code class="descname">records</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.resource_key">
+<code class="descname">resource_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.resource_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.resources_key">
+<code class="descname">resources_key</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.resources_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.rows">
+<code class="descname">rows</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device list.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.service">
+<code class="descname">service</code><em class="property"> = {'region_name': None, 'service_name': None, 'interface': 'public', 'version': None, 'service_type': 'mss-rfg', 'requires_project_id': False, 'api_version': None}</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.soid">
+<code class="descname">soid</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.soid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identification ID of Service Order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.sokind">
+<code class="descname">sokind</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.sokind" title="Permalink to this definition">¶</a></dt>
+<dd><p>A: Create Single Constitution Device.
+M: Update Single Constitution Device.
+D: Delete Single Constitution Device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.status">
+<code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value indicates normal or abnormal. 1:normal, 2:abnormal.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ecl.security_order.v1.waf.WAF.tenant_id">
+<code class="descname">tenant_id</code><em class="property"> = None</em><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.tenant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tenant ID of the owner (UUID).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ecl.security_order.v1.waf.WAF.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>session</em>, <em>**body</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ecl/security_order/v1/waf.html#WAF.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ecl.security_order.v1.waf.WAF.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ecl.security_portal.html" class="btn btn-neutral float-right" title="security_portal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecl.security_order.html" class="btn btn-neutral" title="security_order" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Author.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

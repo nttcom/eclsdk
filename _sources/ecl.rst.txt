@@ -14,3 +14,5 @@ components
     ecl.rca
     ecl.sss
     ecl.storage
+    ecl.security_order
+    ecl.security_portal
