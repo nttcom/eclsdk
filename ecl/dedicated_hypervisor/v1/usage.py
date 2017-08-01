@@ -30,6 +30,8 @@ class Usage(resource2.Resource):
     id = resource2.Body('id')
     #: license type name for the usage.
     name = resource2.Body('name')
+    #: license type description for the usage.
+    description = resource2.Body('description')
     #: type of Guest Image usage.
     type = resource2.Body('type')
     #: if true, there is license key.
