@@ -92,9 +92,8 @@ class WAF(resource2.Resource):
                 'hostname': row['cell'][2],
                 'menu': row['cell'][3],
                 'plan': row['cell'][4],
-                'redundancy': row['cell'][5],
-                'availability_zone': row['cell'][6],
-                'zone_name': row['cell'][7],
+                'availability_zone': row['cell'][5],
+                'zone_name': row['cell'][6],
             }
             devices.append(device)
         body.update({'devices': devices})
