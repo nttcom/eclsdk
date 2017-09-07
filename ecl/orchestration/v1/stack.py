@@ -74,10 +74,50 @@ class Stack(resource.Resource):
     #: The ID of the user project created for this stack.
     user_project_id = resource.Body('stack_user_project_id')
 
+
+    def stack_prepare_request(self, session, requires_id=True, prepend_key=False):
+        """Prepare a request with auth header"""
+
+        body = self._body.dirty
+        if prepend_key and self.resource_key is not None:
+            body = {self.resource_key: body}
+
+        headers = self._header.dirty
+
+        headers["X-Auth-User"] = session.auth._username
+        headers["X-Auth-Key"] = session.auth._password
+
+        uri = self.base_path % self._uri.attributes
+        if requires_id:
+            id = self._get_id(self)
+            if id is None:
+                raise exceptions.InvalidRequest(
+                    "Request requires an ID but none was found")
+
+            uri = utils.urljoin(uri, id)
+
+        return resource._Request(uri, body, headers)
+
     def create(self, session):
         # This overrides the default behavior of resource creation because
         # heat doesn't accept resource_key in its request.
-        return super(Stack, self).create(session, prepend_key=False)
+        # & Will use self.stack_prepare_request to get proper headers.
+        if not self.allow_create:
+            raise exceptions.MethodNotSupported(self, "create")
+
+        if self.put_create:
+            request = self.stack_prepare_request(session, requires_id=True,
+                                            prepend_key=False)
+            response = session.put(request.uri, endpoint_filter=self.service,
+                                   json=request.body, headers=request.headers)
+        else:
+            request = self.stack_prepare_request(session, requires_id=False,
+                                            prepend_key=False)
+            response = session.post(request.uri, endpoint_filter=self.service,
+                                    json=request.body, headers=request.headers)
+
+        self._translate_response(response)
+        return self
 
     def update(self, session):
         # This overrides the default behavior of resource creation because
