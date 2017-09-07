@@ -90,6 +90,16 @@ class Instance(resource2.Resource):
     backup_retention_period = resource2.Body('backup_retention_period',
                                              type=int)
 
+    #: Restore Point
+    restore_point = resource2.Body('restorePoint', type=dict)
+
+    #: Restoreable Time
+    restorable_time = resource2.Body('restorable_time')
+
+    #: Endpoints
+    endpoints = resource2.Body('endpoints', type=list)
+
+    #: Availability Zone
     availability_zone = resource2.Body('availability_zone')
 
     @classmethod

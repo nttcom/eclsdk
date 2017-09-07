@@ -20,5 +20,5 @@ class DatabaseService(service_filter.ServiceFilter):
 
     def __init__(self, version=None):
         """Create a Database(Trove) service"""
-        super(DatabaseService, self).__init__(service_type='database',
+        super(DatabaseService, self).__init__(service_type='rdb',
                                               version=version)
