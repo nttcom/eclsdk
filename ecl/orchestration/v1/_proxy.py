@@ -107,6 +107,35 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_stack.Stack, stack, ignore_missing=ignore_missing)
 
+    def abandon_stack(self, stack, ignore_missing=False):
+        """Abandon a stack
+
+        :param stack: The value can be either the ID of a stack or a
+                      :class:`~ecl.orchestration.v1.stack.Stack`
+                      instance.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the stack does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to abandon a nonexistent stack.
+        :return: ``None``
+        """
+        try:
+            if not isinstance(stack, _stack.Stack):
+                stack = self.get_stack(stack)
+            stack.abandon(self.session)
+        except exceptions.NotFoundException as e:
+            if ignore_missing:
+                return None
+            else:
+                # Reraise with a more specific type and message
+                raise exceptions.ResourceNotFound(
+                    message="No %s found for %s" %
+                            (_stack.Stack.__name__, str(stack)),
+                    details=e.details, response=e.response,
+                    request_id=e.request_id, url=e.url, method=e.method,
+                    http_status=e.http_status, cause=e.cause)
+
     def check_stack(self, stack):
         """Check a stack's status
 

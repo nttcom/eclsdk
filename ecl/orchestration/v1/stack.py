@@ -141,6 +141,20 @@ class Stack(resource.Resource):
                 "No stack found for %s" % stk.id)
         return stk
 
+    def abandon(self, session):
+        self.base_path = '/stacks/%s/%s/abandon' % (self.name, self.id)
+
+        if not self.allow_delete:
+            raise exceptions.MethodNotSupported(self, "delete")
+
+        request = self._prepare_request(requires_id=False)
+
+        response = session.delete(request.uri, endpoint_filter=self.service,
+                                  headers={"Accept": ""})
+
+        self._translate_response(response, has_body=False)
+        return self
+
 
 class StackPreview(Stack):
     base_path = '/stacks/preview'
