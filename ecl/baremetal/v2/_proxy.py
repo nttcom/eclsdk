@@ -64,7 +64,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(_zone.AvailabilityZone))
 
-    def find_availability_zone(self, name_or_id, ignore_missing=True):
+    def find_availability_zone(self, name_or_id, ignore_missing=False):
         """Find a single availability_zone
 
         :param string name_or_id: The name or ID of an availability zone.
@@ -110,7 +110,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_flavor.Flavor, flavor_id)
 
-    def find_flavor(self, name_or_id, ignore_missing=True):
+    def find_flavor(self, name_or_id, ignore_missing=False):
         """Find a single flavor
 
         :param string name_or_id: Name or ID of a flavor.
@@ -272,7 +272,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_server.Server, server_id)
 
-    def find_server(self, name_or_id, ignore_missing=True):
+    def find_server(self, name_or_id, ignore_missing=False):
         """Find a single baremetal server
 
         :param string name_or_id: Name or ID of a server.

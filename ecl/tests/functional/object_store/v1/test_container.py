@@ -30,7 +30,7 @@ class TestContainer(base.BaseFunctionalTest):
     @classmethod
     def tearDownClass(cls):
         result = cls.conn.object_store.delete_container(cls.NAME,
-                                                        ignore_missing=False)
+                                                        ignore_missing=True)
         cls.assertIs(None, result)
 
     def test_list(self):

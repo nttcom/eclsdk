@@ -68,7 +68,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_container.Container, **attrs)
 
-    def delete_container(self, container, ignore_missing=True):
+    def delete_container(self, container, ignore_missing=False):
         """Delete a container
 
         :param container: The value can be either the name of a container or a
@@ -232,7 +232,7 @@ class Proxy(proxy.BaseProxy):
         """Copy an object."""
         raise NotImplementedError
 
-    def delete_object(self, obj, ignore_missing=True, container=None):
+    def delete_object(self, obj, ignore_missing=False, container=None):
         """Delete an object
 
         :param obj: The value can be either the name of an object or a

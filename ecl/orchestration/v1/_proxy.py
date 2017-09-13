@@ -39,7 +39,7 @@ class Proxy(proxy2.BaseProxy):
         res_type = _stack.StackPreview if preview else _stack.Stack
         return self._create(res_type, **attrs)
 
-    def find_stack(self, name_or_id, ignore_missing=True):
+    def find_stack(self, name_or_id, ignore_missing=False):
         """Find a single stack
 
         :param name_or_id: The name or ID of a stack.
@@ -91,7 +91,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._update(_stack.Stack, stack, **attrs)
 
-    def delete_stack(self, stack, ignore_missing=True):
+    def delete_stack(self, stack, ignore_missing=False):
         """Delete a stack
 
         :param stack: The value can be either the ID of a stack or a
@@ -185,7 +185,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_sc.SoftwareConfig, software_config)
 
-    def delete_software_config(self, software_config, ignore_missing=True):
+    def delete_software_config(self, software_config, ignore_missing=False):
         """Delete a software config
 
         :param software_config: The value can be either the ID of a software
@@ -238,7 +238,7 @@ class Proxy(proxy2.BaseProxy):
         return self._get(_sd.SoftwareDeployment, software_deployment)
 
     def delete_software_deployment(self, software_deployment,
-                                   ignore_missing=True):
+                                   ignore_missing=False):
         """Delete a software deployment
 
         :param software_deployment: The value can be either the ID of a

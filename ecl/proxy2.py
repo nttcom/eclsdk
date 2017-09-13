@@ -84,7 +84,7 @@ class BaseProxy(object):
             value = resource2.Resource._get_id(parent)
         return value
 
-    def _find(self, resource_type, name_or_id, ignore_missing=True,
+    def _find(self, resource_type, name_or_id, ignore_missing=False,
               **attrs):
         """Find a resource
 
@@ -105,7 +105,7 @@ class BaseProxy(object):
                                   **attrs)
 
     @_check_resource(strict=False)
-    def _delete(self, resource_type, value, ignore_missing=True, **attrs):
+    def _delete(self, resource_type, value, ignore_missing=False, **attrs):
         """Delete a resource
 
         :param resource_type: The type of resource to delete. This should

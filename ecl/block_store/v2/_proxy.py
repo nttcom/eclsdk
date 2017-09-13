@@ -31,7 +31,7 @@ class Proxy(proxy.BaseProxy):
         """
         return list(self._list(_type.Type, paginated=False))
 
-    def find_volume_type(self, name_or_id, ignore_missing=True):
+    def find_volume_type(self, name_or_id, ignore_missing=False):
         """Find a volume type
 
         :param name_or_id: The name or ID of a volume type.
@@ -103,7 +103,7 @@ class Proxy(proxy.BaseProxy):
             attrs.update({"source_volid": source_volid})
         return self._create(_volume.Volume, **attrs)
 
-    def delete_volume(self, volume, ignore_missing=True):
+    def delete_volume(self, volume, ignore_missing=False):
         """Delete a volume
 
         :param volume: The value can be either the ID of a volume or a
@@ -187,7 +187,7 @@ class Proxy(proxy.BaseProxy):
         """
         return list(self._list(_availability_zone.AvailabilityZone, paginated=False))
 
-    def find_availability_zone(self, name_or_id, ignore_missing=True):
+    def find_availability_zone(self, name_or_id, ignore_missing=False):
         """Find a single availability_zone
 
         :param name_or_id: The name or ID of a availability_zone.
@@ -271,7 +271,7 @@ class Proxy(proxy.BaseProxy):
                             path_args={"volume_id": volume_id},
                             **metadata)
 
-    def find_volume(self, name_or_id, ignore_missing=True):
+    def find_volume(self, name_or_id, ignore_missing=False):
         """Find a single volume
 
         :param name_or_id: The name or ID of a server.

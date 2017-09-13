@@ -1324,7 +1324,7 @@ class TestResourceFind(base.TestCase):
 
     def test_no_match_raise(self):
         self.assertRaises(exceptions.ResourceNotFound, self.no_results.find,
-                          "session", "name", ignore_missing=False)
+                          "session", "name", ignore_missing=True)
 
     def test_no_match_return(self):
         self.assertIsNone(

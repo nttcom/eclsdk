@@ -89,7 +89,7 @@ class Proxy(proxy2.BaseProxy):
 
         return self._create(_instance.Instance, **attrs)
 
-    def delete_instance(self, instance, ignore_missing=True):
+    def delete_instance(self, instance, ignore_missing=False):
         """Delete a instance
 
         :param instance: The value can be either the ID of a server or a
@@ -106,7 +106,7 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_instance.Instance, instance, ignore_missing=ignore_missing)
 
-    def find_instance(self, name_or_id, ignore_missing=True):
+    def find_instance(self, name_or_id, ignore_missing=False):
         """Find a single instance
 
         :param name_or_id: The name or ID of a server.
@@ -137,7 +137,7 @@ class Proxy(proxy2.BaseProxy):
         return resource2.wait_for_status(self.session, instance, status,
                                          failures, interval, wait)
 
-    # def find_flavor(self, name_or_id, ignore_missing=True):
+    # def find_flavor(self, name_or_id, ignore_missing=False):
     #     """Find a single flavor
 
     #     :param name_or_id: The name or ID of a flavor.
@@ -203,7 +203,7 @@ class Proxy(proxy2.BaseProxy):
         user = _user.User()
         return user.create(self.session, instance_id, **attrs)
 
-    def delete_user(self, instance_id, user, ignore_missing=True):
+    def delete_user(self, instance_id, user, ignore_missing=False):
         """Delete a user
 
         :param instance_id: The value can be either the ID of a server or a
@@ -220,7 +220,7 @@ class Proxy(proxy2.BaseProxy):
         self._delete(_user.User, user, instance_id=instance_id,
                      ignore_missing=ignore_missing)
 
-    def find_user(self, instance_id, name_or_id, ignore_missing=True):
+    def find_user(self, instance_id, name_or_id, ignore_missing=False):
         """Find a single user
 
         :param name_or_id: The name or ID of a user.
@@ -298,7 +298,7 @@ class Proxy(proxy2.BaseProxy):
         database = _database.Database()
         return database.create(self.session, instance_id, **attrs)
 
-    def delete_database(self, instance_id, database, ignore_missing=True):
+    def delete_database(self, instance_id, database, ignore_missing=False):
         """Delete a database
 
         :param instance_id: The value can be either the ID of a server or a
@@ -314,7 +314,7 @@ class Proxy(proxy2.BaseProxy):
         self._delete(_database.Database, database, instance_id=instance_id,
                      ignore_missing=ignore_missing)
 
-    def find_database(self, instance_id, name_or_id, ignore_missing=True):
+    def find_database(self, instance_id, name_or_id, ignore_missing=False):
         """Find a single database
 
         :param name_or_id: The name or ID of a database.

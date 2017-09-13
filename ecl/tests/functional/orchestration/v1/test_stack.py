@@ -59,7 +59,7 @@ class TestStack(base.BaseFunctionalTest):
     @classmethod
     def tearDownClass(cls):
         super(TestStack, cls).tearDownClass()
-        cls.conn.orchestration.delete_stack(cls.stack, ignore_missing=False)
+        cls.conn.orchestration.delete_stack(cls.stack, ignore_missing=True)
         cls.conn.compute.delete_keypair(cls.NAME)
         # Need to wait for the stack to go away before network delete
         try:

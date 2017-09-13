@@ -33,7 +33,7 @@ class Extension(resource2.Resource):
     updated_at = resource2.Body('updated')
 
     @classmethod
-    def find(cls, session, name_or_id, ignore_missing=True, **params):
+    def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
 
         :param session: The session to use for making this request.

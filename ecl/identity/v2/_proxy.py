@@ -30,7 +30,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_role.Role, **attrs)
 
-    def delete_role(self, role, ignore_missing=True):
+    def delete_role(self, role, ignore_missing=False):
         """Delete a role
 
         :param role: The value can be either the ID of a role or a
@@ -45,7 +45,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_role.Role, role, ignore_missing=ignore_missing)
 
-    def find_role(self, name_or_id, ignore_missing=True):
+    def find_role(self, name_or_id, ignore_missing=False):
         """Find a single role
 
         :param name_or_id: The name or ID of a role.
@@ -107,7 +107,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_tenant.Tenant, **attrs)
 
-    def delete_tenant(self, tenant, ignore_missing=True):
+    def delete_tenant(self, tenant, ignore_missing=False):
         """Delete a tenant
 
         :param tenant: The value can be either the ID of a tenant or a
@@ -122,7 +122,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_tenant.Tenant, tenant, ignore_missing=ignore_missing)
 
-    def find_tenant(self, name_or_id, ignore_missing=True):
+    def find_tenant(self, name_or_id, ignore_missing=False):
         """Find a single tenant
 
         :param name_or_id: The name or ID of a tenant.
@@ -184,7 +184,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_user.User, **attrs)
 
-    def delete_user(self, user, ignore_missing=True):
+    def delete_user(self, user, ignore_missing=False):
         """Delete a user
 
         :param user: The value can be either the ID of a user or a
@@ -199,7 +199,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_user.User, user, ignore_missing=ignore_missing)
 
-    def find_user(self, name_or_id, ignore_missing=True):
+    def find_user(self, name_or_id, ignore_missing=False):
         """Find a single user
 
         :param name_or_id: The name or ID of a user.

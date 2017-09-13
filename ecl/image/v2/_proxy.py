@@ -57,7 +57,7 @@ class Proxy(proxy2.BaseProxy):
         img = _image.Image()
         return img.download(self.session, image_id)
 
-    def delete_image(self, image, ignore_missing=True):
+    def delete_image(self, image, ignore_missing=False):
         """Delete an image
 
         :param image: The value can be either the ID of an image or a
@@ -72,7 +72,7 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_image.Image, image, ignore_missing=ignore_missing)
 
-    def find_image(self, name_or_id, ignore_missing=True):
+    def find_image(self, name_or_id, ignore_missing=False):
         """Find a single image
 
         :param name_or_id: The name or ID of a image.
@@ -207,7 +207,7 @@ class Proxy(proxy2.BaseProxy):
         image_id = resource2.Resource._get_id(image)
         return self._create(_member.Member, image_id=image_id, **attrs)
 
-    def delete_member(self, image, member, ignore_missing=True):
+    def delete_member(self, image, member, ignore_missing=False):
         """Delete a member
 
         :param member: The value can be either the ID of a member or a

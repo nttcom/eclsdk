@@ -100,7 +100,7 @@ class TestOrchestrationProxy(test_proxy_base2.TestProxyBase):
                                           'stack_id': stack_id})
 
         mock_find.assert_called_once_with(mock.ANY, stack_id,
-                                          ignore_missing=False)
+                                          ignore_missing=True)
 
     @mock.patch.object(stack.Stack, 'find')
     @mock.patch.object(resource.Resource, 'list')

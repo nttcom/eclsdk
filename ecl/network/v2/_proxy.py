@@ -71,7 +71,7 @@ class Proxy(proxy2.BaseProxy):
             body["tags"] = tags
         return self._create(_network.Network, **body)
 
-    def delete_network(self, network, ignore_missing=True):
+    def delete_network(self, network, ignore_missing=False):
         """Delete a network
 
         :param network:
@@ -87,7 +87,7 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_network.Network, network, ignore_missing=ignore_missing)
 
-    def find_network(self, name_or_id, ignore_missing=True):
+    def find_network(self, name_or_id, ignore_missing=False):
         """Find a single network
 
         :param name_or_id: The name or ID of a network.
@@ -144,7 +144,7 @@ class Proxy(proxy2.BaseProxy):
             network._body.clean()
         return self._update(_network.Network, network, **params)
 
-    def find_extension(self, name_or_id, ignore_missing=True):
+    def find_extension(self, name_or_id, ignore_missing=False):
         """Find a single extension
 
         :param name_or_id: The name or ID of a extension.
@@ -233,7 +233,7 @@ class Proxy(proxy2.BaseProxy):
 
         return self._create(_port.Port, **body)
 
-    def delete_port(self, port, ignore_missing=True):
+    def delete_port(self, port, ignore_missing=False):
         """Delete a port
 
         :param port: The value can be either the ID of a port or a
@@ -248,7 +248,7 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_port.Port, port, ignore_missing=ignore_missing)
 
-    def find_port(self, name_or_id, ignore_missing=True):
+    def find_port(self, name_or_id, ignore_missing=False):
         """Find a single port
 
         :param name_or_id: The name or ID of a port.
@@ -397,7 +397,7 @@ class Proxy(proxy2.BaseProxy):
 
         return self._create(_subnet.Subnet, **body)
 
-    def delete_subnet(self, subnet, ignore_missing=True):
+    def delete_subnet(self, subnet, ignore_missing=False):
         """Delete a subnet
 
         :param subnet: The value can be either the ID of a subnet or a
@@ -412,7 +412,7 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_subnet.Subnet, subnet, ignore_missing=ignore_missing)
 
-    def find_subnet(self, name_or_id, ignore_missing=True):
+    def find_subnet(self, name_or_id, ignore_missing=False):
         """Find a single subnet
 
         :param name_or_id: The name or ID of a subnet.
@@ -562,7 +562,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_firewall.Firewall, firewall_id)
 
-    def find_firewall(self, name_or_id, ignore_missing=True):
+    def find_firewall(self, name_or_id, ignore_missing=False):
         """Find a single firewall
 
         :param name_or_id: The name or ID of a firewall.
@@ -630,7 +630,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_firewall_plan.FirewallPlan, firewall_plan_id)
 
-    def find_firewall_plan(self, name_or_id, ignore_missing=True):
+    def find_firewall_plan(self, name_or_id, ignore_missing=False):
         """Find a firewall plan
 
         :param id_or_name: The name or ID of a firewall plan.
@@ -716,7 +716,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_load_balancer.LoadBalancer, load_balancer_id)
 
-    def find_load_balancer(self, name_or_id, ignore_missing=True):
+    def find_load_balancer(self, name_or_id, ignore_missing=False):
         """Find a single load_balancer
 
         :param name_or_id: The name or ID of a load_balancer.
@@ -808,7 +808,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_load_balancer_plan.LoadBalancerPlan, load_balancer_interface_id)
 
-    def find_load_balancer_plan(self, name_or_id, ignore_missing=True):
+    def find_load_balancer_plan(self, name_or_id, ignore_missing=False):
 
         """Find a load_balancer plan
 
@@ -999,7 +999,7 @@ class Proxy(proxy2.BaseProxy):
                             load_balancer_syslog_server, **body)
 
     def delete_load_balancer_syslog_server(self, load_balancer_syslog_server,
-                                           ignore_missing=True):
+                                           ignore_missing=False):
         """Delete a load balancer syslog server
 
         :param load_balancer_syslog_server: The value can be
@@ -1037,7 +1037,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_internet.InternetService, internet_service)
 
-    def find_internet_service(self,name_or_id, ignore_missing=True):
+    def find_internet_service(self,name_or_id, ignore_missing=False):
         """Find a single internet_service
 
         :param name_or_id: The name or ID of an internet_service.
@@ -1116,7 +1116,7 @@ class Proxy(proxy2.BaseProxy):
             inet_gw._body.clean()
         return self._update(_internet.InternetGateway, inet_gw, **body)
 
-    def delete_internet_gateway(self, inet_gw, ignore_missing=True):
+    def delete_internet_gateway(self, inet_gw, ignore_missing=False):
         """Delete an Internet Gateway
 
         :param inet_gw: The value can be either the ID of an Internet Gateway or a
@@ -1132,7 +1132,7 @@ class Proxy(proxy2.BaseProxy):
         return self._delete(_internet.InternetGateway, inet_gw,
                             ignore_missing=ignore_missing)
 
-    def find_internet_gateway(self, name_or_id, ignore_missing=True):
+    def find_internet_gateway(self, name_or_id, ignore_missing=False):
         """Find a single internet_gateway
 
         :param name_or_id: The name or ID of an internet_gateway.
@@ -1166,7 +1166,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_qos_option.QosOption, qos_option)
 
-    def find_qos_option(self, name_or_id, ignore_missing=True):
+    def find_qos_option(self, name_or_id, ignore_missing=False):
         """Find a single qos_option
 
         :param name_or_id: The name or ID of a qos_option.
@@ -1239,7 +1239,7 @@ class Proxy(proxy2.BaseProxy):
             public_ip._body.clean()
         return self._update(_publicip.PublicIP, public_ip, **body)
 
-    def delete_public_ip(self, publicip, ignore_missing=True):
+    def delete_public_ip(self, publicip, ignore_missing=False):
         """Delete a Public Ip
 
         :param publicip: The value can be either the ID of a Public IP or a
@@ -1353,7 +1353,7 @@ class Proxy(proxy2.BaseProxy):
             gw_interface._body.clean()
         return self._update(_gwif.GatewayInterface, gw_interface, **body)
 
-    def delete_gateway_interface(self, gwif, ignore_missing=True):
+    def delete_gateway_interface(self, gwif, ignore_missing=False):
         """Delete a Gateway Interface
 
         :param gwif: The value can be either the ID of a Gateway Interface or a
@@ -1369,7 +1369,7 @@ class Proxy(proxy2.BaseProxy):
         return self._delete(_gwif.GatewayInterface, gwif,
                             ignore_missing=ignore_missing)
 
-    def find_gateway_interface(self, name_or_id, ignore_missing=True):
+    def find_gateway_interface(self, name_or_id, ignore_missing=False):
         """Find a single gateway_interface
 
         :param name_or_id: The name or ID of a common_function_gatway.
@@ -1460,7 +1460,7 @@ class Proxy(proxy2.BaseProxy):
             static_route._body.clean()
         return self._update(_static_route.StaticRoute, static_route, **body)
 
-    def delete_static_route(self, static_route, ignore_missing=True):
+    def delete_static_route(self, static_route, ignore_missing=False):
         """Delete a Static Route
 
         :param static_route: The value can be either the ID of a Static Route or a
@@ -1519,7 +1519,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_vpn.VPNGateway, vpn_gateway)
 
-    def find_vpn_gateway(self, name_or_id, ignore_missing=True):
+    def find_vpn_gateway(self, name_or_id, ignore_missing=False):
         """Find a single vpn_gateway
 
         :param name_or_id: The name or ID of a vpn_gateway.
@@ -1597,7 +1597,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_interdc.InterDCGateway, interdc_gateway)
 
-    def find_interdc_gateway(self, name_or_id, ignore_missing=True):
+    def find_interdc_gateway(self, name_or_id, ignore_missing=False):
         """Find a single interdc_gateway
 
         :param name_or_id: The name or ID of an interdc_gateway.
@@ -1694,7 +1694,7 @@ class Proxy(proxy2.BaseProxy):
 
         return self._update(_interdc.InterDCInterface, interdc_interface, **body)
 
-    def delete_interdc_interface(self, interdc_interface, ignore_missing=True):
+    def delete_interdc_interface(self, interdc_interface, ignore_missing=False):
         """Delete an InterDC Interface
 
         :param gwif: The value can be either the ID of an InterDC Interface or a
@@ -1733,7 +1733,7 @@ class Proxy(proxy2.BaseProxy):
         return self._get(_common_function_pool.CommonFunctionPool,
                          common_function_pool)
 
-    def find_common_function_pool(self, name_or_id, ignore_missing=True):
+    def find_common_function_pool(self, name_or_id, ignore_missing=False):
         """Find a single common_function_pool
 
         :param name_or_id: The name or ID of a common_function_pool.
@@ -1771,7 +1771,7 @@ class Proxy(proxy2.BaseProxy):
         return self._get(_common_function.CommonFunction,
                          common_function)
 
-    def find_common_function(self, name_or_id, ignore_missing=True):
+    def find_common_function(self, name_or_id, ignore_missing=False):
         """Find a single common_function
 
         :param name_or_id: The name or ID of a common_function_gatway.
@@ -1856,7 +1856,7 @@ class Proxy(proxy2.BaseProxy):
                             common_function_gateway, **params)
 
     def delete_common_function_gateway(self, common_function_gateway,
-                                       ignore_missing=True):
+                                       ignore_missing=False):
         """Delete a common_function_gateway
 
         :param common_function_gateway: The value can be either the ID
@@ -1873,7 +1873,7 @@ class Proxy(proxy2.BaseProxy):
         self._delete(_common_function_gateway.CommonFunctionGateway,
                      common_function_gateway, ignore_missing=ignore_missing)
 
-    def find_common_function_gateway(self, name_or_id, ignore_missing=True):
+    def find_common_function_gateway(self, name_or_id, ignore_missing=False):
         """Find a single common_function_gateway
 
         :param name_or_id: The name or ID of a common_function_gatway.
@@ -2014,7 +2014,7 @@ class Proxy(proxy2.BaseProxy):
                             colocation_logical_link, **params)
 
     def delete_colocation_logical_link(self, colocation_logical_link,
-                                       ignore_missing=True):
+                                       ignore_missing=False):
         """Delete a colocation_logical_link
 
         :param colocation_logical_link: The value can be either the ID
@@ -2054,7 +2054,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_aws.AWSService, aws_service)
 
-    def find_aws_service(self, name_or_id, ignore_missing=True):
+    def find_aws_service(self, name_or_id, ignore_missing=False):
         """Find a single aws_service
 
         :param name_or_id: The name or ID of a aws_service.
@@ -2090,7 +2090,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_aws.AWSGateway, aws_gateway)
 
-    def find_aws_gateway(self, name_or_id, ignore_missing=True):
+    def find_aws_gateway(self, name_or_id, ignore_missing=False):
         """Find a single aws_gateway
 
         :param name_or_id: The name or ID of a aws_gateway.
@@ -2127,7 +2127,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_aws.AWSInterface, aws_interface)
 
-    def find_aws_interface(self, name_or_id, ignore_missing=True):
+    def find_aws_interface(self, name_or_id, ignore_missing=False):
         """Find a single aws_interface
 
         :param name_or_id: The name or ID of a aws_interface.

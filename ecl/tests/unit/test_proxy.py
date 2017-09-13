@@ -131,7 +131,7 @@ class TestProxyDelete(testtools.TestCase):
             exceptions.ResourceNotFound,
             "No %s found for %s" % (DeleteableResource.__name__, self.res),
             self.sot._delete, DeleteableResource, self.res,
-            ignore_missing=False)
+            ignore_missing=True)
 
     def test_delete_HttpException(self):
         self.res.delete.side_effect = exceptions.HttpException(
