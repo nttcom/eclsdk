@@ -59,10 +59,10 @@ class Proxy(proxy2.BaseProxy):
         :param kwargs \*\*query: Optional query parameters to be sent to limit
                                  the resources being returned.
 
-        :returns: A generator of stack objects
+        :returns: A list of stack objects
         :rtype: :class:`~ecl.orchestration.v1.stack.Stack`
         """
-        return self._list(_stack.Stack, paginated=False, **query)
+        return list(self._list(_stack.Stack, paginated=False, **query))
 
     def get_stack(self, stack):
         """Get a single stack
@@ -161,7 +161,7 @@ class Proxy(proxy2.BaseProxy):
         :param kwargs \*\*query: Optional query parameters to be sent to limit
                                  the resources being returned.
 
-        :returns: A generator of resource objects if the stack exists and
+        :returns: A list of resource objects if the stack exists and
                   there are resources in it. If the stack cannot be found,
                   an exception is thrown.
         :rtype: A generator of
@@ -175,8 +175,8 @@ class Proxy(proxy2.BaseProxy):
         else:
             obj = self._find(_stack.Stack, stack, ignore_missing=False)
 
-        return self._list(_resource.Resource, paginated=False,
-                          stack_name=obj.name, stack_id=obj.id, **query)
+        return list(self._list(_resource.Resource, paginated=False,
+                          stack_name=obj.name, stack_id=obj.id, **query))
 
     def create_software_config(self, **attrs):
         """Create a new software config from attributes
@@ -196,11 +196,11 @@ class Proxy(proxy2.BaseProxy):
 
         :param dict query: Optional query parameters to be sent to limit the
                            software configs returned.
-        :returns: A generator of software config objects.
+        :returns: A list of software config objects.
         :rtype:
         :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`
         """
-        return self._list(_sc.SoftwareConfig, paginated=True, **query)
+        return list(self._list(_sc.SoftwareConfig, paginated=True, **query))
 
     def get_software_config(self, software_config):
         """Get details about a specific software config.
