@@ -59,10 +59,10 @@ class Proxy(proxy2.BaseProxy):
         :param kwargs \*\*query: Optional query parameters to be sent to limit
                                  the resources being returned.
 
-        :returns: A generator of stack objects
+        :returns: A list of stack objects
         :rtype: :class:`~ecl.orchestration.v1.stack.Stack`
         """
-        return self._list(_stack.Stack, paginated=False, **query)
+        return list(self._list(_stack.Stack, paginated=False, **query))
 
     def get_stack(self, stack):
         """Get a single stack
@@ -107,6 +107,35 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_stack.Stack, stack, ignore_missing=ignore_missing)
 
+    def abandon_stack(self, stack, ignore_missing=False):
+        """Abandon a stack
+
+        :param stack: The value can be either the ID of a stack or a
+                      :class:`~ecl.orchestration.v1.stack.Stack`
+                      instance.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the stack does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to abandon a nonexistent stack.
+        :return: ``None``
+        """
+        try:
+            if not isinstance(stack, _stack.Stack):
+                stack = self.get_stack(stack)
+            stack.abandon(self.session)
+        except exceptions.NotFoundException as e:
+            if ignore_missing:
+                return None
+            else:
+                # Reraise with a more specific type and message
+                raise exceptions.ResourceNotFound(
+                    message="No %s found for %s" %
+                            (_stack.Stack.__name__, str(stack)),
+                    details=e.details, response=e.response,
+                    request_id=e.request_id, url=e.url, method=e.method,
+                    http_status=e.http_status, cause=e.cause)
+
     def check_stack(self, stack):
         """Check a stack's status
 
@@ -132,7 +161,7 @@ class Proxy(proxy2.BaseProxy):
         :param kwargs \*\*query: Optional query parameters to be sent to limit
                                  the resources being returned.
 
-        :returns: A generator of resource objects if the stack exists and
+        :returns: A list of resource objects if the stack exists and
                   there are resources in it. If the stack cannot be found,
                   an exception is thrown.
         :rtype: A generator of
@@ -146,8 +175,8 @@ class Proxy(proxy2.BaseProxy):
         else:
             obj = self._find(_stack.Stack, stack, ignore_missing=False)
 
-        return self._list(_resource.Resource, paginated=False,
-                          stack_name=obj.name, stack_id=obj.id, **query)
+        return list(self._list(_resource.Resource, paginated=False,
+                          stack_name=obj.name, stack_id=obj.id, **query))
 
     def create_software_config(self, **attrs):
         """Create a new software config from attributes
@@ -167,11 +196,11 @@ class Proxy(proxy2.BaseProxy):
 
         :param dict query: Optional query parameters to be sent to limit the
                            software configs returned.
-        :returns: A generator of software config objects.
+        :returns: A list of software config objects.
         :rtype:
         :class:`~ecl.orchestration.v1.software_config.SoftwareConfig`
         """
-        return self._list(_sc.SoftwareConfig, paginated=True, **query)
+        return list(self._list(_sc.SoftwareConfig, paginated=True, **query))
 
     def get_software_config(self, software_config):
         """Get details about a specific software config.
