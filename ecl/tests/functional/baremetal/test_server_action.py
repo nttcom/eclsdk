@@ -41,7 +41,6 @@ class TestServerAction(base.BaseFunctionalTest):
             "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
             None
         )
-        print server
         self.assertIsInstance(server.type, six.string_types)
         self.assertIsInstance(server.url, six.string_types)
         self.assertIsInstance(server.user_id, six.string_types)

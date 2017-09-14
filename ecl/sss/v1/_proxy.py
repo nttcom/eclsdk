@@ -31,7 +31,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(_user.User, paginated=False))
 
-    def find_user(self, user_id, ignore_missing=True):
+    def find_user(self, user_id, ignore_missing=False):
         """
         Find a user. Get user information such as login id, email, apikey, etc.
 
@@ -99,7 +99,7 @@ class Proxy(proxy2.BaseProxy):
         user = _user.User()
         return user.update(self.session, user_id, **body)
 
-    def delete_user(self, user, ignore_missing=True):
+    def delete_user(self, user, ignore_missing=False):
         """
         Delete user. Only supser user (contract owner user) allowed. Contract
         owner user itself cannot be deleted
@@ -126,7 +126,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(_tenant.Tenant, paginated=False, **query))
 
-    def find_tenant(self, tenant_id, ignore_missing=True):
+    def find_tenant(self, tenant_id, ignore_missing=False):
         """
         Find a tenant. Get tenant information such as tenant name, etc.
 
@@ -269,7 +269,7 @@ class Proxy(proxy2.BaseProxy):
         return list(contract.list(session=self.session, channel_id=channel_id,
                           include_deleted=include_deleted))
 
-    def delete_contract(self, contract_id, ignore_missing=True):
+    def delete_contract(self, contract_id, ignore_missing=False):
         """
         Delete contract in designated channel. Only partner user allowed.
 
@@ -357,7 +357,7 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         return self._create(_iam_group.IAMGroup, **body)
 
-    def delete_iam_group(self, iam_group_id, ignore_missing=True):
+    def delete_iam_group(self, iam_group_id, ignore_missing=False):
         """
         Delete iam group.
 
@@ -483,7 +483,7 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         return self._create(_iam_role.IAMRole, **body)
 
-    def delete_iam_role(self, iam_role_id, ignore_missing=True):
+    def delete_iam_role(self, iam_role_id, ignore_missing=False):
         """
         Delete designated IAM Role. Only supser user (contract owner user)
         can use this API.

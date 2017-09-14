@@ -31,7 +31,7 @@ class TestObject(base.BaseFunctionalTest):
     @classmethod
     def tearDownClass(cls):
         super(TestObject, cls).tearDownClass()
-        cls.conn.object_store.delete_object(cls.sot, ignore_missing=False)
+        cls.conn.object_store.delete_object(cls.sot, ignore_missing=True)
         cls.conn.object_store.delete_container(cls.FOLDER)
 
     def test_list(self):

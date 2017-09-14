@@ -54,7 +54,7 @@ class InterDCGateway(NetworkBaseResource):
     tenant_id = resource2.Body("tenant_id")
 
     @classmethod
-    def find(cls, session, name_or_id, ignore_missing=True, **params):
+    def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
 
         :param session: The session to use for making this request.
@@ -135,7 +135,7 @@ class InterDCInterface(NetworkBaseResource):
                                          failures, interval, wait)
 
     @classmethod
-    def find(cls, session, name_or_id, ignore_missing=True, **params):
+    def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
 
         :param session: The session to use for making this request.

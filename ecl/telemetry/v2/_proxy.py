@@ -35,7 +35,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_alarm.Alarm, **attrs)
 
-    def delete_alarm(self, alarm, ignore_missing=True):
+    def delete_alarm(self, alarm, ignore_missing=False):
         """Delete an alarm
 
         :param alarm: The value can be either the ID of an alarm or a
@@ -50,7 +50,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_alarm.Alarm, alarm, ignore_missing=ignore_missing)
 
-    def find_alarm(self, name_or_id, ignore_missing=True):
+    def find_alarm(self, name_or_id, ignore_missing=False):
         """Find a single alarm
 
         :param name_or_id: The name or ID of a alarm.
@@ -100,7 +100,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._update(_alarm.Alarm, alarm, **attrs)
 
-    def find_alarm_change(self, name_or_id, ignore_missing=True):
+    def find_alarm_change(self, name_or_id, ignore_missing=False):
         """Find a single alarm change
 
         :param name_or_id: The name or ID of a alarm change.
@@ -129,7 +129,7 @@ class Proxy(proxy.BaseProxy):
         return self._list(_alarm_change.AlarmChange, paginated=False,
                           path_args={'alarm_id': alarm_id}, **query)
 
-    def find_capability(self, name_or_id, ignore_missing=True):
+    def find_capability(self, name_or_id, ignore_missing=False):
         """Find a single capability
 
         :param name_or_id: The name or ID of a capability.
@@ -155,7 +155,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._list(capability.Capability, paginated=False, **query)
 
-    def find_meter(self, name_or_id, ignore_missing=True):
+    def find_meter(self, name_or_id, ignore_missing=False):
         """Find a single meter
 
         :param name_or_id: The name or ID of a meter.
@@ -180,7 +180,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._list(_meter.Meter, paginated=False, **query)
 
-    def find_resource(self, name_or_id, ignore_missing=True):
+    def find_resource(self, name_or_id, ignore_missing=False):
         """Find a single resource
 
         :param name_or_id: The name or ID of a resource.
@@ -231,7 +231,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(sample.Sample, **attrs)
 
-    def find_sample(self, name_or_id, ignore_missing=True):
+    def find_sample(self, name_or_id, ignore_missing=False):
         """Find a single sample
 
         :param name_or_id: The name or ID of a sample.
@@ -259,7 +259,7 @@ class Proxy(proxy.BaseProxy):
         return self._list(sample.Sample, paginated=False,
                           path_args={'counter_name': meter_name}, **query)
 
-    def find_statistics(self, name_or_id, ignore_missing=True):
+    def find_statistics(self, name_or_id, ignore_missing=False):
         """Find a single statistics
 
         :param name_or_id: The name or ID of a statistics.

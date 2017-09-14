@@ -85,7 +85,7 @@ class Proxy(proxy2.BaseProxy):
             body["metadata"] = metadata
         return self._create(_server.Server, **body)
 
-    def delete_server(self, server_id, ignore_missing=True):
+    def delete_server(self, server_id, ignore_missing=False):
         """
         Deletes a specified Dedicated Hypervisor server.
         You can delete server when specified server status is
@@ -113,7 +113,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(_license_type.LicenseType, paginated=False))
 
-    def find_license_type(self, name_or_id, ignore_missing=True):
+    def find_license_type(self, name_or_id, ignore_missing=False):
         """Find a single license type
 
         :param name_or_id: The name or ID of a license type.
@@ -153,7 +153,7 @@ class Proxy(proxy2.BaseProxy):
         lic = _license.License()
         return lic.create(self.session, license_type)
 
-    def delete_license(self, license_id, ignore_missing=True):
+    def delete_license(self, license_id, ignore_missing=False):
         """
         Delete a specified Guest Image license key.
 

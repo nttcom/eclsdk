@@ -902,7 +902,7 @@ class Resource(collections.MutableMapping):
             params['marker'] = new_marker
 
     @classmethod
-    def find(cls, session, name_or_id, path_args=None, ignore_missing=True):
+    def find(cls, session, name_or_id, path_args=None, ignore_missing=False):
         """Find a resource by its name or id.
 
         :param session: The session to use for making this request.

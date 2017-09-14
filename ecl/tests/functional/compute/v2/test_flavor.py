@@ -45,7 +45,7 @@ class TestFlavor(base.BaseFunctionalTest):
 
     def test_find_flavors_no_match_ignore_true(self):
         rslt = self.conn.compute.find_flavor("not a flavor",
-                                             ignore_missing=True)
+                                             ignore_missing=False)
         self.assertIsNone(rslt)
 
     def test_find_flavors_no_match_ignore_false(self):

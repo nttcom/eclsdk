@@ -103,7 +103,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_user.User, username)
 
-    def find_user(self, name_or_id, ignore_missing=True):
+    def find_user(self, name_or_id, ignore_missing=False):
         """Find a single VPN user.
 
         :param name_or_id: The name or ID of a user.

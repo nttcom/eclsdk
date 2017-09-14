@@ -28,7 +28,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_aws_connection.AWSConnection, connection_id)
 
-    def find_aws_connection(self, name_or_id, ignore_missing=True):
+    def find_aws_connection(self, name_or_id, ignore_missing=False):
         """Find a single connection
 
         :param name_or_id: The name or ID of a connection.
@@ -60,7 +60,7 @@ class Proxy(proxy2.BaseProxy):
             connection._body.clean()
         return self._update(_aws_connection.AWSConnection, connection, **params)
 
-    def delete_aws_connection(self, connection_id, ignore_missing=True):
+    def delete_aws_connection(self, connection_id, ignore_missing=False):
         """Delete connection between ECL2.0 and AWS.
 
         :param connection_id: The ID of a connection.

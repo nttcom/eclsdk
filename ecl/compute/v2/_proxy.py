@@ -116,7 +116,7 @@ class Proxy(proxy2.BaseProxy):
             attrs.update({"admin_pass": admin_pass})
         return self._create(_server.Server, **attrs)
 
-    def delete_server(self, server, ignore_missing=True, force=False):
+    def delete_server(self, server, ignore_missing=False, force=False):
         """Delete a server
 
         :param server: The value can be either the ID of a server or a
@@ -136,7 +136,7 @@ class Proxy(proxy2.BaseProxy):
         else:
             self._delete(_server.Server, server, ignore_missing=ignore_missing)
 
-    def find_server(self, name_or_id, ignore_missing=True):
+    def find_server(self, name_or_id, ignore_missing=False):
         """Find a single server
 
         :param string name_or_id: The name or ID of a server.
@@ -319,7 +319,7 @@ class Proxy(proxy2.BaseProxy):
                             server_id=server_id, **attrs)
 
     def delete_server_interface(self, server_interface, server=None,
-                                ignore_missing=True):
+                                ignore_missing=False):
         """Delete a server interface
 
         :param server_interface:
@@ -423,7 +423,7 @@ class Proxy(proxy2.BaseProxy):
                             serverId=server_id, **attrs)
 
     def delete_server_volume(self, server_volume, server=None,
-                                ignore_missing=True):
+                                ignore_missing=False):
         """Detach a volume from a server
 
         :param server_volume:
@@ -457,7 +457,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(extension.Extension, paginated=False))
 
-    def find_flavor(self, name_or_id, ignore_missing=True):
+    def find_flavor(self, name_or_id, ignore_missing=False):
         """Find a single flavor
 
         :param string name_or_id: The name or ID of a flavor.
@@ -494,7 +494,7 @@ class Proxy(proxy2.BaseProxy):
         flv = _flavor.FlavorDetail if details else _flavor.Flavor
         return list(self._list(flv, paginated=True))
 
-    def delete_image(self, image, ignore_missing=True):
+    def delete_image(self, image, ignore_missing=False):
         """Delete an image
 
         :param image: The value can be either the ID of an image or a
@@ -508,7 +508,7 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_image.Image, image, ignore_missing=ignore_missing)
 
-    def find_image(self, name_or_id, ignore_missing=True):
+    def find_image(self, name_or_id, ignore_missing=False):
         """Find a single image
 
         :param string name_or_id: The name or ID of a image.
@@ -620,7 +620,7 @@ class Proxy(proxy2.BaseProxy):
             body.update({"public_key": public_key})
         return self._create(_keypair.Keypair, **body)
 
-    def delete_keypair(self, keypair, ignore_missing=True):
+    def delete_keypair(self, keypair, ignore_missing=False):
         """Delete a keypair
 
         :param keypair: The value can be either the ID of a keypair or a
@@ -648,7 +648,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_keypair.Keypair, keypair)
 
-    def find_keypair(self, name_or_id, ignore_missing=True):
+    def find_keypair(self, name_or_id, ignore_missing=False):
         """Find a single keypair
 
         :param string name_or_id: The name or ID of a keypair.
@@ -694,7 +694,7 @@ class Proxy(proxy2.BaseProxy):
             az = _availability_zone.AvailabilityZone
         return list(self._list(az, paginated=False))
 
-    def find_availability_zone(self, name_or_id, ignore_missing=True):
+    def find_availability_zone(self, name_or_id, ignore_missing=False):
         """Find a single availability_zone
 
         :param string name_or_id: The name or ID of a availability_zone.
@@ -802,7 +802,7 @@ class Proxy(proxy2.BaseProxy):
             body.update({"snapshot_id": snapshot_id})
         return self._create(_volume.Volume, **body)
 
-    def delete_volume(self, volume, ignore_missing=True):
+    def delete_volume(self, volume, ignore_missing=False):
         """Delete an volume
 
         :param volume: The value can be either the ID of an volume or a

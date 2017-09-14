@@ -37,7 +37,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_credential.Credential, **attrs)
 
-    def delete_credential(self, credential, ignore_missing=True):
+    def delete_credential(self, credential, ignore_missing=False):
         """Delete a credential
 
         :param credential: The value can be either the ID of a credential or a
@@ -53,7 +53,7 @@ class Proxy(proxy.BaseProxy):
         self._delete(_credential.Credential, credential,
                      ignore_missing=ignore_missing)
 
-    def find_credential(self, name_or_id, ignore_missing=True):
+    def find_credential(self, name_or_id, ignore_missing=False):
         """Find a single credential
 
         :param name_or_id: The name or ID of a credential.
@@ -117,7 +117,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_domain.Domain, **attrs)
 
-    def delete_domain(self, domain, ignore_missing=True):
+    def delete_domain(self, domain, ignore_missing=False):
         """Delete a domain
 
         :param domain: The value can be either the ID of a domain or a
@@ -132,7 +132,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_domain.Domain, domain, ignore_missing=ignore_missing)
 
-    def find_domain(self, name_or_id, ignore_missing=True):
+    def find_domain(self, name_or_id, ignore_missing=False):
         """Find a single domain
 
         :param name_or_id: The name or ID of a domain.
@@ -195,7 +195,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_endpoint.Endpoint, **attrs)
 
-    def delete_endpoint(self, endpoint, ignore_missing=True):
+    def delete_endpoint(self, endpoint, ignore_missing=False):
         """Delete an endpoint
 
         :param endpoint: The value can be either the ID of an endpoint or a
@@ -211,7 +211,7 @@ class Proxy(proxy.BaseProxy):
         self._delete(_endpoint.Endpoint, endpoint,
                      ignore_missing=ignore_missing)
 
-    def find_endpoint(self, name_or_id, ignore_missing=True):
+    def find_endpoint(self, name_or_id, ignore_missing=False):
         """Find a single endpoint
 
         :param name_or_id: The name or ID of a endpoint.
@@ -276,7 +276,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_group.Group, **attrs)
 
-    def delete_group(self, group, ignore_missing=True):
+    def delete_group(self, group, ignore_missing=False):
         """Delete a group
 
         :param group: The value can be either the ID of a group or a
@@ -291,7 +291,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_group.Group, group, ignore_missing=ignore_missing)
 
-    def find_group(self, name_or_id, ignore_missing=True):
+    def find_group(self, name_or_id, ignore_missing=False):
         """Find a single group
 
         :param name_or_id: The name or ID of a group.
@@ -355,7 +355,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_policy.Policy, **attrs)
 
-    def delete_policy(self, policy, ignore_missing=True):
+    def delete_policy(self, policy, ignore_missing=False):
         """Delete a policy
 
         :param policy: The value can be either the ID of a policy or a
@@ -370,7 +370,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_policy.Policy, policy, ignore_missing=ignore_missing)
 
-    def find_policy(self, name_or_id, ignore_missing=True):
+    def find_policy(self, name_or_id, ignore_missing=False):
         """Find a single policy
 
         :param name_or_id: The name or ID of a policy.
@@ -433,7 +433,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_project.Project, **attrs)
 
-    def delete_project(self, project, ignore_missing=True):
+    def delete_project(self, project, ignore_missing=False):
         """Delete a project
 
         :param project: The value can be either the ID of a project or a
@@ -448,7 +448,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_project.Project, project, ignore_missing=ignore_missing)
 
-    def find_project(self, name_or_id, ignore_missing=True):
+    def find_project(self, name_or_id, ignore_missing=False):
         """Find a single project
 
         :param name_or_id: The name or ID of a project.
@@ -511,7 +511,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_service.Service, **attrs)
 
-    def delete_service(self, service, ignore_missing=True):
+    def delete_service(self, service, ignore_missing=False):
         """Delete a service
 
         :param service: The value can be either the ID of a service or a
@@ -526,7 +526,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_service.Service, service, ignore_missing=ignore_missing)
 
-    def find_service(self, name_or_id, ignore_missing=True):
+    def find_service(self, name_or_id, ignore_missing=False):
         """Find a single service
 
         :param name_or_id: The name or ID of a service.
@@ -589,7 +589,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_user.User, **attrs)
 
-    def delete_user(self, user, ignore_missing=True):
+    def delete_user(self, user, ignore_missing=False):
         """Delete a user
 
         :param user: The value can be either the ID of a user or a
@@ -604,7 +604,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_user.User, user, ignore_missing=ignore_missing)
 
-    def find_user(self, name_or_id, ignore_missing=True):
+    def find_user(self, name_or_id, ignore_missing=False):
         """Find a single user
 
         :param name_or_id: The name or ID of a user.
@@ -667,7 +667,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_trust.Trust, **attrs)
 
-    def delete_trust(self, trust, ignore_missing=True):
+    def delete_trust(self, trust, ignore_missing=False):
         """Delete a trust
 
         :param trust: The value can be either the ID of a trust or a
@@ -682,7 +682,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_trust.Trust, trust, ignore_missing=ignore_missing)
 
-    def find_trust(self, name_or_id, ignore_missing=True):
+    def find_trust(self, name_or_id, ignore_missing=False):
         """Find a single trust
 
         :param name_or_id: The name or ID of a trust.
@@ -732,7 +732,7 @@ class Proxy(proxy.BaseProxy):
         """
         return self._create(_region.Region, **attrs)
 
-    def delete_region(self, region, ignore_missing=True):
+    def delete_region(self, region, ignore_missing=False):
         """Delete a region
 
         :param region: The value can be either the ID of a region or a
@@ -747,7 +747,7 @@ class Proxy(proxy.BaseProxy):
         """
         self._delete(_region.Region, region, ignore_missing=ignore_missing)
 
-    def find_region(self, name_or_id, ignore_missing=True):
+    def find_region(self, name_or_id, ignore_missing=False):
         """Find a single region
 
         :param name_or_id: The name or ID of a region.

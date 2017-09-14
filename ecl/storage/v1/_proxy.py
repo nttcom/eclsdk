@@ -63,7 +63,7 @@ class Proxy(proxy2.BaseProxy):
         availability_zone = _availability_zone.AvailabilityZoneDetail() if details else _availability_zone.AvailabilityZone()
         return list(availability_zone.list(self.session))
 
-    def find_availability_zone(self, name_or_id, ignore_missing=True):
+    def find_availability_zone(self, name_or_id, ignore_missing=False):
         """Find a single availability_zone
 
         :param name_or_id: The name or ID of a availability_zone.
@@ -89,7 +89,7 @@ class Proxy(proxy2.BaseProxy):
         volume_type = _volume_type.VolumeTypeDetail if details else _volume_type.VolumeType
         return list(self._list(volume_type, paginated=False))
 
-    def find_volume_type(self, name_or_id, ignore_missing=True):
+    def find_volume_type(self, name_or_id, ignore_missing=False):
         """Find a volume type
 
             :param string name_or_id: The name or ID of a volume type.

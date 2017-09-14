@@ -42,7 +42,7 @@ class Flavor(resource2.Resource):
     vcpus = resource2.Body('vcpus', type=int)
 
     @classmethod
-    def find(cls, session, name_or_id, ignore_missing=True, **params):
+    def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
 
         :param session: The session to use for making this request.
