@@ -21,6 +21,7 @@ user facing classes.
 Examples
 --------
 
+
 The :class:`~ecl.profile.Profile` class is constructed
 with no arguments.
 
@@ -74,6 +75,7 @@ from ecl.security_portal import security_portal_service
 from ecl.sss import sss_service
 from ecl.telemetry import telemetry_service
 from ecl.database import database_service
+from ecl.dns import dns_service
 
 
 _logger = logging.getLogger(__name__)
@@ -121,6 +123,7 @@ class Profile(object):
             dedicated_hypervisor_service.DedicatedHypervisorService(
                 version="v1"))
         self._add_service(database_service.DatabaseService(version="v1"))
+        self._add_service(dns_service.DnsService(version="v2"))
 
         # NOTE: The Metric service is not added here as it currently
         # only retrieves the /capabilities API.
