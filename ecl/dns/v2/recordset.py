@@ -113,6 +113,14 @@ class RecordSet(resource2.Resource):
 
         return list(self._translate_recordsets(response, has_body=True))
 
+    @classmethod
+    def multi_delete(cls, session, zone_id, recordset_ids):
+        """
+        Delete multiple Recordsets
+        """
+        uri = cls.base_path % {"zone_id": zone_id}
+        body = {"id": recordset_ids}
+        session.delete(uri, endpoint_filter=cls.service, json=body)
 
     @classmethod
     def find(cls, session, name_or_id, zone_id, ignore_missing=False, **params):

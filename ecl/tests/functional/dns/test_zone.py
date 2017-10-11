@@ -44,3 +44,7 @@ class TestZone(base.BaseFunctionalTest):
     def test_06_list(self):
         zones = self.conn.dns.zones()
         # print zones
+
+    def test_07_get_nameserver(self):
+        nameserver = self.conn.dns.get_name_server(self.zone_id)
+        #print nameserver

@@ -222,12 +222,14 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_recordset.RecordSet, recordset, zone_id=zone_id)
 
-    def delete_multiple_recordsets(self, recordset_ids, zone_id):
+    def delete_multiple_recordsets(self, zone_id, recordset_ids):
         """
         Delete multiple Recordsets.
         :param recordset_ids: A list of IDs for the recordsets.
         :param zone_id: ID for the zone
         :return: None
         """
-        return self._delete(_recordset.RecordSet, value=None,
-                            zone_id=zone_id, recordset_ids=recordset_ids)
+        return _recordset.RecordSet.multi_delete(
+                self.session, zone_id=zone_id,
+                recordset_ids=recordset_ids
+        )
