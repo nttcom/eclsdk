@@ -54,7 +54,7 @@ class Proxy(proxy2.BaseProxy):
         List VPN user. Now, VPN user can create per one tenant, so user
         list hash only one user.
 
-        :return: A generator of user objects
+        :return: A list of user objects
         """
         return list(self._list(_user.User))
 
