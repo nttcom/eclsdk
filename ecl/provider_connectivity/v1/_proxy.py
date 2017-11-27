@@ -3,6 +3,9 @@
 from ecl.provider_connectivity.v1 import aws_connection as _aws_connection
 from ecl.provider_connectivity.v1 import exchange_point as _exchange_point
 from ecl.provider_connectivity.v1 import operation as _operation
+from ecl.provider_connectivity.v1 import tenant_connection_request as _tc_request
+from ecl.provider_connectivity.v1 import tenant_connection as _tenant_connection
+from ecl.provider_connectivity.v1 import address_assignment as _addr_assignment
 from ecl import proxy2
 
 
@@ -140,3 +143,193 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(_operation.Operation,
                                paginated=False,
                                **params))
+
+    def tenant_connection_requests(self, **query):
+        """Return a list of tenant_connection_requests
+
+        :param kwargs query: Query parameter to get tenant_connection_requests.
+
+        :returns: A list of tenant_connection_requests objects
+        """
+
+        return list(self._list(
+            _tc_request.TenantConnectionRequest, paginated=False, **query))
+
+    def create_tenant_connection_request(self, keystone_user_id,
+                                         tenant_id_other, tenant_id,
+                                         network_id, **params):
+        """
+
+        :param keystone_user_id:
+        :param tenant_id_other:
+        :param tenant_id:
+        :param network_id:
+        :param params:
+        :return:
+        """
+        body = {
+            "keystone_user_id": keystone_user_id,
+            "tenant_id_other": tenant_id_other,
+            "tenant_id": tenant_id,
+            "network_id": network_id
+        }
+        if params.get("name"):
+            body["name"] = params.get("name")
+        if params.get("description"):
+            body["description"] = params.get("description")
+        if params.get("tags"):
+            body["tags"] = params.get("tags")
+        return self._create(_tc_request.TenantConnectionRequest, **body)
+
+    def update_tenant_connection_request(self, tenant_connection_request,
+                                         **params):
+        """
+
+        :param tenant_connection_request:
+        :param params:
+        :return:
+        """
+
+        if not isinstance(tenant_connection_request, _tc_request.TenantConnectionRequest):
+            tenant_connection_request = self._get_resource(
+                _tc_request.TenantConnectionRequest,
+                tenant_connection_request)
+            tenant_connection_request._body.clean()
+        return self._update(_tc_request.TenantConnectionRequest,
+                            tenant_connection_request, **params)
+
+    def delete_tenant_connection_request(self, tenant_connection_request,
+                                         ignore_missing=False):
+        """
+
+        :param tenant_connection_request:
+        :param ignore_missing:
+        :return:
+        """
+        self._delete(_tc_request.TenantConnectionRequest,
+                     tenant_connection_request,
+                     ignore_missing=ignore_missing)
+
+    def get_tenant_connection_request(self, tenant_connection_request_id):
+        """Get a single tenant connection request
+
+        :param tenant_connection_request_id:
+                The ID of a tenant connection request
+
+        :returns: One :class:`~ecl.provider_connectivity.v1.
+                tenant_connection_request.TenantConnectionRequest` or None
+        """
+        return self._get(_tc_request.TenantConnectionRequest, tenant_connection_request_id)
+
+    def find_tenant_connection_request(self, name_or_id, ignore_missing=False):
+        """Find a single tenant connection request
+
+        :param name_or_id: The name or ID of a tenant connection request.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    aittempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.provider_connectivity.v1.
+                tenant_connection_request.TenantConnectionRequest` or None
+        """
+        return self._find(_tc_request.TenantConnectionRequest,
+                          name_or_id,
+                          ignore_missing=ignore_missing)
+
+    def tenant_connections(self, **query):
+        """
+
+        :param query:
+        :return:
+        """
+        return list(self._list(_tenant_connection.TenantConnection,
+                               paginated=False, **query))
+
+    def get_tenant_connection(self, tenant_connection_id):
+        """
+
+        :param tenant_connection_id:
+        :return:
+        """
+        return self._get(_tenant_connection.TenantConnection, tenant_connection_id)
+
+    def create_tenant_connection(self, tenant_connection_request_id, device_type, device_id, **params):
+        """
+
+        :param tenant_connection_request_id:
+        :param device_type:
+        :param device_id:
+        :param params:
+        :return:
+        """
+        body = {
+            "tenant_connection_request_id": tenant_connection_request_id,
+            "device_type": device_type,
+            "device_id": device_id,
+        }
+        if params.get("name"):
+            body["name"] = params.get("name")
+        if params.get("description"):
+            body["description"] = params.get("description")
+        if params.get("tags"):
+            body["tags"] = params.get("tags")
+        if params.get("device_interface_id"):
+            body["device_interface_id"] = params.get("device_interface_id")
+        if params.get("attachment_opts"):
+            body["attachment_opts"] = params.get("attachment_opts")
+        return self._create(_tenant_connection.TenantConnection, **body)
+
+    def update_tenant_connection(self, tenant_connection, **params):
+        """
+
+        :param tenant_connection:
+        :param params:
+        :return:
+        """
+        if not isinstance(tenant_connection, _tenant_connection.TenantConnection):
+            tenant_connection = self._get_resource(
+                _tenant_connection.TenantConnection,
+                tenant_connection)
+            tenant_connection._body.clean()
+        return self._update(_tenant_connection.TenantConnection,
+                            tenant_connection, **params)
+
+    def delete_tenant_connection(self, tenant_connection, ignore_missing=False):
+        """
+
+        :param tenant_connection:
+        :param ignore_missing:
+        :return:
+        """
+        self._delete(_tenant_connection.TenantConnection,
+                     tenant_connection,
+                     ignore_missing=ignore_missing)
+
+    def find_tenant_connection(self, name_or_id, ignore_missing=False):
+        """Find a single tenant connection
+
+        :param name_or_id: The name or ID of a tenant connection.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.provider_connectivity.v1.
+                tenant_connection.TenantConnection` or None
+        """
+        return self._find(_tenant_connection.TenantConnection,
+                          name_or_id,
+                          ignore_missing=ignore_missing)
+
+    def address_assignments(self, tenant_connection_request_id, **query):
+        """
+
+        :param tenant_connection_request:
+        :param query:
+        :return:
+        """
+        return list(self._list(_addr_assignment.AddressAssignment,
+                               paginated=False,
+                               tenant_connection_request_id=tenant_connection_request_id,
+                               **query))
