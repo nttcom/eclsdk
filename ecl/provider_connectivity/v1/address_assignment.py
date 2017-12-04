@@ -23,3 +23,7 @@ class AddressAssignment(resource2.Resource):
 
     mac_address = resource2.Body("mac_address")
 
+    fixed_ips = resource2.Body("fixed_ips")
+  
+    allowed_address_pairs = resource2.Body("allowed_address_pairs")
+
