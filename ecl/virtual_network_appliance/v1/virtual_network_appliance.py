@@ -29,6 +29,8 @@ class VirtualNetworkAppliance(resource2.Resource):
     name = resource2.Body('name')
     #: Description of network appliance.
     description = resource2.Body('description')
+    #: Appliance type of network appliance.
+    appliance_type = resource2.Body('appliance_type')
     #: Zone of network appliance.
     availability_zone = resource2.Body('availability_zone')
     #: OS monitoring status of network appliance.
