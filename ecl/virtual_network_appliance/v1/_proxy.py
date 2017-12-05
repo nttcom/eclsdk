@@ -2,11 +2,39 @@
 
 from ecl.virtual_network_appliance.v1 \
     import virtual_network_appliance as _virtual_network_appliance
+from ecl.virtual_network_appliance.v1 \
+    import virtual_network_appliance_plan as _virtual_network_appliance_plan
 from ecl.virtual_network_appliance.v1 import operation as _operation
 from ecl import proxy2
 
 
 class Proxy(proxy2.BaseProxy):
+
+    def virtual_network_appliance_plans(self, **params):
+        """List virtual network appliance plans.
+
+        :param params: The parameters as query string format
+            to get network appliance
+        :returns: A list of network appliance plans
+        :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
+        """
+        return list(self._list(
+            _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
+            paginated=False, **params))
+
+    def get_virtual_network_appliance_plan(
+            self, virtual_network_appliance_plan_id):
+        """Show virtual network appliance plan.
+
+        :param string virtual_network_appliance_plan_id:
+            ID of specified virtual network appliance.
+        :return: :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
+        """
+        return self._get(
+            _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
+            virtual_network_appliance_plan_id)
 
     def virtual_network_appliances(self, **params):
         """List virtual network appliance resources.
