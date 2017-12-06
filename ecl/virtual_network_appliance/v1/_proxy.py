@@ -191,6 +191,15 @@ class Proxy(proxy2.BaseProxy):
         :rtype: list of :class:`~ecl.provider_connectivity.v1.operation.
             Operation`
         """
-        return list(self._list(_operation.Operation,
-                               paginated=False,
+        return list(self._list(_operation.Operation, paginated=False,
                                **params))
+
+    def get_operation(
+            self, operation_id):
+        """Show operation.
+
+        :param string operation_id: ID of specified operation.
+        :return: :class:`~ecl.virtual_network_appliance.v1.operation.Operation`
+        """
+        return self._get(
+            _operation.Operation, operation_id)
