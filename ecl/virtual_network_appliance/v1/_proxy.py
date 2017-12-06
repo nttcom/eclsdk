@@ -60,6 +60,22 @@ class Proxy(proxy2.BaseProxy):
         return self._get(_virtual_network_appliance.VirtualNetworkAppliance,
                          virtual_network_appliance_id)
 
+    def update_virtual_network_appliance(self, virtual_network_appliance,
+                                         **body):
+        """Update a virtual network appliance.
+
+        :param server: Either the ID of a virtual network appliance or a
+            :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance` instance.
+        :param :attrs \*\*params: Parameters for updating
+            specified virtual network appliance.
+
+        :returns: :class:`~ecl.virtual_network_appliance.
+            v1.virtual_network_appliance.VirtualNetworkAppliance`
+        """
+        return self._update(_virtual_network_appliance.VirtualNetworkAppliance,
+                            virtual_network_appliance, **body)
+
     def find_virtual_network_appliance(self, name_or_id, ignore_missing=False):
         """Find a single virtual network appliance.
 
@@ -80,7 +96,7 @@ class Proxy(proxy2.BaseProxy):
                                          **params):
         """Update virtual network appliance.
 
-        :param objecct virtual_network_appliance:
+        :param object virtual_network_appliance:
             Update target virtual network appliane.
         :attrs \*\*params: Parameters for updating
             specifiedvirtual network appliance.
@@ -158,6 +174,42 @@ class Proxy(proxy2.BaseProxy):
             body["availability_zone"] = availability_zone
         return self._create(_virtual_network_appliance.VirtualNetworkAppliance,
                             **body)
+
+    def start_virtual_network_appliance(self, virtual_network_appliance):
+        """Start the virtual network appliance.
+
+        :param virtual_network_appliance: Either the ID of a server or a
+            :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance` instance.
+        :return: <Response 202>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.start(self.session)
+
+    def stop_virtual_network_appliance(self, virtual_network_appliance):
+        """Stop the virtual network appliance.
+
+        :param virtual_network_appliance: Either the ID of a server or a
+            :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance` instance.
+        :return: <Response 202>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.stop(self.session)
+
+    def restart_virtual_network_appliance(self, virtual_network_appliance):
+        """Restart the virtual network appliance.
+
+        :param virtual_network_appliance: Either the ID of a server or a
+            :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance` instance.
+        :return: <Response 202>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.restart(self.session)
 
     def operations(self, **params):
         """List operations.

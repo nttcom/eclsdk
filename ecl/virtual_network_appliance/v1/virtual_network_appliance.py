@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from ecl import exceptions
+
 from ecl.virtual_network_appliance import virtual_network_appliance_service
 from ecl import resource2
 from ecl import utils
@@ -11,6 +13,8 @@ class VirtualNetworkAppliance(resource2.Resource):
     service = virtual_network_appliance_service.\
         VirtualNetworkApplianceService("v1.0")
     base_path = '/' + service.version + '/virtual_network_appliances'
+
+    patch_update = True
 
     # Capabilities
     allow_list = True
@@ -35,8 +39,6 @@ class VirtualNetworkAppliance(resource2.Resource):
     availability_zone = resource2.Body('availability_zone')
     #: OS monitoring status of network appliance.
     os_monitoring_status = resource2.Body('os_monitoring_status')
-    #: OS login status of network appliance.
-    os_login_status = resource2.Body('os_login_status')
     #: OS login status of network appliance.
     os_login_status = resource2.Body('os_login_status')
     #: VM status of network appliance.
@@ -69,9 +71,9 @@ class VirtualNetworkAppliance(resource2.Resource):
         body = {"os-stop": None}
         return self._action(session, body)
 
-    def reboot(self, session, reboot_type):
-        """Reboot network appliance."""
-        body = {'reboot': None}
+    def restart(self, session):
+        """Restart network appliance."""
+        body = {'os-restart': None}
         self._action(session, body)
 
     def reset_password(self, session, username):
