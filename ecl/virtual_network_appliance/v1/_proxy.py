@@ -64,7 +64,8 @@ class Proxy(proxy2.BaseProxy):
                                          **body):
         """Update a virtual network appliance.
 
-        :param server: Either the ID of a virtual network appliance or a
+        :param virtual_network_appliance:
+            Either the ID of a virtual network appliance or a
             :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance.VirtualNetworkAppliance` instance.
         :param :attrs \*\*params: Parameters for updating
@@ -91,36 +92,6 @@ class Proxy(proxy2.BaseProxy):
         return self._find(_virtual_network_appliance.VirtualNetworkAppliance,
                           name_or_id,
                           ignore_missing=ignore_missing)
-
-    def update_virtual_network_appliance(self, virtual_network_appliance,
-                                         **params):
-        """Update virtual network appliance.
-
-        :param object virtual_network_appliance:
-            Update target virtual network appliane.
-        :attrs \*\*params: Parameters for updating
-            specifiedvirtual network appliance.
-
-            * string name: Name of virtual network appliance.
-            * string description: Description of virtual network appliance.
-            * string virtual_network_appliance_plan_id:
-                     Plan of virtual network appliance.
-            * object interfaces:
-                     Interface definition of virtual network appliance.
-        """
-        if not isinstance(virtual_network_appliance,
-                          _virtual_network_appliance.VirtualNetworkAppliance):
-
-            virtual_network_appliance = \
-                self._get_resource(
-                    _virtual_network_appliance.VirtualNetworkAppliance,
-                    virtual_network_appliance)
-
-            virtual_network_appliance._body.clean()
-
-        return self._update(_virtual_network_appliance.VirtualNetworkAppliance,
-                            virtual_network_appliance,
-                            **params)
 
     def delete_virtual_network_appliance(self, virtual_network_appliance_id,
                                          ignore_missing=False):

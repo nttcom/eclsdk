@@ -53,6 +53,39 @@ class VirtualNetworkAppliance(resource2.Resource):
     #: Interface definition of network appliance
     interfaces = resource2.Body('interfaces')
 
+    def update(self, session, prepend_key=True, has_body=True):
+        """Update the remote resource based on this instance.
+
+        Reason why override this method manually is, if use Resource2.update(),
+        "id" of update target resource will be automatically inserted
+        in request body, but this will cause Conflict error at API side.
+
+        :param session: The session to use for making this request.
+        :type session: :class:`~ecl.session.Session`
+        :param prepend_key: A boolean indicating whether the resource_key
+                            should be prepended in a resource update request.
+                            Default to True.
+
+        :return: This :class:`Resource` instance.
+        :raises: :exc:`~ecl.exceptions.MethodNotSupported` if
+                 :data:`Resource.allow_update` is not set to ``True``.
+        """
+        # Only try to update if we actually have anything to update.
+        if not any([self._body.dirty, self._header.dirty]):
+            return self
+
+        request = self._prepare_request(prepend_key=prepend_key)
+
+        if 'id' in request.body[self.resource_key]:
+            del request.body[self.resource_key]['id']
+
+        response = session.patch(request.uri, endpoint_filter=self.service,
+                                 json=request.body,
+                                 headers=request.headers)
+
+        self._translate_response(response, has_body=has_body)
+        return self
+
     def _action(self, session, body, postfix='action'):
         """Preform network appliance actions given the message body."""
         url = utils.urljoin(VirtualNetworkAppliance.base_path,
