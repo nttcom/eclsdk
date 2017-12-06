@@ -66,6 +66,7 @@ from ecl.identity import identity_service
 from ecl.image import image_service
 from ecl import module_loader
 from ecl.network import network_service
+from ecl.object_store import object_store_service
 from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
 from ecl.rca import rca_service
@@ -105,6 +106,8 @@ class Profile(object):
         self._add_service(image_service.ImageService(version="v2"))
         self._add_service(network_service.NetworkService(version="v2"))
         self._add_service(sss_service.SssService(version="v1"))
+        self._add_service(
+            object_store_service.ObjectStoreService(version="v1"))
         self._add_service(
             orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
