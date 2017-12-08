@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from ecl import exceptions
+import base
 
 from ecl.virtual_network_appliance import virtual_network_appliance_service
 from ecl import resource2
 from ecl import utils
 
 
-class VirtualNetworkAppliance(resource2.Resource):
+class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     resources_key = "virtual_network_appliances"
     resource_key = "virtual_network_appliance"
     service = virtual_network_appliance_service.\

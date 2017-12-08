@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import base
 from ecl.virtual_network_appliance import virtual_network_appliance_service
 from ecl import resource2
 
 
-class VirtualNetworkAppliancePlan(resource2.Resource):
+class VirtualNetworkAppliancePlan(base.VirtualNetworkApplianceBaseResource):
     resources_key = "virtual_network_appliance_plans"
     resource_key = "virtual_network_appliance_plan"
     service = virtual_network_appliance_service.\
