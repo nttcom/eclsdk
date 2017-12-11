@@ -34,6 +34,8 @@ class VirtualNetworkAppliancePlan(base.VirtualNetworkApplianceBaseResource):
     flavor = resource2.Body('flavor')
     #: Number of interfaces of network appliance plan.
     number_of_interfaces = resource2.Body('number_of_interfaces')
+    #: Enable flag of network appliance plan
+    enabled = resource2.Body('enabled')
     #: License Information of interfaces of network appliance plan.
     licenses = resource2.Body('licenses')
 
