@@ -3,9 +3,12 @@
 from ecl.provider_connectivity.v1 import aws_connection as _aws_connection
 from ecl.provider_connectivity.v1 import exchange_point as _exchange_point
 from ecl.provider_connectivity.v1 import operation as _operation
-from ecl.provider_connectivity.v1 import tenant_connection_request as _tc_request
-from ecl.provider_connectivity.v1 import tenant_connection as _tenant_connection
-from ecl.provider_connectivity.v1 import address_assignment as _addr_assignment
+from ecl.provider_connectivity.v1 import \
+            tenant_connection_request as _tc_request
+from ecl.provider_connectivity.v1 import \
+            tenant_connection as _tenant_connection
+from ecl.provider_connectivity.v1 import \
+            address_assignment as _addr_assignment
 from ecl import proxy2
 
 
@@ -17,7 +20,8 @@ class Proxy(proxy2.BaseProxy):
         :param params: The parameters as query string
             to get connections by specified condition.
         :returns: A list of connection objects
-        :rtype: list of :class:`~ecl.provider_connectivity.v1.aws_connection.AWSConnection`
+        :rtype: list of :class:
+                `~ecl.provider_connectivity.v1.aws_connection.AWSConnection`
         """
         return list(self._list(_aws_connection.AWSConnection,
                                paginated=False,
@@ -27,7 +31,8 @@ class Proxy(proxy2.BaseProxy):
         """Show connection resource between ECL2.0 and AWS.
 
         :param string connection_id: ID of specified connection.
-        :return: :class:`~ecl.provider_connectivity.v1.aws_connection.AWSConnection`
+        :return: :class:`
+                ~ecl.provider_connectivity.v1.aws_connection.AWSConnection`
         """
         return self._get(_aws_connection.AWSConnection, connection_id)
 
@@ -40,7 +45,8 @@ class Proxy(proxy2.BaseProxy):
                     raised when the resource does not exist.
                     When set to ``True``, None will be returned when
                     attempting to find a nonexistent resource.
-        :returns: One :class:`~ecl.network.v2.connection.AWSConnection` or None
+        :returns: One :class:
+                `~ecl.network.v2.connection.AWSConnection` or None
         """
         return self._find(_aws_connection.AWSConnection,
                           name_or_id,
@@ -59,9 +65,11 @@ class Proxy(proxy2.BaseProxy):
                 However, in case of Guarantee, this parameter can not update.
         """
         if not isinstance(connection, _aws_connection.AWSConnection):
-            connection = self._get_resource(_aws_connection.AWSConnection, connection)
+            connection = self._get_resource(_aws_connection.AWSConnection,
+                                            connection)
             connection._body.clean()
-        return self._update(_aws_connection.AWSConnection, connection, **params)
+        return self._update(_aws_connection.AWSConnection,
+                            connection, **params)
 
     def delete_aws_connection(self, connection_id, ignore_missing=False):
         """Delete connection between ECL2.0 and AWS.
@@ -112,7 +120,7 @@ class Proxy(proxy2.BaseProxy):
         """Approve/Disapprove connection between ECL2.0 and AWS.
 
         :param connection_id: ID of specified connection.
-        :param type: Action type. You can choose from "approve" or "disapprove".
+        :param type: Action type. You can choose "approve" or "disapprove".
         :return: ``None``
         """
         connection = _aws_connection.AWSConnection()
@@ -168,9 +176,7 @@ class Proxy(proxy2.BaseProxy):
         :return:
         """
         body = {
-            "keystone_user_id": keystone_user_id,
             "tenant_id_other": tenant_id_other,
-            "tenant_id": tenant_id,
             "network_id": network_id
         }
         if params.get("name"):
@@ -179,6 +185,10 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = params.get("description")
         if params.get("tags"):
             body["tags"] = params.get("tags")
+        if params.get("keystone_user_id"):
+            body["keystone_user_id"] = params.get("keystone_user_id")
+        if params.get("tenant_id"):
+            body["tenant_id"] = params.get("tenant_id")
         return self._create(_tc_request.TenantConnectionRequest, **body)
 
     def update_tenant_connection_request(self, tenant_connection_request,
@@ -190,7 +200,8 @@ class Proxy(proxy2.BaseProxy):
         :return:
         """
 
-        if not isinstance(tenant_connection_request, _tc_request.TenantConnectionRequest):
+        if not isinstance(tenant_connection_request,
+                          _tc_request.TenantConnectionRequest):
             tenant_connection_request = self._get_resource(
                 _tc_request.TenantConnectionRequest,
                 tenant_connection_request)
@@ -219,7 +230,8 @@ class Proxy(proxy2.BaseProxy):
         :returns: One :class:`~ecl.provider_connectivity.v1.
                 tenant_connection_request.TenantConnectionRequest` or None
         """
-        return self._get(_tc_request.TenantConnectionRequest, tenant_connection_request_id)
+        return self._get(_tc_request.TenantConnectionRequest,
+                         tenant_connection_request_id)
 
     def find_tenant_connection_request(self, name_or_id, ignore_missing=False):
         """Find a single tenant connection request
@@ -252,9 +264,11 @@ class Proxy(proxy2.BaseProxy):
         :param tenant_connection_id:
         :return:
         """
-        return self._get(_tenant_connection.TenantConnection, tenant_connection_id)
+        return self._get(_tenant_connection.TenantConnection,
+                         tenant_connection_id)
 
-    def create_tenant_connection(self, tenant_connection_request_id, device_type, device_id, **params):
+    def create_tenant_connection(self, tenant_connection_request_id,
+                                 device_type, device_id, **params):
         """
 
         :param tenant_connection_request_id:
@@ -287,15 +301,18 @@ class Proxy(proxy2.BaseProxy):
         :param params:
         :return:
         """
-        if not isinstance(tenant_connection, _tenant_connection.TenantConnection):
+        if not isinstance(tenant_connection,
+                          _tenant_connection.TenantConnection):
             tenant_connection = self._get_resource(
                 _tenant_connection.TenantConnection,
                 tenant_connection)
             tenant_connection._body.clean()
+
         return self._update(_tenant_connection.TenantConnection,
                             tenant_connection, **params)
 
-    def delete_tenant_connection(self, tenant_connection, ignore_missing=False):
+    def delete_tenant_connection(self, tenant_connection,
+                                 ignore_missing=False):
         """
 
         :param tenant_connection:
@@ -329,7 +346,44 @@ class Proxy(proxy2.BaseProxy):
         :param query:
         :return:
         """
-        return list(self._list(_addr_assignment.AddressAssignment,
-                               paginated=False,
-                               tenant_connection_request_id=tenant_connection_request_id,
-                               **query))
+        return list(self._list(
+            _addr_assignment.AddressAssignment,
+            paginated=False,
+            tenant_connection_request_id=tenant_connection_request_id,
+            **query))
+
+    def get_icc_network(self, tenant_connection_request_id):
+        """
+
+        :param tenant_connection_request_id:
+        :param query:
+        :return:
+        """
+        icc_network = _addr_assignment.ICCNetwork()
+        return icc_network.get(self.session, tenant_connection_request_id)
+
+    def icc_subnets(self, tenant_connection_request_id, **query):
+        """
+
+        :param tenant_connection_request_id:
+        :param query:
+        :return:
+        """
+        return list(self._list(
+            _addr_assignment.ICCSubnet,
+            paginated=False,
+            tenant_connection_request_id=tenant_connection_request_id,
+            **query))
+
+    def get_icc_subnet(self, tenant_connection_request_id, subnet_id):
+        """
+
+        :param tenant_connection_request_id:
+        :param subnet_id:
+        :return:
+        """
+        return self._get(
+            _addr_assignment.ICCSubnet,
+            subnet_id,
+            tenant_connection_request_id=tenant_connection_request_id
+        )

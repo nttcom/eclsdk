@@ -20,9 +20,10 @@ class TenantConnection(TenantConnectionBaseResource):
 
     id = resource2.Body("id")
 
-    tenant_connection_id = resource2.Body("tenant_connection_id", alternate_id=True)
+    tenant_connection_id = resource2.Body("id")
 
-    tenant_connection_request_id = resource2.Body("tenant_connection_request_id")
+    tenant_connection_request_id = resource2.Body(
+        "tenant_connection_request_id")
 
     name = resource2.Body("name")
 
