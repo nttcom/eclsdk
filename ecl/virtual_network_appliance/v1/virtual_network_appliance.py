@@ -109,10 +109,9 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
         body = {'os-restart': None}
         self._action(session, body)
 
-    def reset_password(self, session, username):
+    def reset_password(self, session):
         """Reset network appliance password."""
-        body = {'username': username}
-        self._action(session, body, postfix='reset_password')
+        self._action(session, None, postfix='reset-password')
 
     def get_console(self, session, vnc_type):
         """Get console of network appliance."""

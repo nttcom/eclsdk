@@ -182,6 +182,19 @@ class Proxy(proxy2.BaseProxy):
             self.get_virtual_network_appliance(virtual_network_appliance)
         return virtual_network_appliance.restart(self.session)
 
+    def reset_password_virtual_network_appliance(self,
+                                                 virtual_network_appliance):
+        """Virtual network appliance password reset.
+
+        :param virtual_network_appliance: Either the ID of a server or a
+            :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance` instance.
+        :return: <Response 202>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.reset_password(self.session)
+
     def operations(self, **params):
         """List operations.
 
