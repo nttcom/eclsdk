@@ -58,4 +58,4 @@ class TenantConnectionRequest(TenantConnectionBaseResource):
     network_id = resource2.Body('network_id')
 
     #: Approval unique ID
-    apporoval_request_id = resource2.Body('approval_request_id')
+    approval_request_id = resource2.Body('approval_request_id')
