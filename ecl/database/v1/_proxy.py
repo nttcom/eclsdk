@@ -36,10 +36,10 @@ class Proxy(proxy2.BaseProxy):
                         name,
                         flavor_id,
                         volume,
-                        databases,
-                        users,
                         datastore,
                         nics,
+                        databases=None,
+                        users=None,
                         availability_zone=None,
                         backup_window=None,
                         backup_retention_period=None,
@@ -71,11 +71,13 @@ class Proxy(proxy2.BaseProxy):
         attrs.update({"name": name})
         attrs.update({"flavorRef": flavor_id})
         attrs.update({"volume": volume})
-        attrs.update({"databases": databases})
-        attrs.update({"users": users})
         attrs.update({"datastore": datastore})
         attrs.update({"nics": nics})
 
+        if databases:
+            attrs.update({"databases": databases})
+        if users:
+            attrs.update({"users": users})
         if availability_zone:
             attrs.update({"availability_zone": availability_zone})
         if backup_window:
