@@ -73,4 +73,5 @@ class LoadBalancerSyslogServer(base.NetworkBaseResource):
 
     transport_type = resource2.Body("transport_type")
 
-    user_configurable_log_messages = resource2.Body("user_configurable_log_messages")
+    user_configurable_log_messages = resource2.Body(
+                    "user_configurable_log_messages")
