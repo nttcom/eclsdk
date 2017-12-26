@@ -36,6 +36,9 @@ class VirtualNetworkAppliancePlan(base.VirtualNetworkApplianceBaseResource):
     number_of_interfaces = resource2.Body('number_of_interfaces')
     #: Enable flag of network appliance plan
     enabled = resource2.Body('enabled')
-    #: License Information of interfaces of network appliance plan.
+    #: Max number of allowed address pair of network appliance plan.
+    max_number_of_aap = resource2.Body('max_number_of_aap')
+    #: License information of interfaces of network appliance plan.
     licenses = resource2.Body('licenses')
-
+    #: License type information of interfaces of network appliance plan.
+    license_type = resource2.Body('license_type')
