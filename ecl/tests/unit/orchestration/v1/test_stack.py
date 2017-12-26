@@ -40,6 +40,7 @@ FAKE = {
     'template_url': 'http://www.example.com/wordpress.yaml',
     'timeout_mins': '14',
     'updated_time': '2015-03-09T12:30:00.000000',
+    'environment': {'network_id': 'ad936ae4-2983-4f23-9187-e47e82cb2725'},
 }
 FAKE_CREATE_RESPONSE = {
     'stack': {
@@ -85,6 +86,7 @@ class TestStack(testtools.TestCase):
         self.assertEqual(FAKE['template_url'], sot.template_url)
         self.assertEqual(FAKE['timeout_mins'], sot.timeout_mins)
         self.assertEqual(FAKE['updated_time'], sot.updated_at)
+        self.assertEqual(FAKE['environment'], sot.environment)
 
     @mock.patch.object(resource.Resource, 'create')
     def test_create(self, mock_create):
