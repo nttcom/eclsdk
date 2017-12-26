@@ -73,6 +73,8 @@ class Stack(resource.Resource):
     updated_at = resource.Body('updated_time')
     #: The ID of the user project created for this stack.
     user_project_id = resource.Body('stack_user_project_id')
+    #: A Environment information for stack
+    environment = resource.Body('environment', type=dict)
 
 
     def stack_prepare_request(self, session, requires_id=True, prepend_key=False):
