@@ -40,5 +40,3 @@ class VirtualNetworkAppliancePlan(base.VirtualNetworkApplianceBaseResource):
     max_number_of_aap = resource2.Body('max_number_of_aap')
     #: License information of interfaces of network appliance plan.
     licenses = resource2.Body('licenses')
-    #: License type information of interfaces of network appliance plan.
-    license_type = resource2.Body('license_type')
