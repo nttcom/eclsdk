@@ -2265,7 +2265,7 @@ class Proxy(proxy2.BaseProxy):
                 _tenant_connection.TenantConnection, tenant_connection)
         return tenant_connection.execute(self.session)
 
-def azure_services(self, **params):
+    def azure_services(self, **params):
         """Return a list of azure_services
 
         :param params: The parameters as query string
