@@ -56,6 +56,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     username = resource2.Body('username')
     #: Password of network appliance
     password = resource2.Body('password')
+    #: Password(after reset) of network appliance
+    new_password = resource2.Body('new_password')
 
     def update(self, session, prepend_key=True, has_body=True):
         """Update the remote resource based on this instance.
@@ -115,7 +117,9 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
 
     def reset_password(self, session):
         """Reset network appliance password."""
-        self._action(session, None, postfix='reset-password')
+        resp = self._action(session, None, postfix='reset-password')
+        self._translate_response(resp, has_body=True)
+        return self
 
     def get_console(self, session, vnc_type):
         """Get console of network appliance."""
