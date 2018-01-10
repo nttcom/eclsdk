@@ -52,6 +52,10 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     tenant_id = resource2.Body('tenant_id')
     #: Interface definition of network appliance
     interfaces = resource2.Body('interfaces')
+    #: User name of network appliance
+    username = resource2.Body('username')
+    #: Password of network appliance
+    password = resource2.Body('password')
 
     def update(self, session, prepend_key=True, has_body=True):
         """Update the remote resource based on this instance.
