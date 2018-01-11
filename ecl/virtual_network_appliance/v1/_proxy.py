@@ -158,7 +158,9 @@ class Proxy(proxy2.BaseProxy):
             self.get_virtual_network_appliance(virtual_network_appliance)
         return virtual_network_appliance.start(self.session)
 
-    def get_virtual_network_appliance_console(self, virtual_network_appliance):
+    def get_virtual_network_appliance_console(self,
+                                              virtual_network_appliance,
+                                              vnc_type):
         """Get console information for the virtual network appliance.
 
         :param virtual_network_appliance: Either the ID of a server or a
@@ -168,7 +170,7 @@ class Proxy(proxy2.BaseProxy):
         """
         virtual_network_appliance = \
             self.get_virtual_network_appliance(virtual_network_appliance)
-        return virtual_network_appliance.get_console(self.session)
+        return virtual_network_appliance.get_console(self.session, vnc_type)
 
     def stop_virtual_network_appliance(self, virtual_network_appliance):
         """Stop the virtual network appliance.

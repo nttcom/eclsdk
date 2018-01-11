@@ -117,7 +117,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
 
     def reset_password(self, session):
         """Reset network appliance password."""
-        resp = self._action(session, None, postfix='reset-password')
+        body = {}
+        resp = self._action(session, body, postfix='reset-password')
         self._translate_response(resp, has_body=True)
         return self
 
