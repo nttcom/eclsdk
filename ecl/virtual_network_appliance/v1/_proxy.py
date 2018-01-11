@@ -158,6 +158,18 @@ class Proxy(proxy2.BaseProxy):
             self.get_virtual_network_appliance(virtual_network_appliance)
         return virtual_network_appliance.start(self.session)
 
+    def get_virtual_network_appliance_console(self, virtual_network_appliance):
+        """Get console information for the virtual network appliance.
+
+        :param virtual_network_appliance: Either the ID of a server or a
+            :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance` instance.
+        :return: <Response 202>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.get_console(self.session)
+
     def stop_virtual_network_appliance(self, virtual_network_appliance):
         """Stop the virtual network appliance.
 
