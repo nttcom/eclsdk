@@ -166,14 +166,20 @@ class Proxy(proxy2.BaseProxy):
     def create_tenant_connection_request(self, keystone_user_id,
                                          tenant_id_other, tenant_id,
                                          network_id, **params):
-        """
+        """Create a tenant_connection_request resource.
 
-        :param keystone_user_id:
-        :param tenant_id_other:
-        :param tenant_id:
-        :param network_id:
+        :param keystone_user_id: Keystone User ID who can access to the
+                        owner tenant of tenant_connection_request
+        :param tenant_id_other: The owner tenant of network
+        :param tenant_id: The owner tenant of tenant_connection_request
+        :param network_id: Network unique id
         :param params:
-        :return:
+                name: Name of tenant_connection_request.
+                description: Description of tenant_connection_request.
+                tags: tenant_connection_request tags.
+        :return: One :class:
+                `~ecl.provider_connectivity.v1.tenant_connection_request.
+                    TenantConnectionRequest` or None
         """
         body = {
             "tenant_id_other": tenant_id_other,
@@ -193,11 +199,19 @@ class Proxy(proxy2.BaseProxy):
 
     def update_tenant_connection_request(self, tenant_connection_request,
                                          **params):
-        """
+        """Update tenant_connection_request resource.
 
-        :param tenant_connection_request:
+        :param tenant_connection_request: tenant_connection_request unique ID.
         :param params:
-        :return:
+            name: Name of tenant_connection_request.
+            description: Description of tenant_connection_request.
+            tags: tenant_connection_request tags
+            name_other: Name for the owner of network.
+            description_other: Description for the owner of network.
+            tags_other: tags for the owner of network.
+        :return: One :class:
+                `~ecl.provider_connectivity.v1.tenant_connection_request.
+                    TenantConnectionRequest` or None
         """
 
         if not isinstance(tenant_connection_request,
@@ -211,11 +225,15 @@ class Proxy(proxy2.BaseProxy):
 
     def delete_tenant_connection_request(self, tenant_connection_request,
                                          ignore_missing=False):
-        """
+        """Delete tenant_connection_request resource.
 
-        :param tenant_connection_request:
-        :param ignore_missing:
-        :return:
+        :param tenant_connection_request: tenant_connection_request unique ID.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent port.
+        :return: ``None``
         """
         self._delete(_tc_request.TenantConnectionRequest,
                      tenant_connection_request,
@@ -250,32 +268,52 @@ class Proxy(proxy2.BaseProxy):
                           ignore_missing=ignore_missing)
 
     def tenant_connections(self, **query):
-        """
+        """Return a list of tenant_connection
 
-        :param query:
-        :return:
+        :param kwargs query: Query parameter to get tenant_connection
+
+        :returns: A list of tenant_connection objects
         """
         return list(self._list(_tenant_connection.TenantConnection,
                                paginated=False, **query))
 
     def get_tenant_connection(self, tenant_connection_id):
-        """
+        """Get a single tenant connection
 
-        :param tenant_connection_id:
-        :return:
+        :param tenant_connection_id: The ID of a tenant connection
+        :return: One :class:`~ecl.provider_connectivity.v1.
+                tenant_connection_request.TenantConnection` or None
+
         """
         return self._get(_tenant_connection.TenantConnection,
                          tenant_connection_id)
 
     def create_tenant_connection(self, tenant_connection_request_id,
                                  device_type, device_id, **params):
-        """
+        """Create tenant_connection resource.
 
-        :param tenant_connection_request_id:
-        :param device_type:
-        :param device_id:
+        :param tenant_connection_request_id: tenant_connection_request
+                                            unique ID.
+        :param device_type: device type
+        :param device_id: device unique ID
         :param params:
-        :return:
+            device_interface_id: physical port unique ID in Baremetal server.
+                        Required if ECL::Baremetal::Server
+                        is selected with device_type.
+            attachment_opts:
+                segmentation_type: segmentation type used for port.
+                        Optional if ECL::Baremetal::Server is
+                        selected with device_type.
+                segmentation_id: segmentation id used for port.
+                        Optional if ECL::Baremetal::Server is
+                        selected with device_type.
+                fixed_ips: Array of IP address assignment objects,
+                        attached to port.
+                    ip_address: IP address assigned to port
+                    subnet_id: The ID of subnet from which IP
+                        address is allocated.
+        :return: One :class:`~ecl.provider_connectivity.v1.
+                tenant_connection.TenantConnection` or None
         """
         body = {
             "tenant_connection_request_id": tenant_connection_request_id,
@@ -295,11 +333,19 @@ class Proxy(proxy2.BaseProxy):
         return self._create(_tenant_connection.TenantConnection, **body)
 
     def update_tenant_connection(self, tenant_connection, **params):
-        """
+        """Update tenant_connection_resource
 
         :param tenant_connection:
         :param params:
-        :return:
+            name: Name of tenant_connection.
+            description: Description of tenant_connection.
+            tags: tenant_connection tags
+            name_other: Name for the owner of network.
+            description_other: Description for the owner of network.
+            tags_other: tags for the owner of network.
+        :return: One :class:
+                `~ecl.provider_connectivity.v1.tenant_connection.
+                    TenantConnection` or None
         """
         if not isinstance(tenant_connection,
                           _tenant_connection.TenantConnection):
@@ -313,11 +359,15 @@ class Proxy(proxy2.BaseProxy):
 
     def delete_tenant_connection(self, tenant_connection,
                                  ignore_missing=False):
-        """
+        """Delete tenant_connection resource.
 
-        :param tenant_connection:
-        :param ignore_missing:
-        :return:
+        :param tenant_connection:tenant_connection unique ID.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent port.
+        :return: ``None``
         """
         self._delete(_tenant_connection.TenantConnection,
                      tenant_connection,
@@ -340,11 +390,13 @@ class Proxy(proxy2.BaseProxy):
                           ignore_missing=ignore_missing)
 
     def address_assignments(self, tenant_connection_request_id, **query):
-        """
+        """Return a list of object containing IP address and mac address
+            used by network.
 
-        :param tenant_connection_request:
-        :param query:
-        :return:
+        :param tenant_connection_request_id: tenant_connection_request ID.
+        :param query: Query parameter to get address_assignment
+
+        :return: A list of address_assignment objects
         """
         return list(self._list(
             _addr_assignment.AddressAssignment,
@@ -353,21 +405,23 @@ class Proxy(proxy2.BaseProxy):
             **query))
 
     def get_icc_network(self, tenant_connection_request_id):
-        """
+        """List network resource used by network.
 
-        :param tenant_connection_request_id:
-        :param query:
-        :return:
+        :param tenant_connection_request_id: tenant_connection_request ID.
+        :param query: Query parameter to get network
+
+        :return: A list of network objects
         """
         icc_network = _addr_assignment.ICCNetwork()
         return icc_network.get(self.session, tenant_connection_request_id)
 
     def icc_subnets(self, tenant_connection_request_id, **query):
-        """
+        """List subnet resource used by network.
 
-        :param tenant_connection_request_id:
-        :param query:
-        :return:
+        :param tenant_connection_request_id: tenant_connection_request ID.
+        :param query: Query parameter to get subnet
+
+        :return: A list of subnet objects
         """
         return list(self._list(
             _addr_assignment.ICCSubnet,
@@ -376,11 +430,13 @@ class Proxy(proxy2.BaseProxy):
             **query))
 
     def get_icc_subnet(self, tenant_connection_request_id, subnet_id):
-        """
+        """Get subnet resource used by network.
 
-        :param tenant_connection_request_id:
-        :param subnet_id:
-        :return:
+        :param tenant_connection_request_id: tenant_connection_request ID.
+        :param subnet_id: subnet ID
+        :param query: Query parameter to get subnet
+
+        :return: A list of subnet objects
         """
         return self._get(
             _addr_assignment.ICCSubnet,
