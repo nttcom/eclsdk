@@ -14,7 +14,7 @@ class AddressAssignment(resource2.Resource):
     service = provider_connectivity_service.ProviderConnectivityService("v2.0")
     base_path = '/' + service.version + \
                 '/tenant_connection_requests/' \
-                '%(tenant_connection_request_id)s/address_assignment'
+                '%(tenant_connection_request_id)s/address_assignments'
 
     # capabilities
     allow_list = True
