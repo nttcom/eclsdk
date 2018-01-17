@@ -14,8 +14,8 @@ class Proxy(proxy2.BaseProxy):
         """List virtual network appliance plans.
 
         :param params: The parameters as query string format
-            to get network appliance
-        :returns: A list of network appliance plans
+            to get network appliance plans.
+        :returns: A list of network appliance plans.
         :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
         """
@@ -28,7 +28,7 @@ class Proxy(proxy2.BaseProxy):
         """Show virtual network appliance plan.
 
         :param string virtual_network_appliance_plan_id:
-            ID of specified virtual network appliance.
+            ID of specified virtual network appliance plan.
         :return: :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
         """
@@ -37,11 +37,11 @@ class Proxy(proxy2.BaseProxy):
             virtual_network_appliance_plan_id)
 
     def virtual_network_appliances(self, **params):
-        """List virtual network appliance resources.
+        """List virtual network appliances.
 
         :param params: The parameters as query string format
-            to get network appliance
-        :returns: A list of network appliance objects
+            to get list of network appliance.
+        :returns: A list of network appliance.
         :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance.VirtualNetworkAppliance`
         """
@@ -50,7 +50,7 @@ class Proxy(proxy2.BaseProxy):
             paginated=False, **params))
 
     def get_virtual_network_appliance(self, virtual_network_appliance_id):
-        """Show virtual network appliance resource.
+        """Show virtual network appliance.
 
         :param string virtual_network_appliance_id:
             ID of specified virtual network appliance.
@@ -65,12 +65,9 @@ class Proxy(proxy2.BaseProxy):
         """Update a virtual network appliance.
 
         :param virtual_network_appliance:
-            Either the ID of a virtual network appliance or a
-            :class:`~ecl.virtual_network_appliance.v1.
-            virtual_network_appliance.VirtualNetworkAppliance` instance.
+            ID of specified virtual network appliance.
         :param :attrs \*\*params: Parameters for updating
             specified virtual network appliance.
-
         :returns: :class:`~ecl.virtual_network_appliance.
             v1.virtual_network_appliance.VirtualNetworkAppliance`
         """
@@ -104,7 +101,6 @@ class Proxy(proxy2.BaseProxy):
             raised when the port does not exist.
             When set to ``True``, no exception will be set when
             attempting to delete a nonexistent port.
-
         :returns: ``None``
         """
         self._delete(_virtual_network_appliance.VirtualNetworkAppliance,
@@ -127,9 +123,10 @@ class Proxy(proxy2.BaseProxy):
         :param string description: Description of virtual network appliance.
         :param string default_gateway: Default gateway address for
             virtual network appliance.
-        :param string qos_type: QoS type of network.
-            You can choose from "BestEffort" or "Guarantee".
-        :param string exchange_point_id: ID of exchange_points.
+        :param string availability_zone: Availability Zone
+            for virtual network appliance.
+        :returns: :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance.VirtualNetworkAppliance`
         """
         body = {}
         body["virtual_network_appliance_plan_id"] = \
@@ -149,10 +146,9 @@ class Proxy(proxy2.BaseProxy):
     def start_virtual_network_appliance(self, virtual_network_appliance):
         """Start the virtual network appliance.
 
-        :param virtual_network_appliance: Either the ID of a server or a
-            :class:`~ecl.virtual_network_appliance.v1.
-            virtual_network_appliance.VirtualNetworkAppliance` instance.
-        :return: <Response 202>
+        :param virtual_network_appliance:
+            The ID of a virtual network appliance.
+        :return: <Response 200>
         """
         virtual_network_appliance = \
             self.get_virtual_network_appliance(virtual_network_appliance)
@@ -166,7 +162,8 @@ class Proxy(proxy2.BaseProxy):
         :param virtual_network_appliance: Either the ID of a server or a
             :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance.VirtualNetworkAppliance` instance.
-        :return: <Response 202>
+        :param vnc_type: should be `~string "novnc"`
+        :return: <Response 200>
         """
         virtual_network_appliance = \
             self.get_virtual_network_appliance(virtual_network_appliance)
@@ -175,10 +172,9 @@ class Proxy(proxy2.BaseProxy):
     def stop_virtual_network_appliance(self, virtual_network_appliance):
         """Stop the virtual network appliance.
 
-        :param virtual_network_appliance: Either the ID of a server or a
-            :class:`~ecl.virtual_network_appliance.v1.
-            virtual_network_appliance.VirtualNetworkAppliance` instance.
-        :return: <Response 202>
+        :param virtual_network_appliance:
+            The ID of a virtual network appliance.
+        :return: <Response 200>
         """
         virtual_network_appliance = \
             self.get_virtual_network_appliance(virtual_network_appliance)
@@ -187,10 +183,9 @@ class Proxy(proxy2.BaseProxy):
     def restart_virtual_network_appliance(self, virtual_network_appliance):
         """Restart the virtual network appliance.
 
-        :param virtual_network_appliance: Either the ID of a server or a
-            :class:`~ecl.virtual_network_appliance.v1.
-            virtual_network_appliance.VirtualNetworkAppliance` instance.
-        :return: <Response 202>
+        :param virtual_network_appliance:
+            The ID of a virtual network appliance.
+        :return: <Response 200>
         """
         virtual_network_appliance = \
             self.get_virtual_network_appliance(virtual_network_appliance)
@@ -198,12 +193,11 @@ class Proxy(proxy2.BaseProxy):
 
     def reset_password_virtual_network_appliance(self,
                                                  virtual_network_appliance):
-        """Virtual network appliance password reset.
+        """Reset the password of virtual network appliance.
 
-        :param virtual_network_appliance: Either the ID of a server or a
-            :class:`~ecl.virtual_network_appliance.v1.
-            virtual_network_appliance.VirtualNetworkAppliance` instance.
-        :return: <Response 202>
+        :param virtual_network_appliance:
+            The ID of a virtual network appliance.
+        :return: <Response 200>
         """
         virtual_network_appliance = \
             self.get_virtual_network_appliance(virtual_network_appliance)
@@ -215,8 +209,8 @@ class Proxy(proxy2.BaseProxy):
         :param params: The parameters as query string
             to get operations by specified condition.
         :returns: A list of operation objects
-        :rtype: list of :class:`~ecl.provider_connectivity.v1.operation.
-            Operation`
+        :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
+            operation.Operation`
         """
         return list(self._list(_operation.Operation, paginated=False,
                                **params))
@@ -226,7 +220,7 @@ class Proxy(proxy2.BaseProxy):
         """Show operation.
 
         :param string operation_id: ID of specified operation.
-        :return: :class:`~ecl.virtual_network_appliance.v1.operation.Operation`
+        :return: :class:`~ecl.virtual_network_appliance.v1.
+            operation.Operation`
         """
-        return self._get(
-            _operation.Operation, operation_id)
+        return self._get(_operation.Operation, operation_id)

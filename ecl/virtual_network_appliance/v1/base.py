@@ -24,6 +24,5 @@ class VirtualNetworkApplianceBaseResource(resource2.Resource):
         except KeyError:
             pass
 
-
     #: The ID of the project this resource is associated with.
     tenant_id = resource2.Body('tenant_id')

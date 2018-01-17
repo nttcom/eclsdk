@@ -21,7 +21,7 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
     # Properties
     #: ID of network appliance's operation
     id = resource2.Body('id')
-    #: Target network appliance id of this operation.
+    #: Target network appliance id of operation.
     resource_id = resource2.Body('resource_id')
     #: request type of operation.
     request_type = resource2.Body('request_type')
@@ -31,14 +31,12 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
     reception_datetime = resource2.Body('reception_datetime')
     #: Commit datetime of operation.
     commit_datetime = resource2.Body('commit_datetime')
-    #: Request body of operation.
+    #: Request body(JSON String) of operation.
     request_body = resource2.Body('request_body')
     #: Warning of operation.
     warning = resource2.Body('warning')
     #: Error of operation.
     error = resource2.Body('error')
-    #: Error details of operation.
-    error_details = resource2.Body('error_details')
     #: Tenant ID of operation.
     tenant_id = resource2.Body('tenant_id')
     #: resource type of operation.

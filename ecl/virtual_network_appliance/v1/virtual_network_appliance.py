@@ -29,54 +29,53 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     # Properties
     #: It identifies connection resource uniquely.
     id = resource2.Body('id')
-    #: Name of network appliance.
+    #: Name of virtual network appliance
     name = resource2.Body('name')
-    #: Description of network appliance.
+    #: Description of virtual network appliance
     description = resource2.Body('description')
-    #: Appliance type of network appliance.
+    #: Appliance type of virtual network appliance
     appliance_type = resource2.Body('appliance_type')
-    #: Zone of network appliance.
+    #: Zone of virtual network appliance
     availability_zone = resource2.Body('availability_zone')
-    #: OS monitoring status of network appliance.
+    #: OS monitoring status of virtual network appliance
     os_monitoring_status = resource2.Body('os_monitoring_status')
-    #: OS login status of network appliance.
+    #: OS login status of virtual network appliance
     os_login_status = resource2.Body('os_login_status')
-    #: VM status of network appliance.
+    #: VM status of virtual network appliance
     vm_status = resource2.Body('vm_status')
-    #: Operation status of network appliance.
+    #: Operation status of virtual network appliance
     operation_status = resource2.Body('operation_status')
-    #: Plan ID of network appliance.
+    #: Plan ID of virtual network appliance
     virtual_network_appliance_plan_id = \
         resource2.Body('virtual_network_appliance_plan_id')
-    #: Tenant ID of the owner.
+    #: Tenant ID of virtual network appliance.
     tenant_id = resource2.Body('tenant_id')
-    #: Interface definition of network appliance
+    #: Interface definition of virtual network appliance.
     interfaces = resource2.Body('interfaces')
-    #: User name of network appliance
+    #: User name of virtual network appliance.
     username = resource2.Body('username')
-    #: Password of network appliance
+    #: Password of virtual network appliance.
     password = resource2.Body('password')
-    #: Password(after reset) of network appliance
+    #: Password(after reset) of virtual network appliance.
     new_password = resource2.Body('new_password')
 
     def update(self, session, prepend_key=True, has_body=True):
-        """Update the remote resource based on this instance.
+        """Update the remote resource based on this virtual network appliance.
 
-        Reason why override this method manually is, if use Resource2.update(),
-        "id" of update target resource will be automatically inserted
-        in request body, but this will cause Conflict error at API side.
+        Reason why override this method manually is,
+        virtual network appliance API only allows PATCH method as
+        way of updating.
 
         :param session: The session to use for making this request.
         :type session: :class:`~ecl.session.Session`
         :param prepend_key: A boolean indicating whether the resource_key
-                            should be prepended in a resource update request.
-                            Default to True.
+            should be prepended in a resource update request.
+            Default to True.
 
         :return: This :class:`Resource` instance.
         :raises: :exc:`~ecl.exceptions.MethodNotSupported` if
                  :data:`Resource.allow_update` is not set to ``True``.
         """
-        # Only try to update if we actually have anything to update.
         if not any([self._body.dirty, self._header.dirty]):
             return self
 
@@ -93,7 +92,7 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
         return self
 
     def _action(self, session, body, postfix='action'):
-        """Preform network appliance actions given the message body."""
+        """Preform virtual network appliance actions given the message body"""
         url = utils.urljoin(VirtualNetworkAppliance.base_path,
                             self.id, postfix)
         headers = {'Accept': ''}
@@ -101,29 +100,29 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
             url, endpoint_filter=self.service, json=body, headers=headers)
 
     def start(self, session):
-        """Start network appliance."""
+        """Start virtual network appliance"""
         body = {"os-start": None}
         return self._action(session, body)
 
     def stop(self, session):
-        """Stop network appliance."""
+        """Stop virtual network appliance"""
         body = {"os-stop": None}
         return self._action(session, body)
 
     def restart(self, session):
-        """Restart network appliance."""
+        """Restart virtual network appliance"""
         body = {'os-restart': None}
         self._action(session, body)
 
     def reset_password(self, session):
-        """Reset network appliance password."""
+        """Reset virtual network appliance password."""
         body = {}
         resp = self._action(session, body, postfix='reset-password')
         self._translate_response(resp, has_body=True)
         return self
 
     def get_console(self, session, vnc_type):
-        """Get console of network appliance."""
+        """Get console of virtual network appliance"""
         action = {'type': vnc_type}
         body = {'os-getVNCConsole': action}
         resp = self._action(session, body, postfix='remote-console')
