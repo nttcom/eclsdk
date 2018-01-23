@@ -36,6 +36,7 @@ from ecl.rca import exceptions as rca_exp
 from ecl.sss import exceptions as sss_exp
 from ecl.storage import exceptions as storage_exp
 from ecl.provider_connectivity import exceptions as icc_exp
+from ecl.virtual_network_appliance import exceptions as vna_exp
 
 from six.moves.urllib import parse
 
@@ -57,6 +58,10 @@ def find_http_exception_class(e_url):
         'provider-connectivity': icc_exp.HttpException,
     }
 
+    # to avoid matching to "network" endpoint.
+    if re.search('virtual-network-appliance', e_url) is not None:
+        return vna_exp.HttpException
+
     for pattern, exception_class in mapper.items():
         if re.search(pattern, e_url) is not None:
             return exception_class
@@ -75,6 +80,10 @@ def find_not_found_exception_class(e_url):
         'storage': storage_exp.NotFoundException,
         'provider-connectivity': icc_exp.NotFoundException,
     }
+
+    # to avoid matching to "network" endpoint.
+    if re.search('virtual-network-appliance', e_url) is not None:
+        return vna_exp.NotFoundException
 
     for pattern, exception_class in mapper.items():
         if re.search(pattern, e_url) is not None:
@@ -353,13 +362,15 @@ class Session(_session.Session):
 
     def _send_request(self, url, method, redirect, log, logger,
                       connect_retries, connect_retry_delay=0.5, **kwargs):
-        resp = super(Session, self)._send_request(url, method, redirect, log,
-                                                  logger, connect_retries,
-                                                  connect_retry_delay=connect_retry_delay,
-                                                  **kwargs)
+        resp = super(Session, self)._send_request(
+            url, method, redirect, log,
+            logger, connect_retries,
+            connect_retry_delay=connect_retry_delay,
+            **kwargs)
         if re.match('https:', url):
             try:
-                resp._content = self._replace_discoverd_keystone_url(resp._content)
+                resp._content = self._replace_discoverd_keystone_url(
+                    resp._content)
             except:
                 pass
         return resp
