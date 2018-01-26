@@ -224,3 +224,22 @@ class Proxy(proxy2.BaseProxy):
             operation.Operation`
         """
         return self._get(_operation.Operation, operation_id)
+
+    def find_virtual_network_appliance_plan(self, name_or_id,
+                                            ignore_missing=False):
+        """Find a single virtual network appliance plan.
+
+        :param name_or_id: The name or ID of a virtual network appliance plan.
+        :param bool ignore_missing: When set to ``False``
+            :class:`~ecl.exceptions.ResourceNotFound` will be
+            raised when the resource does not exist.
+            When set to ``True``, None will be returned when
+            attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.virtual_network_appliance.v1.
+            virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
+            or None
+        """
+        return self._find(
+            _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
+            name_or_id,
+            ignore_missing=ignore_missing)
