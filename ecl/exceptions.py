@@ -92,10 +92,6 @@ class HttpException(SDKException):
                     and content.get(self.api_error_key):
                 return content[self.api_error_key]
 
-            # provider connectivity case
-            if hasattr(self, 'cause'):
-                return content["cause"]
-
             # Default case.
             if content.get('message'):
                 return content['message']

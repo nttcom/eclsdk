@@ -6,7 +6,7 @@ from ecl import exceptions
 
 
 class HttpException(exceptions.HttpException):
-    pass
+    api_error_key = 'cause'
 
 
 class NotFoundException(HttpException):

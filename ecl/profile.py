@@ -77,6 +77,7 @@ from ecl.sss import sss_service
 from ecl.telemetry import telemetry_service
 from ecl.database import database_service
 from ecl.dns import dns_service
+from ecl.virtual_network_appliance import virtual_network_appliance_service
 
 
 _logger = logging.getLogger(__name__)
@@ -127,6 +128,9 @@ class Profile(object):
                 version="v1"))
         self._add_service(database_service.DatabaseService(version="v1"))
         self._add_service(dns_service.DnsService(version="v2"))
+        self._add_service(
+            virtual_network_appliance_service.VirtualNetworkApplianceService(
+                version="v1"))
 
         # NOTE: The Metric service is not added here as it currently
         # only retrieves the /capabilities API.
