@@ -30,6 +30,7 @@ from ecl.network.v2 import static_route as _static_route
 from ecl.network.v2 import vpn as _vpn
 from ecl.network.v2 import interdc as _interdc
 from ecl.network.v2 import aws as _aws
+from ecl.network.v2 import gcp as _gcp
 from ecl.network.v2 import tenant_connection as _tenant_connection
 
 from ecl import proxy2
@@ -1281,7 +1282,7 @@ class Proxy(proxy2.BaseProxy):
                                  primary_ipv6=None, secondary_ipv6=None,
                                  gw_vipv6=None, interdc_gw_id=None,
                                  internet_gw_id=None,
-                                 vpn_gw_id=None, aws_gw_id=None,
+                                 vpn_gw_id=None, aws_gw_id=None, gcp_gw_id=None,
                                  tenant_id=None):
         """Create a Gateway Interface from parameters
 
@@ -1332,6 +1333,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
             body.update({"aws_gw_id": aws_gw_id})
+        if gcp_gw_id:
+            body.update({"gcp_gw_id": gcp_gw_id})
         if tenant_id:
             body.update({"tenant_id": tenant_id})
 
@@ -1406,7 +1409,7 @@ class Proxy(proxy2.BaseProxy):
     def create_static_route(self, service_type, destination, nexthop,
                             name=None, description=None,interdc_gw_id=None,
                             internet_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
-                            tenant_id=None):
+                            gcp_gw_id=None, tenant_id=None):
         """Create a Static Route
 
         :param service_type: service type of static route to create
@@ -1439,6 +1442,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
             body.update({"aws_gw_id": aws_gw_id})
+        if gcp_gw_id:
+            body.update({"gcp_gw_id": gcp_gw_id})
         if tenant_id:
             body.update({"tenant_id": tenant_id})
 
@@ -2259,3 +2264,113 @@ class Proxy(proxy2.BaseProxy):
             tenant_connection = self._get_resource(
                 _tenant_connection.TenantConnection, tenant_connection)
         return tenant_connection.execute(self.session)
+
+    def gcp_services(self, **params):
+        """Return a list of gcp_services
+
+        :param params: The parameters as query string
+                       to get gcp_services by specified condition.
+        :returns: A list of gcp_services objects
+        :rtype: list of :class:`~ecl.network.v2.gcp.GCPService`
+        """
+        return list(self._list(_gcp.GCPService, paginated=False, **params))
+
+    def get_gcp_service(self, gcp_service):
+        """Get a single gcp_service
+
+        :param gcp_service:
+            The value can be the ID of a gcp_service or a
+            :class:`~ecl.network.v2.gcp.GCPService` instance.
+
+        :returns: One :class:`~ecl.network.v2.gcp.GCPService`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_gcp.GCPService, gcp_service)
+
+    def find_gcp_service(self, name_or_id, ignore_missing=False):
+        """Find a single gcp_service
+
+        :param name_or_id: The name or ID of a gcp_service.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.gcp.GCPService` or None
+        """
+        return self._find(_gcp.GCPService, name_or_id,
+                          ignore_missing=ignore_missing)
+
+    def gcp_gateways(self, **params):
+        """Return a list of gcp_gateways
+        :param params: The parameters as query string
+                       to get gcp_gateways by specified condition.
+        :returns: A list of gcp_gateways objects
+        :rtype: list of :class:`~ecl.network.v2.gcp.GCPGateway`
+        """
+        return list(self._list(_gcp.GCPGateway, paginated=False, **params))
+
+    def get_gcp_gateway(self, gcp_gateway):
+        """Get a single gcp_gateway
+
+        :param gcp_gateway:
+            The value can be the ID of a gcp_gateway or a
+            :class:`~ecl.network.v2.gcp.GCPGateway` instance.
+
+        :returns: One :class:`~ecl.network.v2.gcp.GCPGateway`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_gcp.GCPGateway, gcp_gateway)
+
+    def find_gcp_gateway(self, name_or_id, ignore_missing=False):
+        """Find a single gcp_gateway
+
+        :param name_or_id: The name or ID of a gcp_gateway.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.gcp.GCPGateway` or None
+        """
+        return self._find(_gcp.GCPGateway, name_or_id,
+                          ignore_missing=ignore_missing)
+
+    def gcp_interfaces(self, **params):
+        """Return a list of gcp_interfaces
+
+        :param params: The parameters as query string
+                       to get gcp_interfaces by specified condition.
+        :returns: A list of gcp_interfaces objects
+        :rtype: list of :class:`~ecl.network.v2.gcp.GCPInterface`
+        """
+        return list(self._list(_gcp.GCPInterface, paginated=False, **params))
+
+    def get_gcp_interface(self, gcp_interface):
+        """Get a single gcp_interface
+
+        :param gcp_interface:
+            The value can be the ID of a gcp_interface or a
+            :class:`~ecl.network.v2.gcp.GCPInterface` instance.
+
+        :returns: One :class:`~ecl.network.v2.gcp.GCPInterface`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_gcp.GCPInterface, gcp_interface)
+
+    def find_gcp_interface(self, name_or_id, ignore_missing=False):
+        """Find a single gcp_interface
+
+        :param name_or_id: The name or ID of a gcp_interface.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.gcp.GCPInterface` or None
+        """
+        return self._find(_gcp.GCPInterface, name_or_id,
+                          ignore_missing=ignore_missing)
