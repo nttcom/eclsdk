@@ -37,6 +37,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     appliance_type = resource2.Body('appliance_type')
     #: Zone of virtual network appliance
     availability_zone = resource2.Body('availability_zone')
+    #: Default gateway of virtual network appliance
+    default_gateway = resource2.Body('default_gateway')
     #: OS monitoring status of virtual network appliance
     os_monitoring_status = resource2.Body('os_monitoring_status')
     #: OS login status of virtual network appliance
