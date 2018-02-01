@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import base
+
 from ecl.virtual_network_appliance import virtual_network_appliance_service
 from ecl import resource2
 
@@ -15,8 +16,6 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
     # Capabilities
     allow_list = True
     allow_get = True
-
-    _query_mapping = resource2.QueryParameters("id", "resource_id")
 
     # Properties
     #: ID of network appliance's operation
@@ -41,3 +40,69 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
     tenant_id = resource2.Body('tenant_id')
     #: resource type of operation.
     resource_type = resource2.Body('resource_type')
+
+    @classmethod
+    def list(cls, session, paginated=False, resource_ids=[]):
+        """This method is a generator which yields resource objects.
+
+        This resource object list generator handles pagination and takes query
+        params for response filtering.
+
+        :param session: The session to use for making this request.
+        :type session: :class:`~ecl.session.Session`
+        :param bool paginated: ``True`` if a GET to this resource returns
+                               a paginated series of responses, or ``False``
+                               if a GET returns only one page of data.
+                               **When paginated is False only one
+                               page of data will be returned regardless
+                               of the API's support of pagination.**
+        :param list resource_ids: These arguments are passed as
+            resource_id query_string.
+
+        :return: A generator of :class:`Resource` objects.
+        :raises: :exc:`~ecl.exceptions.MethodNotSupported` if
+                 :data:`Resource.allow_list` is not set to ``True``.
+        """
+        more_data = True
+
+        list_for_resource_ids = []
+        if resource_ids:
+            for resource_id in resource_ids:
+                list_for_resource_ids.append('resource_id=%s' % resource_id)
+        resource_id_query = '&'.join(list_for_resource_ids)
+
+        if len(list_for_resource_ids) > 0:
+            uri = '%s?%s' % (cls.base_path, resource_id_query)
+        else:
+            uri = cls.base_path
+
+        while more_data:
+            resp = session.get(uri, endpoint_filter=cls.service,
+                               headers={"Accept": "application/json"})
+            resp = resp.json()
+            if cls.resources_key:
+                resp = resp[cls.resources_key]
+
+            if not resp:
+                more_data = False
+
+            # Keep track of how many items we've yielded. If we yielded
+            # less than our limit, we don't need to do an extra request
+            # to get back an empty data set, which acts as a sentinel.
+            yielded = 0
+            new_marker = None
+            for data in resp:
+                # Do not allow keys called "self" through. Glance chose
+                # to name a key "self", so we need to pop it out because
+                # we can't send it through cls.existing and into the
+                # Resource initializer. "self" is already the first
+                # argument and is practically a reserved word.
+                data.pop("self", None)
+
+                value = cls.existing(**data)
+                new_marker = value.id
+                yielded += 1
+                yield value
+
+            if not paginated:
+                return
