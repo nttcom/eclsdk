@@ -42,7 +42,8 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
     resource_type = resource2.Body('resource_type')
 
     @classmethod
-    def list(cls, session, paginated=False, resource_ids=[]):
+    def list(cls, session, paginated=False, resource_ids=[],
+             show_deleted_resources=False):
         """This method is a generator which yields resource objects.
 
         This resource object list generator handles pagination and takes query
@@ -51,30 +52,36 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
         :param session: The session to use for making this request.
         :type session: :class:`~ecl.session.Session`
         :param bool paginated: ``True`` if a GET to this resource returns
-                               a paginated series of responses, or ``False``
-                               if a GET returns only one page of data.
-                               **When paginated is False only one
-                               page of data will be returned regardless
-                               of the API's support of pagination.**
+            a paginated series of responses, or ``False``
+            if a GET returns only one page of data.
+            **When paginated is False only one
+            page of data will be returned regardless
+            of the API's support of pagination.**
         :param list resource_ids: These arguments are passed as
             resource_id query_string.
-
+        :param bool show_deleted_resources:
+            ``True`` when you want to get operations of resources
+                which already resources.
+            ``False`` when you do not want to get operations of resources
+                which already resources.
         :return: A generator of :class:`Resource` objects.
         :raises: :exc:`~ecl.exceptions.MethodNotSupported` if
                  :data:`Resource.allow_list` is not set to ``True``.
         """
         more_data = True
 
+        uri = \
+            cls.base_path + \
+            '?show_deleted_resources=%s' % str(show_deleted_resources).lower()
+
         list_for_resource_ids = []
         if resource_ids:
             for resource_id in resource_ids:
                 list_for_resource_ids.append('resource_id=%s' % resource_id)
-        resource_id_query = '&'.join(list_for_resource_ids)
 
+        resource_id_query = '&'.join(list_for_resource_ids)
         if len(list_for_resource_ids) > 0:
-            uri = '%s?%s' % (cls.base_path, resource_id_query)
-        else:
-            uri = cls.base_path
+            uri += '&%s' % resource_id_query
 
         while more_data:
             resp = session.get(uri, endpoint_filter=cls.service,
