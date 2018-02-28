@@ -45,20 +45,20 @@ class TestContainer(base.BaseFunctionalTest):
 
         # set system metadata
         container = self.conn.object_store.get_container_metadata(self.NAME)
-        self.assertIsNone(container.read_ACL)
-        self.assertIsNone(container.write_ACL)
+        self.assertIsNone(container.read_acl)
+        self.assertIsNone(container.write_acl)
         self.conn.object_store.set_container_metadata(
-            container, read_ACL='.r:*', write_ACL='demo:demo')
+            container, read_acl='.r:*', write_acl='demo:demo')
         container = self.conn.object_store.get_container_metadata(self.NAME)
-        self.assertEqual('.r:*', container.read_ACL)
-        self.assertEqual('demo:demo', container.write_ACL)
+        self.assertEqual('.r:*', container.read_acl)
+        self.assertEqual('demo:demo', container.write_acl)
 
         # update system metadata
         self.conn.object_store.set_container_metadata(
-            container, read_ACL='.r:demo')
+            container, read_acl='.r:demo')
         container = self.conn.object_store.get_container_metadata(self.NAME)
-        self.assertEqual('.r:demo', container.read_ACL)
-        self.assertEqual('demo:demo', container.write_ACL)
+        self.assertEqual('.r:demo', container.read_acl)
+        self.assertEqual('demo:demo', container.write_acl)
 
         # set system metadata and custom metadata
         self.conn.object_store.set_container_metadata(
@@ -67,8 +67,8 @@ class TestContainer(base.BaseFunctionalTest):
         self.assertTrue(container.metadata)
         self.assertIn('k0', container.metadata)
         self.assertEqual('v0', container.metadata['k0'])
-        self.assertEqual('.r:demo', container.read_ACL)
-        self.assertEqual('demo:demo', container.write_ACL)
+        self.assertEqual('.r:demo', container.read_acl)
+        self.assertEqual('demo:demo', container.write_acl)
         self.assertEqual('1234', container.sync_key)
 
         # unset system metadata
@@ -78,8 +78,8 @@ class TestContainer(base.BaseFunctionalTest):
         self.assertTrue(container.metadata)
         self.assertIn('k0', container.metadata)
         self.assertEqual('v0', container.metadata['k0'])
-        self.assertEqual('.r:demo', container.read_ACL)
-        self.assertEqual('demo:demo', container.write_ACL)
+        self.assertEqual('.r:demo', container.read_acl)
+        self.assertEqual('demo:demo', container.write_acl)
         self.assertIsNone(container.sync_key)
 
     def test_custom_metadata(self):
