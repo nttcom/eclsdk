@@ -66,6 +66,7 @@ from ecl.identity import identity_service
 from ecl.image import image_service
 from ecl import module_loader
 from ecl.network import network_service
+from ecl.object_store import object_store_service
 from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
 from ecl.rca import rca_service
@@ -77,7 +78,6 @@ from ecl.telemetry import telemetry_service
 from ecl.database import database_service
 from ecl.dns import dns_service
 from ecl.virtual_network_appliance import virtual_network_appliance_service
-from ecl.object_store import object_store_service
 
 
 _logger = logging.getLogger(__name__)
@@ -108,6 +108,8 @@ class Profile(object):
         self._add_service(network_service.NetworkService(version="v2"))
         self._add_service(sss_service.SssService(version="v1"))
         self._add_service(
+            object_store_service.ObjectStoreService(version="v1"))
+        self._add_service(
             orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
             provider_connectivity_service.ProviderConnectivityService(
@@ -129,7 +131,6 @@ class Profile(object):
         self._add_service(
             virtual_network_appliance_service.VirtualNetworkApplianceService(
                 version="v1"))
-        self._add_service(object_store_service.ObjectStoreService(version="v1"))
 
         # NOTE: The Metric service is not added here as it currently
         # only retrieves the /capabilities API.
