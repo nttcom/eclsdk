@@ -51,6 +51,10 @@ class AzureInterface(NetworkBaseResource):
     allow_list = True
     allow_get = True
 
+    _query_mapping = resource2.QueryParameters(
+        "azure_gw_id",
+    )
+
     azure_gw_id = resource2.Body("azure_gw_id")
     description = resource2.Body("description")
     id = resource2.Body("id")
