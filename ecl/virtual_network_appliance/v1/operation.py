@@ -43,8 +43,8 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
 
     @classmethod
     def list(cls, session, paginated=False, resource_ids=[],
-             show_deleted_resources=False):
-        """This method is a generator which yields resource objects.
+             no_deleted=True, latest=False):
+        """This method is a generator which yields operation objects.
 
         This resource object list generator handles pagination and takes query
         params for response filtering.
@@ -59,12 +59,13 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
             of the API's support of pagination.**
         :param list resource_ids: These arguments are passed as
             resource_id query_string.
-        :param bool show_deleted_resources:
-            ``True`` when you want to get operations of resources
-                which already resources.
-            ``False`` when you do not want to get operations of resources
-                which already resources.
-        :return: A generator of :class:`Resource` objects.
+        :param bool no_deleted:
+            ``True`` You can get operations for only existing resources.
+            ``False`` You can get operations for all resources even removed.
+        :param bool latest:
+            ``True`` You can get only the latest operations for each resource.
+            ``False`` You can get all of operations for each resource.
+        :return: A generator of :class:`Operation` objects.
         :raises: :exc:`~ecl.exceptions.MethodNotSupported` if
                  :data:`Resource.allow_list` is not set to ``True``.
         """
@@ -72,7 +73,8 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
 
         uri = \
             cls.base_path + \
-            '?show_deleted_resources=%s' % str(show_deleted_resources).lower()
+            '?no_deleted=%s&latest=%s' % (str(no_deleted).lower(),
+                                          str(latest).lower())
 
         list_for_resource_ids = []
         if resource_ids:
