@@ -54,7 +54,7 @@ class Proxy(proxy.BaseProxy):
         :rtype: A generator of
             :class:`~ecl.object_store.v1.container.Container` objects.
         """
-        return _container.Container.list(self.session, **query)
+        return list(_container.Container.list(self.session, **query))
 
     def create_container(self, **attrs):
         """Create a new container from attributes
@@ -96,7 +96,10 @@ class Proxy(proxy.BaseProxy):
         :raises: :class:`~ecl.exceptions.ResourceNotFound`
                  when no resource can be found.
         """
-        return self._head(_container.Container, container)
+        container = self._head(_container.Container, container)
+        container.count = container.object_count
+        container.size = container.bytes_used
+        return container
 
     def set_container_metadata(self, container, **metadata):
         """Set metadata for a container.
@@ -152,9 +155,11 @@ class Proxy(proxy.BaseProxy):
         objs = _obj.Object.list(self.session,
                                 path_args={"container": container.name},
                                 **query)
-        for obj in objs:
-            obj.container = container.name
-            yield obj
+        objs = list(objs)
+        for i in range(len(objs)):
+            objs[i].container = container.name
+
+        return objs
 
     def _get_container_name(self, obj, container):
         if isinstance(obj, _obj.Object):

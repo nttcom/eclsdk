@@ -73,7 +73,7 @@ class TestObject(base.BaseFunctionalTest):
 
         # set system metadata and custom metadata
         self.conn.object_store.set_object_metadata(
-            obj, k0='v0', delete_after=100)
+            obj, k0='v0', delete_after='100')
         obj = self.conn.object_store.get_object_metadata(obj)
         self.assertIn('k0', obj.metadata)
         self.assertEqual('v0', obj.metadata['k0'])
