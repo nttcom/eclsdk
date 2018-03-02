@@ -203,19 +203,27 @@ class Proxy(proxy2.BaseProxy):
             self.get_virtual_network_appliance(virtual_network_appliance)
         return virtual_network_appliance.reset_password(self.session)
 
-    def operations(self, resource_ids=[]):
+    def operations(self, resource_ids=[], no_deleted=True, latest=False):
         """List operations.
 
         :param resource_ids: The list of resouce(appliance) IDs.
             If user specify this parameter,
             operations that has resource_id attribute is included in
             this list will be returned.
+        :param bool no_deleted:
+            ``True`` You can get operations for only existing resources.
+            ``False`` You can get operations for all resources even removed.
+        :param bool latest:
+            ``True`` You can get only the latest operations for each resource.
+            ``False`` You can get all of operations for each resource.
         :returns: A list of operation objects
         :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
             operation.Operation`
         """
         return list(self._list(_operation.Operation, paginated=False,
-                               resource_ids=resource_ids))
+                               resource_ids=resource_ids,
+                               no_deleted=no_deleted,
+                               latest=latest))
 
     def get_operation(
             self, operation_id):
