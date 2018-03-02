@@ -31,6 +31,7 @@ from ecl.network.v2 import vpn as _vpn
 from ecl.network.v2 import interdc as _interdc
 from ecl.network.v2 import aws as _aws
 from ecl.network.v2 import tenant_connection as _tenant_connection
+from ecl.network.v2 import azure as _azure
 
 from ecl import proxy2
 
@@ -1282,7 +1283,7 @@ class Proxy(proxy2.BaseProxy):
                                  gw_vipv6=None, interdc_gw_id=None,
                                  internet_gw_id=None,
                                  vpn_gw_id=None, aws_gw_id=None,
-                                 tenant_id=None):
+                                 azure_gw_id=None, tenant_id=None):
         """Create a Gateway Interface from parameters
 
         :param string service_type: service type of gateway interface to create
@@ -1332,6 +1333,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
             body.update({"aws_gw_id": aws_gw_id})
+        if azure_gw_id:
+            body.update({"azure_gw_id": azure_gw_id})
         if tenant_id:
             body.update({"tenant_id": tenant_id})
 
@@ -1406,7 +1409,7 @@ class Proxy(proxy2.BaseProxy):
     def create_static_route(self, service_type, destination, nexthop,
                             name=None, description=None,interdc_gw_id=None,
                             internet_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
-                            tenant_id=None):
+                            azure_gw_id=None, tenant_id=None):
         """Create a Static Route
 
         :param service_type: service type of static route to create
@@ -1439,6 +1442,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
             body.update({"aws_gw_id": aws_gw_id})
+        if azure_gw_id:
+            body.update({"azure_gw_id": azure_gw_id})
         if tenant_id:
             body.update({"tenant_id": tenant_id})
 
@@ -2259,3 +2264,113 @@ class Proxy(proxy2.BaseProxy):
             tenant_connection = self._get_resource(
                 _tenant_connection.TenantConnection, tenant_connection)
         return tenant_connection.execute(self.session)
+
+    def azure_services(self, **params):
+        """Return a list of azure_services
+
+        :param params: The parameters as query string
+                       to get azure_services by specified condition.
+        :returns: A list of azure_services objects
+        :rtype: list of :class:`~ecl.network.v2.azure.AzureService`
+        """
+        return list(self._list(_azure.AzureService, paginated=False, **params))
+
+    def get_azure_service(self, azure_service):
+        """Get a single azure_service
+
+        :param azure_service:
+            The value can be the ID of a azure_service or a
+            :class:`~ecl.network.v2.azure.AzureService` instance.
+
+        :returns: One :class:`~ecl.network.v2.azure.AzureService`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_azure.AzureService, azure_service)
+
+    def find_azure_service(self, name_or_id, ignore_missing=False):
+        """Find a single azure_service
+
+        :param name_or_id: The name or ID of a azure_service.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.azure.AzureService` or None
+        """
+        return self._find(_azure.AzureService, name_or_id,
+                          ignore_missing=ignore_missing)
+
+    def azure_gateways(self, **params):
+        """Return a list of azure_gateways
+        :param params: The parameters as query string
+                       to get azure_gateways by specified condition.
+        :returns: A list of azure_gateways objects
+        :rtype: list of :class:`~ecl.network.v2.azure.AzureGateway`
+        """
+        return list(self._list(_azure.AzureGateway, paginated=False, **params))
+
+    def get_azure_gateway(self, azure_gateway):
+        """Get a single azure_gateway
+
+        :param azure_gateway:
+            The value can be the ID of a azure_gateway or a
+            :class:`~ecl.network.v2.azure.AzureGateway` instance.
+
+        :returns: One :class:`~ecl.network.v2.azure.AzureGateway`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_azure.AzureGateway, azure_gateway)
+
+    def find_azure_gateway(self, name_or_id, ignore_missing=False):
+        """Find a single azure_gateway
+
+        :param name_or_id: The name or ID of a azure_gateway.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.azure.AzureGateway` or None
+        """
+        return self._find(_azure.AzureGateway, name_or_id,
+                          ignore_missing=ignore_missing)
+
+    def azure_interfaces(self, **params):
+        """Return a list of azure_interfaces
+
+        :param params: The parameters as query string
+                       to get azure_interfaces by specified condition.
+        :returns: A list of azure_interfaces objects
+        :rtype: list of :class:`~ecl.network.v2.azure.AzureInterface`
+        """
+        return list(self._list(_azure.AzureInterface, paginated=False, **params))
+
+    def get_azure_interface(self, azure_interface):
+        """Get a single azure_interface
+
+        :param azure_interface:
+            The value can be the ID of a azure_interface or a
+            :class:`~ecl.network.v2.azure.AzureInterface` instance.
+
+        :returns: One :class:`~ecl.network.v2.azure.AzureInterface`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_azure.AzureInterface, azure_interface)
+
+    def find_azure_interface(self, name_or_id, ignore_missing=False):
+        """Find a single azure_interface
+
+        :param name_or_id: The name or ID of a azure_interface.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.azure.AzureInterface` or None
+        """
+        return self._find(_azure.AzureInterface, name_or_id,
+                          ignore_missing=ignore_missing)
