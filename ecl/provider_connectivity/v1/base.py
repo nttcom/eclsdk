@@ -3,7 +3,7 @@
 from ecl import resource2
 
 
-class TenantConnectionBaseResource(resource2.Resource):
+class ProviderConnectivityBaseResource(resource2.Resource):
 
     @property
     def name_or_id(self):

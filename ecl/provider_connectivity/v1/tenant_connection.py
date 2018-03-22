@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from ecl.provider_connectivity import provider_connectivity_service
-from ecl.provider_connectivity.v1.base import TenantConnectionBaseResource
+from ecl.provider_connectivity.v1.base import ProviderConnectivityBaseResource
 from ecl import resource2
 
 
-class TenantConnection(TenantConnectionBaseResource):
+class TenantConnection(ProviderConnectivityBaseResource):
     resources_key = "tenant_connections"
     resource_key = "tenant_connection"
     service = provider_connectivity_service.ProviderConnectivityService("v2.0")
