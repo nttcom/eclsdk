@@ -24,6 +24,7 @@ class StaticRoute(NetworkBaseResource):
         "name", "interdc_gw_id", "internet_gw_id",
         "nexthop", "service_type", "status", "tenant_id",
         "vpn_gw_id", "sort_key", "sort_dir", "aws_gw_id",
+        "azure_gw_id",
     )
 
     description = resource2.Body("description")
