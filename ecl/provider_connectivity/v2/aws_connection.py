@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from ecl.provider_connectivity import provider_connectivity_service
+from ecl.provider_connectivity.v2.base import ProviderConnectivityBaseResource
 from ecl import resource2
 
 
-class AWSConnection(resource2.Resource):
+class AWSConnection(ProviderConnectivityBaseResource):
     resources_key = "aws_connections"
     resource_key = "aws_connection"
     service = provider_connectivity_service.ProviderConnectivityService("v2.0")

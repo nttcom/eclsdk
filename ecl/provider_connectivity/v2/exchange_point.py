@@ -17,3 +17,5 @@ class ExchangePoint(resource2.Resource):
     id = resource2.Body('id')
     #: Pair of location name of AWS and ECL2.0.
     location_names = resource2.Body('location_names')
+    #: Name of service_type
+    service_type = resource2.Body('service_type')
