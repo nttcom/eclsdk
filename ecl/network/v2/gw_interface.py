@@ -49,6 +49,7 @@ class GatewayInterface(NetworkBaseResource):
     tenant_id = resource2.Body("tenant_id")
     vpn_gw_id = resource2.Body("vpn_gw_id")
     aws_gw_id = resource2.Body("aws_gw_id")
+    gcp_gw_id = resource2.Body("gcp_gw_id")
     azure_gw_id = resource2.Body("azure_gw_id")
     vrid = resource2.Body("vrid")
 
