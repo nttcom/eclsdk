@@ -14,22 +14,28 @@ class AddressAssignment(resource2.Resource):
     service = provider_connectivity_service.ProviderConnectivityService("v2.0")
     base_path = '/' + service.version + \
                 '/tenant_connection_requests/' \
-                '%(tenant_connection_request_id)s/address_assignment'
+                '%(tenant_connection_request_id)s/address_assignments'
 
     # capabilities
     allow_list = True
-    
+
+    #: tenant_connection_request unique ID.
     tenant_connection_request_id = resource2.URI(
                                             "tenant_connection_request_id")
 
+    #: tenant_connection unique ID.
     tenant_connection_id = resource2.Body("tenant_connection_id")
 
+    #: Network unique ID
     network_id = resource2.Body("network_id")
 
+    #: mac address assigned with port
     mac_address = resource2.Body("mac_address")
 
+    #: List of fixes IP addresses assign to port.
     fixed_ips = resource2.Body("fixed_ips")
-  
+
+    #: Allowed address pairs
     allowed_address_pairs = resource2.Body("allowed_address_pairs")
 
     @staticmethod
@@ -69,6 +75,7 @@ class ICCNetwork(network.Network):
                 '/tenant_connection_requests/' \
                 '%(tenant_connection_request_id)s/network'
 
+    # Capabilities
     allow_list = False
     allow_create = False
     allow_delete = False
@@ -95,6 +102,7 @@ class ICCSubnet(subnet.Subnet):
     tenant_connection_request_id = resource2.URI(
                                             "tenant_connection_request_id")
 
+    # Capabilities
     allow_list = True
     allow_create = False
     allow_delete = False

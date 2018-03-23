@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from ecl.provider_connectivity import provider_connectivity_service
-from ecl.provider_connectivity.v1.base import TenantConnectionBaseResource
+from ecl.provider_connectivity.v1.base import ProviderConnectivityBaseResource
 from ecl import resource2
 
 
-class TenantConnectionRequest(TenantConnectionBaseResource):
+class TenantConnectionRequest(ProviderConnectivityBaseResource):
     resources_key = "tenant_connection_requests"
     resource_key = "tenant_connection_request"
     service = provider_connectivity_service.ProviderConnectivityService("v2.0")
@@ -24,7 +24,7 @@ class TenantConnectionRequest(TenantConnectionBaseResource):
 
     id = resource2.Body("id")
 
-    #: Name of tenant_connection_request.5
+    #: Name of tenant_connection_request.
     name = resource2.Body('name')
 
     #: Description
@@ -36,7 +36,8 @@ class TenantConnectionRequest(TenantConnectionBaseResource):
     #: Tags
     tags = resource2.Body('tags')
 
-    #: Keystone User ID who can access to the owner tenant of tenant_connection_request.
+    #: Keystone User ID who can access to the owner tenant of
+    # tenant_connection_request.
     keystone_user_id = resource2.Body('keystone_user_id')
 
     #: Tenant ID of the owner.

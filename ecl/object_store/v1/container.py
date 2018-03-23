@@ -21,8 +21,8 @@ class Container(_base.BaseResource):
         "content_type": "content-type",
         "is_content_type_detected": "x-detect-content-type",
         "versions_location": "x-versions-location",
-        "read_ACL": "x-container-read",
-        "write_ACL": "x-container-write",
+        "read_acl": "x-container-read",
+        "write_acl": "x-container-write",
         "sync_to": "x-container-sync-to",
         "sync_key": "x-container-sync-key"
     }
@@ -51,7 +51,7 @@ class Container(_base.BaseResource):
     object_count = resource.header("x-container-object-count", type=int)
     #: The count of bytes used in total.
     bytes_used = resource.header("x-container-bytes-used", type=int)
-    #: The timestamp of the transaction.
+    #: The timestamp of the transaction. (date created)
     timestamp = resource.header("x-timestamp")
 
     # Request headers (when id=None)
@@ -65,10 +65,10 @@ class Container(_base.BaseResource):
     # Request headers (when id=name)
     #: The ACL that grants read access. If not set, this header is not
     #: returned by this operation.
-    read_ACL = resource.header("x-container-read")
+    read_acl = resource.header("x-container-read")
     #: The ACL that grants write access. If not set, this header is not
     #: returned by this operation.
-    write_ACL = resource.header("x-container-write")
+    write_acl = resource.header("x-container-write")
     #: The destination for container synchronization. If not set,
     #: this header is not returned by this operation.
     sync_to = resource.header("x-container-sync-to")

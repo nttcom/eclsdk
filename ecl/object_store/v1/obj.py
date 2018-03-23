@@ -127,7 +127,7 @@ class Object(_base.BaseResource):
     #: Specifies the number of seconds after which the object is
     #: removed. Internally, the Object Storage system stores this
     #: value in the X-Delete-At metadata item.
-    delete_after = resource.header("x-delete-after", type=int)
+    delete_after = resource.header("x-delete-after")
     #: If set, the time when the object will be deleted by the system
     #: in the format of a UNIX Epoch timestamp.
     #: If not set, this header is not returned by this operation.
