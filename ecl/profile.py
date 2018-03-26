@@ -113,7 +113,7 @@ class Profile(object):
             orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
             provider_connectivity_service.ProviderConnectivityService(
-                version="v2"))
+                version="v1"))
         self._add_service(telemetry_service.TelemetryService(version="v2"))
         self._add_service(block_store_service.BlockStoreService(version="v2"))
         self._add_service(storage_service.StorageService(version="v1"))
