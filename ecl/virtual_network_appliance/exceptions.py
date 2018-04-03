@@ -7,7 +7,7 @@ from ecl import exceptions
 
 class HttpException(exceptions.HttpException):
 
-    def _get_exception_message(self):
+    def _get_exception_message(self, message=None):
         try:
             content = json.loads(self.response._content)
 
@@ -28,6 +28,9 @@ class HttpException(exceptions.HttpException):
                 return content['cause']
         except:
             pass
+
+        if message:
+            return message
 
         # In case parse failed.
         return 'Unknown Exception'

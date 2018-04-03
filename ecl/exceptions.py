@@ -61,9 +61,8 @@ class HttpException(SDKException):
         self.url = url
         self.method = method
         self.http_status = http_status
-
         if self.response is not None:
-            self.message = self._get_exception_message()
+            self.message = self._get_exception_message(message=self.message)
 
     def _is_compute_form_error(self, content):
         try:
@@ -72,7 +71,7 @@ class HttpException(SDKException):
         except:
             return False
 
-    def _get_exception_message(self):
+    def _get_exception_message(self, message=None):
         try:
             content = json.loads(self.response._content)
 
@@ -97,6 +96,9 @@ class HttpException(SDKException):
                 return content['message']
         except:
             pass
+
+        if message:
+            return message
 
         # In case parse failed.
         return 'Unknown Exception'
