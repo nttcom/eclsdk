@@ -24,7 +24,18 @@ class Container(_base.BaseResource):
         "read_acl": "x-container-read",
         "write_acl": "x-container-write",
         "sync_to": "x-container-sync-to",
-        "sync_key": "x-container-sync-key"
+        "sync_key": "x-container-sync-key",
+        "meta_name": "X-Container-Meta-name",
+        "meta_access_control_allow_origin":
+            "X-Container-Meta-Access-Control-Allow-Origin",
+        "meta_access_control_max_age":
+            "X-Container-Meta-Access-Control-Max-Age",
+        "meta_access_control_expose_headers":
+            "X-Container-Meta-Access-Control-Expose-Headers",
+        "meta_quota_bytes": "X-Container-Meta-Quota-Bytes",
+        "meta_quota_count": "X-Container-Meta-Quota-Count",
+        "meta_temp_url_key": "X-Container-Meta-Temp-URL-Key",
+        "meta_temp_url_key_2": "X-Container-Meta-Temp-URL-Key-2",
     }
 
     base_path = "/"
@@ -91,6 +102,35 @@ class Container(_base.BaseResource):
     #: "If-None-Match: \*" header to query whether the server already
     #: has a copy of the object before any data is sent.
     if_none_match = resource.header("if-none-match")
+    #: The container metadata, where name is the name of metadata item.
+    #: You must specify an X-Container-Meta-name header for each metadata item
+    #: (for each name ) that you want to add or update.
+    meta_name = resource.header("X-Container-Meta-name")
+    #: Originating URLs allowed to make cross-origin requests (CORS),
+    #: separated by spaces.
+    meta_access_control_allow_origin = resource.header(
+        "X-Container-Meta-Access-Control-Allow-Origin")
+    #: Maximum time for the origin to hold the preflight results.
+    meta_access_control_max_age = resource.header(
+        "X-Container-Meta-Access-Control-Max-Age")
+    #: Headers the Object Storage service exposes to the browser (technically,
+    #: through the user-agent setting),
+    #: in the request response, separated by spaces.
+    #: By default the Object Storage service returns the following headers
+    meta_access_control_expose_headers = resource.header(
+        "X-Container-Meta-Access-Control-Expose-Headers")
+    #: Sets maximum size of the container, in bytes.
+    #: Typically these values are set by an administrator.
+    meta_quota_bytes = resource.header("X-Container-Meta-Quota-Bytes")
+    #: Sets maximum object count of the container.
+    #: Typically these values are set by an administrator.
+    meta_quota_count = resource.header("X-Container-Meta-Quota-Count")
+    #: The secret key value for temporary URLs.
+    meta_temp_url_key = resource.header("X-Container-Meta-Temp-URL-Key")
+    #: A second secret key value for temporary URLs.
+    #: The second key enables you to rotate keys by having two active keys
+    #: at the same time.
+    meta_temp_url_key_2 = resource.header("X-Container-Meta-Temp-URL-Key-2")
 
     @classmethod
     def create_by_id(cls, session, attrs, resource_id=None):
