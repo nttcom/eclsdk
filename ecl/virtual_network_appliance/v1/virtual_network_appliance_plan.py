@@ -40,3 +40,5 @@ class VirtualNetworkAppliancePlan(base.VirtualNetworkApplianceBaseResource):
     max_number_of_aap = resource2.Body('max_number_of_aap')
     #: License information of virtual network appliance plan.
     licenses = resource2.Body('licenses')
+    #: Available zone/group information of virtual network appliance plan.
+    availability_zones = resource2.Body('availability_zones')
