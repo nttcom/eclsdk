@@ -52,13 +52,3 @@ class GCPConnection(ProviderConnectivityBaseResource):
     gcp_interface_id = resource2.Body('gcp_interface_id')
     #: Name of Region where customer's cloud router exist.
     gcp_region_name = resource2.Body('gcp_region_name')
-    #: Name of primary Interconnect.
-    primary_interconnect_name = resource2.Body('primary_interconnect_name')
-    #: Name of primary Interconnect Attachment.
-    primary_interconnect_attachment_name = \
-        resource2.Body('primary_interconnect_attachment_name')
-    #: Name of secondary Interconnect.
-    secondary_interconnect_name = resource2.Body('secondary_interconnect_name')
-    #: Name of secondary Interconnect Attachment.
-    secondary_interconnect_attachment_name = \
-        resource2.Body('secondary_interconnect_attachment_name')
