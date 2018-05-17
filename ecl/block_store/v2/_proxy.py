@@ -261,15 +261,26 @@ class Proxy(proxy.BaseProxy):
         return self._get(_limit.Limit, None)
 
     def update_metadata(self, volume_id, **metadata):
+        """
+        Updates metadata items by key for a specified volume.
 
-        return self._update(_metadata.Metadata, None,
-                            path_args={"volume_id": volume_id},
-                            **metadata)
+        :param volume_id: volume id to update metadata
+        :param metadata: metadata to updata
+        :return: :class:`~ecl.block_store.v2.metadata.Metadata
+        """
+        meta = _metadata.Metadata()
+        return meta.update(self.session, volume_id, **metadata)
 
     def create_metadata(self, volume_id, **metadata):
-        return self._create(_metadata.Metadata,
-                            path_args={"volume_id": volume_id},
-                            **metadata)
+        """
+        Creates or replaces metadata items for a specified volume.
+        
+        :param volume_id: volume id to create metadata
+        :param metadata: metadata to create
+        :return: :class:`~ecl.block_store.v2.metadata.Metadata
+        """
+        meta = _metadata.Metadata()
+        return meta.create(self.session, volume_id, **metadata)
 
     def find_volume(self, name_or_id, ignore_missing=False):
         """Find a single volume

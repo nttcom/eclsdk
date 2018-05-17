@@ -14,3 +14,36 @@ class Metadata(resource.Resource):
     allow_list = True
     allow_create = True
     allow_update = True
+
+
+    def update(self, session, volume_id, **metadata):
+        uri = self.base_path % {"volume_id": volume_id}
+        body = {"metadata": metadata}
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body,
+            headers={"Accept": ""}
+        )
+
+        meta = resp.json().get('metadata')
+        for key in meta.keys():
+            self.__setattr__(key, meta[key])
+
+        return self
+
+    def create(self, session, volume_id, **metadata):
+        uri = self.base_path % {"volume_id": volume_id}
+        body = {"metadata": metadata}
+        resp = session.put(
+            uri,
+            endpoint_filter=self.service,
+            json=body,
+            headers={"Accept": ""}
+        )
+
+        meta = resp.json().get('metadata')
+        for key in meta.keys():
+            self.__setattr__(key, meta[key])
+
+        return self
