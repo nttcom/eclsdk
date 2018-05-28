@@ -14,6 +14,7 @@ from ecl.dedicated_hypervisor.v1 import license as _license
 from ecl.dedicated_hypervisor.v1 import license_type as _license_type
 from ecl.dedicated_hypervisor.v1 import server as _server
 from ecl.dedicated_hypervisor.v1 import usage as _usage
+from ecl.dedicated_hypervisor.v1 import vcf as _vcf
 from ecl import proxy2
 
 
@@ -218,3 +219,11 @@ class Proxy(proxy2.BaseProxy):
         """
         server = _server.ServerAction()
         return server.get_add_license_job(self.session, server_id, job_id)
+
+
+    def sddcs(self, **query):
+        return list(self._list(_vcf.Sddc, **query))
+
+
+    def delete_sddc(self, sddc_id, ignore_missing=False):
+        return self._delete(_vcf.Sddc, sddc_id, ignore_missing=ignore_missing)
