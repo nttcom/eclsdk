@@ -24,17 +24,19 @@ class Proxy(proxy2.BaseProxy):
             paginated=False, **params))
 
     def get_virtual_network_appliance_plan(
-            self, virtual_network_appliance_plan_id):
+            self, virtual_network_appliance_plan_id, **params):
         """Show virtual network appliance plan.
 
         :param string virtual_network_appliance_plan_id:
             ID of specified virtual network appliance plan.
+        :param params: The parameters as query string format
+            to get a network appliance plan.
         :return: :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
         """
         return self._get(
             _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
-            virtual_network_appliance_plan_id)
+            virtual_network_appliance_plan_id, True, **params)
 
     def virtual_network_appliances(self, **params):
         """List virtual network appliances.
