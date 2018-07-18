@@ -36,7 +36,9 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(
             _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
-            virtual_network_appliance_plan_id, True, **params)
+            virtual_network_appliance_plan_id,
+            **params
+        )
 
     def virtual_network_appliances(self, **params):
         """List virtual network appliances.
