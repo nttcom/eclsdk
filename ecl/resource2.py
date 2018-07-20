@@ -572,13 +572,17 @@ class Resource(object):
         self._translate_response(response)
         return self
 
-    def get(self, session, requires_id=True):
+    def get(self, session, requires_id=True, **params):
         """Get a remote resource based on this instance.
 
         :param session: The session to use for making this request.
         :type session: :class:`~ecl.session.Session`
         :param boolean requires_id: A boolean indicating whether resource ID
                                     should be part of the requested URI.
+        :param dict params: Parameters to be passed onto the
+                            :meth:`~ecl.session.Session.get` method.
+                            These are used as query parameters
+                            with GET request.
         :return: This :class:`Resource` instance.
         :raises: :exc:`~ecl.exceptions.MethodNotSupported` if
                  :data:`Resource.allow_get` is not set to ``True``.
@@ -587,7 +591,10 @@ class Resource(object):
             raise exceptions.MethodNotSupported(self, "get")
 
         request = self._prepare_request(requires_id=requires_id)
-        response = session.get(request.uri, endpoint_filter=self.service)
+        query_params = self._query_mapping._transpose(params)
+        response = session.get(request.uri,
+                               endpoint_filter=self.service,
+                               params=query_params)
 
         self._translate_response(response)
         return self
