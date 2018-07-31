@@ -28,9 +28,17 @@ class Proxy(proxy2.BaseProxy):
         :rtype: :class:`~ecl.resource2.Resource`
         """
         res = self._get_resource(resource_type, value)
+        if not res.allow_get:
+            raise exceptions.MethodNotSupported(res, "get")
 
         try:
-            return res.get(self.session, requires_id=requires_id, **params)
+            request = res._prepare_request(requires_id=requires_id)
+            query_params = res._query_mapping._transpose(params)
+            response = self.session.get(request.uri,
+                                        endpoint_filter=res.service,
+                                        params=query_params)
+            res._translate_response(response)
+            return res
         except exceptions.NotFoundException as e:
             raise exceptions.ResourceNotFound(
                 message="No %s found for %s" %
