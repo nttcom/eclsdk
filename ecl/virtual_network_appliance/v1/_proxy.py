@@ -5,10 +5,47 @@ from ecl.virtual_network_appliance.v1 \
 from ecl.virtual_network_appliance.v1 \
     import virtual_network_appliance_plan as _virtual_network_appliance_plan
 from ecl.virtual_network_appliance.v1 import operation as _operation
+from ecl import exceptions
 from ecl import proxy2
 
 
 class Proxy(proxy2.BaseProxy):
+
+    @proxy2._check_resource(strict=False)
+    def _get(self, resource_type, value=None, requires_id=True, **params):
+        """Get a resource
+
+        :param resource_type: The type of resource to get.
+        :type resource_type: :class:`~ecl.resource2.Resource`
+        :param value: The value to get. Can be either the ID of a
+                      resource or a :class:`~ecl.resource2.Resource`
+                      subclass.
+        :param dict params: Parameters to be passed onto the
+                            :meth:`~ecl.resource2.Resource.get` method.
+                            These are used as query parameters
+                            with GET request.
+        :returns: The result of the ``get``
+        :rtype: :class:`~ecl.resource2.Resource`
+        """
+        res = self._get_resource(resource_type, value)
+        if not res.allow_get:
+            raise exceptions.MethodNotSupported(res, "get")
+
+        try:
+            request = res._prepare_request(requires_id=requires_id)
+            query_params = res._query_mapping._transpose(params)
+            response = self.session.get(request.uri,
+                                        endpoint_filter=res.service,
+                                        params=query_params)
+            res._translate_response(response)
+            return res
+        except exceptions.NotFoundException as e:
+            raise exceptions.ResourceNotFound(
+                message="No %s found for %s" %
+                        (resource_type.__name__, value),
+                details=e.details, response=e.response,
+                request_id=e.request_id, url=e.url, method=e.method,
+                http_status=e.http_status, cause=e.cause)
 
     def virtual_network_appliance_plans(self, **params):
         """List virtual network appliance plans.
@@ -24,17 +61,21 @@ class Proxy(proxy2.BaseProxy):
             paginated=False, **params))
 
     def get_virtual_network_appliance_plan(
-            self, virtual_network_appliance_plan_id):
+            self, virtual_network_appliance_plan_id, **params):
         """Show virtual network appliance plan.
 
         :param string virtual_network_appliance_plan_id:
             ID of specified virtual network appliance plan.
+        :param params: The parameters as query string format
+            to get a network appliance plan.
         :return: :class:`~ecl.virtual_network_appliance.v1.
             virtual_network_appliance_plan.VirtualNetworkAppliancePlan`
         """
         return self._get(
             _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
-            virtual_network_appliance_plan_id)
+            virtual_network_appliance_plan_id,
+            **params
+        )
 
     def virtual_network_appliances(self, **params):
         """List virtual network appliances.
