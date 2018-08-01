@@ -18,6 +18,19 @@ class TenantConnectionRequest(ProviderConnectivityBaseResource):
     allow_update = True
     allow_delete = True
 
+    # query mappings
+    _query_mapping = resource2.QueryParameters(
+        'tenant_connection_request_id',
+        'status',
+        'name',
+        'tenant_id',
+        'name_other',
+        'tenant_id_other',
+        'network_id',
+        'approval_request_id',
+        'keystone_user_id',
+    )
+
     #: tenant_connection_request unique ID.
     tenant_connection_request_id = resource2.Body(
         'tenant_connection_request_id', alternate_id=True)
