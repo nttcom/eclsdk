@@ -18,7 +18,7 @@ from ecl import exceptions
 class Zone(resource2.Resource):
     resource_key = None
     resources_key = "zones"
-    base_path = '/zones'
+    base_path = 'v2/zones'
     service = dns_service.DnsService()
 
     # Capabilities

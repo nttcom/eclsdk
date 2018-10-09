@@ -18,7 +18,7 @@ from ecl import exceptions
 class RecordSet(resource2.Resource):
     resource_key = None
     resources_key = "recordsets"
-    base_path = '/zones/%(zone_id)s/recordsets'
+    base_path = 'v2/zones/%(zone_id)s/recordsets'
     service = dns_service.DnsService()
 
     # Capabilities
