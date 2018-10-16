@@ -152,7 +152,9 @@ class Proxy(proxy2.BaseProxy):
             self,
             virtual_network_appliance_plan_id,
             interfaces,
-            name=None, description=None,
+            name=None,
+            description=None,
+            tags=None,
             default_gateway=None,
             availability_zone=None):
         """Create virtual network appliance.
@@ -162,6 +164,7 @@ class Proxy(proxy2.BaseProxy):
         :param dict interfaces: Interface definition dictionary.
         :param string name: Name of virtual network appliance.
         :param string description: Description of virtual network appliance.
+        :param dict tags: Tags of virtual network appliance.
         :param string default_gateway: Default gateway address for
             virtual network appliance.
         :param string availability_zone: Availability Zone
@@ -177,6 +180,8 @@ class Proxy(proxy2.BaseProxy):
             body["name"] = name
         if description:
             body["description"] = description
+        if tags:
+            body["tags"] = tags
         if default_gateway:
             body["default_gateway"] = default_gateway
         if availability_zone:
