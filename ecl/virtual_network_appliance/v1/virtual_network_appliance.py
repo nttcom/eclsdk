@@ -33,6 +33,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     name = resource2.Body('name')
     #: Description of virtual network appliance
     description = resource2.Body('description')
+    #: Tags of virtual network appliance
+    tags = resource2.Body('tags')
     #: Appliance type of virtual network appliance
     appliance_type = resource2.Body('appliance_type')
     #: Zone of virtual network appliance
