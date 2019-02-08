@@ -144,7 +144,7 @@ class Proxy(proxy2.BaseProxy):
         # TODO: If zone instance is used...
         return self._get(_recordset.RecordSet, recordset_id, zone_id=zone_id)
 
-    def find_recordset(self, zone_id, name_or_id, ignore_missing=False):
+    def find_recordset(self, zone_id, name_or_id, ignore_missing=False, paginated=False):
         """
         Find a recordset by its name or ID.
         :param name_or_id: Name or ID for this recordset
@@ -152,7 +152,7 @@ class Proxy(proxy2.BaseProxy):
                      :class:`~ecl.exceptions.ResourceNotFound`when no
                      resource can be found.
         """
-        return self._find(_recordset.RecordSet, name_or_id, zone_id=zone_id, ignore_missing=ignore_missing)
+        return self._find(_recordset.RecordSet, name_or_id, zone_id=zone_id, ignore_missing=ignore_missing, paginated=paginated)
 
     def create_recordset(self, zone_id, name=None, description=None,
                          type=None, ttl=None, records=None):
