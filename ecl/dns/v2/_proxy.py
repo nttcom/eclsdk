@@ -124,13 +124,20 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(name_server.NameServer, zone_id=zone_id))
 
-    def recordsets(self, zone_id):
+    def recordsets(self, zone_id, limit, marker):
         """
         This lists all recordsets in a zone.
         :param zone_id: ID for the zone
+        :param limit:Requests a page size of items. Returns a number of items up to a limit value. Use the limit parameter to make an initial limited request and use the ID of the last-seen item from the response as the marker parameter value in a subsequent limited request.
+        :param marker: The ID of the last-seen item. Use the limit parameter to make an initial limited request and use the ID of the last-seen item from the response as the marker parameter value in a subsequent limited request.
         :return: One list of :class:`~ecl.dns.v2.recordsets.Recordsets`
         """
-        return list(self._list(_recordset.RecordSet, zone_id=zone_id))
+        attrs = {}
+        attrs["zone_id"] = zone_id
+        attrs["limit"] = limit
+        attrs["marker"] = marker
+
+        return list(self._list(_recordset.RecordSet, **attrs))
 
     def get_recordset(self, zone_id, recordset_id):
         """
