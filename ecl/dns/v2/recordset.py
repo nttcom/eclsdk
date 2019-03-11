@@ -28,6 +28,8 @@ class RecordSet(resource2.Resource):
     allow_list = True
     allow_get = True
 
+    _query_mapping = resource2.QueryParameters("limit", "marker")
+
     # Properties
     #: ID for the resource
     id = resource2.Body('id')
