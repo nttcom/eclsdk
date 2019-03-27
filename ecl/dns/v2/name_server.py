@@ -18,7 +18,7 @@ from ecl import exceptions
 class NameServer(resource2.Resource):
     resource_key = None
     resources_key = "nameservers"
-    base_path = '/zones/%(zone_id)s/nameservers'
+    base_path = '/v2/zones/%(zone_id)s/nameservers'
     service = dns_service.DnsService()
 
     # Capabilities
