@@ -24,7 +24,7 @@ class StaticRoute(NetworkBaseResource):
         "name", "interdc_gw_id", "internet_gw_id",
         "nexthop", "service_type", "status", "tenant_id",
         "vpn_gw_id", "sort_key", "sort_dir", "aws_gw_id",
-        "azure_gw_id", "gcp_gw_id",
+        "azure_gw_id", "gcp_gw_id", "fic_gw_id",
     )
 
     description = resource2.Body("description")
@@ -41,6 +41,7 @@ class StaticRoute(NetworkBaseResource):
     aws_gw_id = resource2.Body("aws_gw_id")
     gcp_gw_id = resource2.Body("gcp_gw_id")
     azure_gw_id = resource2.Body("azure_gw_id")
+    fic_gw_id = resource2.Body("fic_gw_id")
 
     def wait_for_create(self, session, status='ACTIVE', failures=['ERROR'],
                          interval=2, wait=120):

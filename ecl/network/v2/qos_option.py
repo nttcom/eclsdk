@@ -22,6 +22,7 @@ class QosOption(NetworkBaseResource):
         "status", "qos_type", "service_type",
         "interdc_service_id", "internet_service_id",
         "vpn_service_id", "sort_key", "sort_dir",
+        "fic_service_id",
     )
 
     description = resource2.Body("description")
@@ -34,6 +35,7 @@ class QosOption(NetworkBaseResource):
     interdc_service_id = resource2.Body("interdc_service_id")
     internet_service_id = resource2.Body("internet_service_id")
     vpn_service_id = resource2.Body("vpn_service_id")
+    fic_service_id = resource2.Body("fic_service_id")
 
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):

@@ -7,58 +7,56 @@ from ecl import resource2
 from ecl import exceptions
 
 
-class GatewayInterface(NetworkBaseResource):
+class FICService(NetworkBaseResource):
 
-    resource_key = "gw_interface"
-    resources_key = "gw_interfaces"
+    resource_key = "fic_service"
+    resources_key = "fic_services"
     service = network_service.NetworkService("v2.0")
-    base_path = '/' + service.version + '/gw_interfaces'
+    base_path = '/' + service.version + '/fic_services'
+
+    allow_list = True
+    allow_get = True
 
     _query_mapping = resource2.QueryParameters(
-        "description", "gw_vipv4", "gw_vipv6",
-        "id", "interdc_gw_id", "internet_gw_id",
-        "name", "netmask", "network_id",
-        "primary_ipv4", "primary_ipv6",
-        "secondary_ipv4", "secondary_ipv6",
-        "service_type", "vpn_gw_id",
-        "status", "tenant_id", "vrid",
-        "sort_key", "sort_dir", "aws_gw_id",
-        "azure_gw_id", "gcp_gw_id", "fic_gw_id",
+        "description", "id",
+        "name", "zone",
+        "sort_key", "sort_dir",
     )
+
+    description = resource2.Body("description")
+    id = resource2.Body("id")
+    zone = resource2.Body("zone")
+    name = resource2.Body("name")
+
+
+class FICGateway(NetworkBaseResource):
+
+    resource_key = "fic_gateway"
+    resources_key = "fic_gateways"
+    base_path = '/v2.0/fic_gateways'
+    service = network_service.NetworkService()
 
     allow_list = True
     allow_get = True
     allow_create = True
-    allow_delete = True
     allow_update = True
+    allow_delete = True
+
+    _query_mapping = resource2.QueryParameters(
+        "description", "id",
+        "name", "qos_option_id",
+        "status", "tenant_id",
+        "fic_service_id",
+        "sort_key", "sort_dir",
+    )
 
     description = resource2.Body("description")
-    gw_vipv4 = resource2.Body("gw_vipv4")
-    gw_vipv6 = resource2.Body("gw_vipv6")
     id = resource2.Body("id")
-    interdc_gw_id = resource2.Body("interdc_gw_id")
-    internet_gw_id = resource2.Body("internet_gw_id")
     name = resource2.Body("name")
-    netmask = resource2.Body("netmask")
-    network_id = resource2.Body("network_id")
-    primary_ipv4 = resource2.Body("primary_ipv4")
-    primary_ipv6 = resource2.Body("primary_ipv6")
-    secondary_ipv4 = resource2.Body("secondary_ipv4")
-    secondary_ipv6 = resource2.Body("secondary_ipv6")
-    service_type = resource2.Body("service_type")
+    qos_option_id = resource2.Body("qos_option_id")
     status = resource2.Body("status")
     tenant_id = resource2.Body("tenant_id")
-    vpn_gw_id = resource2.Body("vpn_gw_id")
-    aws_gw_id = resource2.Body("aws_gw_id")
-    gcp_gw_id = resource2.Body("gcp_gw_id")
-    azure_gw_id = resource2.Body("azure_gw_id")
-    fic_gw_id = resource2.Body("fic_gw_id")
-    vrid = resource2.Body("vrid")
-
-    def wait_for_create(self, session, status='ACTIVE', failures=['ERROR'],
-                         interval=2, wait=120):
-        return resource2.wait_for_status(session, self, status,
-                                         failures, interval, wait)
+    fic_service_id = resource2.Body("fic_service_id")
 
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
@@ -97,3 +95,38 @@ class GatewayInterface(NetworkBaseResource):
             return None
         raise exceptions.ResourceNotFound(
             "No %s found for %s" % (cls.__name__, name_or_id))
+
+
+class FICInterface(NetworkBaseResource):
+
+    resource_key = "fic_interface"
+    resources_key = "fic_interfaces"
+    base_path = '/v2.0/fic_interfaces'
+    service = network_service.NetworkService()
+
+    allow_list = True
+    allow_get = True
+    allow_create = True
+    allow_update = True
+    allow_delete = True
+
+    _query_mapping = resource2.QueryParameters(
+        "description", "id",
+        "name", "fic_gw_id",
+        "status", "tenant_id",
+        "sort_key", "sort_dir",
+    )
+
+    description = resource2.Body("description")
+    id = resource2.Body("id")
+    fic_gw_id = resource2.Body("fic_gw_id")
+    name = resource2.Body("name")
+    status = resource2.Body("status")
+    tenant_id = resource2.Body("tenant_id")
+    primary = resource2.Body("primary")
+    secondary = resource2.Body("secondary")
+
+    def wait_for_interface(self, session, status='ACTIVE', failures=['ERROR'],
+                           interval=2, wait=120):
+        return resource2.wait_for_status(session, self, status,
+                                         failures, interval, wait)
