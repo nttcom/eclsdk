@@ -519,6 +519,14 @@ class Proxy(proxy2.BaseProxy):
                     attempting to find a nonexistent resource.
         :returns: :class:`~ecl.compute.v2.image.Image` or None
         """
+        images = self.images()
+        for image in images:
+            if name_or_id == image.id:
+                break
+            if name_or_id == image.name:
+                name_or_id = image.id
+                break
+
         return self._find(_image.Image, name_or_id,
                           ignore_missing=ignore_missing)
 
