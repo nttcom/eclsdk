@@ -22,6 +22,7 @@ from ecl.compute.v2 import server_interface as _server_interface
 from ecl.compute.v2 import server_volume as _server_volume
 from ecl.compute.v2 import quota as _quota
 from ecl.compute.v2 import volume as _volume
+from ecl.image.v2 import image as _img
 
 from ecl import proxy2
 from ecl import resource2
@@ -519,15 +520,7 @@ class Proxy(proxy2.BaseProxy):
                     attempting to find a nonexistent resource.
         :returns: :class:`~ecl.compute.v2.image.Image` or None
         """
-        images = self.images()
-        for image in images:
-            if name_or_id == image.id:
-                break
-            if name_or_id == image.name:
-                name_or_id = image.id
-                break
-
-        return self._find(_image.Image, name_or_id,
+        return self._find(_img.Image, name_or_id,
                           ignore_missing=ignore_missing)
 
     def get_image(self, image):
