@@ -155,9 +155,9 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
-    def stop(self, session, server_id):
+    def stop(self, session, server_id, type):
         uri = self.base_path % server_id
-        body = {"os-stop": None}
+        body = {"os-stop": {"type": type}}
         resp = session.post(
             uri,
             endpoint_filter=self.service,

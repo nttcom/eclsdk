@@ -364,15 +364,19 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.start(self.session, server_id, boot_mode)
 
-    def stop_server(self, server_id):
+    def stop_server(self, server_id, type):
         """Stop the Baremetal Server associated with server_id.
         This request will be accepted only when the task_state is None.
 
         :param string server_id: ID for the server.
+        :param string type: Baremetal Server shutdown mode.
+            A valid value is HARD or SOFT. HARD is force restart by IPMI.
+            This operations is equal to power down.
+            SOFT is restated by ACPI.
         :return: ``None``
         """
         server = _server.ServerAction()
-        return server.stop(self.session, server_id)
+        return server.stop(self.session, server_id, type)
 
     def reboot_server(self, server_id, type, boot_mode):
         """Reboot the Baremetal Server associated with server_id.
