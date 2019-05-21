@@ -370,9 +370,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param string server_id: ID for the server.
         :param string type: Baremetal Server shutdown mode.
-            A valid value is HARD or SOFT. HARD is force restart by IPMI.
-            This operations is equal to power down.
-            SOFT is restated by ACPI.
+            A valid value is HARD or SOFT.
         :return: ``None``
         """
         server = _server.ServerAction()
