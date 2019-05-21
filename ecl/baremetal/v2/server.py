@@ -157,7 +157,10 @@ class ServerAction(resource2.Resource):
 
     def stop(self, session, server_id, type):
         uri = self.base_path % server_id
-        body = {"os-stop": {"type": type}}
+        if type:
+            body = {"os-stop": {"type": type}}
+        else:
+            body = {"os-stop": None}
         resp = session.post(
             uri,
             endpoint_filter=self.service,

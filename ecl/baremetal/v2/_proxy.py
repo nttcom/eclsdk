@@ -364,7 +364,7 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.start(self.session, server_id, boot_mode)
 
-    def stop_server(self, server_id, type):
+    def stop_server(self, server_id, type=None):
         """Stop the Baremetal Server associated with server_id.
         This request will be accepted only when the task_state is None.
 
