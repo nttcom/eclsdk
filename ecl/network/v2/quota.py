@@ -21,6 +21,8 @@ class Quota(resource2.Resource):
     colocation_logical_link = resource2.Body('colocation_logical_link', type=int)
     #: The maximum amount of common function gateway you can create. *Type: int*
     common_function_gateway = resource2.Body('common_function_gateway', type=int)
+    #: The maximum amount of fic gateway you can create. *Type: int*
+    fic_gateway = resource2.Body('fic_gateway', type=int)
     #: The maximum amount of firewall you can create. *Type: int*
     firewall = resource2.Body('firewall', type=int)
     #: ID of quota

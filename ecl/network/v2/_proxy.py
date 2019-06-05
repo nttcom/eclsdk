@@ -33,6 +33,7 @@ from ecl.network.v2 import aws as _aws
 from ecl.network.v2 import gcp as _gcp
 from ecl.network.v2 import tenant_connection as _tenant_connection
 from ecl.network.v2 import azure as _azure
+from ecl.network.v2 import fic as _fic
 
 from ecl import proxy2
 
@@ -1284,7 +1285,7 @@ class Proxy(proxy2.BaseProxy):
                                  gw_vipv6=None, interdc_gw_id=None,
                                  internet_gw_id=None,
                                  vpn_gw_id=None, aws_gw_id=None, gcp_gw_id=None,
-                                 azure_gw_id=None, tenant_id=None):
+                                 azure_gw_id=None, fic_gw_id=None, tenant_id=None):
         """Create a Gateway Interface from parameters
 
         :param string service_type: service type of gateway interface to create
@@ -1302,6 +1303,7 @@ class Proxy(proxy2.BaseProxy):
         :param string interdc_gw_id: InterDC Gateway ID of gateway interface to create
         :param string internet_gw_id: Internet Gateway ID of gateway interface to create
         :param string vpn_gw_id: VPN Gateway ID of gateway interface to create
+        :param string fic_gw_id: FIC Gateway ID of gateway interface to create
         :param string tenant_id: tenant ID of gateway interface to create
 
         :returns: The results of GatewayInterface creation
@@ -1338,6 +1340,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"gcp_gw_id": gcp_gw_id})
         if azure_gw_id:
             body.update({"azure_gw_id": azure_gw_id})
+        if fic_gw_id:
+            body.update({"fic_gw_id": fic_gw_id})
         if tenant_id:
             body.update({"tenant_id": tenant_id})
 
@@ -1412,7 +1416,7 @@ class Proxy(proxy2.BaseProxy):
     def create_static_route(self, service_type, destination, nexthop,
                             name=None, description=None,interdc_gw_id=None,
                             internet_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
-                            gcp_gw_id=None, azure_gw_id=None, tenant_id=None):
+                            gcp_gw_id=None, azure_gw_id=None, fic_gw_id=None, tenant_id=None):
         """Create a Static Route
 
         :param service_type: service type of static route to create
@@ -1423,6 +1427,7 @@ class Proxy(proxy2.BaseProxy):
         :param interdc_gw_id: InterDC Gateway ID of static route to create
         :param internet_gw_id: Internet Gateway ID of static route to create
         :param vpn_gw_id: VPN Gateway ID of static route to create
+        :param fic_gw_id: FIC Gateway ID of static route to create
         :param tenant_id: tenant ID of static route to create
 
         :return: The results of StaticRoute creation
@@ -1449,6 +1454,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"gcp_gw_id": gcp_gw_id})
         if azure_gw_id:
             body.update({"azure_gw_id": azure_gw_id})
+        if fic_gw_id:
+            body.update({"fic_gw_id": fic_gw_id})
         if tenant_id:
             body.update({"tenant_id": tenant_id})
 
@@ -2504,3 +2511,81 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._find(_azure.AzureInterface, name_or_id,
                           ignore_missing=ignore_missing)
+
+    def fic_services(self, **query):
+        """Return a list of FIC Service
+
+        :returns: A list of FIC Service objects
+        """
+        return list(self._list(_fic.FICService, paginated=False,
+                               **query))
+
+    def get_fic_service(self, fic_service):
+
+        """Get a single FIC Service
+
+        :param fic_service: The value can be the ID of a FIC Service or a
+                       :class:`~ecl.network.v2.fic.FICService` instance.
+
+        :returns: One :class:`~ecl.network.v2.fic.FICService`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_fic.FICService, fic_service)
+
+    def fic_gateways(self, **query):
+        """Return a list of FIC Gateways
+
+        :param query: Query parameters to select results
+
+        :returns: A list of FIC Gateway objects
+        """
+        return list(self._list(_fic.FICGateway, paginated=False, **query))
+
+    def get_fic_gateway(self, fic_gateway):
+
+        """Get a single FIC Gateway
+
+        :param fic_gateway: The value can be the ID of a FIC Gateway or a
+                       :class:`~ecl.network.v2.fic.FICGateway` instance.
+
+        :returns: One :class:`~ecl.network.v2.fic.FICGateway`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_fic.FICGateway, fic_gateway)
+
+    def find_fic_gateway(self, name_or_id, ignore_missing=False):
+        """Find a single fic_gateway
+
+        :param name_or_id: The name or ID of a fic_gateway.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.fic.FICGateway` or None
+        """
+        return self._find(_fic.FICGateway,
+                          name_or_id, ignore_missing=ignore_missing)
+
+    def fic_interfaces(self, **query):
+        """Return a list of FIC Interface
+
+        :returns: A list of FIC Interface objects
+        """
+        return list(self._list(_fic.FICInterface, paginated=False,
+                               *query))
+
+    def get_fic_interface(self, fic_interface):
+
+        """Get a single FIC Gateway
+
+        :param fic_interface: The value can be the ID of a FIC Interface or a
+                       :class:`~ecl.network.v2.fic.FICInterface` instance.
+
+        :returns: One :class:`~ecl.network.v2.fic.FICInterface`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_fic.FICInterface, fic_interface)
