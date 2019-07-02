@@ -13,11 +13,12 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestContract(base.BaseFunctionalTest):
     def test_contracts(self):
         contracts = list(self.conn.sss.contracts("channel_id-xxxxx"))
         for i in contracts:
-            print i.id + " " + i.login_id
+            print(i.id + " " + i.login_id)
         self.assertGreater(len(contracts), 0)
 
     @classmethod
@@ -65,7 +66,6 @@ class TestContract(base.BaseFunctionalTest):
         assert isinstance(contract.glass_user_id, six.string_types)
 
     def test_04_get_billing_info(self):
-
         bill = self.conn.sss.get_billing_info("econ1000015949", "2016-02")
         assert isinstance(bill.id, six.string_types)
         assert isinstance(bill.customer_number, six.string_types)

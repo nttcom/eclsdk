@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import uuid
-
 from ecl.compute.v2 import server
 from ecl.tests.functional import base
 
@@ -198,9 +196,9 @@ class TestServer(base.BaseFunctionalTest):
         action_id = None
         if len(actions) > 0:
             action_id = actions[0].request_id
-        print action_id
+        print(action_id)
         action = self.conn.compute.get_server_action(action_id, self.one_server.id)
-        print action
+        print(action)
         self.assertEqual(action.request_id, action_id)
 
     def test_server_volumes(self):
@@ -223,4 +221,3 @@ class TestServer(base.BaseFunctionalTest):
         ret = self.conn.compute.delete_server_volume(
             attachment.id, self.one_server.id)
         self.assertIsNone(ret)
-

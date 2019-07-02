@@ -13,10 +13,11 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestApiKey(base.BaseFunctionalTest):
 
     def test_01_update_api_key(self):
-        api_key=self.conn.sss.update_api_key(
+        api_key = self.conn.sss.update_api_key(
             "ecid1000378024"
         )
         self.assertIsInstance(api_key.user_id, six.string_types)

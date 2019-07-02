@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-import base
+from . import base
 from ecl.network import network_service
 from ecl import resource2
 from ecl import exceptions

@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestScheme(base.BaseFunctionalTest):
     image_id = "1b782d43-4e43-4d96-883b-ff423f8b8b7c"
 
@@ -36,21 +37,21 @@ class TestScheme(base.BaseFunctionalTest):
 
     def test_04_get_metadata_namespace_schema(self):
         scheme = self.conn.image.get_metadata_namespace_schema()
-        #self.assertIsInstance(scheme.additionalProperties, dict)
+        # self.assertIsInstance(scheme.additionalProperties, dict)
         self.assertIsInstance(scheme.definitions, dict)
         self.assertIsInstance(scheme.name, six.string_types)
         self.assertIsInstance(scheme.properties, dict)
 
     def test_05_get_metadata_object_schema(self):
         scheme = self.conn.image.get_metadata_object_schema()
-        #self.assertIsInstance(scheme.additionalProperties, dict)
+        # self.assertIsInstance(scheme.additionalProperties, dict)
         self.assertIsInstance(scheme.definitions, dict)
         self.assertIsInstance(scheme.name, six.string_types)
         self.assertIsInstance(scheme.properties, dict)
 
     def test_06_get_metadata_property_schema(self):
         scheme = self.conn.image.get_metadata_property_schema()
-        #self.assertIsInstance(scheme.additionalProperties, dict)
+        # self.assertIsInstance(scheme.additionalProperties, dict)
         self.assertIsInstance(scheme.definitions, dict)
         self.assertIsInstance(scheme.name, six.string_types)
         self.assertIsInstance(scheme.properties, dict)

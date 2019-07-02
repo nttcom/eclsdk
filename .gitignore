@@ -1,2 +1,15 @@
 *.pyc
 *.egg-info/
+*.DS_Store
+*.log
+*.mo
+*.swo
+*.swp
+.coverage
+.idea
+.testrepository
+.tox
+AUTHORS
+build
+ChangeLog
+dist

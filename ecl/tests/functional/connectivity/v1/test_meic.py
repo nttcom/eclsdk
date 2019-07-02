@@ -3,7 +3,6 @@
 
 import six
 
-from ecl import exceptions
 from ecl.tests.functional import base
 
 

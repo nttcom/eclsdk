@@ -26,11 +26,11 @@ class TestZone(base.BaseFunctionalTest):
 
     def test_02_get(self):
         zone = self.conn.dns.get_zone(self.zone_id)
-        # print zone
+        # print(zone)
 
     def test_03_update(self):
         zone = self.conn.dns.update_zone(self.zone_id, description="for test use")
-        # print zone
+        # print(zone)
         time.sleep(10)
 
     def test_04_find(self):
@@ -43,8 +43,8 @@ class TestZone(base.BaseFunctionalTest):
 
     def test_06_list(self):
         zones = self.conn.dns.zones()
-        # print zones
+        # print(zones)
 
     def test_07_get_nameserver(self):
         nameserver = self.conn.dns.get_name_server(self.zone_id)
-        #print nameserver
+        # print(nameserver)

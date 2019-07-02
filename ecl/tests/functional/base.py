@@ -38,6 +38,7 @@ def _get_resource_value(resource_key, default):
     except KeyError:
         return default
 
+
 opts = Opts(cloud_name=TEST_CLOUD)
 occ = os_client_config.OpenStackConfig()
 cloud = occ.get_one_cloud(opts.cloud, argparse=opts)

@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestNicPorts(base.BaseFunctionalTest):
 
     @classmethod

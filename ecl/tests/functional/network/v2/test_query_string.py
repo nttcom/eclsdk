@@ -20,7 +20,7 @@ class TestVPNService(base.BaseFunctionalTest):
         vpn_ifs = self.conn.network.vpn_interfaces(vpn_gw_id=vpn_gw.id)
         if not vpn_ifs or len(vpn_ifs) <= 0:
             return
-        print "vpn_ifs:", len(vpn_ifs), "example id:"
+        print("vpn_ifs:", len(vpn_ifs), "example id:")
         vpn_if = vpn_ifs[0]
         self.assertEqual(vpn_if.vpn_gw_id, vpn_gw.id)
 

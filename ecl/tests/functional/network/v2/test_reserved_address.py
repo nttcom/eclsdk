@@ -23,7 +23,7 @@ class TestReservedAddress(base.BaseFunctionalTest):
 
     def test_get(self):
         if not self.one_reserved_address:
-            print "0 reserved addresses."
+            print("0 reserved addresses.")
             return
         sot = self.conn.network.get_reserved_address(self.one_reserved_address.id)
         self.assertEqual(sot.id, self.one_reserved_address.id)

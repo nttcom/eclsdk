@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestImageCopy(base.BaseFunctionalTest):
     image_id = "4ddf938a-2cff-46a8-ab7b-efb48c8f79a7"
 
@@ -20,7 +21,7 @@ class TestImageCopy(base.BaseFunctionalTest):
     def test_01_copy_image(cls):
         copy = cls.conn.image.copy_image(
             cls.image_id, "72ab9350a47a4173966ad02dc51b32a1")
-        print copy
+        print(copy)
         cls.job_id = copy.job_id
         assert isinstance(copy.job_id, six.string_types)
 
@@ -35,7 +36,7 @@ class TestImageCopy(base.BaseFunctionalTest):
             self.assertIsInstance(job.destination_tenant_id, six.string_types)
             self.assertIsInstance(job.status, six.string_types)
             self.assertIsInstance(job.copy_progress, int)
-        print jobs
+        print(jobs)
 
     def test_03_get_image_copy_job(self):
         job = self.conn.image.get_image_copy_job(
@@ -49,10 +50,10 @@ class TestImageCopy(base.BaseFunctionalTest):
         self.assertIsInstance(job.destination_tenant_id, six.string_types)
         self.assertIsInstance(job.status, six.string_types)
         self.assertIsInstance(job.copy_progress, int)
-        print job
+        print(job)
 
     def test_04_cancel_copy_image(self):
         copy = self.conn.image.cancel_copy_image(
             "c02103c2-3b6e-4f5e-9be9-7f6a8d18da26"
         )
-        print copy
+        print(copy)

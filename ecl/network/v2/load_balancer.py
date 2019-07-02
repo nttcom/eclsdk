@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-import base
+from . import base
 from ecl import utils
 from ecl import exceptions
 from ecl import resource2
@@ -47,7 +47,7 @@ class LoadBalancer(base.NetworkBaseResource):
     #: Name of the Load Balancer
     name = resource2.Body("name")
     #: The load_balancer status.
-    status= resource2.Body("status")
+    status = resource2.Body("status")
     #: Tenant ID of the owner (UUID)
     tenant_id = resource2.Body("tenant_id")
     #: Username with user access to VM instance

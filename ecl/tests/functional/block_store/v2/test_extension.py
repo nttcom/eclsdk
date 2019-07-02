@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import six
-
 from ecl.tests.functional import base
 
 

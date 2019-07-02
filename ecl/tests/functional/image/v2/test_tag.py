@@ -10,8 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import six
 from ecl.tests.functional import base
+
 
 class TestTag(base.BaseFunctionalTest):
     image_id = "1b782d43-4e43-4d96-883b-ff423f8b8b7c"

@@ -3,7 +3,6 @@
 
 import six
 
-from ecl import exceptions
 from ecl.tests.functional import base
 
 
@@ -33,7 +32,7 @@ class TestOperation(base.BaseFunctionalTest):
         self.assertGreaterEqual(len(operations), 0)
 
         for operation in operations:
-            # print operation.to_dict()["mcic_id"]
+            # print(operation.to_dict()["mcic_id"])
             self.assertIsInstance(operation.operation_id, six.string_types)
             self.assertIsInstance(operation.operation_status, six.string_types)
             self.assertIsInstance(operation.operation_type, six.string_types)
@@ -50,7 +49,7 @@ class TestOperation(base.BaseFunctionalTest):
             return
         cic_operations = self.conn.connectivity.operations(cic_id=self.one_cic.cic_id)
         for operation in cic_operations:
-            # print operation.to_dict()["cic_id"]
+            # print(operation.to_dict()["cic_id"])
             self.assertIsInstance(operation.operation_id, six.string_types)
             self.assertIsInstance(operation.operation_status, six.string_types)
             self.assertIsInstance(operation.operation_type, six.string_types)
@@ -66,7 +65,7 @@ class TestOperation(base.BaseFunctionalTest):
         if self.one_operation is None:
             return
         operation = self.conn.connectivity.get_operation(self.one_operation.operation_id)
-        # print operation.to_dict()
+        # print(operation.to_dict())
         self.assertEqual(operation.operation_id, self.one_operation.operation_id)
         self.assertEqual(operation.operation_status, self.one_operation.operation_status)
         self.assertEqual(operation.operation_type, self.one_operation.operation_type)

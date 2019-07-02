@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestStock(base.BaseFunctionalTest):
 
     def test_01_get_stock(self):

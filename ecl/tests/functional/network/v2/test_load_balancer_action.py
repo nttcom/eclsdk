@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestLoadBalancerAction(base.BaseFunctionalTest):
     def test_01_reboot_load_balancer(self):
         reboot = self.conn.network.reboot_load_balancer(
@@ -25,6 +26,6 @@ class TestLoadBalancerAction(base.BaseFunctionalTest):
             "7589f9cd-400f-4f0e-8da3-de94fc919a0e",
             "user-read"
         )
-        print resp
+        print(resp)
         self.assertIsInstance(resp.new_password, six.string_types)
         self.assertIsInstance(resp.username, six.string_types)

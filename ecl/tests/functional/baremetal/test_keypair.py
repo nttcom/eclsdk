@@ -21,7 +21,7 @@ class TestKeypair(base.BaseFunctionalTest):
     def test_01_import(cls):
         cls.NAME = uuid.uuid4().hex
         keypair = cls.conn.baremetal.create_keypair(name=cls.NAME)
-        print keypair
+        print(keypair)
         assert isinstance(keypair.fingerprint, six.string_types)
         assert isinstance(keypair.name, six.string_types)
         assert isinstance(keypair.public_key, six.string_types)
@@ -34,7 +34,6 @@ class TestKeypair(base.BaseFunctionalTest):
             assert isinstance(keypair.fingerprint, six.string_types)
             assert isinstance(keypair.name, six.string_types)
             assert isinstance(keypair.public_key, six.string_types)
-
 
     def test_show_03(self):
         keypair = self.conn.baremetal.get_keypair(self.NAME)
@@ -49,12 +48,12 @@ class TestKeypair(base.BaseFunctionalTest):
     def test_05_create(cls):
         cls.NAME2 = uuid.uuid4().hex
         keypair = cls.conn.baremetal.create_keypair(
-            name=cls.NAME2, public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCtzdf5vKNNSoeMfTUUj65eJLMjXfIbtc2GQn6+EEISHX6vjBzsTMdToQJEhgg+5rYlb5tc2mvPYNbPDIJV8OyV")
-        print keypair
+            name=cls.NAME2,
+            public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCtzdf5vKNNSoeMfTUUj65eJLMjXfIbtc2GQn6+EEISHX6vjBzsTMdToQJEhgg+5rYlb5tc2mvPYNbPDIJV8OyV")
+        print(keypair)
         assert isinstance(keypair.fingerprint, six.string_types)
         assert isinstance(keypair.name, six.string_types)
         assert isinstance(keypair.public_key, six.string_types)
 
     def test_06_delete(self):
         self.conn.baremetal.delete_keypair(self.NAME2)
-

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import base
+from . import base
 from ecl.network import network_service
 from ecl import resource2
 
@@ -10,7 +10,6 @@ class ColocationLogicalLink(base.NetworkBaseResource):
     resources_key = 'colocation_logical_links'
     service = network_service.NetworkService("v2.0")
     base_path = '/' + service.version + '/colocation_logical_links'
-
 
     # capabilities
     allow_create = True

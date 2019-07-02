@@ -25,7 +25,7 @@ class TestUser(base.BaseFunctionalTest):
     def test_users(self):
         users = list(self.conn.sss.users())
         for i in users:
-            print i.id + " " + i.login_id
+            print(i.id + " " + i.login_id)
         self.assertGreater(len(users), 0)
 
     def test_01_find_user_by_id(self):
@@ -84,4 +84,3 @@ class TestUser(base.BaseFunctionalTest):
 
     def test_05_delete_user(self):
         self.conn.sss.delete_user(self.new_account_id)
-

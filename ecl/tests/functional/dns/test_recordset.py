@@ -26,7 +26,7 @@ class TestRecordSet(base.BaseFunctionalTest):
             ttl=3600,
             records=["203.0.143.27", "203.0.143.28"]
         )
-        # print recordset1
+        # print(recordset1)
         cls.recordset_id = recordset1[0].id
         cls.recordset2_id = recordset1[1].id
         time.sleep(10)
@@ -34,17 +34,19 @@ class TestRecordSet(base.BaseFunctionalTest):
     def test_02_get(self):
         zone = self.conn.dns.get_recordset(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234",
                                            recordset_id=self.recordset_id)
-        print zone
+        print(zone)
 
     def test_03_update(self):
-        zone = self.conn.dns.update_recordset(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234", recordset=self.recordset_id, ttl=3000, description="for test use")
+        zone = self.conn.dns.update_recordset(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234",
+                                              recordset=self.recordset_id, ttl=3000, description="for test use")
         time.sleep(10)
-        # print zone
+        # print(zone)
 
     def test_04_find(self):
-        zone = self.conn.dns.find_recordset(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234", name_or_id="ns19.base.co.jp.")
+        zone = self.conn.dns.find_recordset(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234",
+                                            name_or_id="ns19.base.co.jp.")
         # self.assertEqual(zone.id, self.recordset_id)
-        # print zone
+        # print(zone)
 
     def test_05_delete(self):
         self.conn.dns.delete_recordset(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234", recordset=self.recordset_id)
@@ -52,7 +54,7 @@ class TestRecordSet(base.BaseFunctionalTest):
 
     def test_06_list(self):
         zones = self.conn.dns.recordsets(zone_id="d4f0ea0e-edb6-4bbb-aefd-2944457be234")
-        # print len(zones)
+        # print(len(zones))
 
     def test_07_multi_delete(self):
         ids = [self.recordset2_id]

@@ -868,5 +868,5 @@ def wait_for_delete(session, resource, interval, wait):
             return resource
         time.sleep(interval)
         total_sleep += interval
-    msg = "Timeout waiting for %s delete" % (resource.id)
+    msg = "Timeout waiting for %s delete" % resource.id
     raise exceptions.ResourceTimeout(msg)

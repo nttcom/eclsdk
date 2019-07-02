@@ -3,11 +3,11 @@
 from ecl.tests.functional import base
 
 
-class TestQosQption(base.BaseFunctionalTest):
+class TestQosOption(base.BaseFunctionalTest):
 
     @classmethod
     def setUpClass(cls):
-        super(TestQosQption, cls).setUpClass()
+        super(TestQosOption, cls).setUpClass()
         cls.one_qos_option = None
         qoptions = cls.conn.network.qos_options()
         if qoptions and len(qoptions) > 0:

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import six
-
 from ecl.tests.functional import base
 from ecl.block_store.v2.limit import Limit
 

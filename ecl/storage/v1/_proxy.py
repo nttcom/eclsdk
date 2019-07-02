@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import six
+
 from ecl import proxy2
 from ecl import session
 from ecl.storage.v1 import availability_zone as _availability_zone
@@ -60,7 +62,8 @@ class Proxy(proxy2.BaseProxy):
             objects, otherwise :class:`~ecl.storage.v1.availability_zone.AvailabilityZone`.
         :returns: A list of availability zone objects
         """
-        availability_zone = _availability_zone.AvailabilityZoneDetail() if details else _availability_zone.AvailabilityZone()
+        availability_zone = _availability_zone.AvailabilityZoneDetail() \
+            if details else _availability_zone.AvailabilityZone()
         return list(availability_zone.list(self.session))
 
     def find_availability_zone(self, name_or_id, ignore_missing=False):
@@ -150,12 +153,8 @@ class Proxy(proxy2.BaseProxy):
         :param host_routes: Static routes settings for each virtual storages.
         :return: :class:`~ecl.storage.v1.storage.Storage`
         """
-        body = {}
-        body["network_id"] = network_id
-        body["subnet_id"] = subnet_id
-        body["ip_addr_pool"] = ip_addr_pool
-        body["name"] = name
-        body["volume_type_id"] = volume_type_id
+        body = {"network_id": network_id, "subnet_id": subnet_id, "ip_addr_pool": ip_addr_pool, "name": name,
+                "volume_type_id": volume_type_id}
         if description:
             body["description"] = description
         if host_routes:
@@ -171,7 +170,8 @@ class Proxy(proxy2.BaseProxy):
             * storage_id: ID for the requested storage.
             * name: Name of Virtual Storage.
             * description: Description of Virtual Storage.
-            * ip_addr_pool: The pool of IP addresses for storage nodes used by the volume. The IP address range may be overwraped with subnet's allocation_pools. The range should be included in CIDR of the subnet.
+            * ip_addr_pool: The pool of IP addresses for storage nodes used by the volume. The IP address range may be
+              overwrapped with subnet's allocation_pools. The range should be included in CIDR of the subnet.
             * host_routes: Static routes settings for each virtual storages.
         :return: :class:`~ecl.storage.v1.storage.Storage`
         """
@@ -224,10 +224,7 @@ class Proxy(proxy2.BaseProxy):
         :param availability_zone: Availability zone.
         :return: :class:`~ecl.storage.v1.volume.Volume`
         """
-        body = {}
-        body["virtual_storage_id"] = virtual_storage_id
-        body["name"] = name
-        body["size"] = size
+        body = {"virtual_storage_id": virtual_storage_id, "name": name, "size": size}
         if description:
             body["description"] = description
         if iops_per_gb:
@@ -344,7 +341,7 @@ class Proxy(proxy2.BaseProxy):
             profile=self.session.profile,
             user_agent=self.session.user_agent,
         )
-        for attr, value in self.session.__dict__.iteritems():
+        for attr, value in six.iteritems(self.session.__dict__):
             v_session.__setattr__(attr, value)
 
         return version.get_version(session=v_session)
@@ -361,7 +358,7 @@ class Proxy(proxy2.BaseProxy):
             profile=self.session.profile,
             user_agent=self.session.user_agent,
         )
-        for attr, value in self.session.__dict__.iteritems():
+        for attr, value in six.iteritems(self.session.__dict__):
             v_session.__setattr__(attr, value)
 
         return list(version.list_version(session=v_session))

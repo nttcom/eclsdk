@@ -12,7 +12,8 @@
 
 from ecl.tests.functional import base
 
+
 class TestLicense(base.BaseFunctionalTest):
     def test_01_list(self):
         licenses = self.conn.image.licenses()
-        print licenses
+        print(licenses)

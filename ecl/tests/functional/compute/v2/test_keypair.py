@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import uuid
-
 from ecl.compute.v2 import keypair
 from ecl.tests.functional import base
 
@@ -28,7 +26,7 @@ class TestKeypair(base.BaseFunctionalTest):
 
     def test_list(self):
         names = [o.name for o in self.conn.compute.keypairs()]
-        print names
+        print(names)
         self.assertIn(self.one_keypair.name, names)
 
     def test_find(self):

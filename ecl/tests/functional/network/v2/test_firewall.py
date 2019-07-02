@@ -14,21 +14,22 @@ import six
 import time
 from ecl.tests.functional import base
 
+
 class TestFirewall(base.BaseFunctionalTest):
 
     def test_01_list_firewall(self):
         firewalls = list(self.conn.network.firewalls(
             status="ACTIVE"))
-        print "Total: ", len(firewalls)
-        print firewalls
+        print("Total: ", len(firewalls))
+        print(firewalls)
 
         for firewall in firewalls:
-            print firewall.name, " ", firewall.id
+            print(firewall.name, " ", firewall.id)
 
         firewall = firewalls[0]
         self.assertIsInstance(firewall.admin_username, six.string_types)
-        #self.assertIsInstance(firewall.availability_zone, six.string_types)
-        #self.assertIsInstance(firewall.default_gateway, six.string_types)
+        # self.assertIsInstance(firewall.availability_zone, six.string_types)
+        # self.assertIsInstance(firewall.default_gateway, six.string_types)
         self.assertIsInstance(firewall.description, six.string_types)
         self.assertIsInstance(firewall.firewall_plan_id, six.string_types)
         self.assertIsInstance(firewall.id, six.string_types)
@@ -45,11 +46,11 @@ class TestFirewall(base.BaseFunctionalTest):
         cls.id = firewall.id
         time.sleep(360)
 
-    def test_03_show_firewalll(self):
+    def test_03_show_firewall(self):
         firewall = self.conn.network.show_firewall(
             self.id
         )
-        print firewall
+        print(firewall)
         self.assertIsInstance(firewall.interfaces, list)
 
     def test_04_update_firewall(self):
@@ -58,7 +59,7 @@ class TestFirewall(base.BaseFunctionalTest):
             description="updated description",
             name="sdk_firewall"
         )
-        print firewall
+        print(firewall)
 
     def test_05_delete_firewall(self):
         firewall = self.conn.network.delete_firewall(
@@ -68,4 +69,4 @@ class TestFirewall(base.BaseFunctionalTest):
     def test_06_list_firewall(self):
         firewalls = list(self.conn.network.firewalls(
             status="ACTIVE"))
-        print "Total: ", len(firewalls)
+        print("Total: ", len(firewalls))

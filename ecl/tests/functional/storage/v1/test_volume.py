@@ -14,6 +14,7 @@ import six
 import time
 from ecl.tests.functional import base
 
+
 class TestVolume(base.BaseFunctionalTest):
     def test_01_volumes(self):
         volumes = list(self.conn.storage.volumes(details=True))
@@ -55,7 +56,7 @@ class TestVolume(base.BaseFunctionalTest):
             "4096336b-7035-412a-8148-ad999f0e0bc8",
             description="updated_test"
         )
-        print volume.description
+        print(volume.description)
         self.assertIsInstance(volume.id, six.string_types)
         self.assertIsInstance(volume.status, six.string_types)
         self.assertIsInstance(volume.name, six.string_types)

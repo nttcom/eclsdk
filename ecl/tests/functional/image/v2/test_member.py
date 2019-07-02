@@ -13,19 +13,20 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestMember(base.BaseFunctionalTest):
     image_id = "1b782d43-4e43-4d96-883b-ff423f8b8b7c"
 
     def test_01_list(self):
         members = list(self.conn.image.members(self.image_id))
-        print members
+        print(members)
 
     def test_02_create_member(self):
         member = self.conn.image.create_member(
             self.image_id,
             member="f6a818c3d4aa458798ed86892e7150c0"
         )
-        print member
+        print(member)
 
     def test_03_update_member(self):
         member = self.conn.image.update_member(
@@ -33,13 +34,13 @@ class TestMember(base.BaseFunctionalTest):
             "f6a818c3d4aa458798ed86892e7150c0",
             status="accepted"
         )
-        print member
+        print(member)
 
     def test_04_show_member(self):
         member = self.conn.image.get_member(
             self.image_id, "f6a818c3d4aa458798ed86892e7150c0"
         )
-        print member
+        print(member)
         self.assertIsInstance(member.member_id, six.string_types)
         self.assertIsInstance(member.created_at, six.string_types)
         self.assertIsInstance(member.image_id, six.string_types)
