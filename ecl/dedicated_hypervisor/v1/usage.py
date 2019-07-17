@@ -10,7 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import urllib
+from six.moves.urllib.parse import quote
 from ecl.dedicated_hypervisor import dedicated_hypervisor_service
 from ecl import resource2
 
@@ -57,7 +57,7 @@ class Usage(resource2.Resource):
 
         params = []
         for key in kwargs.keys():
-            item = "%s=%s" % (str(key), urllib.quote(str(kwargs[key]))) \
+            item = "%s=%s" % (str(key), quote(str(kwargs[key]))) \
                 if key in ['from', 'to'] \
                 else "%s=%s" % (str(key), str(kwargs[key]))
             params.append(item)
