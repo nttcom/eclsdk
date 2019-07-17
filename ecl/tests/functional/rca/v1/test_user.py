@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestUser(base.BaseFunctionalTest):
 
     @classmethod
@@ -42,7 +43,3 @@ class TestUser(base.BaseFunctionalTest):
 
     def test_05_delete_user(self):
         self.conn.rca.delete_user("wrong_user_name")
-
-
-
-

@@ -25,6 +25,7 @@ class TestIntenetService(base.BaseFunctionalTest):
         sot = self.conn.network.find_internet_service(self.one_inet_service.name)
         self.assertEqual(self.one_inet_service.id, sot.id)
 
+
 class TestInternetGateway(base.BaseFunctionalTest):
 
     @classmethod
@@ -80,7 +81,7 @@ class TestInternetGateway(base.BaseFunctionalTest):
     def test_update(self):
         sot = self.conn.network.update_internet_gateway(self.one_inet_gw.id,
                                                         description="(edited)")
-        print sot
+        print(sot)
 
     def _test_delete(self):
         sot = self.conn.network.delete_internet_gateway(self.one_inet_gw.id)

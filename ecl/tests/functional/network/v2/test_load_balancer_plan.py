@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestLoadBalancerPlan(base.BaseFunctionalTest):
 
     def test_01_list_LB_plans(self):
@@ -20,13 +21,13 @@ class TestLoadBalancerPlan(base.BaseFunctionalTest):
             version="11.0-67.12",
             vendor="citrix"
         ))
-        print plans
+        print(plans)
 
     def test_02_show_LB_plan(self):
         plan = self.conn.network.get_load_balancer_plan(
             "0631eb6d-f4cd-4a18-b255-1fe603c2c3ec"
         )
-        print plan
+        print(plan)
         self.assertIsInstance(plan.description, six.string_types)
         self.assertIsInstance(plan.id, six.string_types)
         self.assertIsInstance(plan.name, six.string_types)
@@ -38,7 +39,7 @@ class TestLoadBalancerPlan(base.BaseFunctionalTest):
         plan = self.conn.network.find_load_balancer_plan(
             "0631eb6d-f4cd-4a18-b255-1fe603c2c3ec"
         )
-        print plan
+        print(plan)
         self.assertIsInstance(plan.description, six.string_types)
         self.assertIsInstance(plan.id, six.string_types)
         self.assertIsInstance(plan.name, six.string_types)

@@ -249,7 +249,7 @@ class Connection(object):
                                 proxy_class.__module__)
             setattr(self, attr_name, proxy_class(self.session))
         except Exception as e:
-            _logger.warn("Unable to load %s: %s" % (module, e))
+            _logger.warning("Unable to load %s: %s" % (module, e))
 
     def authorize(self):
         """Authorize this Connection

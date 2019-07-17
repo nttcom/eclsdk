@@ -24,5 +24,4 @@ class TestType(base.BaseFunctionalTest):
 
     def test_find(self):
         sot = self.conn.block_store.find_volume_type("nfsdriver")
-        print sot
-        
+        print(sot)

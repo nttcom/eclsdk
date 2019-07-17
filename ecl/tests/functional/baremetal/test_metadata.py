@@ -10,27 +10,27 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import six
 from ecl.tests.functional import base
+
 
 class TestMetadata(base.BaseFunctionalTest):
     server_id = "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2"
 
     def setUp(self):
-        print "\n>> Test Name: " + self.id()
+        print("\n>> Test Name: " + self.id())
 
     def test_01_list(self):
         metadata = self.conn.baremetal.metadata(self.server_id)
-        print metadata
+        print(metadata)
         self.assertIsInstance(metadata.metadata, dict)
 
     def test_02_replace(self):
         metadata = self.conn.baremetal.replace_metadata(
             self.server_id,
-            metadata={"KEY1":"VALUE1",
-                      "key2":"value2"}
+            metadata={"KEY1": "VALUE1",
+                      "key2": "value2"}
         )
-        print metadata
+        print(metadata)
         self.assertIsInstance(metadata.metadata, dict)
 
     def test_03_delete(self):
@@ -38,28 +38,27 @@ class TestMetadata(base.BaseFunctionalTest):
             self.server_id, "KEY1"
         )
 
-
     def test_04_merge(self):
         metadata = self.conn.baremetal.merge_metadata(
             self.server_id,
-            metadata={"KEY60":"VALUE60"}
+            metadata={"KEY60": "VALUE60"}
         )
-        print metadata
+        print(metadata)
         self.assertIsInstance(metadata.metadata, dict)
 
     def test_05_show(self):
         metadata = self.conn.baremetal.show_metadata(
             self.server_id, "KEY60"
         )
-        print metadata
+        print(metadata)
         self.assertIsInstance(metadata.metadata, dict)
 
     def test_06_update(self):
         metadata = self.conn.baremetal.update_metadata(
             self.server_id, "KEY60",
-            metadata={"KEY60":"NEW_VALUE00"}
+            metadata={"KEY60": "NEW_VALUE00"}
         )
-        print metadata
+        print(metadata)
         self.assertIsInstance(metadata.metadata, dict)
 
     def test_07_delete(self):
@@ -69,7 +68,5 @@ class TestMetadata(base.BaseFunctionalTest):
 
     def test_08_list(self):
         metadata = self.conn.baremetal.metadata(self.server_id)
-        print metadata
+        print(metadata)
         self.assertIsInstance(metadata.metadata, dict)
-
-

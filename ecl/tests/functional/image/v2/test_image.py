@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestImage(base.BaseFunctionalTest):
     def test_01_list_image(self):
         images = list(self.conn.image.images(limit=5))
@@ -24,22 +25,22 @@ class TestImage(base.BaseFunctionalTest):
         self.assertIsInstance(image.created_at, six.string_types)
         self.assertIsInstance(image.disk_format, six.string_types)
         self.assertIsInstance(image.locations, list)
-        #self.assertIsInstance(image.direct_url, six.string_types)
+        # self.assertIsInstance(image.direct_url, six.string_types)
         self.assertIsInstance(image.updated_at, six.string_types)
         self.assertIsInstance(image.visibility, six.string_types)
         self.assertIsInstance(image.min_disk, int)
         self.assertIsInstance(image.protected, bool)
         self.assertIsInstance(image.id, six.string_types)
         self.assertIsInstance(image.file, six.string_types)
-        #self.assertIsInstance(image.checksum, six.string_types)
+        # self.assertIsInstance(image.checksum, six.string_types)
         self.assertIsInstance(image.owner, six.string_types)
-        #self.assertIsInstance(image.size, int)
+        # self.assertIsInstance(image.size, int)
         self.assertIsInstance(image.min_ram, int)
-        #self.assertIsInstance(image.image_schema, six.string_types)
+        # self.assertIsInstance(image.image_schema, six.string_types)
         self.assertIsInstance(image.images_schema, six.string_types)
         self.assertIsInstance(image.first, six.string_types)
 
-        #print images
+        # print(images)
         assert False
 
     @classmethod
@@ -49,24 +50,23 @@ class TestImage(base.BaseFunctionalTest):
             disk_format='raw',
             container_format='bare',
             properties='{"description": "This is not an image"}',
-            #data=open('CONTRIBUTING.rst', 'r')
+            # data=open('CONTRIBUTING.rst', 'r')
         )
         cls.id = img.id
-        print img
+        print(img)
     # id=5e9a2627-2acf-4ebf-b210-ffa75de9c1be
 
     def test_03_update_image(self):
         img = self.conn.image.update_image(
             "1b782d43-4e43-4d96-883b-ff423f8b8b7c",
-            [{"path":"/name", "value":"sdk_test", "op":"replace"}]
+            [{"path": "/name", "value": "sdk_test", "op": "replace"}]
         )
-        print img
+        print(img)
 
     def test_04_show_image(self):
         image = self.conn.image.get_image(
             "1b782d43-4e43-4d96-883b-ff423f8b8b7c")
-        print image.response
-
+        print(image.response)
 
     def test_05_delete_image(self):
         self.conn.image.delete_image(
@@ -74,7 +74,7 @@ class TestImage(base.BaseFunctionalTest):
 
     def test_06_upload_image(self):
         self.conn.image.upload_image(
-            #self.id,
+            # self.id,
             "fake_id",
             "raw_data"
         )
@@ -83,6 +83,4 @@ class TestImage(base.BaseFunctionalTest):
         image = self.conn.image.download_image(
             "1b782d43-4e43-4d96-883b-ff423f8b8b7c"
         )
-        print image
-
-
+        print(image)

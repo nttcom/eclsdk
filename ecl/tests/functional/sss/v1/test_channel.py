@@ -10,13 +10,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import six
 from ecl.tests.functional import base
+
 
 class TestChannel(base.BaseFunctionalTest):
 
     def test_01_channels(self):
         channels = list(self.conn.sss.channels("false"))
         for channel in channels:
-            print channel
+            print(channel)
         self.assertGreater(len(channels), 0)

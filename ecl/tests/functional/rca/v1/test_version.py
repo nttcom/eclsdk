@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestVersion(base.BaseFunctionalTest):
 
     def test_01_list_versions_information(self):

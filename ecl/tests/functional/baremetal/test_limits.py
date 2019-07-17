@@ -11,7 +11,6 @@
 # under the License.
 
 
-import six
 from ecl.tests.functional import base
 
 
@@ -19,6 +18,6 @@ class TestLimits(base.BaseFunctionalTest):
 
     def test_01_Get_Limits(self):
         limit = self.conn.baremetal.get_limits()
-        print limit
+        print(limit)
         self.assertIsInstance(limit.absolute, dict)
         self.assertIsInstance(limit.rate, list)

@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestVersion(base.BaseFunctionalTest):
 
     def test_01_versions(self):
@@ -22,11 +23,9 @@ class TestVersion(base.BaseFunctionalTest):
         self.assertIsInstance(version.id, six.string_types)
         self.assertIsInstance(version.links, list)
 
-
     def test_02_show_version(self):
         version = self.conn.baremetal.get_version()
-        print version
+        print(version)
         self.assertIsInstance(version.status, six.string_types)
         self.assertIsInstance(version.id, six.string_types)
         self.assertIsInstance(version.links, list)
-

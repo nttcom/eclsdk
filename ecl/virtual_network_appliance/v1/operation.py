@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import base
+from . import base
 
 from ecl.virtual_network_appliance import virtual_network_appliance_service
 from ecl import resource2

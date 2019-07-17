@@ -3,7 +3,6 @@
 
 import six
 
-from ecl import exceptions
 from ecl.tests.functional import base
 
 
@@ -22,7 +21,7 @@ class TestMCIC(base.BaseFunctionalTest):
         self.assertGreaterEqual(len(mcics), 0)
 
         for mcic in mcics:
-            # print mcic.to_dict()["service_type"]
+            # print(mcic.to_dict()["service_type"])
             self.assertIsInstance(mcic.mcic_id, six.string_types)
             self.assertIsInstance(mcic.mcic_name, six.string_types)
             self.assertIsInstance(mcic.mcic_status, six.string_types)

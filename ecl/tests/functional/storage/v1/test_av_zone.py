@@ -13,15 +13,15 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestAVZone(base.BaseFunctionalTest):
     def test_01_av_zones(self):
         zones = list(self.conn.storage.availability_zones(details=True))
-        print zones[0]
+        print(zones[0])
         zone = zones[0]
         self.assertIsInstance(zone.zoneState, dict)
         self.assertIsInstance(zone.zoneName, six.string_types)
 
     def test_02_find_av_zones(self):
         zones = self.conn.storage.find_availability_zone("zone1-groupa")
-        print zones
-
+        print(zones)

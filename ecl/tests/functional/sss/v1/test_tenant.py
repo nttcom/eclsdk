@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestTenant(base.BaseFunctionalTest):
 
     @classmethod
@@ -21,10 +22,10 @@ class TestTenant(base.BaseFunctionalTest):
             tenant_name="T01test",
             description="forSDKtest",
             region="lab3ec",
-            #contract_id="econ123467890",
+            # contract_id="econ123467890",
         )
         cls.tenant_id = tenant.id
-        print tenant.id
+        print(tenant.id)
         assert isinstance(tenant.id, six.string_types)
         assert isinstance(tenant.tenant_name, six.string_types)
         assert isinstance(tenant.description, six.string_types)
@@ -33,4 +34,3 @@ class TestTenant(base.BaseFunctionalTest):
 
     def test_02_delete_tenant(self):
         self.conn.sss.delete_tenant(self.tenant_id)
-

@@ -227,7 +227,7 @@ class Proxy(proxy.BaseProxy):
                  when no resource can be found.
         """
         return self._get(_quota.DetailQuota, user_id,
-                         path_args={"tenant_id":tenant_id})
+                         path_args={"tenant_id": tenant_id})
 
     def get_default_quota(self, tenant_id):
         """Get default quota of a tenant

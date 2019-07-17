@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestFirewallAction(base.BaseFunctionalTest):
     def test_01_reboot_firewall(self):
         reboot = self.conn.network.reboot_firewall(
@@ -25,6 +26,6 @@ class TestFirewallAction(base.BaseFunctionalTest):
             "5f29f0f4-ef23-484e-a81f-ea621175f1a3",
             "user-read"
         )
-        print resp
+        print(resp)
         self.assertIsInstance(resp.new_password, six.string_types)
         self.assertIsInstance(resp.username, six.string_types)

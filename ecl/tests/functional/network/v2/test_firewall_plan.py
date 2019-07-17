@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestFirewallPlan(base.BaseFunctionalTest):
 
     def test_01_list_firewall_plans(self):
@@ -20,13 +21,13 @@ class TestFirewallPlan(base.BaseFunctionalTest):
             name="Brocade_5600_vRouter_3.5R6S3_4CPU-16GB-8IF",
             vendor="vyatta"
         ))
-        print plans
+        print(plans)
 
     def test_02_show_firewall_plan(self):
         plan = self.conn.network.get_firewall_plan(
             "be90a148-99b9-4f69-b5cb-b03897eebd5d"
         )
-        print plan
+        print(plan)
         self.assertIsInstance(plan.description, six.string_types)
         self.assertIsInstance(plan.id, six.string_types)
         self.assertIsInstance(plan.name, six.string_types)
@@ -37,7 +38,7 @@ class TestFirewallPlan(base.BaseFunctionalTest):
         plan = self.conn.network.find_firewall_plan(
             "be90a148-99b9-4f69-b5cb-b03897eebd5d"
         )
-        print plan
+        print(plan)
         self.assertIsInstance(plan.description, six.string_types)
         self.assertIsInstance(plan.id, six.string_types)
         self.assertIsInstance(plan.name, six.string_types)

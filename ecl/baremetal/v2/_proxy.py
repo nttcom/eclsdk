@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import six
+
 from ecl.baremetal.v2 import flavor as _flavor
 from ecl.baremetal.v2 import keypair as _keypair
 from ecl.baremetal.v2 import limits as _limits
@@ -43,7 +45,7 @@ class VersionSession(session.Session):
             auth, interface, service_type
         )
 
-        if sc_endpoint == None or sc_endpoint == '':
+        if sc_endpoint is None or sc_endpoint == '':
             return sc_endpoint
         segments = sc_endpoint.split('/')
         if len(segments) > 0:
@@ -134,7 +136,7 @@ class Proxy(proxy2.BaseProxy):
     def get_keypair(self, keypair_name):
         """Show a KeyPair associated with keypair_name.
 
-        :param string keypair: The name associated with a KeyPair.
+        :param string keypair_name: The name associated with a KeyPair.
         :return: :class:`~ecl.baremetal.v2.keypair.Keypair`
         """
         return self._get(_keypair.Keypair, keypair_name)
@@ -150,8 +152,7 @@ class Proxy(proxy2.BaseProxy):
             You can get the private key from Responce.
         :return: :class:`~ecl.baremetal.keypair.Keypair`
         """
-        attrs = {}
-        attrs["name"] = name
+        attrs = {"name": name}
         if public_key:
             attrs["public_key"] = public_key
         return self._create(_keypair.Keypair, **attrs)
@@ -196,7 +197,7 @@ class Proxy(proxy2.BaseProxy):
             profile=self.session.profile,
             user_agent=self.session.user_agent,
         )
-        for attr, value in self.session.__dict__.iteritems():
+        for attr, value in six.iteritems(self.session.__dict__):
             v_session.__setattr__(attr, value)
         return version.get_version(session=v_session)
 
@@ -210,7 +211,7 @@ class Proxy(proxy2.BaseProxy):
             profile=self.session.profile,
             user_agent=self.session.user_agent,
         )
-        for attr, value in self.session.__dict__.iteritems():
+        for attr, value in six.iteritems(self.session.__dict__):
             v_session.__setattr__(attr, value)
         return list(version.list_version(session=v_session))
 
@@ -317,10 +318,7 @@ class Proxy(proxy2.BaseProxy):
             esxi.
         :return: :class:`~ecl.baremetal.v2.server.Server`
         """
-        attrs = {}
-        attrs["name"] = name
-        attrs["networks"] = networks
-        attrs["flavorRef"] = flavor
+        attrs = {"name": name, "networks": networks, "flavorRef": flavor}
         if admin_pass:
             attrs["adminPass"] = admin_pass
         if image:

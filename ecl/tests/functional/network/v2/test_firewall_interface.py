@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestFirewallInterface(base.BaseFunctionalTest):
     def test_01_list_interface(self):
         interfaces = list(self.conn.network.firewall_interfaces())

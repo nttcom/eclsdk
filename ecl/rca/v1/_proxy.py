@@ -10,10 +10,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import six
+
 from ecl import proxy2
 from ecl import session
 from ecl.rca.v1 import user as _user
 from ecl.rca import version as _version
+
 
 class VersionSession(session.Session):
 
@@ -34,7 +37,7 @@ class VersionSession(session.Session):
             auth, interface, service_type
         )
 
-        if sc_endpoint == None or sc_endpoint == '':
+        if sc_endpoint is None or sc_endpoint == '':
             return sc_endpoint
         segments = sc_endpoint.split('/')
         if len(segments) > 0:
@@ -74,7 +77,7 @@ class Proxy(proxy2.BaseProxy):
         Create VPN user. One VPN user can create per one tenant.
         And username equal to tenant_id.
 
-        :param password: The passowrd of VPN connection.
+        :param password: The password of VPN connection.
                 Available character is 8-127 character of alphabet[a-zA-Z],
                 number[0-9] and Symbols[.-_/*+,!#$%&()~|].
         :return: The results of user creation
@@ -87,7 +90,7 @@ class Proxy(proxy2.BaseProxy):
         Update VPN user.
 
         :param username: The username of VPN user.
-        :param password: The passowrd of VPN connection. Available character is
+        :param password: The password of VPN connection. Available character is
                 8-127 character of alphabet[a-zA-Z], number[0-9] and Symbols[
                 .-_/*+,!#$%&()~|].
         :return: :class:`~ecl.rca.v1.user.User`
@@ -127,7 +130,7 @@ class Proxy(proxy2.BaseProxy):
             profile=self.session.profile,
             user_agent=self.session.user_agent,
         )
-        for attr, value in self.session.__dict__.iteritems():
+        for attr, value in six.iteritems(self.session.__dict__):
             v_session.__setattr__(attr, value)
 
         return version.get_version(session=v_session)
@@ -143,7 +146,7 @@ class Proxy(proxy2.BaseProxy):
             profile=self.session.profile,
             user_agent=self.session.user_agent,
         )
-        for attr, value in self.session.__dict__.iteritems():
+        for attr, value in six.iteritems(self.session.__dict__):
             v_session.__setattr__(attr, value)
 
         return list(version.list_version(session=v_session))

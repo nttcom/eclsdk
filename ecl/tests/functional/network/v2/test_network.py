@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
-import uuid
-
-from ecl.network.v2 import network
 from ecl.tests.functional import base
 
 

@@ -13,6 +13,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestRole(base.BaseFunctionalTest):
 
     def test_01_create_role(self):
@@ -30,4 +31,3 @@ class TestRole(base.BaseFunctionalTest):
     def test_02_delete_role(self):
         self.conn.sss.delete_role("5de7c7c21bba4939b071b3879172213e",
                                   "ecid1000030914")
-

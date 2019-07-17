@@ -14,21 +14,22 @@ import time
 import six
 from ecl.tests.functional import base
 
+
 class TestLoadBalancer(base.BaseFunctionalTest):
     def test_09_load_balancers(self):
         load_balancers = list(self.conn.network.load_balancers(
             status="ACTIVE", description="",
             load_balancer_plan_id="29da442c-9a06-4eb3-b3cd-b6b123198214",
-            #id="911726aa-a249-4a58-a59b-c233a110649b"
+            # id="911726aa-a249-4a58-a59b-c233a110649b"
         ))
-        print [load_balancer.id for load_balancer in load_balancers]
+        print([load_balancer.id for load_balancer in load_balancers])
 
     @classmethod
     def test_02_create_load_balancer(cls):
         load_balancer = cls.conn.network.create_load_balancer(
             load_balancer_plan_id="29da442c-9a06-4eb3-b3cd-b6b123198214"
         )
-        print load_balancer
+        print(load_balancer)
         cls.id = load_balancer.id
         time.sleep(360)
 
@@ -36,11 +37,11 @@ class TestLoadBalancer(base.BaseFunctionalTest):
         load_balancer = self.conn.network.show_load_balancer(
             self.id
         )
-        print load_balancer
+        print(load_balancer)
         self.assertIsInstance(load_balancer.admin_username, six.string_types)
-        #self.assertIsInstance(load_balancer.availability_zone, six.string_types)
-        #self.assertIsInstance(load_balancer.default_gateway, six.string_types)
-        #self.assertIsInstance(load_balancer.description, six.string_types)
+        # self.assertIsInstance(load_balancer.availability_zone, six.string_types)
+        # self.assertIsInstance(load_balancer.default_gateway, six.string_types)
+        # self.assertIsInstance(load_balancer.description, six.string_types)
         self.assertIsInstance(load_balancer.id, six.string_types)
         self.assertIsInstance(load_balancer.interfaces, list)
         self.assertIsInstance(load_balancer.load_balancer_plan_id, six.string_types)
@@ -51,15 +52,15 @@ class TestLoadBalancer(base.BaseFunctionalTest):
         self.assertIsInstance(load_balancer.user_username, six.string_types)
 
     def test_04_update_load_balancer(self):
-        #self.id = "911726aa-a249-4a58-a59b-c233a110649b"
+        # self.id = "911726aa-a249-4a58-a59b-c233a110649b"
         load_balancer = self.conn.network.update_load_balancer(
             self.id,
             description="updated"
         )
-        print load_balancer
+        print(load_balancer)
 
     def test_05_delete_load_balancer(self):
-        #self.id = "911726aa-a249-4a58-a59b-c233a110649b"
+        # self.id = "911726aa-a249-4a58-a59b-c233a110649b"
         self.conn.network.delete_load_balancer(
             self.id
         )

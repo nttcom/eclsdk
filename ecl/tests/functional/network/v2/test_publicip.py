@@ -42,5 +42,5 @@ class TestPublic(base.BaseFunctionalTest):
     def test_update(self):
         if self.one_publicip:
             sot = self.conn.network.update_public_ip(self.one_publicip.id,
-                                                          description="Test SDK")
+                                                     description="Test SDK")
             self.assertIsInstance(sot, PublicIP)

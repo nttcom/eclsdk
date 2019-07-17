@@ -14,6 +14,7 @@
 import six
 from ecl.tests.functional import base
 
+
 class TestServerAction(base.BaseFunctionalTest):
 
     def test_01_start_server(self):
@@ -30,11 +31,11 @@ class TestServerAction(base.BaseFunctionalTest):
         assert False
 
     def test_03_reboot_server(self):
-       server = self.conn.baremetal.reboot_server(
-           "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-           "SOFT",
-           "disk"
-       )
+        server = self.conn.baremetal.reboot_server(
+            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            "SOFT",
+            "disk"
+        )
 
     def test_04_get_management_console(self):
         server = self.conn.baremetal.get_management_console(

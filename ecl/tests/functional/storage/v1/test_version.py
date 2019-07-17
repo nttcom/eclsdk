@@ -10,15 +10,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import six
 from ecl.tests.functional import base
 
 
 class TestVersion(base.BaseFunctionalTest):
     def test_01_versions(self):
         versions = list(self.conn.storage.versions())
-        print versions
+        print(versions)
 
     def test_02_show_version(self):
         version = self.conn.storage.get_version()
-        print version
+        print(version)
