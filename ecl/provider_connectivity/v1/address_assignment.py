@@ -45,7 +45,7 @@ class AddressAssignment(resource2.Resource):
             # case and it involves looping through the class' dict.
             id = value.id or getattr(
                 value, value._alternate_id(),
-                hashlib.new('md5', str(value)).hexdigest())
+                hashlib.new('md5', str(value).encode('utf-8')).hexdigest())
             return id
         else:
             return value
@@ -63,7 +63,7 @@ class AddressAssignment(resource2.Resource):
             elif self._alternate_id():
                 return self._body[self._alternate_id()]
             else:
-                return hashlib.new('md5', str(self)).hexdigest()
+                return hashlib.new('md5', str(self).encode('utf-8')).hexdigest()
         else:
             return object.__getattribute__(self, name)
 
