@@ -73,7 +73,7 @@ class HttpException(SDKException):
 
     def _get_exception_message(self, message=None):
         try:
-            content = json.loads(self.response._content)
+            content = json.loads(self.response._content.decode('utf-8'))
 
             if self._is_compute_form_error(content):
                 return content.items()[0][1]['message']
