@@ -183,6 +183,19 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
+    def change_boot_mode(self, session, server_id, boot_mode):
+        uri = self.base_path % server_id
+        body = {
+            "boot_mode": boot_mode,
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body
+        )
+        self._translate_response(resp, has_body=False)
+        return self
+
     def media_attach(self, session, server_id, image):
         uri = self.base_path % server_id
         body = {
