@@ -127,7 +127,6 @@ class ServerDetail(Server):
     allow_list = True
 
 
-
 class ServerAction(resource2.Resource):
     resource_key = "console"
     resources_key = None
@@ -144,9 +143,9 @@ class ServerAction(resource2.Resource):
     #: Password for sign in to the remote console.
     password = resource2.Body('password')
 
-    def start(self, session, server_id, boot_mode):
+    def start(self, session, server_id):
         uri = self.base_path % server_id
-        body = {"os-start": {"boot_mode": boot_mode}}
+        body = {"os-start": None}
         resp = session.post(
             uri,
             endpoint_filter=self.service,
@@ -155,12 +154,12 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
-    def stop(self, session, server_id, type):
+    def stop(self, session, server_id, shutdown_type):
         uri = self.base_path % server_id
-        if type is None:
+        if shutdown_type is None:
             body = {"os-stop": None}
         else:
-            body = {"os-stop": {"type": type}}
+            body = {"os-stop": {"type": shutdown_type}}
         resp = session.post(
             uri,
             endpoint_filter=self.service,
@@ -169,12 +168,11 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
-    def reboot(self, session, server_id, type, boot_mode):
+    def reboot(self, session, server_id, shutdown_type):
         uri = self.base_path % server_id
         body = {
             "reboot": {
-                "type": type,
-                "boot_mode": boot_mode,
+                "type": shutdown_type,
             }
         }
         resp = session.post(

@@ -352,45 +352,41 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_server.Server, server_id)
 
-    def start_server(self, server_id, boot_mode):
+    def start_server(self, server_id):
         """Power on the Baremetal Server associated with server_id.
         This request will be accepted only when the task_state is None.
 
         :param string server_id: ID for the server.
-        :param string boot_mode: Baremetal Server boot mode.
-            A valid value is DISK, PXE, LEGACY or ISO.
         :return: ``None``
         """
         server = _server.ServerAction()
-        return server.start(self.session, server_id, boot_mode)
+        return server.start(self.session, server_id)
 
-    def stop_server(self, server_id, type=None):
+    def stop_server(self, server_id, shutdown_type=None):
         """Stop the Baremetal Server associated with server_id.
         This request will be accepted only when the task_state is None.
 
         :param string server_id: ID for the server.
-        :param string type: Baremetal Server shutdown mode.
+        :param string shutdown_type: Baremetal Server shutdown mode.
             A valid value is HARD or SOFT.
         :return: ``None``
         """
         server = _server.ServerAction()
-        return server.stop(self.session, server_id, type)
+        return server.stop(self.session, server_id, shutdown_type)
 
-    def reboot_server(self, server_id, type, boot_mode):
+    def reboot_server(self, server_id, shutdown_type):
         """Reboot the Baremetal Server associated with server_id.
         This request will be accepted only when the task_state is None.
 
         :param string server_id: ID for the server.
-        :param string type: Baremetal Server shutdown mode.
+        :param string shutdown_type: Baremetal Server shutdown mode.
             A valid value is HARD or SOFT. HARD is force restart by IPMI.
             This operations is equal to power down.
             SOFT is restated by ACPI.
-        :param string boot_mode: Baremetal Server boot mode.
-            A valid value is DISK, PXE, LEGACY or ISO.
         :return: ``None``
         """
         server = _server.ServerAction()
-        return server.reboot(self.session, server_id, type, boot_mode)
+        return server.reboot(self.session, server_id, shutdown_type)
 
     def media_attach(self, server_id, image):
         """Attach media to the Baremetal Server associated with server_id.
