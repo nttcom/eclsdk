@@ -183,10 +183,11 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
-    def change_boot_mode(self, session, server_id, boot_mode):
+    def change_boot_mode(self, session, server_id, shutdown_type, boot_mode):
         uri = self.base_path % server_id
         body = {
-            "boot_mode": boot_mode,
+            "type": shutdown_type,
+            "boot_mode": boot_mode
         }
         resp = session.post(
             uri,
