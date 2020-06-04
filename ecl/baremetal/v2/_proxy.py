@@ -386,17 +386,21 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.reboot(self.session, server_id, shutdown_type)
 
-    def change_boot_mode(self, server_id, boot_mode):
+    def change_boot_mode(self, server_id, shutdown_type, boot_mode):
         """Change the Baremetal Server boot mode.
         This request will be accepted only when the task_state is None.
 
         :param string server_id: ID for the server.
+        :param string shutdown_type: Baremetal Server shutdown mode.
+            A valid value is HARD or SOFT. HARD is force restart by IPMI.
+            This operations is equal to power down.
+            SOFT is restated by ACPI.
         :param string boot_mode: Baremetal Server boot mode.
             A valid value is DISK, PXE, LEGACY or ISO.
         :return: ``None``
         """
         server = _server.ServerAction()
-        return server.change_boot_mode(self.session, server_id, boot_mode)
+        return server.change_boot_mode(self.session, server_id, shutdown_type, boot_mode)
 
     def media_attach(self, server_id, image):
         """Attach media to the Baremetal Server associated with server_id.
