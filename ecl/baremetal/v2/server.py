@@ -186,8 +186,10 @@ class ServerAction(resource2.Resource):
     def change_boot_mode(self, session, server_id, shutdown_type, boot_mode):
         uri = self.base_path % server_id
         body = {
-            "type": shutdown_type,
-            "boot_mode": boot_mode
+            "boot_mode": {
+                "type": shutdown_type,
+                "boot_mode": boot_mode
+            }
         }
         resp = session.post(
             uri,
