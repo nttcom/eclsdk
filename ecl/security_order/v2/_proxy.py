@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_order.v1 import device as _fgs
-from ecl.security_order.v1 import ha_device as _fgha
-from ecl.security_order.v1 import waf as _fgwaf
-from ecl.security_order.v1 import host_based_security as _hbs
+from ecl.security_order.v2 import device as _fgs
+from ecl.security_order.v2 import ha_device as _fgha
+from ecl.security_order.v2 import waf as _fgwaf
+from ecl.security_order.v2 import host_based_security as _hbs
 from ecl import proxy2
 
 
@@ -16,7 +16,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.device.Device`
+        :rtype: :class:`~ecl.security.v2.device.Device`
         """
         fgs = _fgs.Device()
         return fgs.list(self.session, locale=locale)
@@ -32,7 +32,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.device.Device`
+        :rtype: :class:`~ecl.security.v2.device.Device`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -57,7 +57,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.device.Device`
+        :rtype: :class:`~ecl.security.v2.device.Device`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -80,7 +80,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.device.Device`
+        :rtype: :class:`~ecl.security.v2.device.Device`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -100,7 +100,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
+        :rtype: :class:`~ecl.security.v2.ha_device.HADevice`
         """
         fgha = _fgha.HADevice()
         return fgha.list(self.session, locale=locale)
@@ -130,7 +130,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
+        :rtype: :class:`~ecl.security.v2.ha_device.HADevice`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -172,7 +172,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
+        :rtype: :class:`~ecl.security.v2.ha_device.HADevice`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -200,7 +200,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: HA Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.ha_device.HADevice`
+        :rtype: :class:`~ecl.security.v2.ha_device.HADevice`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -224,7 +224,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Single Firwall/UTM.
-        :rtype: :class:`~ecl.security.v1.device.Device`
+        :rtype: :class:`~ecl.security.v2.device.Device`
         """
         fgs = _fgs.Device()
         return fgs.get_order_status(self.session, soid, locale=locale)
@@ -236,7 +236,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: WAF.
-        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        :rtype: :class:`~ecl.security.v2.waf.WAF`
         """
         fgwaf = _fgwaf.WAF()
         return fgwaf.list(self.session, locale=locale)
@@ -250,7 +250,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: WAF.
-        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        :rtype: :class:`~ecl.security.v2.waf.WAF`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -273,7 +273,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: WAF.
-        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        :rtype: :class:`~ecl.security.v2.waf.WAF`
         """
         fgwaf = _fgwaf.WAF()
         return fgwaf.get_order_status(self.session, soid, locale=locale)
@@ -287,7 +287,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: WAF.
-        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        :rtype: :class:`~ecl.security.v2.waf.WAF`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -309,7 +309,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: WAF.
-        :rtype: :class:`~ecl.security.v1.waf.WAF`
+        :rtype: :class:`~ecl.security.v2.waf.WAF`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -332,7 +332,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
+        :rtype: :class:`~ecl.security.v2.host_based_security.HostBasedSecurity`
         """
         hbs = _hbs.HostBasedSecurity()
         return hbs.get_order_status(self.session, soid, locale=locale)
@@ -344,7 +344,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
+        :rtype: :class:`~ecl.security.v2.host_based_security.HostBasedSecurity`
         """
         hbs = _hbs.HostBasedSecurity()
         return hbs.get_order_info(self.session, locale=locale)
@@ -366,7 +366,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security
-        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
+        :rtype: :class:`~ecl.security.v2.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -391,7 +391,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
+        :rtype: :class:`~ecl.security.v2.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -412,7 +412,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
+        :rtype: :class:`~ecl.security.v2.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
@@ -432,7 +432,7 @@ class Proxy(proxy2.BaseProxy):
                               depending on this value.
                               ja: Japanese, en: English. Default value is "en".
         :return: Host Based Security.
-        :rtype: :class:`~ecl.security.v1.host_based_security.HostBasedSecurity`
+        :rtype: :class:`~ecl.security.v2.host_based_security.HostBasedSecurity`
         """
         body = {}
         body["tenant_id"] = self.session.get_project_id()
