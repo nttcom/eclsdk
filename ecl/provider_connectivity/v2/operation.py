@@ -42,3 +42,5 @@ class Operation(resource2.Resource):
     tenant_id = resource2.Body('tenant_id')
     #: If use this query, the latest operation is returned.
     latest = resource2.Body('latest')
+    #: Error
+    error = resource2.Body('error')
