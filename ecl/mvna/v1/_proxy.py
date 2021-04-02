@@ -2,6 +2,7 @@ from ecl import proxy2
 from ecl.mvna.v1 import certificate as _certificate
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
+from ecl.mvna.v1 import maintenance as _maintenance
 from ecl.mvna.v1 import target_group as _target_group
 
 
@@ -506,3 +507,16 @@ class Proxy(proxy2.BaseProxy):
         """
         listener = _listener.Listener()
         listener.cancel_staged_configuration(self.session, listener_id)
+
+    def maintenances(self, **params):
+        """List Maintenances."""
+        return self._list(_maintenance.Maintenance, paginated=False,
+                          **params)
+
+    def get_maintenance(self, maintenance_id):
+        """Retrieve Maintenance Information.
+
+        :param string maintenance_id: ID of maintenance
+        :return: Maintenance
+        """
+        return self._get(_maintenance.Maintenance, maintenance_id)
