@@ -5,6 +5,7 @@ from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
 from ecl.mvna.v1 import maintenance as _maintenance
 from ecl.mvna.v1 import plan as _plan
+from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import target_group as _target_group
 
 
@@ -729,3 +730,195 @@ class Proxy(proxy2.BaseProxy):
         health_monitor = _health_monitor.HealthMonitor()
         health_monitor.cancel_staged_configuration(self.session,
                                                    health_monitor_id)
+
+    def policies(self, **params):
+        """List Policies."""
+        return self._list(_policy.Policy, paginated=False, **params)
+
+    def create_policy(self, health_monitor_id, listener_id,
+                      default_target_group_id, load_balancer_id,
+                      name=None, description=None, tags=None, algorithm=None,
+                      persistence=None, sorry_page_url=None,
+                      certificate_id=None, tls_security_policy_id=None):
+        """Create Policy.
+
+        :param string health_monitor_id: Health Monitor ID of Policy
+        :param string listener_id: Listener ID of Policy
+        :param string default_target_group_id: Default Target Group ID
+        :param string load_balancer_id: Load Balancer ID
+        :param string name: Name of Policy
+        :param string description: Description of Policy
+        :param dict tags: Tags of Policy
+        :param string algorithm: Algorithm of Policy
+        :param string persistence: Persistence of Policy
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
+        :param string tls_security_policy_id: TLS Security Policy ID
+        :return: Policy
+        """
+        body = {
+            "health_monitor_id": health_monitor_id,
+            "listener_id": listener_id,
+            "default_target_group_id": default_target_group_id,
+            "load_balancer_id": load_balancer_id,
+        }
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        if algorithm:
+            body["algorithm"] = algorithm
+        if persistence:
+            body["persistence"] = persistence
+        if sorry_page_url:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id:
+            body["certificate_id"] = certificate_id
+        if tls_security_policy_id:
+            body["tls_security_policy_id"] = tls_security_policy_id
+        return self._create(_policy.Policy, **body)
+
+    def get_policy(self, policy_id):
+        """Retrieve Policy Information.
+
+        :param string policy_id: ID of Policy
+        :return: Policy
+        """
+        return self._get(_policy.Policy, policy_id)
+
+    def update_policy(self, policy_id, name=None, description=None, tags=None):
+        """Update Policy Attributes.
+
+        :param string policy_id: ID of Policy
+        :param string name: Name of Policy
+        :param string description: Description of Policy
+        :param dict tags: Tags of Policy
+        :return: Policy
+        """
+        body = {}
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        return self._update(_policy.Policy, policy_id, **body)
+
+    def delete_policy(self, policy_id, ignore_missing=False):
+        """Delete Policy.
+
+        :param string policy_id: ID of Policy
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent policy.
+        :return: None
+        """
+        self._delete(_policy.Policy, policy_id, ignore_missing=ignore_missing)
+
+    def create_staged_policy_configuration(self, policy_id,
+                                           algorithm=None, persistence=None,
+                                           sorry_page_url=None,
+                                           certificate_id=None,
+                                           health_monitor_id=None,
+                                           listener_id=None,
+                                           default_target_group_id=None,
+                                           tls_security_policy_id=None):
+        """Create Staged Policy Configuration.
+
+        :param string policy_id: ID of Policy
+        :param string algorithm: Algorithm of Policy
+        :param string persistence: Persistence of Policy
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
+        :param string health_monitor_id: Health Monitor ID of Policy
+        :param string listener_id: Listener ID of Policy
+        :param string default_target_group_id: Default Target Group ID
+        :param string tls_security_policy_id: TLS Security Policy ID
+        :return: Policy
+        """
+        body = {}
+        if algorithm:
+            body["algorithm"] = algorithm
+        if persistence:
+            body["persistence"] = persistence
+        if sorry_page_url:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id:
+            body["certificate_id"] = certificate_id
+        if health_monitor_id:
+            body["health_monitor_id"] = health_monitor_id
+        if listener_id:
+            body["listener_id"] = listener_id
+        if default_target_group_id:
+            body["default_target_group_id"] = default_target_group_id
+        if tls_security_policy_id:
+            body["tls_security_policy_id"] = tls_security_policy_id
+
+        policy = _policy.Policy()
+        return policy.create_staged_configuration(self.session,
+                                                  policy_id, **body)
+
+    def get_staged_policy_configuration(self, policy_id):
+        """Retrieve Staged Policy Configuration.
+
+        :param string policy_id: ID of Policy
+        :return: Policy
+        """
+        policy = _policy.Policy()
+        return policy.get_staged_configuration(self.session, policy_id)
+
+    def update_staged_policy_configuration(self, policy_id,
+                                           algorithm=None, persistence=None,
+                                           sorry_page_url=None,
+                                           certificate_id=None,
+                                           health_monitor_id=None,
+                                           listener_id=None,
+                                           default_target_group_id=None,
+                                           tls_security_policy_id=None):
+        """Update Staged Policy Configuration.
+
+        :param string policy_id: ID of Policy
+        :param string algorithm: Algorithm of Policy
+        :param string persistence: Persistence of Policy
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
+        :param string health_monitor_id: Health Monitor ID of Policy
+        :param string listener_id: Listener ID of Policy
+        :param string default_target_group_id: Default Target Group ID
+        :param string tls_security_policy_id: TLS Security Policy ID
+        :return: Policy
+        """
+        body = {}
+        if algorithm:
+            body["algorithm"] = algorithm
+        if persistence:
+            body["persistence"] = persistence
+        if sorry_page_url:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id:
+            body["certificate_id"] = certificate_id
+        if health_monitor_id:
+            body["health_monitor_id"] = health_monitor_id
+        if listener_id:
+            body["listener_id"] = listener_id
+        if default_target_group_id:
+            body["default_target_group_id"] = default_target_group_id
+        if tls_security_policy_id:
+            body["tls_security_policy_id"] = tls_security_policy_id
+
+        policy = _policy.Policy()
+        return policy.update_staged_configuration(self.session,
+                                                  policy_id, **body)
+
+    def cancel_staged_policy_configuration(self, policy_id):
+        """Delete Staged Policy Configuration.
+
+        :param string policy_id: ID of Policy
+        :return: None
+        """
+        policy = _policy.Policy()
+        policy.cancel_staged_configuration(self.session, policy_id)
