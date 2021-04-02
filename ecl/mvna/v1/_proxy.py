@@ -1,5 +1,6 @@
 from ecl import proxy2
 from ecl.mvna.v1 import load_balancer as _load_balancer
+from ecl.mvna.v1 import target_group as _target_group
 
 
 class Proxy(proxy2.BaseProxy):
@@ -72,7 +73,7 @@ class Proxy(proxy2.BaseProxy):
                     :class:`~ecl.exceptions.ResourceNotFound` will be
                     raised when the resource does not exist.
                     When set to ``True``, no exception will be set when
-                    attempting to delete a nonexistent resource2.
+                    attempting to delete a nonexistent load balancer.
         :return: None
         """
         self._delete(_load_balancer.LoadBalancer, load_balancer_id,
@@ -159,3 +160,132 @@ class Proxy(proxy2.BaseProxy):
         load_balancer = _load_balancer.LoadBalancer()
         load_balancer.cancel_staged_configuration(self.session,
                                                   load_balancer_id)
+
+    def target_groups(self, **params):
+        """List Target Groups."""
+        return self._list(_target_group.TargetGroup, paginated=False, **params)
+
+    def create_target_group(self, default_port, load_balancer_id, members,
+                            name=None, description=None, tags=None):
+        """Create Target Group.
+
+        :param string default_port: Default Port of Target Group
+        :param string load_balancer_id: Load Balancer ID of Target Group
+        :param string members: Members of Target Group
+        :param string name: Name of Target Group
+        :param string description: Description of Target Group
+        :param dict tags: Tags of Target Group
+        :return: Target Group
+        """
+        body = {
+            'default_port': default_port,
+            'load_balancer_id': load_balancer_id,
+            'members': members
+        }
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        return self._create(_target_group.TargetGroup, **body)
+
+    def get_target_group(self, target_group_id):
+        """Retrieve Target Group Information.
+
+        :param string target_group_id: ID of Target Group
+        :return: Target Group
+        """
+        return self._get(_target_group.TargetGroup, target_group_id)
+
+    def update_target_group(self, target_group_id,
+                            name=None, description=None, tags=None):
+        """Update Target Group Attributes.
+
+        :param string target_group_id: ID of Target Group
+        :param string name: Name of Target Group
+        :param string description: Description of Target Group
+        :param dict tags: Tags of Target Group
+        :return: Target Group
+        """
+        body = {}
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        return self._update(_target_group.TargetGroup, target_group_id, **body)
+
+    def delete_target_group(self, target_group_id, ignore_missing=False):
+        """Delete Target Group.
+
+        :param string target_group_id: ID of Target Group
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent target group.
+        :return: None
+        """
+        self._delete(_target_group.TargetGroup, target_group_id,
+                     ignore_missing=ignore_missing)
+
+    def create_staged_target_group_configuration(
+            self, target_group_id, members=None, default_port=None):
+        """Create Staged Target Group Configuration.
+
+        :param string target_group_id: ID of Target Group
+        :param string members: Members of Target Group
+        :param string default_port: Default Port of Target Group
+        :return: Target Group
+        """
+        body = {}
+        if members:
+            body["members"] = members
+        if default_port:
+            body["default_port"] = default_port
+
+        target_group = _target_group.TargetGroup()
+        return target_group.create_staged_configuration(self.session,
+                                                        target_group_id,
+                                                        **body)
+
+    def get_staged_target_group_configuration(self, target_group_id):
+        """Retrieve Staged Target Group Configuration.
+
+        :param string target_group_id: ID of Target Group
+        :return: Target Group
+        """
+        target_group = _target_group.TargetGroup()
+        return target_group.get_staged_configuration(self.session,
+                                                     target_group_id)
+
+    def update_staged_target_group_configuration(
+            self, target_group_id, members=None, default_port=None):
+        """Update Staged Target Group Configuration.
+
+        :param string target_group_id: ID of Target Group
+        :param string members: Members of Target Group
+        :param string default_port: Default Port of Target Group
+        :return: Target Group
+        """
+        body = {}
+        if members:
+            body["members"] = members
+        if default_port:
+            body["default_port"] = default_port
+
+        target_group = _target_group.TargetGroup()
+        return target_group.update_staged_configuration(self.session,
+                                                        target_group_id,
+                                                        **body)
+
+    def cancel_staged_target_group_configuration(self, target_group_id):
+        """Delete Staged Target Group Configuration.
+
+        :param string target_group_id: ID of Target Group
+        :return: None
+        """
+        target_group = _target_group.TargetGroup()
+        target_group.cancel_staged_configuration(self.session, target_group_id)
