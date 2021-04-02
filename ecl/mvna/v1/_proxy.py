@@ -1,5 +1,6 @@
 from ecl import proxy2
 from ecl.mvna.v1 import certificate as _certificate
+from ecl.mvna.v1 import health_monitor as _health_monitor
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
 from ecl.mvna.v1 import maintenance as _maintenance
@@ -533,3 +534,198 @@ class Proxy(proxy2.BaseProxy):
         :return: Plan
         """
         return self._get(_plan.Plan, plan_id)
+
+    def health_monitors(self, **params):
+        """List Health Monitors."""
+        return self._list(_health_monitor.HealthMonitor, paginated=False,
+                          **params)
+
+    def create_health_monitor(self, port, protocol, load_balancer_id,
+                              name=None, description=None, tags=None,
+                              interval=None, retry=None, threshold_count=None,
+                              timeout=None, path=None, http_status_code=None):
+        """Create Health Monitor.
+
+        :param string port: Port of Health Monitor
+        :param string protocol: Protocol of Health Monitor
+        :param string load_balancer_id: Load Balancer ID
+        :param string name: Name of Health Monitor
+        :param string description: Description of Health Monitor
+        :param dict tags: Tags of Health Monitor
+        :param int interval: Interval of Health Monitor
+        :param int retry: Retry count of Health Monitor
+        :param int threshold_count: Threshold count of Health Monitor
+        :param int timeout: Timeout of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
+
+        :return: Health Monitor
+        """
+        body = {
+            'port': port,
+            'protocol': protocol,
+            'load_balancer_id': load_balancer_id
+        }
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        if interval:
+            body["interval"] = interval
+        if retry:
+            body["retry"] = retry
+        if threshold_count:
+            body["threshold_count"] = threshold_count
+        if timeout:
+            body["timeout"] = timeout
+        if path:
+            body["path"] = path
+        if http_status_code:
+            body["http_status_code"] = http_status_code
+        return self._create(_health_monitor.HealthMonitor, **body)
+
+    def get_health_monitor(self, health_monitor_id):
+        """Retrieve Health Monitor Information.
+
+        :param string health_monitor_id: ID of Health Monitor
+        :return: Health Monitor
+        """
+        return self._get(_health_monitor.HealthMonitor, health_monitor_id)
+
+    def update_health_monitor(self, health_monitor_id,
+                              name=None, description=None, tags=None):
+        """Update Health Monitor Attributes.
+
+        :param string health_monitor_id: ID of Health Monitor
+        :param string name: Name of Health Monitor
+        :param string description: Description of Health Monitor
+        :param dict tags: Tags of Health Monitor
+        :return: Health Monitor
+        """
+        body = {}
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        return self._update(_health_monitor.HealthMonitor, health_monitor_id,
+                            **body)
+
+    def delete_health_monitor(self, health_monitor_id, ignore_missing=False):
+        """Delete Health Monitor.
+
+        :param string health_monitor_id: ID of Health Monitor
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent health monitor.
+        :return: None
+        """
+        self._delete(_health_monitor.HealthMonitor, health_monitor_id,
+                     ignore_missing=ignore_missing)
+
+    def create_staged_health_monitor_configuration(
+            self, health_monitor_id,
+            port=None, protocol=None, interval=None, retry=None,
+            threshold_count=None, timeout=None, path=None,
+            http_status_code=None):
+        """Create Staged Health Monitor Configuration.
+
+        :param string health_monitor_id: ID of Health Monitor
+        :param string port: Port of Health Monitor
+        :param string protocol: Protocol of Health Monitor
+        :param int interval: Interval of Health Monitor
+        :param int retry: Retry count of Health Monitor
+        :param int threshold_count: Threshold count of Health Monitor
+        :param int timeout: Timeout of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
+        :return: Health Monitor
+        """
+        body = {}
+        if port:
+            body["port"] = port
+        if protocol:
+            body["protocol"] = protocol
+        if interval:
+            body["interval"] = interval
+        if retry:
+            body["retry"] = retry
+        if threshold_count:
+            body["threshold_count"] = threshold_count
+        if timeout:
+            body["timeout"] = timeout
+        if path:
+            body["path"] = path
+        if http_status_code:
+            body["http_status_code"] = http_status_code
+
+        health_monitor = _health_monitor.HealthMonitor()
+        return health_monitor.create_staged_configuration(self.session,
+                                                          health_monitor_id,
+                                                          **body)
+
+    def get_staged_health_monitor_configuration(self, health_monitor_id):
+        """Retrieve Staged Health Monitor Configuration.
+
+        :param string health_monitor_id: ID of Health_monitor
+        :return: Health Monitor
+        """
+        health_monitor = _health_monitor.HealthMonitor()
+        return health_monitor.get_staged_configuration(self.session,
+                                                       health_monitor_id)
+
+    def update_staged_health_monitor_configuration(
+            self, health_monitor_id,
+            port=None, protocol=None, interval=None, retry=None,
+            threshold_count=None, timeout=None, path=None,
+            http_status_code=None):
+        """Update Staged Health Monitor Configuration.
+
+        :param string health_monitor_id: ID of Health Monitor
+        :param string port: Port of Health Monitor
+        :param string protocol: Protocol of Health Monitor
+        :param int interval: Interval of Health Monitor
+        :param int retry: Retry count of Health Monitor
+        :param int threshold_count: Threshold count of Health Monitor
+        :param int timeout: Timeout of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
+        :return: Health Monitor
+        """
+        body = {}
+        if port:
+            body["port"] = port
+        if protocol:
+            body["protocol"] = protocol
+        if interval:
+            body["interval"] = interval
+        if retry:
+            body["retry"] = retry
+        if threshold_count:
+            body["threshold_count"] = threshold_count
+        if timeout:
+            body["timeout"] = timeout
+        if path:
+            body["path"] = path
+        if http_status_code:
+            body["http_status_code"] = http_status_code
+
+        health_monitor = _health_monitor.HealthMonitor()
+        return health_monitor.update_staged_configuration(self.session,
+                                                          health_monitor_id,
+                                                          **body)
+
+    def cancel_staged_health_monitor_configuration(self, health_monitor_id):
+        """Delete Staged Health Monitor Configuration.
+
+        :param string health_monitor_id: ID of Health Monitor
+        :return: None
+        """
+        health_monitor = _health_monitor.HealthMonitor()
+        health_monitor.cancel_staged_configuration(self.session,
+                                                   health_monitor_id)
