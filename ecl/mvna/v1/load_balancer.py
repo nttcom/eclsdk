@@ -1,8 +1,10 @@
+from . import base
+
 from ecl import resource2
 from ecl.mvna import mvna_service
 
 
-class LoadBalancer(resource2.Resource):
+class LoadBalancer(base.MVNABaseResource):
     resource_key = "load_balancer"
     resources_key = "load_balancers"
     service = mvna_service.MVNAService("v1.0")
@@ -53,27 +55,3 @@ class LoadBalancer(resource2.Resource):
     def action(self, session, resource_id, **body):
         uri = self.base_path + '/%s/action' % resource_id
         session.post(uri, endpoint_filter=self.service, json=body)
-
-    def create_staged_configuration(self, session, resource_id, **body):
-        uri = self.base_path + '/%s/staged' % resource_id
-        resp = session.post(uri, endpoint_filter=self.service,
-                            json={self.resource_key: body})
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def get_staged_configuration(self, session, resource_id):
-        uri = self.base_path + '/%s/staged' % resource_id
-        resp = session.get(uri, endpoint_filter=self.service)
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def update_staged_configuration(self, session, resource_id, **body):
-        uri = self.base_path + '/%s/staged' % resource_id
-        resp = session.patch(uri, endpoint_filter=self.service,
-                             json={self.resource_key: body})
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def cancel_staged_configuration(self, session, resource_id):
-        uri = self.base_path + '/%s/staged' % resource_id
-        session.delete(uri, endpoint_filter=self.service)
