@@ -7,6 +7,7 @@ from ecl.mvna.v1 import maintenance as _maintenance
 from ecl.mvna.v1 import plan as _plan
 from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import route as _route
+from ecl.mvna.v1 import rule as _rule
 from ecl.mvna.v1 import target_group as _target_group
 
 
@@ -1044,3 +1045,135 @@ class Proxy(proxy2.BaseProxy):
         """
         route = _route.Route()
         route.cancel_staged_configuration(self.session, route_id)
+
+    def rules(self, **params):
+        """List Rules."""
+        return self._list(_rule.Rule, paginated=False, **params)
+
+    def create_rule(self, priority, target_group_id, policy_id, condition,
+                    name=None, description=None, tags=None):
+        """Create Rule.
+
+        :param string priority: Priority of Rule
+        :param string target_group_id: Target group ID of Rule
+        :param string policy_id: Policy ID of Rule
+        :param string condition: Condition ID of Rule
+        :param string name: Name of Rule
+        :param string description: Description of Rule
+        :param dict tags: Tags of Rule
+        :return: Rule
+        """
+        body = {
+            'priority': priority,
+            'target_group_id': target_group_id,
+            'policy_id': policy_id,
+            'condition': condition
+        }
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        return self._create(_rule.Rule, **body)
+
+    def get_rule(self, rule_id):
+        """Retrieve Rule Information.
+
+        :param string rule_id: ID of Rule
+        :return: Rule
+        """
+        return self._get(_rule.Rule, rule_id)
+
+    def update_rule(self, rule_id, name=None, description=None, tags=None):
+        """Update Rule Attributes.
+
+        :param string rule_id: ID of Rule
+        :param string name: Name of Rule
+        :param string description: Description of Rule
+        :param dict tags: Tags of Rule
+        :return: Rule
+        """
+        body = {}
+        if name:
+            body["name"] = name
+        if description:
+            body["description"] = description
+        if tags:
+            body["tags"] = tags
+        return self._update(_rule.Rule, rule_id, **body)
+
+    def delete_rule(self, rule_id, ignore_missing=False):
+        """Delete Rule.
+
+        :param string rule_id: ID of Rule
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent rule.
+        :return: None
+        """
+        self._delete(_rule.Rule, rule_id, ignore_missing=ignore_missing)
+
+    def create_staged_rule_configuration(
+            self, rule_id,
+            priority=None, target_group_id=None, condition=None):
+        """Create Staged Rule Configuration.
+
+        :param string rule_id: ID of Rule
+        :param string priority: Priority of Rule
+        :param string target_group_id: Target Group ID of Rule
+        :param string condition: Condition of Rule
+        :return: Rule
+        """
+        body = {}
+        if priority:
+            body["priority"] = priority
+        if target_group_id:
+            body["target_group_id"] = target_group_id
+        if condition:
+            body["condition"] = condition
+
+        rule = _rule.Rule()
+        return rule.create_staged_configuration(self.session, rule_id,  **body)
+
+    def get_staged_rule_configuration(self, rule_id):
+        """Retrieve Staged Rule Configuration.
+
+        :param string rule_id: ID of Rule
+        :return: Rule
+        """
+        rule = _rule.Rule()
+        return rule.get_staged_configuration(self.session, rule_id)
+
+    def update_staged_rule_configuration(
+            self, rule_id,
+            priority=None, target_group_id=None, condition=None):
+        """Create Staged Rule Configuration.
+
+        :param string rule_id: ID of Rule
+        :param string priority: Priority of Rule
+        :param string target_group_id: Target Group ID of Rule
+        :param string condition: Condition of Rule
+        :return: Rule
+        """
+        body = {}
+        if priority:
+            body["priority"] = priority
+        if target_group_id:
+            body["target_group_id"] = target_group_id
+        if condition:
+            body["condition"] = condition
+
+        rule = _rule.Rule()
+        return rule.update_staged_configuration(self.session, rule_id, **body)
+
+    def cancel_staged_rule_configuration(self, rule_id):
+        """Delete Staged Rule Configuration.
+
+        :param string rule_id: ID of Rule
+        :return: None
+        """
+        rule = _rule.Rule()
+        rule.cancel_staged_configuration(self.session, rule_id)
