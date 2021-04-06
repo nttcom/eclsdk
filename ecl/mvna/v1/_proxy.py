@@ -1,5 +1,4 @@
 from ecl import proxy2
-from ecl.mvna.v1 import certificate as _certificate
 from ecl.mvna.v1 import load_balancer as _load_balancer
 from ecl.mvna.v1 import target_group as _target_group
 
@@ -290,80 +289,3 @@ class Proxy(proxy2.BaseProxy):
         """
         target_group = _target_group.TargetGroup()
         target_group.cancel_staged_configuration(self.session, target_group_id)
-
-    def certificates(self, **params):
-        """List Certificates."""
-        return self._list(_certificate.Certificate, paginated=False,
-                          **params)
-
-    def create_certificate(self, name=None, description=None, tags=None):
-        """Create Certificate.
-
-        :param string name: Name of Certificate
-        :param string description: Description of Certificate
-        :param string tags: Tags of Certificate
-        :return: Certificate
-        """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
-        return self._create(_certificate.Certificate, **body)
-
-    def get_certificate(self, certificate_id):
-        """Retrieve Certificate Information.
-
-        :param string certificate_id: ID of Certificate
-        :return: Certificate
-        """
-        return self._get(_certificate.Certificate, certificate_id)
-
-    def update_certificate(self, certificate_id,
-                           name=None, description=None, tags=None):
-        """Update Certificate Attributes.
-
-        :param string certificate_id: ID of Certificate
-        :param string name: Name of Certificate
-        :param string description: Description of Certificate
-        :param dict tags: Tags of Certificate
-        :return: Certificate
-        """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
-        return self._update(_certificate.Certificate, certificate_id,
-                            **body)
-
-    def delete_certificate(self, certificate_id, ignore_missing=False):
-        """Delete Certificate.
-
-        :param string certificate_id: ID of Certificate
-        :param bool ignore_missing: When set to ``False``
-                    :class:`~ecl.exceptions.ResourceNotFound` will be
-                    raised when the resource does not exist.
-                    When set to ``True``, no exception will be set when
-                    attempting to delete a nonexistent certificate.
-        :return: None
-        """
-        self._delete(_certificate.Certificate, certificate_id,
-                     ignore_missing=ignore_missing)
-
-    def upload_certificate(self,
-                           certificate_id, certificate_type, certificate_file):
-        """Upload the Certificate.
-
-        :param string certificate_id: ID of Certificate
-        :param string certificate_type: Type of Certificate
-        :param string certificate_file: File of Certificate
-        :return: None
-        """
-        body = {'type': certificate_type, 'file': certificate_file}
-        certificate = _certificate.Certificate()
-        certificate.upload(self.session, certificate_id, **body)
