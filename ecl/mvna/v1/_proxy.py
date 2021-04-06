@@ -3,7 +3,6 @@ from ecl.mvna.v1 import certificate as _certificate
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
 from ecl.mvna.v1 import maintenance as _maintenance
-from ecl.mvna.v1 import plan as _plan
 from ecl.mvna.v1 import target_group as _target_group
 
 
@@ -521,15 +520,3 @@ class Proxy(proxy2.BaseProxy):
         :return: Maintenance
         """
         return self._get(_maintenance.Maintenance, maintenance_id)
-
-    def plans(self, **params):
-        """List Plans."""
-        return self._list(_plan.Plan, paginated=False, **params)
-
-    def get_plan(self, plan_id):
-        """Retrieve Plan Information.
-
-        :param string plan_id: ID of plan
-        :return: Plan
-        """
-        return self._get(_plan.Plan, plan_id)
