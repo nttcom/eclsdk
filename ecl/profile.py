@@ -82,7 +82,6 @@ from ecl.telemetry import telemetry_service
 from ecl.database import database_service
 from ecl.dns import dns_service
 from ecl.virtual_network_appliance import virtual_network_appliance_service
-from ecl.mvna import mvna_service
 
 
 _logger = logging.getLogger(__name__)
@@ -142,7 +141,6 @@ class Profile(object):
         self._add_service(
             virtual_network_appliance_service.VirtualNetworkApplianceService(
                 version="v1"))
-        self._add_service(mvna_service.MVNAService(version="v1"))
 
         # NOTE: The Metric service is not added here as it currently
         # only retrieves the /capabilities API.
