@@ -45,13 +45,16 @@ class Proxy(proxy2.BaseProxy):
             body["syslog_servers"] = syslog_servers
         return self._create(_load_balancer.LoadBalancer, **body)
 
-    def get_load_balancer(self, load_balancer_id):
+    def get_load_balancer(self, load_balancer_id, changes=None):
         """Retrieve Managed Load Balancer Information.
 
         :param string load_balancer_id: ID of Managed Load Balancer
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Managed Load Balancer
         """
-        return self._get(_load_balancer.LoadBalancer, load_balancer_id)
+        load_balancer = _load_balancer.LoadBalancer()
+        return load_balancer.get_resource(self.session, load_balancer_id,
+                                          changes)
 
     def update_load_balancer(self, load_balancer_id,
                              name=None, description=None, tags=None):
@@ -123,15 +126,18 @@ class Proxy(proxy2.BaseProxy):
                                                          load_balancer_id,
                                                          **body)
 
-    def get_staged_load_balancer_configuration(self, load_balancer_id):
+    def get_staged_load_balancer_configuration(self, load_balancer_id,
+                                               changes=None):
         """Retrieve Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Managed Load Balancer
         """
         load_balancer = _load_balancer.LoadBalancer()
         return load_balancer.get_staged_configuration(self.session,
-                                                      load_balancer_id)
+                                                      load_balancer_id,
+                                                      changes)
 
     def update_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
@@ -198,13 +204,16 @@ class Proxy(proxy2.BaseProxy):
             body["tags"] = tags
         return self._create(_target_group.TargetGroup, **body)
 
-    def get_target_group(self, target_group_id):
+    def get_target_group(self, target_group_id, changes=None):
         """Retrieve Target Group Information.
 
         :param string target_group_id: ID of Target Group
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Target Group
         """
-        return self._get(_target_group.TargetGroup, target_group_id)
+        target_group = _target_group.TargetGroup()
+        return target_group.get_resource(self.session, target_group_id,
+                                         changes)
 
     def update_target_group(self, target_group_id,
                             name=None, description=None, tags=None):
@@ -259,15 +268,18 @@ class Proxy(proxy2.BaseProxy):
                                                         target_group_id,
                                                         **body)
 
-    def get_staged_target_group_configuration(self, target_group_id):
+    def get_staged_target_group_configuration(self, target_group_id,
+                                              changes=None):
         """Retrieve Staged Target Group Configuration.
 
         :param string target_group_id: ID of Target Group
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Target Group
         """
         target_group = _target_group.TargetGroup()
         return target_group.get_staged_configuration(self.session,
-                                                     target_group_id)
+                                                     target_group_id,
+                                                     changes)
 
     def update_staged_target_group_configuration(
             self, target_group_id, members=None, default_port=None):
@@ -408,13 +420,15 @@ class Proxy(proxy2.BaseProxy):
             body["tags"] = tags
         return self._create(_listener.Listener, **body)
 
-    def get_listener(self, listener_id):
+    def get_listener(self, listener_id, changes=None):
         """Retrieve Listener Information.
 
         :param string listener_id: ID of Listener
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Listener
         """
-        return self._get(_listener.Listener, listener_id)
+        listener = _listener.Listener()
+        return listener.get_resource(self.session, listener_id, changes)
 
     def update_listener(self, listener_id,
                         name=None, description=None, tags=None):
@@ -473,14 +487,16 @@ class Proxy(proxy2.BaseProxy):
                                                     listener_id,
                                                     **body)
 
-    def get_staged_listener_configuration(self, listener_id):
+    def get_staged_listener_configuration(self, listener_id, changes=None):
         """Retrieve Staged Listener Configuration.
 
         :param string listener_id: ID of Listener
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Listener
         """
         listener = _listener.Listener()
-        return listener.get_staged_configuration(self.session, listener_id)
+        return listener.get_staged_configuration(self.session, listener_id,
+                                                 changes)
 
     def update_staged_listener_configuration(
             self, listener_id, ip_address=None, port=None, protocol=None):
@@ -589,13 +605,16 @@ class Proxy(proxy2.BaseProxy):
             body["http_status_code"] = http_status_code
         return self._create(_health_monitor.HealthMonitor, **body)
 
-    def get_health_monitor(self, health_monitor_id):
+    def get_health_monitor(self, health_monitor_id, changes=None):
         """Retrieve Health Monitor Information.
 
         :param string health_monitor_id: ID of Health Monitor
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Health Monitor
         """
-        return self._get(_health_monitor.HealthMonitor, health_monitor_id)
+        health_monitor = _health_monitor.HealthMonitor()
+        return health_monitor.get_resource(self.session, health_monitor_id,
+                                           changes)
 
     def update_health_monitor(self, health_monitor_id,
                               name=None, description=None, tags=None):
@@ -672,15 +691,18 @@ class Proxy(proxy2.BaseProxy):
                                                           health_monitor_id,
                                                           **body)
 
-    def get_staged_health_monitor_configuration(self, health_monitor_id):
+    def get_staged_health_monitor_configuration(self, health_monitor_id,
+                                                changes=None):
         """Retrieve Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health_monitor
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Health Monitor
         """
         health_monitor = _health_monitor.HealthMonitor()
         return health_monitor.get_staged_configuration(self.session,
-                                                       health_monitor_id)
+                                                       health_monitor_id,
+                                                       changes)
 
     def update_staged_health_monitor_configuration(
             self, health_monitor_id,
@@ -782,13 +804,15 @@ class Proxy(proxy2.BaseProxy):
             body["tls_security_policy_id"] = tls_security_policy_id
         return self._create(_policy.Policy, **body)
 
-    def get_policy(self, policy_id):
+    def get_policy(self, policy_id, changes=None):
         """Retrieve Policy Information.
 
         :param string policy_id: ID of Policy
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Policy
         """
-        return self._get(_policy.Policy, policy_id)
+        policy = _policy.Policy()
+        return policy.get_resource(self.session, policy_id, changes)
 
     def update_policy(self, policy_id, name=None, description=None, tags=None):
         """Update Policy Attributes.
@@ -864,14 +888,16 @@ class Proxy(proxy2.BaseProxy):
         return policy.create_staged_configuration(self.session,
                                                   policy_id, **body)
 
-    def get_staged_policy_configuration(self, policy_id):
+    def get_staged_policy_configuration(self, policy_id, changes=None):
         """Retrieve Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Policy
         """
         policy = _policy.Policy()
-        return policy.get_staged_configuration(self.session, policy_id)
+        return policy.get_staged_configuration(self.session, policy_id,
+                                               changes)
 
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
@@ -956,13 +982,15 @@ class Proxy(proxy2.BaseProxy):
             body["tags"] = tags
         return self._create(_route.Route, **body)
 
-    def get_route(self, route_id):
+    def get_route(self, route_id, changes=None):
         """Retrieve Route Information.
 
         :param string route_id: ID of Route
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Route
         """
-        return self._get(_route.Route, route_id)
+        route = _route.Route()
+        return route.get_resource(self.session, route_id, changes)
 
     def update_route(self, route_id,
                      name=None, description=None, tags=None):
@@ -1012,14 +1040,15 @@ class Proxy(proxy2.BaseProxy):
         return route.create_staged_configuration(self.session,
                                                  route_id, **body)
 
-    def get_staged_route_configuration(self, route_id):
+    def get_staged_route_configuration(self, route_id, changes=None):
         """Retrieve Staged Route Configuration.
 
         :param string route_id: ID of Route
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Route
         """
         route = _route.Route()
-        return route.get_staged_configuration(self.session, route_id)
+        return route.get_staged_configuration(self.session, route_id, changes)
 
     def update_staged_route_configuration(
             self, route_id, next_hop_ip_address=None):
@@ -1077,13 +1106,15 @@ class Proxy(proxy2.BaseProxy):
             body["tags"] = tags
         return self._create(_rule.Rule, **body)
 
-    def get_rule(self, rule_id):
+    def get_rule(self, rule_id, changes=None):
         """Retrieve Rule Information.
 
         :param string rule_id: ID of Rule
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Rule
         """
-        return self._get(_rule.Rule, rule_id)
+        rule = _rule.Rule()
+        return rule.get_resource(self.session, rule_id, changes)
 
     def update_rule(self, rule_id, name=None, description=None, tags=None):
         """Update Rule Attributes.
@@ -1138,14 +1169,15 @@ class Proxy(proxy2.BaseProxy):
         rule = _rule.Rule()
         return rule.create_staged_configuration(self.session, rule_id,  **body)
 
-    def get_staged_rule_configuration(self, rule_id):
+    def get_staged_rule_configuration(self, rule_id, changes=None):
         """Retrieve Staged Rule Configuration.
 
         :param string rule_id: ID of Rule
+        :param bool changes: Whether or not to retrieve staged configuration
         :return: Rule
         """
         rule = _rule.Rule()
-        return rule.get_staged_configuration(self.session, rule_id)
+        return rule.get_staged_configuration(self.session, rule_id, changes)
 
     def update_staged_rule_configuration(
             self, rule_id,
