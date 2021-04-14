@@ -76,29 +76,29 @@ class Proxy(proxy2.BaseProxy):
         return self._update(_load_balancer.LoadBalancer, load_balancer_id,
                             **body)
 
-    def delete_load_balancer(self, load_balancer_id, ignore_missing=False):
+    def delete_load_balancer(self, load_balancer_id, x_mvna_request_id=None):
         """Delete Managed Load Balancer.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        :param bool ignore_missing: When set to ``False``
-                    :class:`~ecl.exceptions.ResourceNotFound` will be
-                    raised when the resource does not exist.
-                    When set to ``True``, no exception will be set when
-                    attempting to delete a nonexistent load balancer.
+        :param string x_mvna_request_id: ID to identify the transaction history
         :return: None
         """
-        self._delete(_load_balancer.LoadBalancer, load_balancer_id,
-                     ignore_missing=ignore_missing)
+        load_balancer = _load_balancer.LoadBalancer()
+        load_balancer.delete_resource(self.session, load_balancer_id,
+                                      x_mvna_request_id)
 
-    def action_load_balancer(self, load_balancer_id, **body):
+    def action_load_balancer(self, load_balancer_id, x_mvna_request_id=None,
+                             **body):
         """Reflect the configuration to Managed Load Balancer.
 
         :param string load_balancer_id: ID of Managed Load Balancer
+        :param string x_mvna_request_id: ID to identify the transaction history
         :param dict body: Request Body which want to apply.
         :return: None
         """
         load_balancer = _load_balancer.LoadBalancer()
-        load_balancer.action(self.session, load_balancer_id, **body)
+        load_balancer.action(self.session, load_balancer_id, x_mvna_request_id,
+                             **body)
 
     def create_staged_load_balancer_configuration(self,
                                                   load_balancer_id,

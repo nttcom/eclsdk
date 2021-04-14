@@ -66,6 +66,19 @@ class LoadBalancer(base.MVNABaseResource):
     #: Staged configuration of load balancer
     staged = resource2.Body('staged')
 
-    def action(self, session, resource_id, **body):
+    def delete_resource(self, session, resource_id, x_mvna_request_id=None):
+        uri = self.base_path + '/%s' % resource_id
+        if x_mvna_request_id:
+            session.delete(uri, endpoint_filter=self.service,
+                           headers={"X-MVNA-Request-Id": x_mvna_request_id})
+        else:
+            session.delete(uri, endpoint_filter=self.service)
+
+    def action(self, session, resource_id, x_mvna_request_id=None, **body):
         uri = self.base_path + '/%s/action' % resource_id
-        session.post(uri, endpoint_filter=self.service, json=body)
+        if x_mvna_request_id:
+            session.post(uri, endpoint_filter=self.service,
+                         headers={"X-MVNA-Request-Id": x_mvna_request_id},
+                         json=body)
+        else:
+            session.post(uri, endpoint_filter=self.service, json=body)
