@@ -8,6 +8,23 @@ class Plan(resource2.Resource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/plans'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "redundancy",
+        "max_number_of_interfaces",
+        "max_number_of_health_monitors",
+        "max_number_of_listeners",
+        "max_number_of_policies",
+        "max_number_of_routes",
+        "max_number_of_target_groups",
+        "max_number_of_rules",
+        "max_number_of_conditions",
+        "max_number_of_members",
+        "enabled"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

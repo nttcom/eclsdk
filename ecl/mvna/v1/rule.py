@@ -10,6 +10,19 @@ class Rule(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/rules'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "configuration_status",
+        "operation_status",
+        "priority",
+        "target_group_id",
+        "policy_id",
+        "load_balancer_id",
+        "tenant_id"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

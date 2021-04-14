@@ -8,6 +8,17 @@ class Maintenance(resource2.Resource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/maintenances'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "href",
+        "current_revision",
+        "next_revision",
+        "applicable",
+        "latest"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

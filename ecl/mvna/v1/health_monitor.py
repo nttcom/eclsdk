@@ -10,6 +10,23 @@ class HealthMonitor(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/health_monitors'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "configuration_status",
+        "operation_status",
+        "port",
+        "protocol",
+        "interval",
+        "retry",
+        "threshold_count",
+        "timeout",
+        "path",
+        "load_balancer_id",
+        "tenant_id"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

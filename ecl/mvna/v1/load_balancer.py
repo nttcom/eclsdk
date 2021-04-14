@@ -10,6 +10,20 @@ class LoadBalancer(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/load_balancers'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "configuration_status",
+        "monitoring_status",
+        "operation_status",
+        "availability_zone",
+        "default_gateway",
+        "revision",
+        "plan_id",
+        "tenant_id"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

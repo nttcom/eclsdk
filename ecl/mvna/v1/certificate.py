@@ -8,6 +8,16 @@ class Certificate(resource2.Resource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/certificates'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "tenant_id",
+        "ca_cert_status",
+        "ssl_key_status",
+        "ssl_cert_status"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True
