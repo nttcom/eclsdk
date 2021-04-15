@@ -46,4 +46,6 @@ class Certificate(resource2.Resource):
 
     def upload(self, session, resource_id, **body):
         uri = self.base_path + '/%s/files' % resource_id
-        session.post(uri, endpoint_filter=self.service, json=body)
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=False)
+        return self

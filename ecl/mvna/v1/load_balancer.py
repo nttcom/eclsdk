@@ -91,8 +91,10 @@ class LoadBalancer(base.MVNABaseResource):
     def action(self, session, resource_id, x_mvna_request_id=None, **body):
         uri = self.base_path + '/%s/action' % resource_id
         if x_mvna_request_id:
-            session.post(uri, endpoint_filter=self.service,
-                         headers={"X-MVNA-Request-Id": x_mvna_request_id},
-                         json=body)
+            resp = session.post(
+                uri, endpoint_filter=self.service,
+                headers={"X-MVNA-Request-Id": x_mvna_request_id}, json=body)
         else:
-            session.post(uri, endpoint_filter=self.service, json=body)
+            resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=False)
+        return self

@@ -39,4 +39,6 @@ class MVNABaseResource(resource2.Resource):
 
     def cancel_staged_configuration(self, session, resource_id):
         uri = self.base_path + '/%s/staged' % resource_id
-        session.delete(uri, endpoint_filter=self.service)
+        resp = session.delete(uri, endpoint_filter=self.service)
+        self._translate_response(resp, has_body=False)
+        return self
