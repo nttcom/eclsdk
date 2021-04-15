@@ -1,5 +1,6 @@
 from . import base
 
+from ecl import exceptions
 from ecl import resource2
 from ecl.mvna import mvna_service
 
@@ -66,13 +67,26 @@ class LoadBalancer(base.MVNABaseResource):
     #: Staged configuration of load balancer
     staged = resource2.Body('staged')
 
-    def delete_resource(self, session, resource_id, x_mvna_request_id=None):
+    def delete_resource(self, session, resource_id, x_mvna_request_id=None,
+                        ignore_missing=False):
         uri = self.base_path + '/%s' % resource_id
-        if x_mvna_request_id:
-            session.delete(uri, endpoint_filter=self.service,
-                           headers={"X-MVNA-Request-Id": x_mvna_request_id})
-        else:
-            session.delete(uri, endpoint_filter=self.service)
+
+        try:
+            if x_mvna_request_id:
+                resp = session.delete(
+                    uri, endpoint_filter=self.service,
+                    headers={"X-MVNA-Request-Id": x_mvna_request_id})
+            else:
+                resp = session.delete(uri, endpoint_filter=self.service)
+        except exceptions.NotFoundException:
+            if ignore_missing:
+                return None
+            raise exceptions.ResourceNotFound(
+                message="No %s found for %s" %
+                        (self.__class__.__name__, resource_id))
+
+        self._translate_response(resp, has_body=False)
+        return self
 
     def action(self, session, resource_id, x_mvna_request_id=None, **body):
         uri = self.base_path + '/%s/action' % resource_id
