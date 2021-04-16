@@ -10,6 +10,24 @@ class Policy(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/policies'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "configuration_status",
+        "operation_status",
+        "algorithm",
+        "persistence",
+        "sorry_page_url",
+        "certificate_id",
+        "health_monitor_id",
+        "listener_id",
+        "default_target_group_id",
+        "tls_protocol",
+        "load_balancer_id",
+        "tenant_id"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

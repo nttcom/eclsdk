@@ -10,6 +10,18 @@ class Route(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/routes'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "configuration_status",
+        "operation_status",
+        "destination_cidr",
+        "next_hop_ip_address",
+        "load_balancer_id",
+        "tenant_id"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True

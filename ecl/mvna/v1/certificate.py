@@ -8,6 +8,16 @@ class Certificate(resource2.Resource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/certificates'
 
+    _query_mapping = resource2.QueryParameters(
+        "id",
+        "name",
+        "description",
+        "tenant_id",
+        "ca_cert_status",
+        "ssl_key_status",
+        "ssl_cert_status"
+    )
+
     # Capabilities
     allow_list = True
     allow_get = True
@@ -36,4 +46,6 @@ class Certificate(resource2.Resource):
 
     def upload(self, session, resource_id, **body):
         uri = self.base_path + '/%s/files' % resource_id
-        session.post(uri, endpoint_filter=self.service, json=body)
+        resp = session.post(uri, endpoint_filter=self.service, json=body)
+        self._translate_response(resp, has_body=False)
+        return self
