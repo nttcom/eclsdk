@@ -9,6 +9,7 @@ from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import route as _route
 from ecl.mvna.v1 import rule as _rule
 from ecl.mvna.v1 import target_group as _target_group
+from ecl.mvna.v1 import tls_security_policy as _tls_security_policy
 
 
 class Proxy(proxy2.BaseProxy):
@@ -1215,3 +1216,17 @@ class Proxy(proxy2.BaseProxy):
         """
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
+
+    def tls_security_policies(self, **params):
+        """List TLS Security Policies."""
+        return self._list(
+            _tls_security_policy.TLSSecurityPolicy, paginated=False, **params)
+
+    def get_tls_security_policy(self, tls_security_policy_id):
+        """Retrieve TLS Security Policy Information.
+
+        :param string tls_security_policy_id: ID of TLS Security Policy
+        :return: TLS Security Policy
+        """
+        return self._get(
+            _tls_security_policy.TLSSecurityPolicy, tls_security_policy_id)
