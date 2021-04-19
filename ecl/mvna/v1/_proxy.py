@@ -4,6 +4,7 @@ from ecl.mvna.v1 import health_monitor as _health_monitor
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
 from ecl.mvna.v1 import maintenance as _maintenance
+from ecl.mvna.v1 import operation as _operation
 from ecl.mvna.v1 import plan as _plan
 from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import route as _route
@@ -1215,3 +1216,34 @@ class Proxy(proxy2.BaseProxy):
         """
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
+
+    def operations(self, resource_ids=[], no_deleted=True, latest=False):
+        """List operations.
+
+        :param resource_ids: The list of resouce(appliance) IDs.
+            If user specify this parameter,
+            operations that has resource_id attribute is included in
+            this list will be returned.
+        :param bool no_deleted:
+            ``True`` You can get operations for only existing resources.
+            ``False`` You can get operations for all resources even removed.
+        :param bool latest:
+            ``True`` You can get only the latest operations for each resource.
+            ``False`` You can get all of operations for each resource.
+        :returns: A list of operation objects
+        :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
+            operation.Operation`
+        """
+        return list(self._list(_operation.Operation, paginated=False,
+                               resource_ids=resource_ids,
+                               no_deleted=no_deleted,
+                               latest=latest))
+    def get_operation(
+            self, operation_id):
+        """Show operation.
+
+        :param string operation_id: ID of specified operation.
+        :return: :class:`~ecl.virtual_network_appliance.v1.
+            operation.Operation`
+        """
+        return self._get(_operation.Operation, operation_id)
