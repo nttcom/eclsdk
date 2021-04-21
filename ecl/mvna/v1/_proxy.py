@@ -1217,33 +1217,19 @@ class Proxy(proxy2.BaseProxy):
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
 
-    def operations(self, resource_ids=[], no_deleted=True, latest=False):
-        """List operations.
-
-        :param resource_ids: The list of resouce(appliance) IDs.
-            If user specify this parameter,
-            operations that has resource_id attribute is included in
-            this list will be returned.
-        :param bool no_deleted:
-            ``True`` You can get operations for only existing resources.
-            ``False`` You can get operations for all resources even removed.
-        :param bool latest:
-            ``True`` You can get only the latest operations for each resource.
-            ``False`` You can get all of operations for each resource.
-        :returns: A list of operation objects
-        :rtype: list of :class:`~ecl.virtual_network_appliance.v1.
-            operation.Operation`
-        """
+    def operations(self, resource_ids=[], no_deleted=True, latest=False, **params):
+        """List operations."""
         return list(self._list(_operation.Operation, paginated=False,
                                resource_ids=resource_ids,
                                no_deleted=no_deleted,
-                               latest=latest))
+                               latest=latest),
+                               **params)
+
     def get_operation(
             self, operation_id):
-        """Show operation.
+        """Retrieve operation.
 
         :param string operation_id: ID of specified operation.
-        :return: :class:`~ecl.virtual_network_appliance.v1.
-            operation.Operation`
+        :return: Operation
         """
         return self._get(_operation.Operation, operation_id)
