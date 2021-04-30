@@ -1218,22 +1218,21 @@ class Proxy(proxy2.BaseProxy):
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
 
-    def operations(self, resource_ids=[], no_deleted=True, latest=False, **params):
+    def operations(self, no_deleted=True, latest=False, **params):
         """List operations."""
         return list(self._list(_operation.Operation, paginated=False,
-                               resource_ids=resource_ids,
                                no_deleted=no_deleted,
                                latest=latest),
                                **params)
 
-    def get_operation(
-            self, operation_id):
+    def get_operation(self, operation_id):
         """Retrieve operation.
 
         :param string operation_id: ID of specified operation.
         :return: Operation
         """
         return self._get(_operation.Operation, operation_id)
+
     def tls_security_policies(self, **params):
         """List TLS Security Policies."""
         return self._list(

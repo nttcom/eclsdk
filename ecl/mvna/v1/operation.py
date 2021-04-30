@@ -52,8 +52,7 @@ class Operation(resource2.Resource):
     tenant_id = resource2.Body('tenant_id')
 
     @classmethod
-    def list(cls, session, paginated=False, resource_ids=[],
-             no_deleted=True, latest=False):
+    def list(cls, session, paginated=False, no_deleted=True, latest=False):
         """This method is a generator which yields operation objects.
 
         This resource object list generator handles pagination and takes query
@@ -67,8 +66,6 @@ class Operation(resource2.Resource):
             **When paginated is False only one
             page of data will be returned regardless
             of the API's support of pagination.**
-        :param list resource_ids: These arguments are passed as
-            resource_id query_string.
         :param bool no_deleted:
             ``True`` You can get operations for only existing resources.
             ``False`` You can get operations for all resources even removed.
@@ -85,15 +82,6 @@ class Operation(resource2.Resource):
             cls.base_path + \
             '?no_deleted=%s&latest=%s' % (str(no_deleted).lower(),
                                           str(latest).lower())
-
-        list_for_resource_ids = []
-        if resource_ids:
-            for resource_id in resource_ids:
-                list_for_resource_ids.append('resource_id=%s' % resource_id)
-
-        resource_id_query = '&'.join(list_for_resource_ids)
-        if len(list_for_resource_ids) > 0:
-            uri += '&%s' % resource_id_query
 
         while more_data:
             resp = session.get(uri, endpoint_filter=cls.service,
