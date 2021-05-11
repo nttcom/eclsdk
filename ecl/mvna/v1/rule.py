@@ -10,7 +10,7 @@ class Rule(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/rules'
 
-    _query_mapping = resource2.QueryParameters(
+    _query_mapping = base.MVNAQueryParameters(
         "id",
         "name",
         "description",
