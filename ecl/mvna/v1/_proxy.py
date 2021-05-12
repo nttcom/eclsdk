@@ -185,7 +185,8 @@ class Proxy(proxy2.BaseProxy):
 
     def target_groups(self, **params):
         """List Target Groups."""
-        return list(self._list(_target_group.TargetGroup, paginated=False, **params))
+        return list(self._list(
+            _target_group.TargetGroup, paginated=False, **params))
 
     def create_target_group(self, default_port, load_balancer_id, members,
                             name=None, description=None, tags=None):
@@ -320,8 +321,8 @@ class Proxy(proxy2.BaseProxy):
 
     def certificates(self, **params):
         """List Certificates."""
-        return list(self._list(_certificate.Certificate, paginated=False,
-                          **params))
+        return list(self._list(
+            _certificate.Certificate, paginated=False, **params))
 
     def create_certificate(self, name=None, description=None, tags=None):
         """Create Certificate.
@@ -397,8 +398,8 @@ class Proxy(proxy2.BaseProxy):
 
     def listeners(self, **params):
         """List Listeners."""
-        return list(self._list(_listener.Listener, paginated=False,
-                          **params))
+        return list(self._list(
+            _listener.Listener, paginated=False, **params))
 
     def create_listener(self, ip_address, port, protocol, load_balancer_id,
                         name=None, description=None, tags=None):
@@ -539,8 +540,8 @@ class Proxy(proxy2.BaseProxy):
 
     def maintenances(self, **params):
         """List Maintenances."""
-        return list(self._list(_maintenance.Maintenance, paginated=False,
-                          **params))
+        return list(self._list(
+            _maintenance.Maintenance, paginated=False, **params))
 
     def get_maintenance(self, maintenance_id):
         """Retrieve Maintenance Information.
@@ -564,8 +565,8 @@ class Proxy(proxy2.BaseProxy):
 
     def health_monitors(self, **params):
         """List Health Monitors."""
-        return list(self._list(_health_monitor.HealthMonitor, paginated=False,
-                          **params))
+        return list(self._list(
+            _health_monitor.HealthMonitor, paginated=False, **params))
 
     def create_health_monitor(self, port, protocol, load_balancer_id,
                               name=None, description=None, tags=None,
@@ -1220,7 +1221,8 @@ class Proxy(proxy2.BaseProxy):
 
     def operations(self, **params):
         """List operations."""
-        return list(self._list(_operation.Operation, paginated=False, **params))
+        return list(self._list(
+            _operation.Operation, paginated=False, **params))
 
     def get_operation(self, operation_id):
         """Retrieve operation.

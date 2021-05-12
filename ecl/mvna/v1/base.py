@@ -44,20 +44,13 @@ class MVNABaseResource(resource2.Resource):
         return self
 
 class MVNAQueryParameters(resource2.QueryParameters):
-    def __init__(self, *names, **mappings):
-        super().__init__(*names, **mappings)
-
     def _transpose(self, query):
-        """Transpose the keys in query based on the mapping
-            besides, make sure the each query values to be lower-case string
-            if their type is boolean.
-
-        :param dict query: Collection of key-value pairs where each key is the
-            client-side parameter name to be transposed to its
-            server side name.
-        """
-        result = super()._transpose(self, query)
-        for key, value in result.items():
-            if value == True or value == "True": result[key] = "true"
-            if value == False or value == "False": result[key] = "false"
+        result = {}
+        for key, value in self._mapping.items():
+            if key in query:
+                normalized = str(query[key]).lower()
+                if normalized == "true" or normalized == "false":
+                    result[value] = normalized
+                else:
+                    result[value] = query[key]
         return result
