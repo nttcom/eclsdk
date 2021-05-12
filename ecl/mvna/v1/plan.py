@@ -1,3 +1,5 @@
+from . import base
+
 from ecl import resource2
 from ecl.mvna import mvna_service
 
@@ -8,7 +10,7 @@ class Plan(resource2.Resource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/plans'
 
-    _query_mapping = resource2.QueryParameters(
+    _query_mapping = base.MVNAQueryParameters(
         "id",
         "name",
         "description",

@@ -4,6 +4,7 @@ from ecl.mvna.v1 import health_monitor as _health_monitor
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
 from ecl.mvna.v1 import maintenance as _maintenance
+from ecl.mvna.v1 import operation as _operation
 from ecl.mvna.v1 import plan as _plan
 from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import route as _route
@@ -16,8 +17,8 @@ class Proxy(proxy2.BaseProxy):
 
     def load_balancers(self, **params):
         """List Managed Load Balancers."""
-        return self._list(_load_balancer.LoadBalancer, paginated=False,
-                          **params)
+        return list(self._list(_load_balancer.LoadBalancer, paginated=False,
+                          **params))
 
     def create_load_balancer(self, plan_id, interfaces,
                              name=None, description=None, tags=None,
@@ -184,7 +185,8 @@ class Proxy(proxy2.BaseProxy):
 
     def target_groups(self, **params):
         """List Target Groups."""
-        return self._list(_target_group.TargetGroup, paginated=False, **params)
+        return list(self._list(
+            _target_group.TargetGroup, paginated=False, **params))
 
     def create_target_group(self, default_port, load_balancer_id, members,
                             name=None, description=None, tags=None):
@@ -319,8 +321,8 @@ class Proxy(proxy2.BaseProxy):
 
     def certificates(self, **params):
         """List Certificates."""
-        return self._list(_certificate.Certificate, paginated=False,
-                          **params)
+        return list(self._list(
+            _certificate.Certificate, paginated=False, **params))
 
     def create_certificate(self, name=None, description=None, tags=None):
         """Create Certificate.
@@ -396,8 +398,8 @@ class Proxy(proxy2.BaseProxy):
 
     def listeners(self, **params):
         """List Listeners."""
-        return self._list(_listener.Listener, paginated=False,
-                          **params)
+        return list(self._list(
+            _listener.Listener, paginated=False, **params))
 
     def create_listener(self, ip_address, port, protocol, load_balancer_id,
                         name=None, description=None, tags=None):
@@ -538,8 +540,8 @@ class Proxy(proxy2.BaseProxy):
 
     def maintenances(self, **params):
         """List Maintenances."""
-        return self._list(_maintenance.Maintenance, paginated=False,
-                          **params)
+        return list(self._list(
+            _maintenance.Maintenance, paginated=False, **params))
 
     def get_maintenance(self, maintenance_id):
         """Retrieve Maintenance Information.
@@ -551,7 +553,7 @@ class Proxy(proxy2.BaseProxy):
 
     def plans(self, **params):
         """List Plans."""
-        return self._list(_plan.Plan, paginated=False, **params)
+        return list(self._list(_plan.Plan, paginated=False, **params))
 
     def get_plan(self, plan_id):
         """Retrieve Plan Information.
@@ -563,8 +565,8 @@ class Proxy(proxy2.BaseProxy):
 
     def health_monitors(self, **params):
         """List Health Monitors."""
-        return self._list(_health_monitor.HealthMonitor, paginated=False,
-                          **params)
+        return list(self._list(
+            _health_monitor.HealthMonitor, paginated=False, **params))
 
     def create_health_monitor(self, port, protocol, load_balancer_id,
                               name=None, description=None, tags=None,
@@ -764,7 +766,7 @@ class Proxy(proxy2.BaseProxy):
 
     def policies(self, **params):
         """List Policies."""
-        return self._list(_policy.Policy, paginated=False, **params)
+        return list(self._list(_policy.Policy, paginated=False, **params))
 
     def create_policy(self, health_monitor_id, listener_id,
                       default_target_group_id, load_balancer_id,
@@ -960,7 +962,7 @@ class Proxy(proxy2.BaseProxy):
 
     def routes(self, **params):
         """List Routes."""
-        return self._list(_route.Route, paginated=False, **params)
+        return list(self._list(_route.Route, paginated=False, **params))
 
     def create_route(self, destination_cidr,
                      next_hop_ip_address, load_balancer_id,
@@ -1084,7 +1086,7 @@ class Proxy(proxy2.BaseProxy):
 
     def rules(self, **params):
         """List Rules."""
-        return self._list(_rule.Rule, paginated=False, **params)
+        return list(self._list(_rule.Rule, paginated=False, **params))
 
     def create_rule(self, priority, target_group_id, policy_id, condition,
                     name=None, description=None, tags=None):
@@ -1217,10 +1219,23 @@ class Proxy(proxy2.BaseProxy):
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
 
+    def operations(self, **params):
+        """List operations."""
+        return list(self._list(
+            _operation.Operation, paginated=False, **params))
+
+    def get_operation(self, operation_id):
+        """Retrieve operation.
+
+        :param string operation_id: ID of specified operation.
+        :return: Operation
+        """
+        return self._get(_operation.Operation, operation_id)
+
     def tls_security_policies(self, **params):
         """List TLS Security Policies."""
-        return self._list(
-            _tls_security_policy.TLSSecurityPolicy, paginated=False, **params)
+        return list(self._list(
+            _tls_security_policy.TLSSecurityPolicy, paginated=False, **params))
 
     def get_tls_security_policy(self, tls_security_policy_id):
         """Retrieve TLS Security Policy Information.

@@ -42,3 +42,16 @@ class MVNABaseResource(resource2.Resource):
         resp = session.delete(uri, endpoint_filter=self.service)
         self._translate_response(resp, has_body=False)
         return self
+
+
+class MVNAQueryParameters(resource2.QueryParameters):
+    def _transpose(self, query):
+        result = {}
+        for key, value in self._mapping.items():
+            if key in query:
+                normalized = str(query[key]).lower()
+                if normalized == "true" or normalized == "false":
+                    result[value] = normalized
+                else:
+                    result[value] = query[key]
+        return result
