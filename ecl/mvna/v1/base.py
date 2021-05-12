@@ -43,6 +43,7 @@ class MVNABaseResource(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
+
 class MVNAQueryParameters(resource2.QueryParameters):
     def _transpose(self, query):
         result = {}
