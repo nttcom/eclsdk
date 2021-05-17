@@ -19,7 +19,6 @@ class LoadBalancer(base.MVNABaseResource):
         "monitoring_status",
         "operation_status",
         "availability_zone",
-        "default_gateway",
         "revision",
         "plan_id",
         "tenant_id"
@@ -50,8 +49,6 @@ class LoadBalancer(base.MVNABaseResource):
     operation_status = resource2.Body('operation_status')
     #: Availability zones of load balancer
     availability_zones = resource2.Body('availability_zones')
-    #: Default gateway of load balancer
-    default_gateway = resource2.Body('default_gateway')
     #: Revision of load balancer
     revision = resource2.Body('revision')
     #: Plan ID of load balancer

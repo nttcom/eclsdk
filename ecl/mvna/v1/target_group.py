@@ -16,7 +16,6 @@ class TargetGroup(base.MVNABaseResource):
         "description",
         "configuration_status",
         "operation_status",
-        "default_port",
         "load_balancer_id",
         "tenant_id"
     )
@@ -42,8 +41,6 @@ class TargetGroup(base.MVNABaseResource):
     configuration_status = resource2.Body('configuration_status')
     #: Operation status of target group
     operation_status = resource2.Body('operation_status')
-    #: Default port of target group
-    default_port = resource2.Body('default_port')
     #: Load balancer ID of target group
     load_balancer_id = resource2.Body('load_balancer_id')
     #: Tenant ID of target group

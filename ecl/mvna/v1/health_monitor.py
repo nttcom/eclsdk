@@ -20,7 +20,6 @@ class HealthMonitor(base.MVNABaseResource):
         "protocol",
         "interval",
         "retry",
-        "threshold_count",
         "timeout",
         "path",
         "load_balancer_id",
@@ -56,8 +55,6 @@ class HealthMonitor(base.MVNABaseResource):
     interval = resource2.Body('interval')
     #: Retry count of health monitor
     retry = resource2.Body('retry')
-    #: Threshold count of health monitor
-    threshold_count = resource2.Body('threshold_count')
     #: Timeout of health monitor
     timeout = resource2.Body('timeout')
     #: Path of health monitor
