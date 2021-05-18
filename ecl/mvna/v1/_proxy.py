@@ -18,11 +18,11 @@ class Proxy(proxy2.BaseProxy):
     def load_balancers(self, **params):
         """List Managed Load Balancers."""
         return list(self._list(_load_balancer.LoadBalancer, paginated=False,
-                          **params))
+                               **params))
 
     def create_load_balancer(self, plan_id, interfaces,
                              name=None, description=None, tags=None,
-                             default_gateway=None, syslog_servers=None):
+                             syslog_servers=None):
         """Create Managed Load Balancer.
 
         :param string plan_id: Plan ID of Managed Load Balancer
@@ -30,7 +30,6 @@ class Proxy(proxy2.BaseProxy):
         :param string name: Name of Managed Load Balancer
         :param string description: Description of Managed Load Balancer
         :param dict tags: Tags of Managed Load Balancer
-        :param string default_gateway: Default Gateway of Managed Load Balancer
         :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :return: Managed Load Balancer
         """
@@ -41,8 +40,6 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         if tags:
             body["tags"] = tags
-        if default_gateway:
-            body["default_gateway"] = default_gateway
         if syslog_servers:
             body["syslog_servers"] = syslog_servers
         return self._create(_load_balancer.LoadBalancer, **body)
@@ -110,20 +107,16 @@ class Proxy(proxy2.BaseProxy):
 
     def create_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
-                                                  default_gateway=None,
                                                   syslog_servers=None,
                                                   interfaces=None):
         """Create Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        :param string default_gateway: Default Gateway of Managed Load Balancer
         :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :param list interfaces: Interface of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {}
-        if default_gateway:
-            body["default_gateway"] = default_gateway
         if syslog_servers:
             body["syslog_servers"] = syslog_servers
         if interfaces:
@@ -134,35 +127,26 @@ class Proxy(proxy2.BaseProxy):
                                                          load_balancer_id,
                                                          **body)
 
-    def get_staged_load_balancer_configuration(self, load_balancer_id,
-                                               changes=None):
+    def get_staged_load_balancer_configuration(self, load_balancer_id):
         """Retrieve Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Managed Load Balancer
         """
-        load_balancer = _load_balancer.LoadBalancer()
-        return load_balancer.get_staged_configuration(self.session,
-                                                      load_balancer_id,
-                                                      changes)
+        return self._get(_load_balancer.LoadBalancer, load_balancer_id)
 
     def update_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
-                                                  default_gateway=None,
                                                   syslog_servers=None,
                                                   interfaces=None):
         """Update Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        :param string default_gateway: Default Gateway of Managed Load Balancer
         :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :param list interfaces: Interface of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {}
-        if default_gateway:
-            body["default_gateway"] = default_gateway
         if syslog_servers:
             body["syslog_servers"] = syslog_servers
         if interfaces:
@@ -188,11 +172,10 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(
             _target_group.TargetGroup, paginated=False, **params))
 
-    def create_target_group(self, default_port, load_balancer_id, members,
+    def create_target_group(self, load_balancer_id, members,
                             name=None, description=None, tags=None):
         """Create Target Group.
 
-        :param string default_port: Default Port of Target Group
         :param string load_balancer_id: Load Balancer ID of Target Group
         :param string members: Members of Target Group
         :param string name: Name of Target Group
@@ -201,7 +184,6 @@ class Proxy(proxy2.BaseProxy):
         :return: Target Group
         """
         body = {
-            'default_port': default_port,
             'load_balancer_id': load_balancer_id,
             'members': members
         }
@@ -257,53 +239,42 @@ class Proxy(proxy2.BaseProxy):
         self._delete(_target_group.TargetGroup, target_group_id,
                      ignore_missing=ignore_missing)
 
-    def create_staged_target_group_configuration(
-            self, target_group_id, members=None, default_port=None):
+    def create_staged_target_group_configuration(self, target_group_id,
+                                                 members=None):
         """Create Staged Target Group Configuration.
 
         :param string target_group_id: ID of Target Group
         :param string members: Members of Target Group
-        :param string default_port: Default Port of Target Group
         :return: Target Group
         """
         body = {}
         if members:
             body["members"] = members
-        if default_port:
-            body["default_port"] = default_port
 
         target_group = _target_group.TargetGroup()
         return target_group.create_staged_configuration(self.session,
                                                         target_group_id,
                                                         **body)
 
-    def get_staged_target_group_configuration(self, target_group_id,
-                                              changes=None):
+    def get_staged_target_group_configuration(self, target_group_id):
         """Retrieve Staged Target Group Configuration.
 
         :param string target_group_id: ID of Target Group
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Target Group
         """
-        target_group = _target_group.TargetGroup()
-        return target_group.get_staged_configuration(self.session,
-                                                     target_group_id,
-                                                     changes)
+        return self._get(_target_group.TargetGroup, target_group_id)
 
-    def update_staged_target_group_configuration(
-            self, target_group_id, members=None, default_port=None):
+    def update_staged_target_group_configuration(self, target_group_id,
+                                                 members=None):
         """Update Staged Target Group Configuration.
 
         :param string target_group_id: ID of Target Group
         :param string members: Members of Target Group
-        :param string default_port: Default Port of Target Group
         :return: Target Group
         """
         body = {}
         if members:
             body["members"] = members
-        if default_port:
-            body["default_port"] = default_port
 
         target_group = _target_group.TargetGroup()
         return target_group.update_staged_configuration(self.session,
@@ -496,16 +467,13 @@ class Proxy(proxy2.BaseProxy):
                                                     listener_id,
                                                     **body)
 
-    def get_staged_listener_configuration(self, listener_id, changes=None):
+    def get_staged_listener_configuration(self, listener_id):
         """Retrieve Staged Listener Configuration.
 
         :param string listener_id: ID of Listener
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Listener
         """
-        listener = _listener.Listener()
-        return listener.get_staged_configuration(self.session, listener_id,
-                                                 changes)
+        return self._get(_listener.Listener, listener_id)
 
     def update_staged_listener_configuration(
             self, listener_id, ip_address=None, port=None, protocol=None):
@@ -570,8 +538,8 @@ class Proxy(proxy2.BaseProxy):
 
     def create_health_monitor(self, port, protocol, load_balancer_id,
                               name=None, description=None, tags=None,
-                              interval=None, retry=None, threshold_count=None,
-                              timeout=None, path=None, http_status_code=None):
+                              interval=None, retry=None, timeout=None,
+                              path=None, http_status_code=None):
         """Create Health Monitor.
 
         :param string port: Port of Health Monitor
@@ -582,7 +550,6 @@ class Proxy(proxy2.BaseProxy):
         :param dict tags: Tags of Health Monitor
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
-        :param int threshold_count: Threshold count of Health Monitor
         :param int timeout: Timeout of Health Monitor
         :param string path: Path of Health Monitor
         :param string http_status_code: HTTP Status code of Health Monitor
@@ -604,8 +571,6 @@ class Proxy(proxy2.BaseProxy):
             body["interval"] = interval
         if retry:
             body["retry"] = retry
-        if threshold_count:
-            body["threshold_count"] = threshold_count
         if timeout:
             body["timeout"] = timeout
         if path:
@@ -662,8 +627,7 @@ class Proxy(proxy2.BaseProxy):
     def create_staged_health_monitor_configuration(
             self, health_monitor_id,
             port=None, protocol=None, interval=None, retry=None,
-            threshold_count=None, timeout=None, path=None,
-            http_status_code=None):
+            timeout=None, path=None, http_status_code=None):
         """Create Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health Monitor
@@ -671,7 +635,6 @@ class Proxy(proxy2.BaseProxy):
         :param string protocol: Protocol of Health Monitor
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
-        :param int threshold_count: Threshold count of Health Monitor
         :param int timeout: Timeout of Health Monitor
         :param string path: Path of Health Monitor
         :param string http_status_code: HTTP Status code of Health Monitor
@@ -686,8 +649,6 @@ class Proxy(proxy2.BaseProxy):
             body["interval"] = interval
         if retry:
             body["retry"] = retry
-        if threshold_count:
-            body["threshold_count"] = threshold_count
         if timeout:
             body["timeout"] = timeout
         if path:
@@ -700,24 +661,18 @@ class Proxy(proxy2.BaseProxy):
                                                           health_monitor_id,
                                                           **body)
 
-    def get_staged_health_monitor_configuration(self, health_monitor_id,
-                                                changes=None):
+    def get_staged_health_monitor_configuration(self, health_monitor_id):
         """Retrieve Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health_monitor
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Health Monitor
         """
-        health_monitor = _health_monitor.HealthMonitor()
-        return health_monitor.get_staged_configuration(self.session,
-                                                       health_monitor_id,
-                                                       changes)
+        return self._get(_health_monitor.HealthMonitor, health_monitor_id)
 
     def update_staged_health_monitor_configuration(
             self, health_monitor_id,
             port=None, protocol=None, interval=None, retry=None,
-            threshold_count=None, timeout=None, path=None,
-            http_status_code=None):
+            timeout=None, path=None, http_status_code=None):
         """Update Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health Monitor
@@ -725,7 +680,6 @@ class Proxy(proxy2.BaseProxy):
         :param string protocol: Protocol of Health Monitor
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
-        :param int threshold_count: Threshold count of Health Monitor
         :param int timeout: Timeout of Health Monitor
         :param string path: Path of Health Monitor
         :param string http_status_code: HTTP Status code of Health Monitor
@@ -740,8 +694,6 @@ class Proxy(proxy2.BaseProxy):
             body["interval"] = interval
         if retry:
             body["retry"] = retry
-        if threshold_count:
-            body["threshold_count"] = threshold_count
         if timeout:
             body["timeout"] = timeout
         if path:
@@ -897,16 +849,13 @@ class Proxy(proxy2.BaseProxy):
         return policy.create_staged_configuration(self.session,
                                                   policy_id, **body)
 
-    def get_staged_policy_configuration(self, policy_id, changes=None):
+    def get_staged_policy_configuration(self, policy_id):
         """Retrieve Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Policy
         """
-        policy = _policy.Policy()
-        return policy.get_staged_configuration(self.session, policy_id,
-                                               changes)
+        return self._get(_policy.Policy, policy_id)
 
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
@@ -1049,15 +998,13 @@ class Proxy(proxy2.BaseProxy):
         return route.create_staged_configuration(self.session,
                                                  route_id, **body)
 
-    def get_staged_route_configuration(self, route_id, changes=None):
+    def get_staged_route_configuration(self, route_id):
         """Retrieve Staged Route Configuration.
 
         :param string route_id: ID of Route
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Route
         """
-        route = _route.Route()
-        return route.get_staged_configuration(self.session, route_id, changes)
+        return self._get(_route.Route, route_id)
 
     def update_staged_route_configuration(
             self, route_id, next_hop_ip_address=None):
@@ -1178,15 +1125,13 @@ class Proxy(proxy2.BaseProxy):
         rule = _rule.Rule()
         return rule.create_staged_configuration(self.session, rule_id,  **body)
 
-    def get_staged_rule_configuration(self, rule_id, changes=None):
+    def get_staged_rule_configuration(self, rule_id):
         """Retrieve Staged Rule Configuration.
 
         :param string rule_id: ID of Rule
-        :param bool changes: Whether or not to retrieve staged configuration
         :return: Rule
         """
-        rule = _rule.Rule()
-        return rule.get_staged_configuration(self.session, rule_id, changes)
+        return self._get(_rule.Rule, rule_id)
 
     def update_staged_rule_configuration(
             self, rule_id,

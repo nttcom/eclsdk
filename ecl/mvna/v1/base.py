@@ -20,16 +20,6 @@ class MVNABaseResource(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
-    def get_staged_configuration(self, session, resource_id, changes=None):
-        if changes is not None and type(changes) is bool:
-            uri = self.base_path + '/%s/staged?changes=%s' % \
-                  (resource_id, str(changes).lower())
-        else:
-            uri = self.base_path + '/%s/staged' % resource_id
-        resp = session.get(uri, endpoint_filter=self.service)
-        self._translate_response(resp, has_body=True)
-        return self
-
     def update_staged_configuration(self, session, resource_id, **body):
         uri = self.base_path + '/%s/staged' % resource_id
         resp = session.patch(uri, endpoint_filter=self.service,
