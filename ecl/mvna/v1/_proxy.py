@@ -1035,14 +1035,14 @@ class Proxy(proxy2.BaseProxy):
         """List Rules."""
         return list(self._list(_rule.Rule, paginated=False, **params))
 
-    def create_rule(self, priority, target_group_id, policy_id, condition,
+    def create_rule(self, priority, target_group_id, policy_id, conditions,
                     name=None, description=None, tags=None):
         """Create Rule.
 
         :param string priority: Priority of Rule
         :param string target_group_id: Target group ID of Rule
         :param string policy_id: Policy ID of Rule
-        :param string condition: Condition ID of Rule
+        :param string conditions: Condition IDs of Rule
         :param string name: Name of Rule
         :param string description: Description of Rule
         :param dict tags: Tags of Rule
@@ -1052,7 +1052,7 @@ class Proxy(proxy2.BaseProxy):
             'priority': priority,
             'target_group_id': target_group_id,
             'policy_id': policy_id,
-            'condition': condition
+            'conditions': conditions
         }
         if name:
             body["name"] = name
@@ -1105,13 +1105,13 @@ class Proxy(proxy2.BaseProxy):
 
     def create_staged_rule_configuration(
             self, rule_id,
-            priority=None, target_group_id=None, condition=None):
+            priority=None, target_group_id=None, conditions=None):
         """Create Staged Rule Configuration.
 
         :param string rule_id: ID of Rule
         :param string priority: Priority of Rule
         :param string target_group_id: Target Group ID of Rule
-        :param string condition: Condition of Rule
+        :param string conditions: Conditions of Rule
         :return: Rule
         """
         body = {}
@@ -1119,8 +1119,8 @@ class Proxy(proxy2.BaseProxy):
             body["priority"] = priority
         if target_group_id:
             body["target_group_id"] = target_group_id
-        if condition:
-            body["condition"] = condition
+        if conditions:
+            body["conditions"] = conditions
 
         rule = _rule.Rule()
         return rule.create_staged_configuration(self.session, rule_id,  **body)
@@ -1135,13 +1135,13 @@ class Proxy(proxy2.BaseProxy):
 
     def update_staged_rule_configuration(
             self, rule_id,
-            priority=None, target_group_id=None, condition=None):
+            priority=None, target_group_id=None, conditions=None):
         """Create Staged Rule Configuration.
 
         :param string rule_id: ID of Rule
         :param string priority: Priority of Rule
         :param string target_group_id: Target Group ID of Rule
-        :param string condition: Condition of Rule
+        :param string conditions: Conditions of Rule
         :return: Rule
         """
         body = {}
@@ -1149,8 +1149,8 @@ class Proxy(proxy2.BaseProxy):
             body["priority"] = priority
         if target_group_id:
             body["target_group_id"] = target_group_id
-        if condition:
-            body["condition"] = condition
+        if conditions:
+            body["conditions"] = conditions
 
         rule = _rule.Rule()
         return rule.update_staged_configuration(self.session, rule_id, **body)
