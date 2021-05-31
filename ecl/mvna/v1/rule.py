@@ -54,8 +54,8 @@ class Rule(base.MVNABaseResource):
     load_balancer_id = resource2.Body('load_balancer_id')
     #: Tenant ID of rule
     tenant_id = resource2.Body('tenant_id')
-    #: Condition of rule
-    condition = resource2.Body('condition')
+    #: Conditions of rule
+    conditions = resource2.Body('conditions')
     #: Current configuration of rule
     current = resource2.Body('current')
     #: Staged configuration of rule
