@@ -18,7 +18,9 @@ class LoadBalancer(base.MVNABaseResource):
         "configuration_status",
         "monitoring_status",
         "operation_status",
-        "availability_zone",
+        "primary_availability_zone",
+        "secondary_availability_zone",
+        "active_availability_zone",
         "revision",
         "plan_id",
         "tenant_id"
@@ -47,16 +49,25 @@ class LoadBalancer(base.MVNABaseResource):
     monitoring_status = resource2.Body('monitoring_status')
     #: Operation status of load balancer
     operation_status = resource2.Body('operation_status')
-    #: Availability zones of load balancer
-    availability_zones = resource2.Body('availability_zones')
+    #: Primary availability zone of load balancer
+    primary_availability_zone = resource2.Body('primary_availability_zone')
+    #: Secondary availability zone of load balancer
+    secondary_availability_zone = resource2.Body('secondary_availability_zone')
+    #: Active availability zone of load balancer
+    active_availability_zone = resource2.Body('active_availability_zone')
     #: Revision of load balancer
     revision = resource2.Body('revision')
     #: Plan ID of load balancer
     plan_id = resource2.Body('plan_id')
+    #: Plan name of load balancer
+    plan_name = resource2.Body('plan_name')
     #: Tenant ID of load balancer
     tenant_id = resource2.Body('tenant_id')
+
+    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     #: Syslog servers of load balancer
-    syslog_servers = resource2.Body('syslog_servers')
+    # syslog_servers = resource2.Body('syslog_servers')
+
     #: Interfaces of load balancer
     interfaces = resource2.Body('interfaces')
     #: Current configuration of load balancer
