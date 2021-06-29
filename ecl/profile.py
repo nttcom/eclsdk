@@ -113,8 +113,6 @@ class Profile(object):
         self._add_service(network_service.NetworkService(version="v2"))
         self._add_service(sss_service.SssService(version="v1"))
         self._add_service(
-            object_store_service.ObjectStoreService(version="v1"))
-        self._add_service(
             orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
             provider_connectivity_service.ProviderConnectivityService(
@@ -137,7 +135,6 @@ class Profile(object):
         self._add_service(
             dedicated_hypervisor_service.DedicatedHypervisorService(
                 version="v1"))
-        self._add_service(database_service.DatabaseService(version="v1"))
         self._add_service(dns_service.DnsService(version="v2"))
         self._add_service(
             virtual_network_appliance_service.VirtualNetworkApplianceService(
