@@ -661,7 +661,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Health Monitor
         """
         body = {}
-        if port:
+        if port >= 0:
             body["port"] = port
         if protocol:
             body["protocol"] = protocol
@@ -710,7 +710,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Health Monitor
         """
         body = {}
-        if port:
+        if port >= 0:
             body["port"] = port
         if protocol:
             body["protocol"] = protocol
