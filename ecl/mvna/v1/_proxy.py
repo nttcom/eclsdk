@@ -651,7 +651,7 @@ class Proxy(proxy2.BaseProxy):
         """Create Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health Monitor
-        :param string port: Port of Health Monitor
+        :param int port: Port of Health Monitor
         :param string protocol: Protocol of Health Monitor
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
@@ -700,7 +700,7 @@ class Proxy(proxy2.BaseProxy):
         """Update Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health Monitor
-        :param string port: Port of Health Monitor
+        :param int port: Port of Health Monitor
         :param string protocol: Protocol of Health Monitor
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
