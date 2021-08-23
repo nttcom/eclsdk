@@ -57,25 +57,20 @@ class Proxy(proxy2.BaseProxy):
         return load_balancer.get_resource(self.session, load_balancer_id,
                                           changes)
 
-    def update_load_balancer(self, load_balancer_id,
-                             name=None, description=None, tags=None):
+    def update_load_balancer(self, load_balancer_id, **params):
         """Update Managed Load Balancer Attributes.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        :param string name: Name of Managed Load Balancer
-        :param string description: Description of Managed Load Balancer
-        :param dict tags: Tags of Managed Load Balancer
+        :attrs **params: Parameters for load balancer update.
+
+            * string name: Name of Managed Load Balancer
+            * string description: Description of Managed Load Balancer
+            * dict tags: Tags of Managed Load Balancer
+
         :return: Managed Load Balancer
         """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
         return self._update(_load_balancer.LoadBalancer, load_balancer_id,
-                            **body)
+                            **params)
 
     def delete_load_balancer(self, load_balancer_id, x_mvna_request_id=None,
                              ignore_missing=False):
@@ -210,24 +205,20 @@ class Proxy(proxy2.BaseProxy):
         return target_group.get_resource(self.session, target_group_id,
                                          changes)
 
-    def update_target_group(self, target_group_id,
-                            name=None, description=None, tags=None):
+    def update_target_group(self, target_group_id, **params):
         """Update Target Group Attributes.
 
-        :param string target_group_id: ID of Target Group
-        :param string name: Name of Target Group
-        :param string description: Description of Target Group
-        :param dict tags: Tags of Target Group
+        :param string load_balancer_id: ID of Managed Load Balancer
+        :attrs **params: Parameters for target group update.
+
+            * string name: Name of Managed Load Balancer
+            * string description: Description of Managed Load Balancer
+            * dict tags: Tags of Managed Load Balancer
+
         :return: Target Group
         """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
-        return self._update(_target_group.TargetGroup, target_group_id, **body)
+        return self._update(_target_group.TargetGroup, target_group_id,
+                            **params)
 
     def delete_target_group(self, target_group_id, ignore_missing=False):
         """Delete Target Group.
@@ -419,25 +410,20 @@ class Proxy(proxy2.BaseProxy):
         listener = _listener.Listener()
         return listener.get_resource(self.session, listener_id, changes)
 
-    def update_listener(self, listener_id,
-                        name=None, description=None, tags=None):
+    def update_listener(self, listener_id, **params):
         """Update Listener Attributes.
 
         :param string listener_id: ID of Listener
-        :param string name: Name of Listener
-        :param string description: Description of Listener
-        :param dict tags: Tags of Listener
+
+        :attrs **params: Parameters for listener update.
+
+            * string name: Name of Listener
+            * string description: Description of Listener
+            * dict tags: Tags of Listener
+
         :return: Listener
         """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
-        return self._update(_listener.Listener, listener_id,
-                            **body)
+        return self._update(_listener.Listener, listener_id, **params)
 
     def delete_listener(self, listener_id, ignore_missing=False):
         """Delete Listener.
@@ -606,25 +592,20 @@ class Proxy(proxy2.BaseProxy):
         return health_monitor.get_resource(self.session, health_monitor_id,
                                            changes)
 
-    def update_health_monitor(self, health_monitor_id,
-                              name=None, description=None, tags=None):
+    def update_health_monitor(self, health_monitor_id, **params):
         """Update Health Monitor Attributes.
 
         :param string health_monitor_id: ID of Health Monitor
-        :param string name: Name of Health Monitor
-        :param string description: Description of Health Monitor
-        :param dict tags: Tags of Health Monitor
+        :attrs **params: Parameters for health monitor update.
+
+            * string name: Name of Health Monitor
+            * string description: Description of Health Monitor
+            * dict tags: Tags of Health Monitor
+
         :return: Health Monitor
         """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
         return self._update(_health_monitor.HealthMonitor, health_monitor_id,
-                            **body)
+                            **params)
 
     def delete_health_monitor(self, health_monitor_id, ignore_missing=False):
         """Delete Health Monitor.
@@ -647,7 +628,7 @@ class Proxy(proxy2.BaseProxy):
             port=None, protocol=None, interval=None, retry=None,
             timeout=None,
             # path=None, http_status_code=None
-            ):
+    ):
         """Create Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health Monitor
@@ -696,7 +677,7 @@ class Proxy(proxy2.BaseProxy):
             port=None, protocol=None, interval=None, retry=None,
             timeout=None,
             # path=None, http_status_code=None
-            ):
+    ):
         """Update Staged Health Monitor Configuration.
 
         :param string health_monitor_id: ID of Health Monitor
@@ -803,23 +784,19 @@ class Proxy(proxy2.BaseProxy):
         policy = _policy.Policy()
         return policy.get_resource(self.session, policy_id, changes)
 
-    def update_policy(self, policy_id, name=None, description=None, tags=None):
+    def update_policy(self, policy_id, **params):
         """Update Policy Attributes.
 
         :param string policy_id: ID of Policy
-        :param string name: Name of Policy
-        :param string description: Description of Policy
-        :param dict tags: Tags of Policy
+        :attrs **params: Parameters for policy update.
+
+            * string name: Name of Policy
+            * string description: Description of Policy
+            * dict tags: Tags of Policy
+
         :return: Policy
         """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
-        return self._update(_policy.Policy, policy_id, **body)
+        return self._update(_policy.Policy, policy_id, **params)
 
     def delete_policy(self, policy_id, ignore_missing=False):
         """Delete Policy.
@@ -890,6 +867,7 @@ class Proxy(proxy2.BaseProxy):
 
     # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
     # :param tls_security_policy_id: will be available from Day 2.
+
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
                                            # sorry_page_url=None,
@@ -984,24 +962,19 @@ class Proxy(proxy2.BaseProxy):
         route = _route.Route()
         return route.get_resource(self.session, route_id, changes)
 
-    def update_route(self, route_id,
-                     name=None, description=None, tags=None):
+    def update_route(self, route_id, **params):
         """Update Route Attributes.
 
         :param string route_id: ID of Route
-        :param string name: Name of Route
-        :param string description: Description of Route
-        :param dict tags: Tags of Route
+        :attrs **params: Parameters for policy update.
+
+            * string name: Name of Route
+            * string description: Description of Route
+            * dict tags: Tags of Route
+
         :return: Route
         """
-        body = {}
-        if name:
-            body["name"] = name
-        if description:
-            body["description"] = description
-        if tags:
-            body["tags"] = tags
-        return self._update(_route.Route, route_id, **body)
+        return self._update(_route.Route, route_id, **params)
 
     def delete_route(self, route_id, ignore_missing=False):
         """Delete Route.
