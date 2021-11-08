@@ -62,4 +62,3 @@ class ChassisDetail(Chassis):
 
     # Capabilities
     allow_get = False
-

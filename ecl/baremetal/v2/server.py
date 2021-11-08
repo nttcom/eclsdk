@@ -109,7 +109,6 @@ class Server(resource2.Resource):
     def create(self, session, **attrs):
         body = {"server": attrs}
 
-        print(body)
         resp = session.post(
             self.base_path, endpoint_filter=self.service,
             json=body,
