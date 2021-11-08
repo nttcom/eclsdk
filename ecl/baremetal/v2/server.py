@@ -26,6 +26,7 @@ class Server(resource2.Resource):
     allow_list = True
     allow_create = True
     allow_delete = True
+    allow_update = True
 
     # Properties
     #: UUID of the Baremetal server.
@@ -107,11 +108,23 @@ class Server(resource2.Resource):
 
     def create(self, session, **attrs):
         body = {"server": attrs}
+
+        print(body)
         resp = session.post(
             self.base_path, endpoint_filter=self.service,
             json=body,
             headers={"Accept": "application/json"}
         )
+        self._translate_response(resp, has_body=True)
+        return self
+
+    def update(self, session, server_id, **attrs):
+        url = "%s/%s" % (self.base_path, server_id)
+        body = {"server": attrs}
+        resp = session.put(url,
+                           endpoint_filter=self.service,
+                           json=body,
+                           headers={"Accept": "application/json"})
         self._translate_response(resp, has_body=True)
         return self
 
