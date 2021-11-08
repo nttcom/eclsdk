@@ -37,7 +37,7 @@ class Chassis(resource2.Resource):
     hardware_summary = resource2.Body('hardware_summary', type=dict)
     #: The status of chassis.
     status = resource2.Body('status')
-    #: The ID of server attached to chassis. If no server is attached to chassis, the vlaue is null.
+    #: The ID of server attached to chassis. If no server is attached to chassis, the value is null.
     server_id = resource2.Body('server_id')
     #: The name of server attached to chassis. If no server is attached to chassis, the value is null.
     server_name = resource2.Body('server_name')
