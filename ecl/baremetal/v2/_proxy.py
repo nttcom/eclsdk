@@ -21,6 +21,7 @@ from ecl.baremetal.v2 import availability_zone as _zone
 from ecl.baremetal.v2 import stock as _stock
 from ecl.baremetal.v2 import nic_physical_port as _port
 from ecl.baremetal.v2 import server as _server
+from ecl.baremetal.v2 import chassis as _chassis
 from ecl.baremetal import version as _version
 from ecl import proxy2
 from ecl import session
@@ -286,9 +287,9 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._find(_server.Server, name_or_id, ignore_missing=ignore_missing)
 
-    def create_server(self, name, networks, flavor, admin_pass=None,
-                      image=None, key_name=None, availability_zone=None,
-                      user_data=None, raid_arrays=None,
+    def create_server(self, name, networks, admin_pass=None, image=None,
+                      flavor=None, chassis_id=None, key_name=None,
+                      availability_zone=None, user_data=None, raid_arrays=None,
                       lvm_volume_groups=None, filesystems=None,
                       metadata=None, personality=None):
         """This API create additional Baremetal server.
@@ -297,11 +298,13 @@ class Proxy(proxy2.BaseProxy):
         :param array networks: Network Array.
             If it is specified greater than two, default gateway is
             first network.
-        :param string flavor: The flavor reference for the desired flavor for your
-            Baremetal server.
         :param string admin_pass: Password for the administrator.
         :param string image: The image reference for the desired image for your
             Baremetal server.
+        :param string flavor: The flavor reference for the desired flavor for your
+            Baremetal server. You can specify either flavor or chassis_id.
+        :param string chassis_id: The ID of chassis which you use to deploy
+            Baremetal server. You can specify either flavor or chassis_id.
         :param string key_name: SSH Keypair name you created on KeyPairs API.
         :param string availability_zone: The availability zone name in which to launch
             the server.
@@ -318,11 +321,15 @@ class Proxy(proxy2.BaseProxy):
             esxi.
         :return: :class:`~ecl.baremetal.v2.server.Server`
         """
-        attrs = {"name": name, "networks": networks, "flavorRef": flavor}
+        attrs = {"name": name, "networks": networks}
         if admin_pass:
             attrs["adminPass"] = admin_pass
         if image:
             attrs["imageRef"] = image
+        if flavor:
+            attrs["flavorRef"] = flavor
+        if chassis_id:
+            attrs["chassis_id"] = chassis_id
         if key_name:
             attrs["key_name"] = key_name
         if availability_zone:
@@ -349,6 +356,17 @@ class Proxy(proxy2.BaseProxy):
         :return: ``None``
         """
         return self._delete(_server.Server, server_id)
+
+    def update_server(self, server_id, name):
+        """ This API updates the editable attributes of the specified baremetal server.
+
+        :param string server_id: ID for the specified server.
+        :param string name: Name of your baremetal server as a string.
+        :return: :class:`~ecl.baremetal.v2.server.Server`
+        """
+        attrs = {"name": name}
+        server = _server.Server()
+        return server.update(self.session, server_id, **attrs)
 
     def start_server(self, server_id):
         """Power on the Baremetal Server associated with server_id.
@@ -509,3 +527,38 @@ class Proxy(proxy2.BaseProxy):
         """
         metadata = _metadata.Metadata()
         return metadata.update(self.session, server_id, key, **attr)
+
+    def chassis(self, details=True):
+        """Lists all Chassis or ChassisDetail.
+
+        A chassis represents base object of baremetal server. 
+        Each chassis is assigned an unique id and has dedicated disk spaces, 
+        memory capacities and cpu resources. You can create baremetal server 
+        upon this object.
+        
+        :param bool details: When set to ``False``
+                    :class:`~ecl.baremetal.v2.chassis.Chassis` instance
+                    will be returned. The default, ``True``, will cause
+                    :class:`~ecl.baremetal.v2.chassis.ChassisDetail`
+                    instances to be returned.
+
+        :return: A List of :class:`~ecl.baremetal.v2.chassis.Chassis` or
+                    :class:`~ecl.baremetal.v2.chassis.ChassisDetail`
+        """
+        chassis = _chassis.ChassisDetail if details else _chassis.Chassis
+        return list(self._list(chassis))
+
+    def get_chassis(self, chassis_id):
+        """Gets details for a ChassisDetail associated with chassis_id.
+
+        A chassis represents base object of baremetal server. 
+        Each chassis is assigned an unique id and has dedicated disk spaces, 
+        memory capacities and cpu resources. You can create baremetal server 
+        upon this object.
+
+        :param string chassis_id: ID for the chassis.
+        :return: :class:`~ecl.baremetal.v2.chassis.Chassis`
+        """
+        # Use "Chassis" instead of "ChassisDetail".
+        # Because "detail" is not included to the request path.
+        return self._get(_chassis.Chassis, chassis_id)
