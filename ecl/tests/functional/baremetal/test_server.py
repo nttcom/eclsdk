@@ -72,12 +72,3 @@ class TestServer(base.BaseFunctionalTest):
     def test_05_delete_server(self):
         server = self.conn.baremetal.delete_server("752aac2e-4b82-4d47-a7c7-xx")
         assert False
-
-    def test_06_update_server(self):
-        # ServerIDはMock Serverに合わせて変更する
-        server_id = "3072a550-2ff4-a9d6-438b-0ce8b650eaa5"
-        name = "hoge"
-
-        server = self.conn.baremetal.update_server(server_id, name)
-        print(server)
-        self.assertIsInstance(server.id, six.string_types)
