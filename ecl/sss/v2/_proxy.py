@@ -12,7 +12,6 @@
 
 from ecl.sss.v2 import user as _user
 from ecl.sss.v2 import tenant as _tenant
-# from ecl.sss.v2 import role as _role
 from ecl.sss.v2 import api_key as _api_key
 from ecl.sss.v2 import channel as _channel
 from ecl.sss.v2 import contract as _contract
@@ -152,54 +151,6 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._create(_tenant.Tenant, **attrs)
 
-    '''
-    def delete_tenant(self, tenant, ignore_missing = True):
-        """
-        Delete tenant. Only supser user (contract owner user) allowed.
-
-        :param tenant: Delete target tenant's tenant id.
-        :param ignore_missing: When set to ``False``
-                    :class:`~ecl.exceptions.ResourceNotFound` will be
-                    raised when the user does not exist.
-                    When set to ``True``, no exception will be set when
-                    attempting to delete a nonexistent server
-        :return: ``None``
-        """
-        self._delete(_tenant.Tenant, tenant, ignore_missing=ignore_missing)
-    '''
-
-    '''
-    def create_role(self, user_id, tenant_id):
-        """
-        Create role between a user and a tenant. With role, users can access
-        to the tenants.
-
-        :param user_id: User which have new role.
-        :param tenant_id: Tenant which the user have role.
-        :return: :class:`~ecl.sss.v2.role.Role`
-        """
-        body = {}
-        body["user_id"] = user_id
-        body["tenant_id"] = tenant_id
-        return self._create(_role.Role, **body)
-    '''
-
-    '''
-    def delete_role(self, tenant_id, user_id):
-        """
-        Delete role between user and tenant. Contract owner user always have
-        role to all tenants in the contract. Only supser user
-        (contract owner user) allowed.
-
-        :param tenant_id: Delete target tenant's tenant id.
-        :param user_id: User's id of the role
-        :return: ``None``
-        """
-        role = _role.Role()
-        return role.delete(session=self.session,
-                                 tenant_id=tenant_id, user_id=user_id)
-    '''
-
     def update_api_key(self, user_id):
         """
         Update API key pair of target user.
@@ -299,22 +250,6 @@ class Proxy(proxy2.BaseProxy):
         :return: One :class:`~ecl.sss.v2.contract.Contract`
         """
         return self._get(_contract.Contract, contract_id)
-
-    '''
-    def get_billing_info(self, channel_id, target_month):
-        """
-        Get billing statement of designated month.
-
-        :param channel_id: Billing statement owner contract.
-        :param target_month: Target billing month with YYYY-MM format
-        :return: One :class:`~ecl.sss.v2.contract.Contract`
-        """
-        bill_info = _contract.Contract()
-        return bill_info.get_billing_info(
-            session=self.session, channel_id=channel_id,
-            target_month=target_month
-        )
-    '''
 
     def get_monthly_billing_of_each_contract(self, contract_id, target_month,
                                              target_contract_id):
@@ -521,13 +456,14 @@ class Proxy(proxy2.BaseProxy):
             body["contract_id"] = contract_id
         return self._create(_workspace.Workspace, **body)
 
-    def get_workspace(self):
+    def get_workspace(self, workspace_id):
         """
         Get information about a workspace.
 
+        :param workspace_id: ID of the workspace.
         :return: One :class:`~ecl.sss.v2.workspace.Workspace`
         """
-        return self._get(_workspace.Workspace)
+        return self._get(_workspace.Workspace, workspace_id)
 
     def workspaces(self, contract_id=None):
         """
@@ -569,8 +505,7 @@ class Proxy(proxy2.BaseProxy):
         """
         body = {}
         body["description"] = description
-        workspace = _workspace.Workspace()
-        return workspace.update(self.session, workspace_id, **body)
+        return self._update(_workspace.Workspace, workspace_id, **body)
 
     def add_workspace_role_assignment(self, user_id, workspace_id):
         """
@@ -585,7 +520,10 @@ class Proxy(proxy2.BaseProxy):
         body = {}
         body["user_id"] = user_id
         body["workspace_id"] = workspace_id
-        return self._create(_workspace.Workspace, **body)
+        workspace_role = _workspace.Workspace()
+        return workspace_role.add_workspace_role_assignment(
+            session=self.session, **body
+        )
     
     def delete_workspace_role_assignment(self, workspace_id, user_id):
         """
@@ -597,6 +535,7 @@ class Proxy(proxy2.BaseProxy):
         :param user_id: User's id of the role.
         :return: ``None``
         """
-        workspace = _workspace.Workspace()
-        return workspace.delete(session=self.session,
-                                 workspace_id=workspace_id, user_id=user_id)
+        workspace_role = _workspace.Workspace()
+        return workspace_role.delete_workspace_role_assignment(
+            session=self.session, workspace_id=workspace_id, user_id=user_id
+        )
