@@ -114,19 +114,6 @@ class Contract(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
-    '''
-    def get_billing_info(self, session, channel_id, target_month):
-        """Get billing information by channel id and target month"""
-
-        url = self.base_path + '/%s/billing/%s' % (
-            channel_id, target_month)
-        resp = session.get(
-            url, endpoint_filter=self.service
-        )
-        self._translate_response(resp, has_body=True)
-        return self
-    '''
-
     def get_monthly_billing_of_each_contract(
             self, session, contract_id, target_month, target_contract_id
     ):

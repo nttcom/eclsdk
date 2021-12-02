@@ -39,17 +39,23 @@ class Workspace(resource2.Resource):
     start_time = resource2.Body('start_time')
     #: Array of region information where tenants can be created.
     regions = resource2.Body('regions')
-    #: Region which the workspace belongs to.
-    regions.region_name	 = resource2.Body('regions.region_name	')
-    #: The tenant ID that the tenant belongs.
-    regions.tenant_id = resource2.Body('regions.tenant_id')
     #: An array of user information that has a workspace role in the workspace.
     workspaces = resource2.Body('workspaces')
     #: User list.
     users = resource2.Body('users')
-    #: ID of the users who have access to this workspace.
-    users.user_id = resource2.Body('users.user_id')
-    #: Contract which owns the workspace.
-    users.contract_id = resource2.Body('users.contract_id')
-    #: This user is contract owner / or not.
-    users.contract_owner = resource2.Body('users.contract_owner')
+
+    def add_workspace_role_assignment(self, session, user_id, workspace_id):
+        """Add role between user and workspace."""
+
+        url = '/workspace-roles'
+        resp = session.post(url, endpoint_filter=self.service)
+        self._translate_response(resp, has_body=True)
+        return self
+
+    def delete_workspace_role_assignment(self, session, workspace_id, user_id):
+        """Delete role between user and workspace."""
+
+        url = '/workspace-roles/workspaces/%s/users/%s' % (workspace_id, user_id)
+        resp = session.delete(url, endpoint_filter=self.service)
+        self._translate_response(resp, has_body=False)
+        return self
