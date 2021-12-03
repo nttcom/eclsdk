@@ -43,6 +43,8 @@ class Workspace(resource2.Resource):
     workspaces = resource2.Body('workspaces')
     #: User list.
     users = resource2.Body('users')
+    #: User's id of the role.
+    user_id = resource2.Body('user_id')
 
     def add_workspace_role_assignment(self, session, user_id, workspace_id):
         """Add role between user and workspace."""
