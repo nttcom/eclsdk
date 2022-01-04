@@ -39,12 +39,8 @@ class Workspace(resource2.Resource):
     start_time = resource2.Body('start_time')
     #: Array of region information where tenants can be created.
     regions = resource2.Body('regions')
-    #: An array of user information that has a workspace role in the workspace.
-    workspaces = resource2.Body('workspaces')
     #: User list.
     users = resource2.Body('users')
-    #: User's id of the role.
-    user_id = resource2.Body('user_id')
 
     def add_workspace_role_assignment(self, session, user_id, workspace_id):
         """Add role between user and workspace."""

@@ -22,7 +22,6 @@ class Tenant(resource2.Resource):
 
     # Capabilities
     allow_create = True
-    allow_get = True
     allow_list = True
     put_create = False
 

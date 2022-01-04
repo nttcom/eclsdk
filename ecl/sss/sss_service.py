@@ -20,5 +20,5 @@ class SssService(service_filter.ServiceFilter):
 
     def __init__(self, version=None):
         """Create a SSS service."""
-        super(SssService, self).__init__(service_type='sss',
+        super(SssService, self).__init__(service_type='sssv2',
                                          version=version)
