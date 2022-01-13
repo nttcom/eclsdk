@@ -465,7 +465,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_workspace.Workspace, workspace_id)
 
-    def workspaces(self, contract_id=None):
+    def workspaces(self, contract_id):
         """
         Get list of workspace. Only workspaces for which the user has access
         rights are output.
@@ -475,7 +475,8 @@ class Proxy(proxy2.BaseProxy):
         :return: A generator of workspace instances.
         :rtype: :class:`~ecl.sss.v2.workspace.Workspace`
         """
-        return list(self._list(_workspace.Workspace, paginated=False, contract_id=None))
+        workspace = _workspace.Workspace()
+        return workspace.list(self.session, contract_id)
 
     def delete_workspace(self, workspace_id, ignore_missing=False):
         """
@@ -505,7 +506,8 @@ class Proxy(proxy2.BaseProxy):
         """
         body = {}
         body["description"] = description
-        return self._update(_workspace.Workspace, workspace_id, **body)
+        workspace = _workspace.Workspace()
+        return workspace.update(self.session, workspace_id, **body)
 
     def add_workspace_role_assignment(self, user_id, workspace_id):
         """
