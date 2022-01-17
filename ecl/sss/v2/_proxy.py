@@ -475,8 +475,10 @@ class Proxy(proxy2.BaseProxy):
         :return: A generator of workspace instances.
         :rtype: :class:`~ecl.sss.v2.workspace.Workspace`
         """
-        workspace = _workspace.Workspace()
-        return workspace.list(self.session, contract_id)
+        query = {}
+        if contract_id:
+            query = {'contract_id': contract_id}
+        return list(self._list(_workspace.Workspace, paginated=False, **query))
 
     def delete_workspace(self, workspace_id, ignore_missing=False):
         """

@@ -27,11 +27,13 @@ class Workspace(resource2.Resource):
     allow_delete = True
     allow_update = True
 
+    _query_mapping = resource2.QueryParameters("contract_id")
+
     # Properties
     #: ID of the contract.
     contract_id = resource2.Body('contract_id')
     #: ID of the workspace.
-    workspace_id = resource2.Body('workspace_id')
+    workspace_id = resource2.Body('workspace_id', alternate_id=True)
     #: Name of the workspace. Workspace name is also a unique identifier of workspaces.
     workspace_name = resource2.Body('workspace_name')
     #: Description of the workspace.
@@ -46,14 +48,6 @@ class Workspace(resource2.Resource):
     user_id = resource2.Body('user_id')
     #: list of user.
     users = resource2.Body('users')
-
-    def list(self, session, contract_id):
-        """Get list of workspace."""
-
-        url = self.base_path + '?contract_id=%s' % (contract_id)
-        resp = session.get(url, endpoint_filter=self.service)
-        self._translate_response(resp, has_body=True)
-        return self
 
     def update(self, session, workspace_id, **attrs):
         """Updates the description for the designated workspace."""
