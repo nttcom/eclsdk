@@ -12,7 +12,7 @@
 
 import testtools
 
-from ecl.network.v2 import quota
+from ecl.network.v2.quota import Quota, QuotaDefault
 
 IDENTIFIER = 'IDENTIFIER'
 EXAMPLE = {
@@ -27,18 +27,18 @@ EXAMPLE = {
     "port": 30,
     "subnet": 5,
     "tenant_id": IDENTIFIER,
-    "vpn_gateway": 1
+    "vpn_gateway": 1,
+    "security_group": 1
 }
-
 
 
 class TestQuota(testtools.TestCase):
 
     def test_basic(self):
-        sot = quota.Quota()
+        sot = Quota()
         self.assertEqual('quota', sot.resource_key)
         self.assertEqual('quotas', sot.resources_key)
-        self.assertEqual('/quotas', sot.base_path)
+        self.assertEqual('/v2.0/quotas', sot.base_path)
         self.assertEqual('network', sot.service.service_type)
         self.assertFalse(sot.allow_create)
         self.assertTrue(sot.allow_get)
@@ -47,7 +47,7 @@ class TestQuota(testtools.TestCase):
         self.assertTrue(sot.allow_list)
 
     def test_make_it(self):
-        sot = quota.Quota(**EXAMPLE)
+        sot = Quota(**EXAMPLE)
         self.assertEqual(EXAMPLE['colocation_logical_link'], sot.colocation_logical_link)
         self.assertEqual(EXAMPLE['common_function_gateway'], sot.common_function_gateway)
         self.assertEqual(EXAMPLE['firewall'], sot.firewall)
@@ -55,16 +55,17 @@ class TestQuota(testtools.TestCase):
         self.assertEqual(EXAMPLE['interdc_gateway'], sot.interdc_gateway)
         self.assertEqual(EXAMPLE['interdc_gateway'], sot.internet_gateway)
         self.assertEqual(EXAMPLE['load_balancer'], sot.load_balancer)
-        self.assertEqual(EXAMPLE['network'], sot.networks)
-        self.assertEqual(EXAMPLE['port'], sot.ports)
-        self.assertEqual(EXAMPLE['subnet'], sot.subnets)
+        self.assertEqual(EXAMPLE['network'], sot.network)
+        self.assertEqual(EXAMPLE['port'], sot.port)
+        self.assertEqual(EXAMPLE['subnet'], sot.subnet)
         self.assertEqual(EXAMPLE['tenant_id'], sot.project_id)
         self.assertEqual(EXAMPLE['vpn_gateway'], sot.vpn_gateway)
+        self.assertEqual(EXAMPLE['security_group'], sot.security_group)
 
 class TestQuotaDefault(testtools.TestCase):
 
     def test_basic(self):
-        default = quota.QuotaDefault()
+        default = QuotaDefault()
         self.assertEqual('quota', default.resource_key)
         self.assertEqual('quotas', default.resources_key)
         self.assertEqual('/quotas/%(project)s/default', default.base_path)
@@ -76,7 +77,7 @@ class TestQuotaDefault(testtools.TestCase):
         self.assertFalse(default.allow_list)
 
     def test_make_it(self):
-        default = quota.QuotaDefault(**EXAMPLE)
+        default = QuotaDefault(**EXAMPLE)
         self.assertEqual(EXAMPLE['colocation_logical_link'], default.colocation_logical_link)
         self.assertEqual(EXAMPLE['common_function_gateway'], default.common_function_gateway)
         self.assertEqual(EXAMPLE['firewall'], default.firewall)
@@ -84,8 +85,9 @@ class TestQuotaDefault(testtools.TestCase):
         self.assertEqual(EXAMPLE['interdc_gateway'], default.interdc_gateway)
         self.assertEqual(EXAMPLE['interdc_gateway'], default.internet_gateway)
         self.assertEqual(EXAMPLE['load_balancer'], default.load_balancer)
-        self.assertEqual(EXAMPLE['network'], default.networks)
-        self.assertEqual(EXAMPLE['port'], default.ports)
-        self.assertEqual(EXAMPLE['subnet'], default.subnets)
+        self.assertEqual(EXAMPLE['network'], default.network)
+        self.assertEqual(EXAMPLE['port'], default.port)
+        self.assertEqual(EXAMPLE['subnet'], default.subnet)
         self.assertEqual(EXAMPLE['tenant_id'], default.project_id)
         self.assertEqual(EXAMPLE['vpn_gateway'], default.vpn_gateway)
+        self.assertEqual(EXAMPLE['security_group'], default.security_group)

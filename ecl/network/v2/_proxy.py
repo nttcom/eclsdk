@@ -187,7 +187,7 @@ class Proxy(proxy2.BaseProxy):
     def create_port(self, admin_state_up=None, allowed_address_pairs=None,
                     mac_address=None, description=None, device_id=None,
                     device_owner=None, fixed_ips=None, name=None,
-                    network_id=None, segmentation_id=None,
+                    network_id=None, security_groups=None, segmentation_id=None,
                     segmentation_type=None, tags=None):
         """Create a new port from attributes
 
@@ -202,6 +202,7 @@ class Proxy(proxy2.BaseProxy):
                         e.g. [{"ip_address":<ipv4> , "subnet_id": <uuid> }, ]
         :param string name: The name of port to create
         :param string network_id: The network id of port to create
+        :param array security_groups: The security groups ids of port to create
         :param int segmentation_id: The segmentation id of port to create
         :param string segmentation_type: The segmentation type of port to create
         :param dict tags: tags of port
@@ -228,6 +229,8 @@ class Proxy(proxy2.BaseProxy):
             body["name"] = name
         if network_id:
             body["network_id"] = network_id
+        if security_groups:
+            body["security_groups"] = security_groups
         if segmentation_id:
             body["segmentation_id"] = segmentation_id
         if segmentation_type:
@@ -304,6 +307,7 @@ class Proxy(proxy2.BaseProxy):
             * array fixed_ips: The fixed ips of port to update
                         e.g. [{"ip_address":<ipv4> , "subnet_id": <uuid> }, ]
             * string name: The name of port to update
+            * array security_groups: The security groups ids of port to update
             * int segmentation_id: The segmentation id of port to update
             * string segmentation_type: The segmentation type of port to update
             * dict tags: tags of port
