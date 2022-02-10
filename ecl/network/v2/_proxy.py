@@ -14,6 +14,7 @@ from ecl.network.v2 import physical_port as _physical_port
 from ecl.network.v2 import quota as _quota
 from ecl.network.v2 import reserved_address as _reserved_address
 from ecl.network.v2 import security_group as _security_group
+from ecl.network.v2 import security_group_rule as _security_group_rule
 from ecl.network.v2 import firewall as _firewall
 from ecl.network.v2 import firewall_interface as _firewall_if
 from ecl.network.v2 import firewall_plan as _firewall_plan
@@ -569,7 +570,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param security_group: The value can be either the ID of
                                a security-group or
-                               a :class:`~ecl.network.v2.port.Port` instance.
+                               a :class:`~ecl.network.v2.security_group.SecurityGroup` instance.
         :param bool ignore_missing: When set to ``False`` :class:
                                     `~ecl.exceptions.ResourceNotFound` will
                                     be raised when the security-group does
@@ -580,6 +581,103 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_security_group.SecurityGroup, security_group,
                      ignore_missing=ignore_missing)
+
+    def security_group_rules(self, **query):
+        """ List all visible security-group-rules.
+
+        :param query: Query parameters to select results
+        :return: A list of security-group-rule objects
+        :rtype: :class:`~ecl.network.v2.security_group_rule.SecurityGroupRule`
+        """
+        return list(self._list(_security_group_rule.SecurityGroupRule,
+                               paginated=False, **query))
+
+    def create_security_group_rule(self, security_group_id, direction,
+                                   description=None, ethertype=None,
+                                   port_range_max=None, port_range_min=None,
+                                   protocol=None, remote_group_id=None,
+                                   remote_ip_prefix=None, tenant_id=None):
+        """Create security-group-rule.
+
+        :param string security_group_id: Security group id.
+        :param string direction: Direction in which the security group rule
+                                 is applied.
+        :param string description: Security group rule description.
+        :param string ethertype: Addresses represented in CIDR must match
+                                 the ingress or egress rules.
+        :param int port_range_max: The maximum port number in the range that
+                                   is matched by the security group rule.
+        :param int port_range_min: The minimum port number in the range that
+                                   is matched by the security group rule.
+        :param string protocol: Protocol name or number in string format.
+                                e.g. "ICMP" or "1"
+        :param string remote_group_id: The remote group UUID to associate
+                                       with this security group rule. Only
+                                       either one of remote_group_id and
+                                       remote_ip_prefix have to be specified.
+        :param string remote_ip_prefix: The IP address prefix to associate
+                                        with this security group rule. Only
+                                        either one of remote_group_id and
+                                        remote_ip_prefix have to be specified.
+        :param string tenant_id: The owner name of security group rule.
+        :returns: The results of security-group-rule creation
+        :rtype: :class:`~ecl.network.v2.security_group_rule.SecurityGroupRule`
+        """
+        body = {
+            "security_group_id": security_group_id,
+            "direction": direction
+        }
+        if description:
+            body["description"] = description
+        if ethertype:
+            body["ethertype"] = ethertype
+        if port_range_max is not None:
+            body["port_range_max"] = port_range_max
+        if port_range_min is not None:
+            body["port_range_min"] = port_range_min
+        if protocol:
+            body["protocol"] = protocol
+        if remote_group_id:
+            body["remote_group_id"] = remote_group_id
+        if remote_ip_prefix:
+            body["remote_ip_prefix"] = remote_ip_prefix
+        if tenant_id:
+            body["tenant_id"] = tenant_id
+
+        return self._create(_security_group_rule.SecurityGroupRule, **body)
+
+    def get_security_group_rule(self, security_group_rule):
+        """Show details for security-group-rule.
+
+        :param security_group_rule: The value can be the ID of
+            a security-group-rule or
+            a :class:`~ecl.network.v2.security_group_rule.SecurityGroupRule`
+            instance.
+        :returns: :class:`~ecl.network.v2.security_group_rule.SecurityGroupRule`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_security_group_rule.SecurityGroupRule,
+                         security_group_rule)
+
+    def delete_security_group_rule(self, security_group_rule,
+                                   ignore_missing=False):
+        """Delete security-group-rule.
+
+        :param security_group_rule: The value can be either the ID of
+            a security-group-rule or
+            a :class:`~ecl.network.v2.security_group_rule.SecurityGroupRule`
+            instance.
+        :param bool ignore_missing: When set to ``False`` :class:
+                                   `~ecl.exceptions.ResourceNotFound` will
+                                   be raised when the security-group-rule does
+                                   not exist. When set to ``True``,
+                                   no exception will be set when attempting
+                                   to delete a nonexistent security-group-rule.
+        :returns: ``None``
+        """
+        self._delete(_security_group_rule.SecurityGroupRule,
+                     security_group_rule, ignore_missing=ignore_missing)
 
     def firewalls(self, **query):
         """
