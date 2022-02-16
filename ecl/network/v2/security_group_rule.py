@@ -11,6 +11,12 @@ class SecurityGroupRule(resource2.Resource):
     service = network_service.NetworkService("v2.0")
     base_path = '/' + service.version + '/security-group-rules'
 
+    # query parameter names
+    _query_mapping = resource2.QueryParameters(
+        'description', 'direction', 'ethertype', 'id', 'port_range_max',
+        'port_range_min', 'protocol', 'remote_group_id', 'remote_ip_prefix',
+        'security_group_id', 'tenant_id')
+
     # capabilities
     allow_list = True
     allow_create = True
