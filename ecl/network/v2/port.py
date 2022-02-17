@@ -73,9 +73,6 @@ class Port(base.NetworkBaseResource):
     #: users can specify a project ID other than their own.
     project_id = resource2.Body('tenant_id')
 
-    #: The IDs of security groups applied to the port.
-    security_groups = resource2.Body('security_groups')
-
     #: The segmentation ID of ports.
     segmentation_id = resource2.Body('segmentation_id', type=int)
 

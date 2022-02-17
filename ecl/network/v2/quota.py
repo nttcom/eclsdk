@@ -45,8 +45,6 @@ class Quota(resource2.Resource):
     vpn_gateway = resource2.Body('vpn_gateway', type=int)
     #: The maximum amount of public ip you can create. *Type: int*
     public_ip = resource2.Body('public_ip', type=int)
-    #: The maximum amount of security group you can create. *Type: int*
-    security_group = resource2.Body('security_group', type=int)
 
 
 class QuotaDefault(Quota):
