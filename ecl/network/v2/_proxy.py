@@ -13,7 +13,6 @@ from ecl.network.v2 import port as _port
 from ecl.network.v2 import physical_port as _physical_port
 from ecl.network.v2 import quota as _quota
 from ecl.network.v2 import reserved_address as _reserved_address
-from ecl.network.v2 import security_group as _security_group
 from ecl.network.v2 import firewall as _firewall
 from ecl.network.v2 import firewall_interface as _firewall_if
 from ecl.network.v2 import firewall_plan as _firewall_plan
@@ -496,90 +495,6 @@ class Proxy(proxy2.BaseProxy):
                  when no resource can be found.
         """
         return self._get(_reserved_address.ReservedAddress, reserved_address)
-
-    def security_groups(self, **query):
-        """ List all visible security-groups.
-
-        :param query: Query parameters to select results
-        :return: A list of security-group objects
-        :rtype: :class:`~ecl.network.v2.security_group.SecurityGroup`
-        """
-        return list(self._list(_security_group.SecurityGroup,
-                               paginated=False, **query))
-
-    def create_security_group(self, description=None, name=None, tags=None,
-                              tenant_id=None):
-        """Create security-group.
-
-        :param string description: Security group description.
-        :param string name: Security group name.
-        :param dict tags: Security Group tags.
-        :param string tenant_id: The owner name of security group.
-        :returns: The results of security-group creation
-        :rtype: :class:`~ecl.network.v2.security_group.SecurityGroup`
-        """
-        body = dict()
-        if description:
-            body["description"] = description
-        if name:
-            body["name"] = name
-        if tags:
-            body["tags"] = tags
-        if tenant_id:
-            body["tenant_id"] = tenant_id
-
-        return self._create(_security_group.SecurityGroup, **body)
-
-    def get_security_group(self, security_group):
-        """Show details for security-group.
-
-        :param security_group: The value can be the ID of a security-group or
-                               a :class:`~ecl.network.v2.security_group.SecurityGroup` instance.
-        :returns: One :class:`~ecl.network.v2.security_group.SecurityGroup`
-        :raises: :class:`~ecl.exceptions.ResourceNotFound`
-                 when no resource can be found.
-        """
-        return self._get(_security_group.SecurityGroup, security_group)
-
-    def update_security_group(self, security_group, **params):
-        """Update security-group.
-
-        :param security_group: Either the id of a security-group or
-                               a :class:`~ecl.network.v2.security_group.SecurityGroup` instance.
-        :param kwargs params: Parameters for security-group update.
-
-            * string description: Security group description.
-            * string name: Security group name.
-            * dict tags: Security Group tags.
-
-        :returns: The updated security-group
-        :rtype: :class:`~ecl.network.v2.security_group.SecurityGroup`
-        """
-        if not isinstance(security_group, _security_group.SecurityGroup):
-            # security_group is the ID
-            security_group = self._get_resource(_security_group.SecurityGroup,
-                                                security_group)
-            security_group._body.clean()
-
-        return self._update(_security_group.SecurityGroup,
-                            security_group, **params)
-
-    def delete_security_group(self, security_group, ignore_missing=False):
-        """Delete security-group.
-
-        :param security_group: The value can be either the ID of
-                               a security-group or
-                               a :class:`~ecl.network.v2.port.Port` instance.
-        :param bool ignore_missing: When set to ``False`` :class:
-                                    `~ecl.exceptions.ResourceNotFound` will
-                                    be raised when the security-group does
-                                    not exist. When set to ``True``,
-                                    no exception will be set when attempting
-                                    to delete a nonexistent security-group.
-        :returns: ``None``
-        """
-        self._delete(_security_group.SecurityGroup, security_group,
-                     ignore_missing=ignore_missing)
 
     def firewalls(self, **query):
         """
