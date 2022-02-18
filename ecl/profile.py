@@ -29,14 +29,13 @@ Set Methods
 ~~~~~~~~~~~
 
 A user's preferences are set based on the service type.  Service type would
-normally be something like 'compute', 'identity', 'object-store', etc.::
+normally be something like 'compute', 'identity', etc.::
 
     from ecl import profile
     prof = profile.Profile()
     prof.set_name('compute', 'matrix')
     prof.set_region(prof.ALL, 'zion')
     prof.set_version('identity', 'v3')
-    prof.set_interface('object-store', 'internal')
     for service in prof.get_services():
         print(prof.get_filter(service.service_type)
 
@@ -44,11 +43,9 @@ The resulting preference print out would look something like::
 
     service_type=compute,region=zion,service_name=matrix
     service_type=network,region=zion
-    service_type=database,region=zion
     service_type=image,region=zion
     service_type=metering,region=zion
     service_type=orchestration,region=zion
-    service_type=object-store,interface=internal,region=zion
     service_type=identity,region=zion,version=v3
 """
 
@@ -66,7 +63,6 @@ from ecl.identity import identity_service
 from ecl.image import image_service
 from ecl import module_loader
 from ecl.network import network_service
-from ecl.object_store import object_store_service
 from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
 from ecl.rca import rca_service
@@ -79,9 +75,9 @@ from ecl.security_portal_v1 import security_portal_service as security_portal_se
 ## end of the section
 from ecl.sss import sss_service
 from ecl.telemetry import telemetry_service
-from ecl.database import database_service
 from ecl.dns import dns_service
 from ecl.virtual_network_appliance import virtual_network_appliance_service
+from ecl.mvna import mvna_service
 
 
 _logger = logging.getLogger(__name__)
@@ -112,8 +108,6 @@ class Profile(object):
         self._add_service(network_service.NetworkService(version="v2"))
         self._add_service(sss_service.SssService(version="v1"))
         self._add_service(
-            object_store_service.ObjectStoreService(version="v1"))
-        self._add_service(
             orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
             provider_connectivity_service.ProviderConnectivityService(
@@ -136,11 +130,11 @@ class Profile(object):
         self._add_service(
             dedicated_hypervisor_service.DedicatedHypervisorService(
                 version="v1"))
-        self._add_service(database_service.DatabaseService(version="v1"))
         self._add_service(dns_service.DnsService(version="v2"))
         self._add_service(
             virtual_network_appliance_service.VirtualNetworkApplianceService(
                 version="v1"))
+        self._add_service(mvna_service.MVNAService(version="v1"))
 
         # NOTE: The Metric service is not added here as it currently
         # only retrieves the /capabilities API.

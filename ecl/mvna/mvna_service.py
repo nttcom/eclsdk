@@ -13,12 +13,12 @@
 from ecl import service_filter
 
 
-class ObjectStoreService(service_filter.ServiceFilter):
-    """The object store service."""
+class MVNAService(service_filter.ServiceFilter):
+    """The mvna service."""
 
     valid_versions = [service_filter.ValidVersion('v1')]
 
     def __init__(self, version=None):
-        """Create an object store service."""
-        super(ObjectStoreService, self).__init__(service_type='object-store',
-                                                 version=version)
+        """Create a mvna service."""
+        super(MVNAService, self).__init__(service_type='managed-load-balancer',
+                                          version=version)
