@@ -11,6 +11,10 @@ class SecurityGroup(resource2.Resource):
     service = network_service.NetworkService("v2.0")
     base_path = '/' + service.version + '/security-groups'
 
+    # query parameter names
+    _query_mapping = resource2.QueryParameters(
+        'description', 'id', 'name', 'status', 'tenant_id')
+
     # capabilities
     allow_list = True
     allow_create = True
