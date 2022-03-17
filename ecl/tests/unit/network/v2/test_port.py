@@ -12,7 +12,7 @@
 
 import testtools
 
-from ecl.network.v2 import port
+from ecl.network.v2.port import Port
 
 IDENTIFIER = 'IDENTIFIER'
 EXAMPLE = {
@@ -30,6 +30,9 @@ EXAMPLE = {
     "mac_address": "test-mac",
     "name": "Example port 1",
     "network_id": IDENTIFIER,
+    "security_groups": [
+      IDENTIFIER
+    ],
     "segmentation_id": 0,
     "segmentation_type": "flat",
     "tags": {
@@ -44,10 +47,10 @@ EXAMPLE = {
 class TestPort(testtools.TestCase):
 
     def test_basic(self):
-        sot = port.Port()
+        sot = Port()
         self.assertEqual('port', sot.resource_key)
         self.assertEqual('ports', sot.resources_key)
-        self.assertEqual('/ports', sot.base_path)
+        self.assertEqual('/v2.0/ports', sot.base_path)
         self.assertEqual('network', sot.service.service_type)
         self.assertTrue(sot.allow_create)
         self.assertTrue(sot.allow_get)
@@ -56,7 +59,7 @@ class TestPort(testtools.TestCase):
         self.assertTrue(sot.allow_list)
 
     def test_make_it(self):
-        sot = port.Port(**EXAMPLE)
+        sot = Port(**EXAMPLE)
         self.assertTrue(sot.admin_state_up)
         self.assertEqual('UP', sot.admin_state)
         self.assertEqual(EXAMPLE['allowed_address_pairs'],
@@ -68,6 +71,7 @@ class TestPort(testtools.TestCase):
         self.assertEqual(EXAMPLE['mac_address'], sot.mac_address)
         self.assertEqual(EXAMPLE['name'], sot.name)
         self.assertEqual(EXAMPLE['network_id'], sot.network_id)
+        self.assertEqual(EXAMPLE['security_groups'], sot.security_groups)
         self.assertEqual(EXAMPLE['segmentation_id'], sot.segmentation_id)
         self.assertEqual(EXAMPLE['segmentation_type'], sot.segmentation_type)
         self.assertEqual(EXAMPLE['tags'], sot.tags)
