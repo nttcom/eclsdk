@@ -86,13 +86,13 @@ class Proxy(proxy2.BaseProxy):
             "high_availability": high_availability,
             "network": network
         }
-        if name:
+        if name is not None:
             attrs["name"] = name
-        if description:
+        if description is not None:
             attrs["description"] = description
-        if metadata:
+        if metadata is not None:
             attrs["metadata"] = metadata
-        if admin_password:
+        if admin_password is not None:
             attrs["admin_password"] = admin_password
         return _instance.Instance().create(self.session, **attrs)
 
@@ -115,9 +115,9 @@ class Proxy(proxy2.BaseProxy):
         :return: :class:`~ecl.mrdb.v1.instance.Instance`
         """
         attrs = {}
-        if name:
+        if name is not None:
             attrs["name"] = name
-        if description:
+        if description is not None:
             attrs["description"] = description
         instance = _instance.Instance()
         return instance.update(self.session, instance_id, **attrs)
@@ -132,7 +132,7 @@ class Proxy(proxy2.BaseProxy):
         :return: ``None``
         """
         attrs = {}
-        if new_password:
+        if new_password is not None:
             attrs['admin_password'] = new_password
         instance = _instance.InstanceAction()
         return instance.change_password(self.session, instance_id, **attrs)
