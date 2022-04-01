@@ -151,7 +151,7 @@ class Proxy(proxy2.BaseProxy):
     def create_virtual_network_appliance(
             self,
             virtual_network_appliance_plan_id,
-            interfaces,
+            interfaces=None,
             name=None,
             description=None,
             tags=None,
@@ -175,7 +175,8 @@ class Proxy(proxy2.BaseProxy):
         body = {}
         body["virtual_network_appliance_plan_id"] = \
             virtual_network_appliance_plan_id
-        body["interfaces"] = interfaces
+        if interfaces:
+            body["interfaces"] = interfaces
         if name:
             body["name"] = name
         if description:
