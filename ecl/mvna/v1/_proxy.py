@@ -3,7 +3,7 @@ from ecl.mvna.v1 import certificate as _certificate
 from ecl.mvna.v1 import health_monitor as _health_monitor
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
-from ecl.mvna.v1 import maintenance as _maintenance
+from ecl.mvna.v1 import system_update as _system_update
 from ecl.mvna.v1 import operation as _operation
 from ecl.mvna.v1 import plan as _plan
 from ecl.mvna.v1 import policy as _policy
@@ -20,11 +20,9 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(_load_balancer.LoadBalancer, paginated=False,
                                **params))
 
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     def create_load_balancer(self, plan_id, interfaces,
                              name=None, description=None, tags=None,
-                             # syslog_servers=None
-                             ):
+                             syslog_servers=None):
         """Create Managed Load Balancer.
 
         :param string plan_id: Plan ID of Managed Load Balancer
@@ -32,7 +30,7 @@ class Proxy(proxy2.BaseProxy):
         :param string name: Name of Managed Load Balancer
         :param string description: Description of Managed Load Balancer
         :param dict tags: Tags of Managed Load Balancer
-        # :param list syslog_servers: Syslog Servers of Managed Load Balancer
+        :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {"plan_id": plan_id, "interfaces": interfaces}
@@ -42,8 +40,8 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         if tags:
             body["tags"] = tags
-        # if syslog_servers:
-        #     body["syslog_servers"] = syslog_servers
+        if syslog_servers:
+            body["syslog_servers"] = syslog_servers
         return self._create(_load_balancer.LoadBalancer, **body)
 
     def get_load_balancer(self, load_balancer_id, changes=None):
@@ -102,21 +100,20 @@ class Proxy(proxy2.BaseProxy):
         load_balancer.action(self.session, load_balancer_id, x_mvna_request_id,
                              **body)
 
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     def create_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
-                                                  # syslog_servers=None,
+                                                  syslog_servers=None,
                                                   interfaces=None):
         """Create Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        # :param list syslog_servers: Syslog Servers of Managed Load Balancer
+        :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :param list interfaces: Interface of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {}
-        # if syslog_servers:
-        #     body["syslog_servers"] = syslog_servers
+        if syslog_servers:
+            body["syslog_servers"] = syslog_servers
         if interfaces:
             body["interfaces"] = interfaces
 
@@ -133,21 +130,20 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_load_balancer.LoadBalancer, load_balancer_id)
 
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     def update_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
-                                                  # syslog_servers=None,
+                                                  syslog_servers=None,
                                                   interfaces=None):
         """Update Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        # :param list syslog_servers: Syslog Servers of Managed Load Balancer
+        :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :param list interfaces: Interface of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {}
-        # if syslog_servers:
-        #     body["syslog_servers"] = syslog_servers
+        if syslog_servers:
+            body["syslog_servers"] = syslog_servers
         if interfaces:
             body["interfaces"] = interfaces
 
@@ -501,22 +497,18 @@ class Proxy(proxy2.BaseProxy):
         listener = _listener.Listener()
         listener.cancel_staged_configuration(self.session, listener_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (maintenances, get_maintenance)
-    '''
-    def maintenances(self, **params):
-        """List Maintenances."""
+    def system_updates(self, **params):
+        """List System Updates."""
         return list(self._list(
-            _maintenance.Maintenance, paginated=False, **params))
+            _system_update.SystemUpdate, paginated=False, **params))
 
-    def get_maintenance(self, maintenance_id):
-        """Retrieve Maintenance Information.
+    def get_system_update(self, system_update_id):
+        """Retrieve System Update Information.
 
-        :param string maintenance_id: ID of maintenance
-        :return: Maintenance
+        :param string system_update_id: ID of system_update
+        :return: SystemUpdate
         """
-        return self._get(_maintenance.Maintenance, maintenance_id)
-    '''
+        return self._get(_system_update.SystemUpdate, system_update_id)
 
     def plans(self, **params):
         """List Plans."""
