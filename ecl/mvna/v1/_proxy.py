@@ -10,7 +10,7 @@ from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import route as _route
 from ecl.mvna.v1 import rule as _rule
 from ecl.mvna.v1 import target_group as _target_group
-from ecl.mvna.v1 import tls_security_policy as _tls_security_policy
+from ecl.mvna.v1 import tls_policy as _tls_policy
 
 
 class Proxy(proxy2.BaseProxy):
@@ -717,14 +717,12 @@ class Proxy(proxy2.BaseProxy):
         """List Policies."""
         return list(self._list(_policy.Policy, paginated=False, **params))
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
     def create_policy(self, health_monitor_id, listener_id,
                       default_target_group_id, load_balancer_id,
                       name=None, description=None, tags=None, algorithm=None,
                       persistence=None,
-                      # sorry_page_url=None, certificate_id=None,
-                      # tls_security_policy_id=None
+                      sorry_page_url=None, certificate_id=None,
+                      tls_policy_id=None
                       ):
         """Create Policy.
 
@@ -737,9 +735,9 @@ class Proxy(proxy2.BaseProxy):
         :param dict tags: Tags of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        # :param string sorry_page_url: Sorry page URL
-        # :param string certificate_id: Certificate ID
-        # :param string tls_security_policy_id: TLS Security Policy ID
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
+        :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
         body = {
@@ -758,12 +756,12 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence:
             body["persistence"] = persistence
-        # if sorry_page_url:
-        #     body["sorry_page_url"] = sorry_page_url
-        # if certificate_id:
-        #     body["certificate_id"] = certificate_id
-        # if tls_security_policy_id:
-        #     body["tls_security_policy_id"] = tls_security_policy_id
+        if sorry_page_url:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id:
+            body["certificate_id"] = certificate_id
+        if tls_policy_id:
+            body["tls_policy_id"] = tls_policy_id
         return self._create(_policy.Policy, **body)
 
     def get_policy(self, policy_id, changes=None):
@@ -803,28 +801,26 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_policy.Policy, policy_id, ignore_missing=ignore_missing)
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
     def create_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           # sorry_page_url=None,
-                                           # certificate_id=None,
+                                           sorry_page_url=None,
+                                           certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
                                            default_target_group_id=None,
-                                           # tls_security_policy_id=None
+                                           tls_policy_id=None
                                            ):
         """Create Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        # :param string sorry_page_url: Sorry page URL
-        # :param string certificate_id: Certificate ID
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
-        # :param string tls_security_policy_id: TLS Security Policy ID
+        :param string tls_policy_id: TLS Security Policy ID
         :return: Policy
         """
         body = {}
@@ -832,18 +828,18 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence:
             body["persistence"] = persistence
-        # if sorry_page_url:
-        #     body["sorry_page_url"] = sorry_page_url
-        # if certificate_id:
-        #     body["certificate_id"] = certificate_id
+        if sorry_page_url:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id:
+            body["certificate_id"] = certificate_id
         if health_monitor_id:
             body["health_monitor_id"] = health_monitor_id
         if listener_id:
             body["listener_id"] = listener_id
         if default_target_group_id:
             body["default_target_group_id"] = default_target_group_id
-        # if tls_security_policy_id:
-        #     body["tls_security_policy_id"] = tls_security_policy_id
+        if tls_policy_id:
+            body["tls_policy_id"] = tls_policy_id
 
         policy = _policy.Policy()
         return policy.create_staged_configuration(self.session,
@@ -857,29 +853,26 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_policy.Policy, policy_id)
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
-
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           # sorry_page_url=None,
-                                           # certificate_id=None,
+                                           sorry_page_url=None,
+                                           certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
                                            default_target_group_id=None,
-                                           # tls_security_policy_id=None
+                                           tls_policy_id=None
                                            ):
         """Update Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        # :param string sorry_page_url: Sorry page URL
-        # :param string certificate_id: Certificate ID
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
-        # :param string tls_security_policy_id: TLS Security Policy ID
+        :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
         body = {}
@@ -887,18 +880,18 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence:
             body["persistence"] = persistence
-        # if sorry_page_url:
-        #     body["sorry_page_url"] = sorry_page_url
-        # if certificate_id:
-        #     body["certificate_id"] = certificate_id
+        if sorry_page_url:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id:
+            body["certificate_id"] = certificate_id
         if health_monitor_id:
             body["health_monitor_id"] = health_monitor_id
         if listener_id:
             body["listener_id"] = listener_id
         if default_target_group_id:
             body["default_target_group_id"] = default_target_group_id
-        # if tls_security_policy_id:
-        #     body["tls_security_policy_id"] = tls_security_policy_id
+        if tls_policy_id:
+            body["tls_policy_id"] = tls_policy_id
 
         policy = _policy.Policy()
         return policy.update_staged_configuration(self.session,
@@ -1030,11 +1023,6 @@ class Proxy(proxy2.BaseProxy):
         route = _route.Route()
         route.cancel_staged_configuration(self.session, route_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (rules, create_rule, get_rule, update_rule, delete_rule,
-    # create_staged_rule_configuration, get_staged_rule_configuration,
-    # update_staged_rule_configuration, cancel_staged_rule_configuration)
-    '''
     def rules(self, **params):
         """List Rules."""
         return list(self._list(_rule.Rule, paginated=False, **params))
@@ -1167,7 +1155,6 @@ class Proxy(proxy2.BaseProxy):
         """
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
-    '''
 
     def operations(self, **params):
         """List operations."""
@@ -1182,20 +1169,16 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_operation.Operation, operation_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (tls_security_policies, get_tls_security_policy)
-    '''
-    def tls_security_policies(self, **params):
-        """List TLS Security Policies."""
+    def tls_policies(self, **params):
+        """List TLS Policies."""
         return list(self._list(
-            _tls_security_policy.TLSSecurityPolicy, paginated=False, **params))
+            _tls_policy.TLSPolicy, paginated=False, **params))
 
-    def get_tls_security_policy(self, tls_security_policy_id):
-        """Retrieve TLS Security Policy Information.
+    def get_tls_policy(self, tls_policy_id):
+        """Retrieve TLS Policy Information.
 
-        :param string tls_security_policy_id: ID of TLS Security Policy
-        :return: TLS Security Policy
+        :param string tls_policy_id: ID of TLS Policy
+        :return: TLS Policy
         """
         return self._get(
-            _tls_security_policy.TLSSecurityPolicy, tls_security_policy_id)
-    '''
+            _tls_policy.TLSPolicy, tls_policy_id)
