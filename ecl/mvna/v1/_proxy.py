@@ -746,21 +746,21 @@ class Proxy(proxy2.BaseProxy):
             "default_target_group_id": default_target_group_id,
             "load_balancer_id": load_balancer_id,
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         if algorithm:
             body["algorithm"] = algorithm
         if persistence:
             body["persistence"] = persistence
-        if sorry_page_url:
+        if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
-        if certificate_id:
+        if certificate_id is not None:
             body["certificate_id"] = certificate_id
-        if tls_policy_id:
+        if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
         return self._create(_policy.Policy, **body)
 
@@ -828,9 +828,9 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence:
             body["persistence"] = persistence
-        if sorry_page_url:
+        if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
-        if certificate_id:
+        if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if health_monitor_id:
             body["health_monitor_id"] = health_monitor_id
@@ -838,7 +838,7 @@ class Proxy(proxy2.BaseProxy):
             body["listener_id"] = listener_id
         if default_target_group_id:
             body["default_target_group_id"] = default_target_group_id
-        if tls_policy_id:
+        if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
 
         policy = _policy.Policy()
@@ -880,9 +880,9 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence:
             body["persistence"] = persistence
-        if sorry_page_url:
+        if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
-        if certificate_id:
+        if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if health_monitor_id:
             body["health_monitor_id"] = health_monitor_id
@@ -890,7 +890,7 @@ class Proxy(proxy2.BaseProxy):
             body["listener_id"] = listener_id
         if default_target_group_id:
             body["default_target_group_id"] = default_target_group_id
-        if tls_policy_id:
+        if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
 
         policy = _policy.Policy()
@@ -1046,11 +1046,11 @@ class Proxy(proxy2.BaseProxy):
             'policy_id': policy_id,
             'conditions': conditions
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_rule.Rule, **body)
 
@@ -1074,11 +1074,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Rule
         """
         body = {}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._update(_rule.Rule, rule_id, **body)
 
