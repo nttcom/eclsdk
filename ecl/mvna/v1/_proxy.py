@@ -281,10 +281,6 @@ class Proxy(proxy2.BaseProxy):
         target_group = _target_group.TargetGroup()
         target_group.cancel_staged_configuration(self.session, target_group_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (certificates, create_certificate, get_certificate, update_certificate,
-    # delete_certificate, upload_certificate)
-    '''
     def certificates(self, **params):
         """List Certificates."""
         return list(self._list(
@@ -299,11 +295,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Certificate
         """
         body = {}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_certificate.Certificate, **body)
 
@@ -326,11 +322,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Certificate
         """
         body = {}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._update(_certificate.Certificate, certificate_id,
                             **body)
@@ -361,7 +357,6 @@ class Proxy(proxy2.BaseProxy):
         body = {'type': certificate_type, 'file': certificate_file}
         certificate = _certificate.Certificate()
         certificate.upload(self.session, certificate_id, **body)
-    '''
 
     def listeners(self, **params):
         """List Listeners."""
