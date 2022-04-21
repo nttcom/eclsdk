@@ -351,7 +351,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param string certificate_id: ID of Certificate
         :param string certificate_type: Type of Certificate
-        :param string certificate_content: File of Certificate
+        :param string certificate_content: File content of Certificate
         :return: None
         """
         body = {'type': certificate_type, 'content': certificate_content}
