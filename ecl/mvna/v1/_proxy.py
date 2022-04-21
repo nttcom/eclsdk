@@ -239,7 +239,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Target Group
         """
         body = {}
-        if members:
+        if members is not None:
             body["members"] = members
 
         target_group = _target_group.TargetGroup()
