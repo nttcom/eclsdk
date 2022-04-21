@@ -4,11 +4,11 @@ from ecl import resource2
 from ecl.mvna import mvna_service
 
 
-class TLSSecurityPolicy(resource2.Resource):
-    resource_key = "tls_security_policy"
-    resources_key = "tls_security_policies"
+class TLSPolicy(resource2.Resource):
+    resource_key = "tls_policy"
+    resources_key = "tls_policies"
     service = mvna_service.MVNAService("v1.0")
-    base_path = '/' + service.version + '/tls_security_policies'
+    base_path = '/' + service.version + '/tls_policies'
 
     _query_mapping = base.MVNAQueryParameters(
         "id", "name", "description", "default",
@@ -25,13 +25,13 @@ class TLSSecurityPolicy(resource2.Resource):
     # Properties
     #: It identifies connection resource uniquely
     id = resource2.Body('id')
-    #: Name of tls security policy
+    #: Name of tls policy
     name = resource2.Body('name')
-    #: Description of tls security policy
+    #: Description of tls policy
     description = resource2.Body('description')
-    #: Default of tls security policy
+    #: Default of tls policy
     default = resource2.Body('default')
-    #: TLS protocols of tls security policy
+    #: TLS protocols of tls policy
     tls_protocols = resource2.Body('tls_protocols')
-    #: Cipher suites of tls security policy
+    #: Cipher suites of tls policy
     cipher_suites = resource2.Body('cipher_suites')
