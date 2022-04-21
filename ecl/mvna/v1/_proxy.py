@@ -346,15 +346,15 @@ class Proxy(proxy2.BaseProxy):
                      ignore_missing=ignore_missing)
 
     def upload_certificate(self,
-                           certificate_id, certificate_type, certificate_file):
+                           certificate_id, certificate_type, certificate_content):
         """Upload the Certificate.
 
         :param string certificate_id: ID of Certificate
         :param string certificate_type: Type of Certificate
-        :param string certificate_file: File of Certificate
+        :param string certificate_content: File of Certificate
         :return: None
         """
-        body = {'type': certificate_type, 'file': certificate_file}
+        body = {'type': certificate_type, 'content': certificate_content}
         certificate = _certificate.Certificate()
         certificate.upload(self.session, certificate_id, **body)
 
