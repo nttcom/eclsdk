@@ -820,7 +820,7 @@ class Proxy(proxy2.BaseProxy):
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
-        :param string tls_policy_id: TLS Security Policy ID
+        :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
         body = {}

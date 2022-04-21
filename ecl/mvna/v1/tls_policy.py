@@ -4,7 +4,7 @@ from ecl import resource2
 from ecl.mvna import mvna_service
 
 
-class TLSSecurityPolicy(resource2.Resource):
+class TLSPolicy(resource2.Resource):
     resource_key = "tls_policy"
     resources_key = "tls_policies"
     service = mvna_service.MVNAService("v1.0")
