@@ -34,13 +34,13 @@ class Proxy(proxy2.BaseProxy):
         :return: Managed Load Balancer
         """
         body = {"plan_id": plan_id, "interfaces": interfaces}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
-        if syslog_servers:
+        if syslog_servers is not None:
             body["syslog_servers"] = syslog_servers
         return self._create(_load_balancer.LoadBalancer, **body)
 
@@ -112,9 +112,9 @@ class Proxy(proxy2.BaseProxy):
         :return: Managed Load Balancer
         """
         body = {}
-        if syslog_servers:
+        if syslog_servers is not None:
             body["syslog_servers"] = syslog_servers
-        if interfaces:
+        if interfaces is not None:
             body["interfaces"] = interfaces
 
         load_balancer = _load_balancer.LoadBalancer()
@@ -142,9 +142,9 @@ class Proxy(proxy2.BaseProxy):
         :return: Managed Load Balancer
         """
         body = {}
-        if syslog_servers:
+        if syslog_servers is not None:
             body["syslog_servers"] = syslog_servers
-        if interfaces:
+        if interfaces is not None:
             body["interfaces"] = interfaces
 
         load_balancer = _load_balancer.LoadBalancer()
@@ -182,11 +182,11 @@ class Proxy(proxy2.BaseProxy):
             'load_balancer_id': load_balancer_id,
             'members': members
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_target_group.TargetGroup, **body)
 
@@ -264,7 +264,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Target Group
         """
         body = {}
-        if members:
+        if members is not None:
             body["members"] = members
 
         target_group = _target_group.TargetGroup()
@@ -388,11 +388,11 @@ class Proxy(proxy2.BaseProxy):
             'protocol': protocol,
             'load_balancer_id': load_balancer_id
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_listener.Listener, **body)
 
@@ -446,11 +446,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Listener
         """
         body = {}
-        if ip_address:
+        if ip_address is not None:
             body["ip_address"] = ip_address
-        if port:
+        if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
 
         listener = _listener.Listener()
@@ -477,11 +477,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Listener
         """
         body = {}
-        if ip_address:
+        if ip_address is not None:
             body["ip_address"] = ip_address
-        if port:
+        if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
 
         listener = _listener.Listener()
@@ -555,21 +555,21 @@ class Proxy(proxy2.BaseProxy):
             'protocol': protocol,
             'load_balancer_id': load_balancer_id
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
-        if interval:
+        if interval is not None:
             body["interval"] = interval
-        if retry:
+        if retry is not None:
             body["retry"] = retry
-        if timeout:
+        if timeout is not None:
             body["timeout"] = timeout
-        # if path:
+        # if path is not None:
         #     body["path"] = path
-        # if http_status_code:
+        # if http_status_code is not None:
         #     body["http_status_code"] = http_status_code
         return self._create(_health_monitor.HealthMonitor, **body)
 
@@ -636,17 +636,17 @@ class Proxy(proxy2.BaseProxy):
         body = {}
         if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
-        if interval:
+        if interval is not None:
             body["interval"] = interval
-        if retry:
+        if retry is not None:
             body["retry"] = retry
-        if timeout:
+        if timeout is not None:
             body["timeout"] = timeout
-        # if path:
+        # if path is not None:
         #     body["path"] = path
-        # if http_status_code:
+        # if http_status_code is not None:
         #     body["http_status_code"] = http_status_code
 
         health_monitor = _health_monitor.HealthMonitor()
@@ -685,17 +685,17 @@ class Proxy(proxy2.BaseProxy):
         body = {}
         if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
-        if interval:
+        if interval is not None:
             body["interval"] = interval
-        if retry:
+        if retry is not None:
             body["retry"] = retry
-        if timeout:
+        if timeout is not None:
             body["timeout"] = timeout
-        # if path:
+        # if path is not None:
         #     body["path"] = path
-        # if http_status_code:
+        # if http_status_code is not None:
         #     body["http_status_code"] = http_status_code
 
         health_monitor = _health_monitor.HealthMonitor()
@@ -752,9 +752,9 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         if tags is not None:
             body["tags"] = tags
-        if algorithm:
+        if algorithm is not None:
             body["algorithm"] = algorithm
-        if persistence:
+        if persistence is not None:
             body["persistence"] = persistence
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
@@ -824,19 +824,19 @@ class Proxy(proxy2.BaseProxy):
         :return: Policy
         """
         body = {}
-        if algorithm:
+        if algorithm is not None:
             body["algorithm"] = algorithm
-        if persistence:
+        if persistence is not None:
             body["persistence"] = persistence
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
-        if health_monitor_id:
+        if health_monitor_id is not None:
             body["health_monitor_id"] = health_monitor_id
-        if listener_id:
+        if listener_id is not None:
             body["listener_id"] = listener_id
-        if default_target_group_id:
+        if default_target_group_id is not None:
             body["default_target_group_id"] = default_target_group_id
         if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
@@ -876,19 +876,19 @@ class Proxy(proxy2.BaseProxy):
         :return: Policy
         """
         body = {}
-        if algorithm:
+        if algorithm is not None:
             body["algorithm"] = algorithm
-        if persistence:
+        if persistence is not None:
             body["persistence"] = persistence
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
-        if health_monitor_id:
+        if health_monitor_id is not None:
             body["health_monitor_id"] = health_monitor_id
-        if listener_id:
+        if listener_id is not None:
             body["listener_id"] = listener_id
-        if default_target_group_id:
+        if default_target_group_id is not None:
             body["default_target_group_id"] = default_target_group_id
         if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
@@ -929,11 +929,11 @@ class Proxy(proxy2.BaseProxy):
             'next_hop_ip_address': next_hop_ip_address,
             'load_balancer_id': load_balancer_id
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_route.Route, **body)
 
@@ -983,7 +983,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Route
         """
         body = {}
-        if next_hop_ip_address:
+        if next_hop_ip_address is not None:
             body["next_hop_ip_address"] = next_hop_ip_address
 
         route = _route.Route()
@@ -1007,7 +1007,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Route
         """
         body = {}
-        if next_hop_ip_address:
+        if next_hop_ip_address is not None:
             body["next_hop_ip_address"] = next_hop_ip_address
 
         route = _route.Route()
@@ -1107,11 +1107,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Rule
         """
         body = {}
-        if priority:
+        if priority is not None:
             body["priority"] = priority
-        if target_group_id:
+        if target_group_id is not None:
             body["target_group_id"] = target_group_id
-        if conditions:
+        if conditions is not None:
             body["conditions"] = conditions
 
         rule = _rule.Rule()
@@ -1137,11 +1137,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Rule
         """
         body = {}
-        if priority:
+        if priority is not None:
             body["priority"] = priority
-        if target_group_id:
+        if target_group_id is not None:
             body["target_group_id"] = target_group_id
-        if conditions:
+        if conditions is not None:
             body["conditions"] = conditions
 
         rule = _rule.Rule()
