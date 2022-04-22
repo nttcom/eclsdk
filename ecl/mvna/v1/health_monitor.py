@@ -10,8 +10,6 @@ class HealthMonitor(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/health_monitors'
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     _query_mapping = base.MVNAQueryParameters(
         "id",
         "name",
@@ -23,8 +21,8 @@ class HealthMonitor(base.MVNABaseResource):
         "interval",
         "retry",
         "timeout",
-        # "path",
-        # "http_status_code",
+        "path",
+        "http_status_code",
         "load_balancer_id",
         "tenant_id"
     )
@@ -61,12 +59,10 @@ class HealthMonitor(base.MVNABaseResource):
     #: Timeout of health monitor
     timeout = resource2.Body('timeout')
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     #: Path of health monitor
-    # path = resource2.Body('path')
+    path = resource2.Body('path')
     #: HTTP status code of health monitor
-    # http_status_code = resource2.Body('http_status_code')
+    http_status_code = resource2.Body('http_status_code')
 
     #: Load balancer ID
     load_balancer_id = resource2.Body('load_balancer_id')

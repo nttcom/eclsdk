@@ -522,12 +522,10 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(
             _health_monitor.HealthMonitor, paginated=False, **params))
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     def create_health_monitor(self, port, protocol, load_balancer_id,
                               name=None, description=None, tags=None,
                               interval=None, retry=None, timeout=None,
-                              # path=None, http_status_code=None
+                              path=None, http_status_code=None
                               ):
         """Create Health Monitor.
 
@@ -540,8 +538,8 @@ class Proxy(proxy2.BaseProxy):
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
         :param int timeout: Timeout of Health Monitor
-        # :param string path: Path of Health Monitor
-        # :param string http_status_code: HTTP Status code of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
 
         :return: Health Monitor
         """
@@ -562,10 +560,10 @@ class Proxy(proxy2.BaseProxy):
             body["retry"] = retry
         if timeout is not None:
             body["timeout"] = timeout
-        # if path is not None:
-        #     body["path"] = path
-        # if http_status_code is not None:
-        #     body["http_status_code"] = http_status_code
+        if path is not None:
+            body["path"] = path
+        if http_status_code is not None:
+            body["http_status_code"] = http_status_code
         return self._create(_health_monitor.HealthMonitor, **body)
 
     def get_health_monitor(self, health_monitor_id, changes=None):
@@ -608,13 +606,11 @@ class Proxy(proxy2.BaseProxy):
         self._delete(_health_monitor.HealthMonitor, health_monitor_id,
                      ignore_missing=ignore_missing)
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     def create_staged_health_monitor_configuration(
             self, health_monitor_id,
             port=None, protocol=None, interval=None, retry=None,
             timeout=None,
-            # path=None, http_status_code=None
+            path=None, http_status_code=None
     ):
         """Create Staged Health Monitor Configuration.
 
@@ -624,8 +620,8 @@ class Proxy(proxy2.BaseProxy):
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
         :param int timeout: Timeout of Health Monitor
-        # :param string path: Path of Health Monitor
-        # :param string http_status_code: HTTP Status code of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
         :return: Health Monitor
         """
         body = {}
@@ -639,10 +635,10 @@ class Proxy(proxy2.BaseProxy):
             body["retry"] = retry
         if timeout is not None:
             body["timeout"] = timeout
-        # if path is not None:
-        #     body["path"] = path
-        # if http_status_code is not None:
-        #     body["http_status_code"] = http_status_code
+        if path is not None:
+            body["path"] = path
+        if http_status_code is not None:
+            body["http_status_code"] = http_status_code
 
         health_monitor = _health_monitor.HealthMonitor()
         return health_monitor.create_staged_configuration(self.session,
@@ -657,13 +653,11 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_health_monitor.HealthMonitor, health_monitor_id)
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     def update_staged_health_monitor_configuration(
             self, health_monitor_id,
             port=None, protocol=None, interval=None, retry=None,
             timeout=None,
-            # path=None, http_status_code=None
+            path=None, http_status_code=None
     ):
         """Update Staged Health Monitor Configuration.
 
@@ -673,8 +667,8 @@ class Proxy(proxy2.BaseProxy):
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
         :param int timeout: Timeout of Health Monitor
-        # :param string path: Path of Health Monitor
-        # :param string http_status_code: HTTP Status code of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
         :return: Health Monitor
         """
         body = {}
@@ -688,10 +682,10 @@ class Proxy(proxy2.BaseProxy):
             body["retry"] = retry
         if timeout is not None:
             body["timeout"] = timeout
-        # if path is not None:
-        #     body["path"] = path
-        # if http_status_code is not None:
-        #     body["http_status_code"] = http_status_code
+        if path is not None:
+            body["path"] = path
+        if http_status_code is not None:
+            body["http_status_code"] = http_status_code
 
         health_monitor = _health_monitor.HealthMonitor()
         return health_monitor.update_staged_configuration(self.session,
