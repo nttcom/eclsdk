@@ -16,7 +16,6 @@ from ecl.managed_rdb.v1 import quota
 
 QUOTA_EXAMPLE = {
     'max_instance_count': 512,
-    'max_instance_metadata_count': 256,
 }
 
 
@@ -32,5 +31,3 @@ class TestQuota(testtools.TestCase):
     def test_make_basic(self):
         sot = quota.Quota(**QUOTA_EXAMPLE)
         self.assertEqual(QUOTA_EXAMPLE['max_instance_count'], sot.max_instance_count)
-        self.assertEqual(QUOTA_EXAMPLE['max_instance_metadata_count'],
-                         sot.max_instance_metadata_count)

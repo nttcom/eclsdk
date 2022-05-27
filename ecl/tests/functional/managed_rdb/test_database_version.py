@@ -28,7 +28,6 @@ class TestDatabaseVersion(base.BaseFunctionalTest):
             self.assertIsInstance(database_version.name, six.string_types)
             self.assertIsInstance(database_version.dbms_name, six.string_types)
             self.assertIsInstance(database_version.major_version, six.string_types)
-            self.assertIsInstance(database_version.minor_version, six.string_types)
 
     def test_get_database_version(self):
         database_version = self.conn.managed_rdb.get_database_version('POSTGRES_13_2')
