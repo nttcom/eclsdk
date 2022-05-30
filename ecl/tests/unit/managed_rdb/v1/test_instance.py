@@ -31,7 +31,6 @@ INSTANCE_EXAMPLE = {
         'name': 'POSTGRES_13_2',
         'dbms_name': 'POSTGRES',
         'major_version': 13,
-        'minor_version': 2,
     },
     'storage_type': {
         'name': '4IOPS-500GB',
@@ -44,7 +43,6 @@ INSTANCE_EXAMPLE = {
     'task_type': 'CREATE',
     'task_state': 'NONE',
     'monitoring_state': 'AVAILABLE',
-    'availability_zone': 'zone1_groupa',
     'network': {
         'id': 'mrdb-nw',
         'ip_address': '192.168.10.10',
@@ -96,7 +94,6 @@ class TestInstance(testtools.TestCase):
         self.assertEqual(INSTANCE_EXAMPLE['task_type'], sot.task_type)
         self.assertEqual(INSTANCE_EXAMPLE['task_state'], sot.task_state)
         self.assertEqual(INSTANCE_EXAMPLE['monitoring_state'], sot.monitoring_state)
-        self.assertEqual(INSTANCE_EXAMPLE['availability_zone'], sot.availability_zone)
         self.assertEqual(INSTANCE_EXAMPLE['network'], sot.network)
         self.assertEqual(INSTANCE_EXAMPLE['metadata'], sot.metadata)
         self.assertEqual(INSTANCE_EXAMPLE['links'], sot.links)

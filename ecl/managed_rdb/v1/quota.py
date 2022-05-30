@@ -25,8 +25,6 @@ class Quota(resource2.Resource):
     # Properties
     #: Max number of instances that can be created.
     max_instance_count = resource2.Body('max_instance_count', type=int)
-    #: Max number of metadata that can be created per instance.
-    max_instance_metadata_count = resource2.Body('max_instance_metadata_count', type=int)
 
     def show(self, session):
         resp = session.get(

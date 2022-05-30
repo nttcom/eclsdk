@@ -20,7 +20,6 @@ DATABASE_VERSION_EXAMPLE = {
     'name': 'POSTGRES_13_2',
     'dbms_name': 'POSTGRES',
     'major_version': 13,
-    'minor_version': 2,
 }
 
 
@@ -41,4 +40,3 @@ class TestDatabaseVersion(testtools.TestCase):
         self.assertEqual(DATABASE_VERSION_EXAMPLE['name'], sot.name)
         self.assertEqual(DATABASE_VERSION_EXAMPLE['dbms_name'], sot.dbms_name)
         self.assertEqual(DATABASE_VERSION_EXAMPLE['major_version'], sot.major_version)
-        self.assertEqual(DATABASE_VERSION_EXAMPLE['minor_version'], sot.minor_version)

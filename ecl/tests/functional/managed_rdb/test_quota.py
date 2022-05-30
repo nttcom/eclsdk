@@ -21,4 +21,3 @@ class TestQuota(base.BaseFunctionalTest):
         quota = self.conn.managed_rdb.show_quota()
         print(quota)
         self.assertIsInstance(quota.max_instance_count, int)
-        self.assertIsInstance(quota.max_instance_metadata_count, int)

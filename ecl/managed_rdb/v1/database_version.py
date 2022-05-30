@@ -33,5 +33,3 @@ class DatabaseVersion(resource2.Resource):
     dbms_name = resource2.Body('dbms_name')
     #: Major version of the database version.
     major_version = resource2.Body('major_version')
-    #: Minor version of the database version.
-    minor_version = resource2.Body('minor_version')
