@@ -51,6 +51,8 @@ class Instance(resource2.Resource):
     task_state = resource2.Body('task_state')
     #: Monitoring state of the mRDB instance.
     monitoring_state = resource2.Body('monitoring_state')
+    #: Nodes of the mRDB instance.
+    nodes = resource2.Body('nodes', type=list)
     #: Network of the mRDB instance.
     network = resource2.Body('network', type=dict)
     #: Metadata of the mRDB instance.
