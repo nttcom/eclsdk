@@ -43,10 +43,17 @@ INSTANCE_EXAMPLE = {
     'task_type': 'CREATE',
     'task_state': 'NONE',
     'monitoring_state': 'AVAILABLE',
+    'nodes': [{
+        'availability_zone': 'groupa',
+        'role': 'PRIMARY',
+    }, {
+        'availability_zone': 'groupb',
+        'role': 'STANDBY',
+    }],
     'network': {
         'id': 'mrdb-nw',
         'ip_address': '192.168.10.10',
-        'reserved_addresses': ['192.168.10.11', '192.168.10.12'],
+        'reserved_ip_addresses': ['192.168.10.11', '192.168.10.12'],
     },
     'metadata': {
         'data-type': 'PRODUCT',
@@ -94,6 +101,7 @@ class TestInstance(testtools.TestCase):
         self.assertEqual(INSTANCE_EXAMPLE['task_type'], sot.task_type)
         self.assertEqual(INSTANCE_EXAMPLE['task_state'], sot.task_state)
         self.assertEqual(INSTANCE_EXAMPLE['monitoring_state'], sot.monitoring_state)
+        self.assertEqual(INSTANCE_EXAMPLE['nodes'], sot.nodes)
         self.assertEqual(INSTANCE_EXAMPLE['network'], sot.network)
         self.assertEqual(INSTANCE_EXAMPLE['metadata'], sot.metadata)
         self.assertEqual(INSTANCE_EXAMPLE['links'], sot.links)

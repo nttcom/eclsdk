@@ -63,6 +63,7 @@ class TestInstance(base.BaseFunctionalTest):
         self.assertIsInstance(instance.task_type, six.string_types)
         self.assertIsInstance(instance.task_state, six.string_types)
         self.assertIsInstance(instance.monitoring_state, six.string_types)
+        self.assertIsInstance(instance.nodes, list)
         self.assertIsInstance(instance.network, dict)
         self.assertIsInstance(instance.metadata, dict)
         self.assertIsInstance(instance.links, list)
