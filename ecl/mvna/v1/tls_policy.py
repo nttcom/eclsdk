@@ -33,5 +33,5 @@ class TLSPolicy(resource2.Resource):
     default = resource2.Body('default')
     #: TLS protocols of tls policy
     tls_protocols = resource2.Body('tls_protocols')
-    #: Cipher suites of tls policy
-    cipher_suites = resource2.Body('cipher_suites')
+    #: TLS Ciphers of tls policy
+    tls_ciphers = resource2.Body('tls_ciphers')
