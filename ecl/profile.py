@@ -104,7 +104,7 @@ class Profile(object):
         self._add_service(identity_service.IdentityService(version="v3"))
         self._add_service(image_service.ImageService(version="v2"))
         self._add_service(network_service.NetworkService(version="v2"))
-        self._add_service(sss_service.SssService(version="v1"))
+        self._add_service(sss_service.SssService(version="v2"))
         self._add_service(
             provider_connectivity_service.ProviderConnectivityService(
                 version="v2"))
