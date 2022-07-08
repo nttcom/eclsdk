@@ -3,14 +3,14 @@ from ecl.mvna.v1 import certificate as _certificate
 from ecl.mvna.v1 import health_monitor as _health_monitor
 from ecl.mvna.v1 import listener as _listener
 from ecl.mvna.v1 import load_balancer as _load_balancer
-from ecl.mvna.v1 import maintenance as _maintenance
+from ecl.mvna.v1 import system_update as _system_update
 from ecl.mvna.v1 import operation as _operation
 from ecl.mvna.v1 import plan as _plan
 from ecl.mvna.v1 import policy as _policy
 from ecl.mvna.v1 import route as _route
 from ecl.mvna.v1 import rule as _rule
 from ecl.mvna.v1 import target_group as _target_group
-from ecl.mvna.v1 import tls_security_policy as _tls_security_policy
+from ecl.mvna.v1 import tls_policy as _tls_policy
 
 
 class Proxy(proxy2.BaseProxy):
@@ -20,11 +20,9 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(_load_balancer.LoadBalancer, paginated=False,
                                **params))
 
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     def create_load_balancer(self, plan_id, interfaces,
                              name=None, description=None, tags=None,
-                             # syslog_servers=None
-                             ):
+                             syslog_servers=None):
         """Create Managed Load Balancer.
 
         :param string plan_id: Plan ID of Managed Load Balancer
@@ -32,18 +30,18 @@ class Proxy(proxy2.BaseProxy):
         :param string name: Name of Managed Load Balancer
         :param string description: Description of Managed Load Balancer
         :param dict tags: Tags of Managed Load Balancer
-        # :param list syslog_servers: Syslog Servers of Managed Load Balancer
+        :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {"plan_id": plan_id, "interfaces": interfaces}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
-        # if syslog_servers:
-        #     body["syslog_servers"] = syslog_servers
+        if syslog_servers is not None:
+            body["syslog_servers"] = syslog_servers
         return self._create(_load_balancer.LoadBalancer, **body)
 
     def get_load_balancer(self, load_balancer_id, changes=None):
@@ -102,22 +100,21 @@ class Proxy(proxy2.BaseProxy):
         load_balancer.action(self.session, load_balancer_id, x_mvna_request_id,
                              **body)
 
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     def create_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
-                                                  # syslog_servers=None,
+                                                  syslog_servers=None,
                                                   interfaces=None):
         """Create Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        # :param list syslog_servers: Syslog Servers of Managed Load Balancer
+        :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :param list interfaces: Interface of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {}
-        # if syslog_servers:
-        #     body["syslog_servers"] = syslog_servers
-        if interfaces:
+        if syslog_servers is not None:
+            body["syslog_servers"] = syslog_servers
+        if interfaces is not None:
             body["interfaces"] = interfaces
 
         load_balancer = _load_balancer.LoadBalancer()
@@ -133,22 +130,21 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_load_balancer.LoadBalancer, load_balancer_id)
 
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     def update_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
-                                                  # syslog_servers=None,
+                                                  syslog_servers=None,
                                                   interfaces=None):
         """Update Staged Managed Load Balancer Configuration.
 
         :param string load_balancer_id: ID of Managed Load Balancer
-        # :param list syslog_servers: Syslog Servers of Managed Load Balancer
+        :param list syslog_servers: Syslog Servers of Managed Load Balancer
         :param list interfaces: Interface of Managed Load Balancer
         :return: Managed Load Balancer
         """
         body = {}
-        # if syslog_servers:
-        #     body["syslog_servers"] = syslog_servers
-        if interfaces:
+        if syslog_servers is not None:
+            body["syslog_servers"] = syslog_servers
+        if interfaces is not None:
             body["interfaces"] = interfaces
 
         load_balancer = _load_balancer.LoadBalancer()
@@ -186,11 +182,11 @@ class Proxy(proxy2.BaseProxy):
             'load_balancer_id': load_balancer_id,
             'members': members
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_target_group.TargetGroup, **body)
 
@@ -243,7 +239,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Target Group
         """
         body = {}
-        if members:
+        if members is not None:
             body["members"] = members
 
         target_group = _target_group.TargetGroup()
@@ -268,7 +264,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Target Group
         """
         body = {}
-        if members:
+        if members is not None:
             body["members"] = members
 
         target_group = _target_group.TargetGroup()
@@ -285,10 +281,6 @@ class Proxy(proxy2.BaseProxy):
         target_group = _target_group.TargetGroup()
         target_group.cancel_staged_configuration(self.session, target_group_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (certificates, create_certificate, get_certificate, update_certificate,
-    # delete_certificate, upload_certificate)
-    '''
     def certificates(self, **params):
         """List Certificates."""
         return list(self._list(
@@ -303,11 +295,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Certificate
         """
         body = {}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_certificate.Certificate, **body)
 
@@ -330,11 +322,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Certificate
         """
         body = {}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._update(_certificate.Certificate, certificate_id,
                             **body)
@@ -354,18 +346,17 @@ class Proxy(proxy2.BaseProxy):
                      ignore_missing=ignore_missing)
 
     def upload_certificate(self,
-                           certificate_id, certificate_type, certificate_file):
+                           certificate_id, certificate_type, certificate_content):
         """Upload the Certificate.
 
         :param string certificate_id: ID of Certificate
         :param string certificate_type: Type of Certificate
-        :param string certificate_file: File of Certificate
+        :param string certificate_content: File content of Certificate
         :return: None
         """
-        body = {'type': certificate_type, 'file': certificate_file}
+        body = {'type': certificate_type, 'content': certificate_content}
         certificate = _certificate.Certificate()
         certificate.upload(self.session, certificate_id, **body)
-    '''
 
     def listeners(self, **params):
         """List Listeners."""
@@ -392,11 +383,11 @@ class Proxy(proxy2.BaseProxy):
             'protocol': protocol,
             'load_balancer_id': load_balancer_id
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_listener.Listener, **body)
 
@@ -450,11 +441,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Listener
         """
         body = {}
-        if ip_address:
+        if ip_address is not None:
             body["ip_address"] = ip_address
-        if port:
+        if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
 
         listener = _listener.Listener()
@@ -481,11 +472,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Listener
         """
         body = {}
-        if ip_address:
+        if ip_address is not None:
             body["ip_address"] = ip_address
-        if port:
+        if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
 
         listener = _listener.Listener()
@@ -501,22 +492,18 @@ class Proxy(proxy2.BaseProxy):
         listener = _listener.Listener()
         listener.cancel_staged_configuration(self.session, listener_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (maintenances, get_maintenance)
-    '''
-    def maintenances(self, **params):
-        """List Maintenances."""
+    def system_updates(self, **params):
+        """List System Updates."""
         return list(self._list(
-            _maintenance.Maintenance, paginated=False, **params))
+            _system_update.SystemUpdate, paginated=False, **params))
 
-    def get_maintenance(self, maintenance_id):
-        """Retrieve Maintenance Information.
+    def get_system_update(self, system_update_id):
+        """Retrieve System Update Information.
 
-        :param string maintenance_id: ID of maintenance
-        :return: Maintenance
+        :param string system_update_id: ID of system_update
+        :return: SystemUpdate
         """
-        return self._get(_maintenance.Maintenance, maintenance_id)
-    '''
+        return self._get(_system_update.SystemUpdate, system_update_id)
 
     def plans(self, **params):
         """List Plans."""
@@ -535,12 +522,10 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(
             _health_monitor.HealthMonitor, paginated=False, **params))
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     def create_health_monitor(self, port, protocol, load_balancer_id,
                               name=None, description=None, tags=None,
                               interval=None, retry=None, timeout=None,
-                              # path=None, http_status_code=None
+                              path=None, http_status_code=None
                               ):
         """Create Health Monitor.
 
@@ -553,8 +538,8 @@ class Proxy(proxy2.BaseProxy):
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
         :param int timeout: Timeout of Health Monitor
-        # :param string path: Path of Health Monitor
-        # :param string http_status_code: HTTP Status code of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
 
         :return: Health Monitor
         """
@@ -563,22 +548,22 @@ class Proxy(proxy2.BaseProxy):
             'protocol': protocol,
             'load_balancer_id': load_balancer_id
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
-        if interval:
+        if interval is not None:
             body["interval"] = interval
-        if retry:
+        if retry is not None:
             body["retry"] = retry
-        if timeout:
+        if timeout is not None:
             body["timeout"] = timeout
-        # if path:
-        #     body["path"] = path
-        # if http_status_code:
-        #     body["http_status_code"] = http_status_code
+        if path is not None:
+            body["path"] = path
+        if http_status_code is not None:
+            body["http_status_code"] = http_status_code
         return self._create(_health_monitor.HealthMonitor, **body)
 
     def get_health_monitor(self, health_monitor_id, changes=None):
@@ -621,13 +606,11 @@ class Proxy(proxy2.BaseProxy):
         self._delete(_health_monitor.HealthMonitor, health_monitor_id,
                      ignore_missing=ignore_missing)
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     def create_staged_health_monitor_configuration(
             self, health_monitor_id,
             port=None, protocol=None, interval=None, retry=None,
             timeout=None,
-            # path=None, http_status_code=None
+            path=None, http_status_code=None
     ):
         """Create Staged Health Monitor Configuration.
 
@@ -637,25 +620,25 @@ class Proxy(proxy2.BaseProxy):
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
         :param int timeout: Timeout of Health Monitor
-        # :param string path: Path of Health Monitor
-        # :param string http_status_code: HTTP Status code of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
         :return: Health Monitor
         """
         body = {}
         if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
-        if interval:
+        if interval is not None:
             body["interval"] = interval
-        if retry:
+        if retry is not None:
             body["retry"] = retry
-        if timeout:
+        if timeout is not None:
             body["timeout"] = timeout
-        # if path:
-        #     body["path"] = path
-        # if http_status_code:
-        #     body["http_status_code"] = http_status_code
+        if path is not None:
+            body["path"] = path
+        if http_status_code is not None:
+            body["http_status_code"] = http_status_code
 
         health_monitor = _health_monitor.HealthMonitor()
         return health_monitor.create_staged_configuration(self.session,
@@ -670,13 +653,11 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_health_monitor.HealthMonitor, health_monitor_id)
 
-    # NOTE(NaoShark): :param path: and :param http_status_code: will be
-    # available from Day 2.
     def update_staged_health_monitor_configuration(
             self, health_monitor_id,
             port=None, protocol=None, interval=None, retry=None,
             timeout=None,
-            # path=None, http_status_code=None
+            path=None, http_status_code=None
     ):
         """Update Staged Health Monitor Configuration.
 
@@ -686,25 +667,25 @@ class Proxy(proxy2.BaseProxy):
         :param int interval: Interval of Health Monitor
         :param int retry: Retry count of Health Monitor
         :param int timeout: Timeout of Health Monitor
-        # :param string path: Path of Health Monitor
-        # :param string http_status_code: HTTP Status code of Health Monitor
+        :param string path: Path of Health Monitor
+        :param string http_status_code: HTTP Status code of Health Monitor
         :return: Health Monitor
         """
         body = {}
         if port is not None:
             body["port"] = port
-        if protocol:
+        if protocol is not None:
             body["protocol"] = protocol
-        if interval:
+        if interval is not None:
             body["interval"] = interval
-        if retry:
+        if retry is not None:
             body["retry"] = retry
-        if timeout:
+        if timeout is not None:
             body["timeout"] = timeout
-        # if path:
-        #     body["path"] = path
-        # if http_status_code:
-        #     body["http_status_code"] = http_status_code
+        if path is not None:
+            body["path"] = path
+        if http_status_code is not None:
+            body["http_status_code"] = http_status_code
 
         health_monitor = _health_monitor.HealthMonitor()
         return health_monitor.update_staged_configuration(self.session,
@@ -725,14 +706,12 @@ class Proxy(proxy2.BaseProxy):
         """List Policies."""
         return list(self._list(_policy.Policy, paginated=False, **params))
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
     def create_policy(self, health_monitor_id, listener_id,
                       default_target_group_id, load_balancer_id,
                       name=None, description=None, tags=None, algorithm=None,
                       persistence=None,
-                      # sorry_page_url=None, certificate_id=None,
-                      # tls_security_policy_id=None
+                      sorry_page_url=None, certificate_id=None,
+                      tls_policy_id=None
                       ):
         """Create Policy.
 
@@ -745,9 +724,9 @@ class Proxy(proxy2.BaseProxy):
         :param dict tags: Tags of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        # :param string sorry_page_url: Sorry page URL
-        # :param string certificate_id: Certificate ID
-        # :param string tls_security_policy_id: TLS Security Policy ID
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
+        :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
         body = {
@@ -756,22 +735,22 @@ class Proxy(proxy2.BaseProxy):
             "default_target_group_id": default_target_group_id,
             "load_balancer_id": load_balancer_id,
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
-        if algorithm:
+        if algorithm is not None:
             body["algorithm"] = algorithm
-        if persistence:
+        if persistence is not None:
             body["persistence"] = persistence
-        # if sorry_page_url:
-        #     body["sorry_page_url"] = sorry_page_url
-        # if certificate_id:
-        #     body["certificate_id"] = certificate_id
-        # if tls_security_policy_id:
-        #     body["tls_security_policy_id"] = tls_security_policy_id
+        if sorry_page_url is not None:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id is not None:
+            body["certificate_id"] = certificate_id
+        if tls_policy_id is not None:
+            body["tls_policy_id"] = tls_policy_id
         return self._create(_policy.Policy, **body)
 
     def get_policy(self, policy_id, changes=None):
@@ -811,47 +790,45 @@ class Proxy(proxy2.BaseProxy):
         """
         self._delete(_policy.Policy, policy_id, ignore_missing=ignore_missing)
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
     def create_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           # sorry_page_url=None,
-                                           # certificate_id=None,
+                                           sorry_page_url=None,
+                                           certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
                                            default_target_group_id=None,
-                                           # tls_security_policy_id=None
+                                           tls_policy_id=None
                                            ):
         """Create Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        # :param string sorry_page_url: Sorry page URL
-        # :param string certificate_id: Certificate ID
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
-        # :param string tls_security_policy_id: TLS Security Policy ID
+        :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
         body = {}
-        if algorithm:
+        if algorithm is not None:
             body["algorithm"] = algorithm
-        if persistence:
+        if persistence is not None:
             body["persistence"] = persistence
-        # if sorry_page_url:
-        #     body["sorry_page_url"] = sorry_page_url
-        # if certificate_id:
-        #     body["certificate_id"] = certificate_id
-        if health_monitor_id:
+        if sorry_page_url is not None:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id is not None:
+            body["certificate_id"] = certificate_id
+        if health_monitor_id is not None:
             body["health_monitor_id"] = health_monitor_id
-        if listener_id:
+        if listener_id is not None:
             body["listener_id"] = listener_id
-        if default_target_group_id:
+        if default_target_group_id is not None:
             body["default_target_group_id"] = default_target_group_id
-        # if tls_security_policy_id:
-        #     body["tls_security_policy_id"] = tls_security_policy_id
+        if tls_policy_id is not None:
+            body["tls_policy_id"] = tls_policy_id
 
         policy = _policy.Policy()
         return policy.create_staged_configuration(self.session,
@@ -865,48 +842,45 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_policy.Policy, policy_id)
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
-
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           # sorry_page_url=None,
-                                           # certificate_id=None,
+                                           sorry_page_url=None,
+                                           certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
                                            default_target_group_id=None,
-                                           # tls_security_policy_id=None
+                                           tls_policy_id=None
                                            ):
         """Update Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        # :param string sorry_page_url: Sorry page URL
-        # :param string certificate_id: Certificate ID
+        :param string sorry_page_url: Sorry page URL
+        :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
-        # :param string tls_security_policy_id: TLS Security Policy ID
+        :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
         body = {}
-        if algorithm:
+        if algorithm is not None:
             body["algorithm"] = algorithm
-        if persistence:
+        if persistence is not None:
             body["persistence"] = persistence
-        # if sorry_page_url:
-        #     body["sorry_page_url"] = sorry_page_url
-        # if certificate_id:
-        #     body["certificate_id"] = certificate_id
-        if health_monitor_id:
+        if sorry_page_url is not None:
+            body["sorry_page_url"] = sorry_page_url
+        if certificate_id is not None:
+            body["certificate_id"] = certificate_id
+        if health_monitor_id is not None:
             body["health_monitor_id"] = health_monitor_id
-        if listener_id:
+        if listener_id is not None:
             body["listener_id"] = listener_id
-        if default_target_group_id:
+        if default_target_group_id is not None:
             body["default_target_group_id"] = default_target_group_id
-        # if tls_security_policy_id:
-        #     body["tls_security_policy_id"] = tls_security_policy_id
+        if tls_policy_id is not None:
+            body["tls_policy_id"] = tls_policy_id
 
         policy = _policy.Policy()
         return policy.update_staged_configuration(self.session,
@@ -944,11 +918,11 @@ class Proxy(proxy2.BaseProxy):
             'next_hop_ip_address': next_hop_ip_address,
             'load_balancer_id': load_balancer_id
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_route.Route, **body)
 
@@ -998,7 +972,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Route
         """
         body = {}
-        if next_hop_ip_address:
+        if next_hop_ip_address is not None:
             body["next_hop_ip_address"] = next_hop_ip_address
 
         route = _route.Route()
@@ -1022,7 +996,7 @@ class Proxy(proxy2.BaseProxy):
         :return: Route
         """
         body = {}
-        if next_hop_ip_address:
+        if next_hop_ip_address is not None:
             body["next_hop_ip_address"] = next_hop_ip_address
 
         route = _route.Route()
@@ -1038,11 +1012,6 @@ class Proxy(proxy2.BaseProxy):
         route = _route.Route()
         route.cancel_staged_configuration(self.session, route_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (rules, create_rule, get_rule, update_rule, delete_rule,
-    # create_staged_rule_configuration, get_staged_rule_configuration,
-    # update_staged_rule_configuration, cancel_staged_rule_configuration)
-    '''
     def rules(self, **params):
         """List Rules."""
         return list(self._list(_rule.Rule, paginated=False, **params))
@@ -1066,11 +1035,11 @@ class Proxy(proxy2.BaseProxy):
             'policy_id': policy_id,
             'conditions': conditions
         }
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._create(_rule.Rule, **body)
 
@@ -1094,11 +1063,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Rule
         """
         body = {}
-        if name:
+        if name is not None:
             body["name"] = name
-        if description:
+        if description is not None:
             body["description"] = description
-        if tags:
+        if tags is not None:
             body["tags"] = tags
         return self._update(_rule.Rule, rule_id, **body)
 
@@ -1127,11 +1096,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Rule
         """
         body = {}
-        if priority:
+        if priority is not None:
             body["priority"] = priority
-        if target_group_id:
+        if target_group_id is not None:
             body["target_group_id"] = target_group_id
-        if conditions:
+        if conditions is not None:
             body["conditions"] = conditions
 
         rule = _rule.Rule()
@@ -1157,11 +1126,11 @@ class Proxy(proxy2.BaseProxy):
         :return: Rule
         """
         body = {}
-        if priority:
+        if priority is not None:
             body["priority"] = priority
-        if target_group_id:
+        if target_group_id is not None:
             body["target_group_id"] = target_group_id
-        if conditions:
+        if conditions is not None:
             body["conditions"] = conditions
 
         rule = _rule.Rule()
@@ -1175,7 +1144,6 @@ class Proxy(proxy2.BaseProxy):
         """
         rule = _rule.Rule()
         rule.cancel_staged_configuration(self.session, rule_id)
-    '''
 
     def operations(self, **params):
         """List operations."""
@@ -1190,20 +1158,16 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_operation.Operation, operation_id)
 
-    # NOTE(NaoShark): The following features will be available from Day 2
-    # (tls_security_policies, get_tls_security_policy)
-    '''
-    def tls_security_policies(self, **params):
-        """List TLS Security Policies."""
+    def tls_policies(self, **params):
+        """List TLS Policies."""
         return list(self._list(
-            _tls_security_policy.TLSSecurityPolicy, paginated=False, **params))
+            _tls_policy.TLSPolicy, paginated=False, **params))
 
-    def get_tls_security_policy(self, tls_security_policy_id):
-        """Retrieve TLS Security Policy Information.
+    def get_tls_policy(self, tls_policy_id):
+        """Retrieve TLS Policy Information.
 
-        :param string tls_security_policy_id: ID of TLS Security Policy
-        :return: TLS Security Policy
+        :param string tls_policy_id: ID of TLS Policy
+        :return: TLS Policy
         """
         return self._get(
-            _tls_security_policy.TLSSecurityPolicy, tls_security_policy_id)
-    '''
+            _tls_policy.TLSPolicy, tls_policy_id)
