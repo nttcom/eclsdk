@@ -31,6 +31,7 @@ from ecl import version as ecl_version
 from ecl.baremetal import exceptions as baremetal_exp
 from ecl.connectivity import exceptions as connectivity_exp
 from ecl.dedicated_hypervisor import exceptions as dh_exp
+from ecl.managed_rdb import exceptions as mrdb_exp
 from ecl.network import exceptions as network_exp
 from ecl.rca import exceptions as rca_exp
 from ecl.sss import exceptions as sss_exp
@@ -51,6 +52,7 @@ def find_http_exception_class(e_url):
         'baremetal-server': baremetal_exp.HttpException,
         'interconnectivity': connectivity_exp.HttpException,
         'dedicated-hypervisor': dh_exp.HttpException,
+        'managed-rdb': mrdb_exp.HttpException,
         'network': network_exp.HttpException,
         'rca': rca_exp.HttpException,
         'sss': sss_exp.HttpException,
@@ -74,6 +76,7 @@ def find_not_found_exception_class(e_url):
         'baremetal-server': baremetal_exp.NotFoundException,
         'interconnectivity': connectivity_exp.NotFoundException,
         'dedicated-hypervisor': dh_exp.NotFoundException,
+        'managed-rdb': mrdb_exp.NotFoundException,
         'network': network_exp.NotFoundException,
         'rca': rca_exp.NotFoundException,
         'sss': sss_exp.NotFoundException,

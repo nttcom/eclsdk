@@ -62,6 +62,7 @@ from ecl import exceptions
 from ecl.identity import identity_service
 from ecl.image import image_service
 from ecl import module_loader
+from ecl.managed_rdb import mrdb_service
 from ecl.network import network_service
 from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
@@ -124,6 +125,7 @@ class Profile(object):
         self._add_service(
             virtual_network_appliance_service.VirtualNetworkApplianceService(
                 version="v1"))
+        self._add_service(mrdb_service.MrdbService(version="v1"))
         self._add_service(mvna_service.MVNAService(version="v1"))
 
         # NOTE: The Metric service is not added here as it currently
