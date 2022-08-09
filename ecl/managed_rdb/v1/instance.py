@@ -104,7 +104,6 @@ class InstanceDetail(Instance):
 class InstanceAction(resource2.Resource):
     service = mrdb_service.MrdbService()
     base_path = '/' + service.version + '/instances/%(instance_id)s/action'
-    service = mrdb_service.MrdbService()
 
     # Properties
     #: Admin password of the mRDB instance.
