@@ -17,8 +17,8 @@ from ecl import resource2
 class Flavor(resource2.Resource):
     resources_key = "flavors"
     resource_key = "flavor"
-    base_path = '/flavors'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/flavors'
 
     # Capabilities
     allow_get = True

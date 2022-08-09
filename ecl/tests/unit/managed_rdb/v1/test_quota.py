@@ -24,7 +24,7 @@ class TestQuota(testtools.TestCase):
     def test_basic(self):
         sot = quota.Quota()
         self.assertEqual('quota', sot.resource_key)
-        self.assertEqual('/quotas', sot.base_path)
+        self.assertEqual('/v1.0/quotas', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertTrue(sot.allow_get)
 
