@@ -29,7 +29,7 @@ class TestDatabaseVersion(testtools.TestCase):
         sot = database_version.DatabaseVersion()
         self.assertEqual('database_versions', sot.resources_key)
         self.assertEqual('database_versions', sot.resource_key)
-        self.assertEqual('/database_versions', sot.base_path)
+        self.assertEqual('/v1.0/database_versions', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertTrue(sot.allow_get)
         self.assertTrue(sot.allow_list)

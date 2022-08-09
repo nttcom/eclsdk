@@ -15,8 +15,8 @@ from ecl import resource2
 
 
 class Metadata(resource2.Resource):
-    base_path = '/instances/%(instance_id)s/metadata'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/instances/%(instance_id)s/metadata'
 
     # Capabilities
     allow_list = True

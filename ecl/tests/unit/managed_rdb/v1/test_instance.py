@@ -81,7 +81,7 @@ class TestInstance(testtools.TestCase):
         sot = instance.Instance()
         self.assertEqual('instances', sot.resources_key)
         self.assertEqual('instance', sot.resource_key)
-        self.assertEqual('/instances', sot.base_path)
+        self.assertEqual('/v1.0/instances', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertTrue(sot.allow_get)
         self.assertTrue(sot.allow_list)
@@ -110,7 +110,7 @@ class TestInstance(testtools.TestCase):
 
     def test_detail(self):
         sot = instance.InstanceDetail()
-        self.assertEqual('/instances/detail', sot.base_path)
+        self.assertEqual('/v1.0/instances/detail', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertFalse(sot.allow_get)
         self.assertTrue(sot.allow_list)
@@ -121,7 +121,7 @@ class TestInstance(testtools.TestCase):
 
     def test_action(self):
         sot = instance.InstanceAction()
-        self.assertEqual('/instances/%(instance_id)s/action', sot.base_path)
+        self.assertEqual('/v1.0/instances/%(instance_id)s/action', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
 
     def test_make_action(self):

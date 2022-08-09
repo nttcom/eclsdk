@@ -16,8 +16,8 @@ from ecl import resource2
 
 class Quota(resource2.Resource):
     resource_key = "quota"
-    base_path = '/quotas'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/quotas'
 
     # Capabilities
     allow_get = True
