@@ -16,9 +16,9 @@ from ecl import service_filter
 class SssService(service_filter.ServiceFilter):
     """The SSS service."""
 
-    valid_versions = [service_filter.ValidVersion('v1')]
+    valid_versions = [service_filter.ValidVersion('v2')]
 
     def __init__(self, version=None):
         """Create a SSS service."""
-        super(SssService, self).__init__(service_type='sss',
+        super(SssService, self).__init__(service_type='sssv2',
                                          version=version)
