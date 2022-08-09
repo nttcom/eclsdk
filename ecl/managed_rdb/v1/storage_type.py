@@ -16,8 +16,8 @@ from ecl import resource2
 
 class StorageType(resource2.Resource):
     resources_key = "storage_types"
-    base_path = '/storage_types'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/storage_types'
 
     # Capabilities
     allow_list = True

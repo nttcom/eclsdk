@@ -18,7 +18,7 @@ class MrdbService(service_filter.ServiceFilter):
 
     valid_versions = [service_filter.ValidVersion('v1')]
 
-    def __init__(self, version=None):
+    def __init__(self, version='v1.0'):
         """Create a mrdb service."""
         super(MrdbService, self).__init__(
             service_type='managed-rdb',

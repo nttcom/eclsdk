@@ -26,7 +26,7 @@ class TestMetadata(testtools.TestCase):
 
     def test_basic(self):
         sot = metadata.Metadata()
-        self.assertEqual('/instances/%(instance_id)s/metadata', sot.base_path)
+        self.assertEqual('/v1.0/instances/%(instance_id)s/metadata', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertTrue(sot.allow_list)
         self.assertTrue(sot.allow_update)

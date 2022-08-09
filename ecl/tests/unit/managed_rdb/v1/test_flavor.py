@@ -29,7 +29,7 @@ class TestFlavor(testtools.TestCase):
         sot = flavor.Flavor()
         self.assertEqual('flavors', sot.resources_key)
         self.assertEqual('flavor', sot.resource_key)
-        self.assertEqual('/flavors', sot.base_path)
+        self.assertEqual('/v1.0/flavors', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertTrue(sot.allow_get)
         self.assertTrue(sot.allow_list)

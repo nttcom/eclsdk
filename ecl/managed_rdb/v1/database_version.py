@@ -17,8 +17,8 @@ from ecl import resource2
 class DatabaseVersion(resource2.Resource):
     resources_key = "database_versions"
     resource_key = "database_versions"
-    base_path = '/database_versions'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/database_versions'
 
     # Capabilities
     allow_get = True

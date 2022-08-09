@@ -18,8 +18,8 @@ from ecl import resource2
 class Instance(resource2.Resource):
     resources_key = "instances"
     resource_key = "instance"
-    base_path = '/instances'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/instances'
 
     # Capabilities
     allow_get = True
@@ -89,7 +89,8 @@ class Instance(resource2.Resource):
 
 
 class InstanceDetail(Instance):
-    base_path = '/instances/detail'
+    service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/instances/detail'
 
     # capabilities
     allow_get = False
@@ -101,8 +102,8 @@ class InstanceDetail(Instance):
 
 
 class InstanceAction(resource2.Resource):
-    base_path = '/instances/%(instance_id)s/action'
     service = mrdb_service.MrdbService()
+    base_path = '/' + service.version + '/instances/%(instance_id)s/action'
 
     # Properties
     #: Admin password of the mRDB instance.

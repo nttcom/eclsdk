@@ -27,7 +27,7 @@ class TestStorageType(testtools.TestCase):
     def test_basic(self):
         sot = storage_type.StorageType()
         self.assertEqual('storage_types', sot.resources_key)
-        self.assertEqual('/storage_types', sot.base_path)
+        self.assertEqual('/v1.0/storage_types', sot.base_path)
         self.assertEqual('managed-rdb', sot.service.service_type)
         self.assertTrue(sot.allow_list)
 
