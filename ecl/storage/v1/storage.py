@@ -56,6 +56,8 @@ class Storage(resource2.Resource):
     updated_at = resource2.Body('updated_at')
     #: error description of storage
     error_message = resource2.Body('error_message')
+    #: properties for smb storage
+    smb_properties = resource2.Body('smb_properties', type=dict)
 
     def create(self, session, **attrs):
         body = {"virtual_storage": attrs}
