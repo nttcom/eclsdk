@@ -14,7 +14,6 @@ from ecl import utils
 from ecl.storage import storage_service
 
 from ecl import resource2
-from ecl.storage import storage_service
 
 
 class Storage(resource2.Resource):
