@@ -84,7 +84,7 @@ class HttpException(SDKException):
 
             # IAM error case.
             if content.get('errorMessage'):
-                return content[self.api_error_key]
+                return content['errorMessage']
 
             # Function specific case.
             if hasattr(self, 'api_error_key') \
