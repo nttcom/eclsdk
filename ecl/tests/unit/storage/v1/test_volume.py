@@ -34,7 +34,14 @@ BASIC_EXAMPLE = {
     'updated_at': 'null',
     'error_message': '',
     'throughput': 50,
-    'export_rules': []
+    'export_rules': [],
+    'smb_properties': {
+        'workgroup': 'WORKGROUP',
+        'users': [{
+            'username': 'testuser',
+            'password': '#pass1234',
+        }, ],
+    },
 }
 
 
@@ -85,3 +92,4 @@ class TestVolume(testtools.TestCase):
         self.assertEqual(BASIC_EXAMPLE['error_message'], sot.error_message)
         self.assertEqual(BASIC_EXAMPLE['throughput'], sot.throughput)
         self.assertEqual(BASIC_EXAMPLE['export_rules'], sot.export_rules)
+        self.assertEqual(BASIC_EXAMPLE['smb_properties'], sot.smb_properties)
