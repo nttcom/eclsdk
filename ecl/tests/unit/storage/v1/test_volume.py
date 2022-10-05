@@ -34,9 +34,6 @@ BASIC_EXAMPLE = {
     'updated_at': 'null',
     'error_message': '',
     'throughput': 50,
-<<<<<<< HEAD
-    'export_rules': []
-=======
     'export_rules': [],
     'percentage_snapshot_reserve_used': 50,
     'snapshot_reserve_size': 12,
@@ -48,7 +45,6 @@ BASIC_EXAMPLE = {
             'password': '#pass1234',
         }, ],
     },
->>>>>>> 6ad31fc (✨ Support Block storage Gen2 IF-16696 (#198))
 }
 
 

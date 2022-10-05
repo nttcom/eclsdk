@@ -34,6 +34,13 @@ BASIC_EXAMPLE = {
     'created_at': 'null',
     'updated_at': 'null',
     'error_message': '',
+    'smb_properties': {
+        'workgroup': 'WORKGROUP',
+        'users': [{
+            'username': 'testuser',
+            'password': '#pass1234',
+        }, ],
+    },
 }
 
 
@@ -77,3 +84,4 @@ class TestStorage(testtools.TestCase):
         self.assertEqual(BASIC_EXAMPLE['created_at'], sot.created_at)
         self.assertEqual(BASIC_EXAMPLE['updated_at'], sot.updated_at)
         self.assertEqual(BASIC_EXAMPLE['error_message'], sot.error_message)
+        self.assertEqual(BASIC_EXAMPLE['smb_properties'], sot.smb_properties)
