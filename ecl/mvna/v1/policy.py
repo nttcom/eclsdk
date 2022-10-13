@@ -19,6 +19,7 @@ class Policy(base.MVNABaseResource):
         "algorithm",
         "persistence",
         "sorry_page_url",
+        "source_nat",
         "certificate_id",
         "health_monitor_id",
         "listener_id",
@@ -56,6 +57,8 @@ class Policy(base.MVNABaseResource):
 
     #: Sorry page URL of policy
     sorry_page_url = resource2.Body('sorry_page_url')
+    #: Source NAT of policy
+    source_nat = resource2.Body('source_nat')
     #: Certificate ID of policy
     certificate_id = resource2.Body('certificate_id')
     #: TLS policy ID of policy
