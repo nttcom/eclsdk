@@ -10,15 +10,19 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from ecl import service_filter
+import testtools
+
+from ecl.managed_rdb import mrdb_service
 
 
-class SssService(service_filter.ServiceFilter):
-    """The SSS service."""
+class TestMrdbService(testtools.TestCase):
 
-    valid_versions = [service_filter.ValidVersion('v2')]
-
-    def __init__(self, version=None):
-        """Create a SSS service."""
-        super(SssService, self).__init__(service_type='sssv2',
-                                         version=version)
+    def test_service(self):
+        sot = mrdb_service.MrdbService()
+        self.assertEqual('managed-rdb', sot.service_type)
+        self.assertEqual('public', sot.interface)
+        self.assertIsNone(sot.region)
+        self.assertIsNone(sot.service_name)
+        self.assertEqual(1, len(sot.valid_versions))
+        self.assertEqual('v1', sot.valid_versions[0].module)
+        self.assertEqual('v1', sot.valid_versions[0].path)

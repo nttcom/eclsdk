@@ -62,6 +62,7 @@ from ecl import exceptions
 from ecl.identity import identity_service
 from ecl.image import image_service
 from ecl import module_loader
+from ecl.managed_rdb import mrdb_service
 from ecl.network import network_service
 from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
@@ -69,10 +70,6 @@ from ecl.rca import rca_service
 from ecl.storage import storage_service
 from ecl.security_order import security_order_service
 from ecl.security_portal import security_portal_service
-## This section will be deleted if MSS v1 API is not available
-from ecl.security_order_v1 import security_order_service as security_order_service_v1
-from ecl.security_portal_v1 import security_portal_service as security_portal_service_v1
-## end of the section
 from ecl.sss import sss_service
 from ecl.telemetry import telemetry_service
 from ecl.dns import dns_service
@@ -106,7 +103,7 @@ class Profile(object):
         self._add_service(identity_service.IdentityService(version="v3"))
         self._add_service(image_service.ImageService(version="v2"))
         self._add_service(network_service.NetworkService(version="v2"))
-        self._add_service(sss_service.SssService(version="v1"))
+        self._add_service(sss_service.SssService(version="v2"))
         self._add_service(
             orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
@@ -119,12 +116,6 @@ class Profile(object):
             security_order_service.SecurityOrderService(version="v2"))
         self._add_service(
             security_portal_service.SecurityPortalService(version="v2"))
-        ## This section will be deleted if MSS v1 API is not available
-        self._add_service(
-            security_order_service_v1.SecurityOrderService(version="v1"))
-        self._add_service(
-            security_portal_service_v1.SecurityPortalService(version="v1"))
-        ## end of the section
         self._add_service(rca_service.RcaService(version="v1"))
         self._add_service(baremetal_service.BaremetalService(version="v2"))
         self._add_service(
@@ -134,6 +125,7 @@ class Profile(object):
         self._add_service(
             virtual_network_appliance_service.VirtualNetworkApplianceService(
                 version="v1"))
+        self._add_service(mrdb_service.MrdbService(version="v1"))
         self._add_service(mvna_service.MVNAService(version="v1"))
 
         # NOTE: The Metric service is not added here as it currently

@@ -13,12 +13,14 @@
 from ecl import service_filter
 
 
-class SssService(service_filter.ServiceFilter):
-    """The SSS service."""
+class MrdbService(service_filter.ServiceFilter):
+    """Mrdb service."""
 
-    valid_versions = [service_filter.ValidVersion('v2')]
+    valid_versions = [service_filter.ValidVersion('v1')]
 
-    def __init__(self, version=None):
-        """Create a SSS service."""
-        super(SssService, self).__init__(service_type='sssv2',
-                                         version=version)
+    def __init__(self, version='v1.0'):
+        """Create a mrdb service."""
+        super(MrdbService, self).__init__(
+            service_type='managed-rdb',
+            version=version
+        )

@@ -17,7 +17,7 @@ class HttpException(exceptions.HttpException):
 
             # IAM error case.
             if content.get('errorMessage'):
-                return content[self.api_error_key]
+                return content['errorMessage']
 
             # In VNA API, we need to handle both "cause" and "message" key
             # as API error.

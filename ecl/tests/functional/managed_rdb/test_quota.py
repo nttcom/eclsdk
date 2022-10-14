@@ -10,15 +10,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from ecl import service_filter
+import six
+
+from ecl.tests.functional import base
 
 
-class SssService(service_filter.ServiceFilter):
-    """The SSS service."""
+class TestQuota(base.BaseFunctionalTest):
 
-    valid_versions = [service_filter.ValidVersion('v2')]
-
-    def __init__(self, version=None):
-        """Create a SSS service."""
-        super(SssService, self).__init__(service_type='sssv2',
-                                         version=version)
+    def test_show_quota(self):
+        quota = self.conn.managed_rdb.show_quota()
+        print(quota)
+        self.assertIsInstance(quota.max_instance_count, int)

@@ -10,15 +10,17 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from ecl import service_filter
+
+import six
+from ecl.tests.functional import base
 
 
-class SssService(service_filter.ServiceFilter):
-    """The SSS service."""
+class TestInstanceAction(base.BaseFunctionalTest):
 
-    valid_versions = [service_filter.ValidVersion('v2')]
-
-    def __init__(self, version=None):
-        """Create a SSS service."""
-        super(SssService, self).__init__(service_type='sssv2',
-                                         version=version)
+    def test_01_change_password(self):
+        # IDはMock Serverに合わせて変更する
+        instance = self.conn.managed_rdb.change_password(
+            "c5a2af67-b56f-c054-31fa-b3b4ed6bfadc",
+            "newPass"
+        )
+        self.assertIsInstance(instance.admin_password, six.string_types)
