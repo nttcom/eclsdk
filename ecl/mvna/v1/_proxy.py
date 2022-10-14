@@ -713,9 +713,8 @@ class Proxy(proxy2.BaseProxy):
     def create_policy(self, health_monitor_id, listener_id,
                       default_target_group_id, load_balancer_id,
                       name=None, description=None, tags=None, algorithm=None,
-                      persistence=None,
-                      sorry_page_url=None, certificate_id=None,
-                      tls_policy_id=None
+                      persistence=None, sorry_page_url=None, source_nat=None,
+                      certificate_id=None, tls_policy_id=None
                       ):
         """Create Policy.
 
@@ -729,6 +728,7 @@ class Proxy(proxy2.BaseProxy):
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
         :param string sorry_page_url: Sorry page URL
+        :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
         :param string tls_policy_id: TLS Policy ID
         :return: Policy
@@ -751,6 +751,8 @@ class Proxy(proxy2.BaseProxy):
             body["persistence"] = persistence
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
+        if source_nat is not None:
+            body["source_nat"] = source_nat
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if tls_policy_id is not None:
@@ -796,7 +798,7 @@ class Proxy(proxy2.BaseProxy):
 
     def create_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           sorry_page_url=None,
+                                           sorry_page_url=None, source_nat=None,
                                            certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
@@ -809,6 +811,7 @@ class Proxy(proxy2.BaseProxy):
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
         :param string sorry_page_url: Sorry page URL
+        :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
@@ -823,6 +826,8 @@ class Proxy(proxy2.BaseProxy):
             body["persistence"] = persistence
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
+        if source_nat is not None:
+            body["source_nat"] = source_nat
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if health_monitor_id is not None:
@@ -849,7 +854,7 @@ class Proxy(proxy2.BaseProxy):
 
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           sorry_page_url=None,
+                                           sorry_page_url=None, source_nat=None,
                                            certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
@@ -862,6 +867,7 @@ class Proxy(proxy2.BaseProxy):
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
         :param string sorry_page_url: Sorry page URL
+        :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
@@ -876,6 +882,8 @@ class Proxy(proxy2.BaseProxy):
             body["persistence"] = persistence
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
+        if source_nat is not None:
+            body["source_nat"] = source_nat
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if health_monitor_id is not None:
