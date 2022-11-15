@@ -13,6 +13,12 @@ class MVNABaseResource(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
+    def get_staged_configuration_resource(self, session, resource_id):
+        uri = self.base_path + '/%s' % resource_id + '/staged'
+        resp = session.get(uri, endpoint_filter=self.service)
+        self._translate_response(resp, has_body=True)
+        return self
+
     def create_staged_configuration(self, session, resource_id, **body):
         uri = self.base_path + '/%s/staged' % resource_id
         resp = session.post(uri, endpoint_filter=self.service,
