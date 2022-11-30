@@ -128,7 +128,8 @@ class Proxy(proxy2.BaseProxy):
         :param string load_balancer_id: ID of Managed Load Balancer
         :return: Managed Load Balancer
         """
-        return self._get(_load_balancer.LoadBalancer, load_balancer_id)
+        load_balancer = _load_balancer.LoadBalancer()
+        return load_balancer.get_staged_configuration_resource(self.session, load_balancer_id)
 
     def update_staged_load_balancer_configuration(self,
                                                   load_balancer_id,
@@ -253,7 +254,8 @@ class Proxy(proxy2.BaseProxy):
         :param string target_group_id: ID of Target Group
         :return: Target Group
         """
-        return self._get(_target_group.TargetGroup, target_group_id)
+        target_group = _target_group.TargetGroup()
+        return target_group.get_staged_configuration_resource(self.session, target_group_id)
 
     def update_staged_target_group_configuration(self, target_group_id,
                                                  members=None):
@@ -459,7 +461,8 @@ class Proxy(proxy2.BaseProxy):
         :param string listener_id: ID of Listener
         :return: Listener
         """
-        return self._get(_listener.Listener, listener_id)
+        listener = _listener.Listener()
+        return listener.get_staged_configuration_resource(self.session, listener_id)
 
     def update_staged_listener_configuration(
             self, listener_id, ip_address=None, port=None, protocol=None):
@@ -651,7 +654,8 @@ class Proxy(proxy2.BaseProxy):
         :param string health_monitor_id: ID of Health_monitor
         :return: Health Monitor
         """
-        return self._get(_health_monitor.HealthMonitor, health_monitor_id)
+        health_monitor = _health_monitor.HealthMonitor()
+        return health_monitor.get_staged_configuration_resource(self.session, health_monitor_id)
 
     def update_staged_health_monitor_configuration(
             self, health_monitor_id,
@@ -845,7 +849,8 @@ class Proxy(proxy2.BaseProxy):
         :param string policy_id: ID of Policy
         :return: Policy
         """
-        return self._get(_policy.Policy, policy_id)
+        policy = _policy.Policy()
+        return policy.get_staged_configuration_resource(self.session, policy_id)
 
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
@@ -993,7 +998,8 @@ class Proxy(proxy2.BaseProxy):
         :param string route_id: ID of Route
         :return: Route
         """
-        return self._get(_route.Route, route_id)
+        route = _route.Route()
+        return route.get_staged_configuration_resource(self.session, route_id)
 
     def update_staged_route_configuration(
             self, route_id, next_hop_ip_address=None):
@@ -1120,7 +1126,8 @@ class Proxy(proxy2.BaseProxy):
         :param string rule_id: ID of Rule
         :return: Rule
         """
-        return self._get(_rule.Rule, rule_id)
+        rule = _rule.Rule()
+        return rule.get_staged_configuration_resource(self.session, rule_id)
 
     def update_staged_rule_configuration(
             self, rule_id,
