@@ -10,8 +10,6 @@ class Policy(base.MVNABaseResource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/policies'
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
     _query_mapping = base.MVNAQueryParameters(
         "id",
         "name",
@@ -20,12 +18,13 @@ class Policy(base.MVNABaseResource):
         "operation_status",
         "algorithm",
         "persistence",
-        # "sorry_page_url",
-        # "certificate_id",
+        "sorry_page_url",
+        "source_nat",
+        "certificate_id",
         "health_monitor_id",
         "listener_id",
         "default_target_group_id",
-        # "tls_security_policy_id",
+        "tls_policy_id",
         "load_balancer_id",
         "tenant_id"
     )
@@ -56,14 +55,14 @@ class Policy(base.MVNABaseResource):
     #: persistence of policy
     persistence = resource2.Body('persistence')
 
-    # NOTE(NaoShark): :param sorry_page_url: and :param certificate_id: and
-    # :param tls_security_policy_id: will be available from Day 2.
     #: Sorry page URL of policy
-    # sorry_page_url = resource2.Body('sorry_page_url')
+    sorry_page_url = resource2.Body('sorry_page_url')
+    #: Source NAT of policy
+    source_nat = resource2.Body('source_nat')
     #: Certificate ID of policy
-    # certificate_id = resource2.Body('certificate_id')
-    #: TLS security policy ID of policy
-    # tls_security_policy_id = resource2.Body('tls_security_policy_id')
+    certificate_id = resource2.Body('certificate_id')
+    #: TLS policy ID of policy
+    tls_policy_id = resource2.Body('tls_policy_id')
 
     #: Health monitor ID of policy
     health_monitor_id = resource2.Body('health_monitor_id')

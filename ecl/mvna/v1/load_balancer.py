@@ -63,11 +63,8 @@ class LoadBalancer(base.MVNABaseResource):
     plan_name = resource2.Body('plan_name')
     #: Tenant ID of load balancer
     tenant_id = resource2.Body('tenant_id')
-
-    # NOTE(NaoShark): :param syslog_servers: will be available from Day 2.
     #: Syslog servers of load balancer
-    # syslog_servers = resource2.Body('syslog_servers')
-
+    syslog_servers = resource2.Body('syslog_servers')
     #: Interfaces of load balancer
     interfaces = resource2.Body('interfaces')
     #: Current configuration of load balancer

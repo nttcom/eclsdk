@@ -10,8 +10,6 @@ class Plan(resource2.Resource):
     service = mvna_service.MVNAService("v1.0")
     base_path = '/' + service.version + '/plans'
 
-    # NOTE(NaoShark): :param max_number_of_rules: and :param certificate_id:
-    # and :param max_number_of_conditions: will be available from Day 2.
     _query_mapping = base.MVNAQueryParameters(
         "id",
         "name",
@@ -24,8 +22,8 @@ class Plan(resource2.Resource):
         "max_number_of_policies",
         "max_number_of_routes",
         "max_number_of_target_groups",
-        # "max_number_of_rules",
-        # "max_number_of_conditions",
+        "max_number_of_rules",
+        "max_number_of_conditions",
         "max_number_of_members",
         "enabled"
     )
@@ -62,14 +60,10 @@ class Plan(resource2.Resource):
     max_number_of_routes = resource2.Body('max_number_of_routes')
     #: Max number of target groups
     max_number_of_target_groups = resource2.Body('max_number_of_target_groups')
-
-    # NOTE(NaoShark): :param max_number_of_rules: and :param certificate_id:
-    # and :param max_number_of_conditions: will be available from Day 2.
     #: Max number of rules
-    # max_number_of_rules = resource2.Body('max_number_of_rules')
+    max_number_of_rules = resource2.Body('max_number_of_rules')
     #: Max number of conditions
-    # max_number_of_conditions = resource2.Body('max_number_of_conditions')
-
+    max_number_of_conditions = resource2.Body('max_number_of_conditions')
     #: Max number of members
     max_number_of_members = resource2.Body('max_number_of_members')
     #: Enabled or disabled
