@@ -49,7 +49,7 @@ class Token(resource2.Resource):
 
     def get_user_token_by_admin(self, session, user_id,
                                 tenant_id=None, no_catalog=True):
-        """Obtain a user token on behalf of the user
+        """Obtain a user token by SSS on behalf
 
         :param session: The session to use for making this request.
         :type session: :class:`~ecl.session.Session`
