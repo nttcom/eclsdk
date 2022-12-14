@@ -546,7 +546,7 @@ class Proxy(proxy2.BaseProxy):
         )
 
     def get_user_token_by_admin(self, user_id, tenant_id=None, no_catalog=True):
-        """Obtain a user token on behalf of the user
+        """Obtain a user token by SSS on behalf
 
         :param user_id: ID of a user
         :param tenant_id: ID of a tenant
