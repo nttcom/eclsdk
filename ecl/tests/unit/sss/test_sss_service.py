@@ -19,10 +19,23 @@ class TestSSSService(testtools.TestCase):
 
     def test_service(self):
         sot = sss_service.SssService()
-        self.assertEqual('sss', sot.service_type)
+        self.assertEqual('sssv2', sot.service_type)
         self.assertEqual('public', sot.interface)
         self.assertIsNone(sot.region)
         self.assertIsNone(sot.service_name)
         self.assertEqual(1, len(sot.valid_versions))
-        self.assertEqual('v1', sot.valid_versions[0].module)
-        self.assertEqual('v1', sot.valid_versions[0].path)
+        self.assertEqual('v2', sot.valid_versions[0].module)
+        self.assertEqual('v2', sot.valid_versions[0].path)
+
+
+class TestSSSAdminService(testtools.TestCase):
+
+    def test_service(self):
+        sot = sss_service.SssAdminService()
+        self.assertEqual('sssv2', sot.service_type)
+        self.assertEqual('admin', sot.interface)
+        self.assertIsNone(sot.region)
+        self.assertIsNone(sot.service_name)
+        self.assertEqual(1, len(sot.valid_versions))
+        self.assertEqual('v2', sot.valid_versions[0].module)
+        self.assertEqual('v2', sot.valid_versions[0].path)
