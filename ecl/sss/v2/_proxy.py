@@ -17,6 +17,7 @@ from ecl.sss.v2 import channel as _channel
 from ecl.sss.v2 import contract as _contract
 from ecl.sss.v2 import iam_group as _iam_group
 from ecl.sss.v2 import iam_role as _iam_role
+from ecl.sss.v2 import token as _token
 from ecl.sss.v2 import workspace as _workspace
 from ecl import proxy2
 
@@ -543,3 +544,17 @@ class Proxy(proxy2.BaseProxy):
         return workspace_role.delete_workspace_role_assignment(
             session=self.session, workspace_id=workspace_id, user_id=user_id
         )
+
+    def get_user_token_by_admin(self, user_id, tenant_id=None, no_catalog=True):
+        """Obtain a user token by SSS on behalf
+
+        :param user_id: ID of a user
+        :param tenant_id: ID of a tenant
+        :param bool no_catalog: Exclude the service catalog from the response.
+        :return: :class:`~ecl.sss.v2.token.Token`
+        """
+        token = _token.Token()
+        return token.get_user_token_by_admin(session=self.session,
+                                             user_id=user_id,
+                                             tenant_id=tenant_id,
+                                             no_catalog=no_catalog)
