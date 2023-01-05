@@ -18,7 +18,16 @@ class SssService(service_filter.ServiceFilter):
 
     valid_versions = [service_filter.ValidVersion('v2')]
 
-    def __init__(self, version=None):
+    def __init__(self, **kwargs):
         """Create a SSS service."""
         super(SssService, self).__init__(service_type='sssv2',
-                                         version=version)
+                                         **kwargs)
+
+
+class SssAdminService(SssService):
+    """The SSS service. (Admin Endpoint)"""
+
+    def __init__(self, **kwargs):
+        kwargs['interface'] = service_filter.ServiceFilter.ADMIN
+        super(SssAdminService, self).__init__(**kwargs)
+
