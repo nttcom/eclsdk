@@ -17,6 +17,7 @@ from ecl.sss.v2 import channel as _channel
 from ecl.sss.v2 import contract as _contract
 from ecl.sss.v2 import iam_group as _iam_group
 from ecl.sss.v2 import iam_role as _iam_role
+from ecl.sss.v2 import service_menu as _service_menu
 from ecl.sss.v2 import token as _token
 from ecl.sss.v2 import workspace as _workspace
 from ecl import proxy2
@@ -548,6 +549,8 @@ class Proxy(proxy2.BaseProxy):
     def get_user_token_by_admin(self, user_id, tenant_id=None, no_catalog=True):
         """Obtain a user token by SSS on behalf
 
+        Must be run by administrator account.
+
         :param user_id: ID of a user
         :param tenant_id: ID of a tenant
         :param bool no_catalog: Exclude the service catalog from the response.
@@ -558,3 +561,15 @@ class Proxy(proxy2.BaseProxy):
                                              user_id=user_id,
                                              tenant_id=tenant_id,
                                              no_catalog=no_catalog)
+
+    def get_user_service_menu(self, user_id):
+        """Get menu of services available to user.
+
+        Must be run by administrator account.
+
+        :param user_id: ID of a user
+        :return: :class:`~ecl.sss.v2.service_menu.ServiceMenu`
+        """
+        service_menu = _service_menu.ServiceMenu()
+        return service_menu.get_user_service_menu(session=self.session,
+                                                  user_id=user_id)
