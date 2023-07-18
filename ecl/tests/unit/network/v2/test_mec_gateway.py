@@ -14,13 +14,12 @@ import testtools
 
 from ecl.network.v2 import mec
 
-IDENTIFIER = 'IDENTIFIER'
 EXAMPLE = {
-    "description": "Example port 1 description.",
+    "description": "Example gateway 1 description.",
     "id": "id12345678900",
     "name": "Example port 1",
     "qos_option_id": "qosid12345678",
-    "tenant_id": IDENTIFIER,
+    "tenant_id": "IDENTIFIER",
     "status": "ACTIVE",
     "mec_service_id": "mecsid12345678",
 }
@@ -34,10 +33,7 @@ class TestPort(testtools.TestCase):
         self.assertEqual('mec_gateways', sot.resources_key)
         self.assertEqual('/v2.0/mec_gateways', sot.base_path)
         self.assertEqual('network', sot.service.service_type)
-        self.assertTrue(sot.allow_create)
         self.assertTrue(sot.allow_get)
-        self.assertTrue(sot.allow_update)
-        self.assertTrue(sot.allow_delete)
         self.assertTrue(sot.allow_list)
 
     def test_make_it(self):

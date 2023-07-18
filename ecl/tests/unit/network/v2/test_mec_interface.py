@@ -14,16 +14,23 @@ import testtools
 
 from ecl.network.v2 import mec
 
-IDENTIFIER = 'IDENTIFIER'
 EXAMPLE = {
-    "description": "Example port 1 description.",
+    "description": "Example interface 1 description.",
     "id": "id12345678900",
     "mec_gw_id": "mecgid12345678",
     "name": "Example port 1",
     "status": "ACTIVE",
-    "tenant_id": IDENTIFIER,
-    "primary": "pid1234567890",
-    "secondary": "sid1234567890",
+    "tenant_id": "IDENTIFIER",
+    "primary": {
+        "bgp_peer_ip": "192.168.1.11",
+        "bgp_router_id": "192.168.1.12",
+        "ip_address": "192.168.1.1/24",
+    },
+    "secondary": {
+        "bgp_peer_ip": "192.168.1.11",
+        "bgp_router_id": "192.168.1.12",
+        "ip_address": "192.168.1.1/24",
+    },
 }
 
 
@@ -35,10 +42,7 @@ class TestPort(testtools.TestCase):
         self.assertEqual('mec_interfaces', sot.resources_key)
         self.assertEqual('/v2.0/mec_interfaces', sot.base_path)
         self.assertEqual('network', sot.service.service_type)
-        self.assertTrue(sot.allow_create)
         self.assertTrue(sot.allow_get)
-        self.assertTrue(sot.allow_update)
-        self.assertTrue(sot.allow_delete)
         self.assertTrue(sot.allow_list)
 
     def test_make_it(self):

@@ -1472,6 +1472,7 @@ class Proxy(proxy2.BaseProxy):
                                  primary_ipv6=None, secondary_ipv6=None,
                                  gw_vipv6=None, interdc_gw_id=None,
                                  internet_gw_id=None,
+                                 mec_gw_id=None,
                                  vpn_gw_id=None, aws_gw_id=None, gcp_gw_id=None,
                                  azure_gw_id=None, fic_gw_id=None, tenant_id=None):
         """Create a Gateway Interface from parameters
@@ -1520,6 +1521,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"interdc_gw_id": interdc_gw_id})
         if internet_gw_id:
             body.update({"internet_gw_id": internet_gw_id})
+        if mec_gw_id:
+            body.update({"mec_gw_id": mec_gw_id})
         if vpn_gw_id:
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
@@ -1603,7 +1606,7 @@ class Proxy(proxy2.BaseProxy):
 
     def create_static_route(self, service_type, destination, nexthop,
                             name=None, description=None,interdc_gw_id=None,
-                            internet_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
+                            internet_gw_id=None, mec_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
                             gcp_gw_id=None, azure_gw_id=None, fic_gw_id=None, tenant_id=None):
         """Create a Static Route
 
@@ -1634,6 +1637,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"interdc_gw_id": interdc_gw_id})
         if internet_gw_id:
             body.update({"internet_gw_id": internet_gw_id})
+        if mec_gw_id:
+            body.update({"mec_gw_id": mec_gw_id})
         if vpn_gw_id:
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:

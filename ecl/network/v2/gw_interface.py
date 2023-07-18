@@ -17,6 +17,7 @@ class GatewayInterface(NetworkBaseResource):
     _query_mapping = resource2.QueryParameters(
         "description", "gw_vipv4", "gw_vipv6",
         "id", "interdc_gw_id", "internet_gw_id",
+        "mec_gw_id",
         "name", "netmask", "network_id",
         "primary_ipv4", "primary_ipv6",
         "secondary_ipv4", "secondary_ipv6",
@@ -38,6 +39,7 @@ class GatewayInterface(NetworkBaseResource):
     id = resource2.Body("id")
     interdc_gw_id = resource2.Body("interdc_gw_id")
     internet_gw_id = resource2.Body("internet_gw_id")
+    mec_gw_id = resource2.Body("mec_gw_id")
     name = resource2.Body("name")
     netmask = resource2.Body("netmask")
     network_id = resource2.Body("network_id")

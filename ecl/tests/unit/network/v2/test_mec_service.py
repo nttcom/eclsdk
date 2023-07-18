@@ -14,12 +14,11 @@ import testtools
 
 from ecl.network.v2 import mec
 
-IDENTIFIER = 'IDENTIFIER'
 EXAMPLE = {
-    "description": "Example port 1 description.",
+    "description": "Example service 1 description.",
     "id": "id12345678900",
     "name": "Example port 1",
-    "tenant_id": IDENTIFIER,
+    "tenant_id": "IDENTIFIER",
     "zone": "Name",
 }
 
@@ -41,3 +40,4 @@ class TestPort(testtools.TestCase):
         self.assertEqual(EXAMPLE['id'], sot.id)
         self.assertEqual(EXAMPLE['name'], sot.name)
         self.assertEqual(EXAMPLE['zone'], sot.zone)
+        self.assertEqual(EXAMPLE['tenant_id'], sot.tenant_id)
