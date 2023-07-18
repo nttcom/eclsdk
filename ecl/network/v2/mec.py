@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
 
+from ecl import exceptions
+from ecl import resource2
 from ecl.network import network_service
 from ecl.network.v2.base import NetworkBaseResource
-from ecl import resource2
-from ecl import exceptions
 
 
 class MECService(NetworkBaseResource):
-
     resource_key = "mec_service"
     resources_key = "mec_services"
     service = network_service.NetworkService("v2.0")
@@ -20,17 +19,17 @@ class MECService(NetworkBaseResource):
     _query_mapping = resource2.QueryParameters(
         "description", "id",
         "name", "zone",
-        "sort_key", "sort_dir",
+        "tenant_id",
     )
 
     description = resource2.Body("description")
     id = resource2.Body("id")
     zone = resource2.Body("zone")
     name = resource2.Body("name")
+    tenant_id = resource2.Body("tenant_id")
 
 
 class MECGateway(NetworkBaseResource):
-
     resource_key = "mec_gateway"
     resources_key = "mec_gateways"
     service = network_service.NetworkService("v2.0")
@@ -38,16 +37,12 @@ class MECGateway(NetworkBaseResource):
 
     allow_list = True
     allow_get = True
-    allow_create = True
-    allow_update = True
-    allow_delete = True
 
     _query_mapping = resource2.QueryParameters(
         "description", "id",
         "name", "qos_option_id",
         "status", "tenant_id",
         "mec_service_id",
-        "sort_key", "sort_dir",
     )
 
     description = resource2.Body("description")
@@ -98,7 +93,6 @@ class MECGateway(NetworkBaseResource):
 
 
 class MECInterface(NetworkBaseResource):
-
     resource_key = "mec_interface"
     resources_key = "mec_interfaces"
     service = network_service.NetworkService("v2.0")
@@ -106,15 +100,11 @@ class MECInterface(NetworkBaseResource):
 
     allow_list = True
     allow_get = True
-    allow_create = True
-    allow_update = True
-    allow_delete = True
 
     _query_mapping = resource2.QueryParameters(
         "description", "id",
         "name", "mec_gw_id",
         "status", "tenant_id",
-        "sort_key", "sort_dir",
     )
 
     description = resource2.Body("description")

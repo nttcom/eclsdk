@@ -19,7 +19,8 @@ class QosOption(NetworkBaseResource):
 
     _query_mapping = resource2.QueryParameters(
         "description", "bandwidth", "name",
-        "status", "qos_type", "service_type",
+        "status", "qos_type","mec_service_id",
+        "service_type",
         "interdc_service_id", "internet_service_id",
         "vpn_service_id", "sort_key", "sort_dir",
         "fic_service_id",
@@ -31,6 +32,7 @@ class QosOption(NetworkBaseResource):
     name = resource2.Body("name")
     status = resource2.Body("status")
     qos_type = resource2.Body("qos_type")
+    mec_service_id = resource2.Body("mec_service_id")
     service_type = resource2.Body("service_type")
     interdc_service_id = resource2.Body("interdc_service_id")
     internet_service_id = resource2.Body("internet_service_id")
