@@ -1491,6 +1491,7 @@ class Proxy(proxy2.BaseProxy):
         :param IPv6 gw_vipv6: gateway virtual IPv6 of gateway interface to create
         :param string interdc_gw_id: InterDC Gateway ID of gateway interface to create
         :param string internet_gw_id: Internet Gateway ID of gateway interface to create
+        :param string mec_gw_id: MEC Gateway ID of gateway interface to create
         :param string vpn_gw_id: VPN Gateway ID of gateway interface to create
         :param string fic_gw_id: FIC Gateway ID of gateway interface to create
         :param string tenant_id: tenant ID of gateway interface to create
@@ -1617,6 +1618,7 @@ class Proxy(proxy2.BaseProxy):
         :param description: description of static route to create
         :param interdc_gw_id: InterDC Gateway ID of static route to create
         :param internet_gw_id: Internet Gateway ID of static route to create
+        :param mec_gw_id: MEC Gateway ID of static route to create
         :param vpn_gw_id: VPN Gateway ID of static route to create
         :param fic_gw_id: FIC Gateway ID of static route to create
         :param tenant_id: tenant ID of static route to create

@@ -19,7 +19,6 @@ class MECService(NetworkBaseResource):
     _query_mapping = resource2.QueryParameters(
         "description", "id",
         "name", "zone",
-        "tenant_id",
     )
 
     description = resource2.Body("description")
