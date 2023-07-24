@@ -28,7 +28,12 @@ EXAMPLE = {
     "subnet": 5,
     "tenant_id": IDENTIFIER,
     "vpn_gateway": 1,
+<<<<<<< HEAD
     "security_group": 1
+=======
+    "fic_gateway": 1,
+    "mec_gateway": 1
+>>>>>>> 9bd647e (:sparkles: Add MEC-GW API IF-10332 (#133))
 }
 
 
@@ -60,7 +65,12 @@ class TestQuota(testtools.TestCase):
         self.assertEqual(EXAMPLE['subnet'], sot.subnet)
         self.assertEqual(EXAMPLE['tenant_id'], sot.project_id)
         self.assertEqual(EXAMPLE['vpn_gateway'], sot.vpn_gateway)
+<<<<<<< HEAD
         self.assertEqual(EXAMPLE['security_group'], sot.security_group)
+=======
+        self.assertEqual(EXAMPLE['fic_gateway'], sot.fic_gateway)
+        self.assertEqual(EXAMPLE['mec_gateway'], sot.mec_gateway)
+>>>>>>> 9bd647e (:sparkles: Add MEC-GW API IF-10332 (#133))
 
 class TestQuotaDefault(testtools.TestCase):
 
@@ -90,4 +100,9 @@ class TestQuotaDefault(testtools.TestCase):
         self.assertEqual(EXAMPLE['subnet'], default.subnet)
         self.assertEqual(EXAMPLE['tenant_id'], default.project_id)
         self.assertEqual(EXAMPLE['vpn_gateway'], default.vpn_gateway)
+<<<<<<< HEAD
         self.assertEqual(EXAMPLE['security_group'], default.security_group)
+=======
+        self.assertEqual(EXAMPLE['fic_gateway'], default.fic_gateway)
+        self.assertEqual(EXAMPLE['mec_gateway'], default.mec_gateway)
+>>>>>>> 9bd647e (:sparkles: Add MEC-GW API IF-10332 (#133))
