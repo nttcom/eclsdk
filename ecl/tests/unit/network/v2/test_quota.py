@@ -28,7 +28,9 @@ EXAMPLE = {
     "subnet": 5,
     "tenant_id": IDENTIFIER,
     "vpn_gateway": 1,
-    "security_group": 1
+    "security_group": 1,
+    "fic_gateway": 1,
+    "mec_gateway": 1
 }
 
 
@@ -61,6 +63,8 @@ class TestQuota(testtools.TestCase):
         self.assertEqual(EXAMPLE['tenant_id'], sot.project_id)
         self.assertEqual(EXAMPLE['vpn_gateway'], sot.vpn_gateway)
         self.assertEqual(EXAMPLE['security_group'], sot.security_group)
+        self.assertEqual(EXAMPLE['fic_gateway'], sot.fic_gateway)
+        self.assertEqual(EXAMPLE['mec_gateway'], sot.mec_gateway)
 
 class TestQuotaDefault(testtools.TestCase):
 
@@ -91,3 +95,5 @@ class TestQuotaDefault(testtools.TestCase):
         self.assertEqual(EXAMPLE['tenant_id'], default.project_id)
         self.assertEqual(EXAMPLE['vpn_gateway'], default.vpn_gateway)
         self.assertEqual(EXAMPLE['security_group'], default.security_group)
+        self.assertEqual(EXAMPLE['fic_gateway'], default.fic_gateway)
+        self.assertEqual(EXAMPLE['mec_gateway'], default.mec_gateway)
