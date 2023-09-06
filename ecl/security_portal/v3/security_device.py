@@ -14,7 +14,6 @@ class SecurityDevice(resource2.Resource):
 
     _query_mapping = resource2.QueryParameters(
         "tenantid",
-        "usertoken",
     )
 
     # Capabilities
@@ -40,8 +39,8 @@ class SecurityDevice(resource2.Resource):
     interfaces = resource2.Body('interfaces')
 
     def get(self, session, server_id):
-        uri = self.base_path + '/%s?tenantid=%s&usertoken=%s' \
-              % (server_id, session.get_project_id(), session.get_token())
+        uri = self.base_path + '/%s?tenantid=%s' \
+              % (server_id, session.get_project_id())
         resp = session.get(uri, endpoint_filter=self.service)
         self._translate_response(resp, has_body=True)
         return self

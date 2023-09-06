@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_portal import security_portal_service
+from ecl.security_portal_v2 import security_portal_service
 from ecl import resource2
 from ecl import exceptions
 from ecl import utils
