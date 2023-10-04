@@ -1,66 +1,56 @@
 # -*- coding: utf-8 -*-
 
 
+from ecl import exceptions
+from ecl import resource2
 from ecl.network import network_service
 from ecl.network.v2.base import NetworkBaseResource
-from ecl import resource2
-from ecl import exceptions
 
 
-class GatewayInterface(NetworkBaseResource):
-
-    resource_key = "gw_interface"
-    resources_key = "gw_interfaces"
+class MECService(NetworkBaseResource):
+    resource_key = "mec_service"
+    resources_key = "mec_services"
     service = network_service.NetworkService("v2.0")
-    base_path = '/' + service.version + '/gw_interfaces'
-
-    _query_mapping = resource2.QueryParameters(
-        "description", "gw_vipv4", "gw_vipv6",
-        "id", "interdc_gw_id", "internet_gw_id",
-        "mec_gw_id",
-        "name", "netmask", "network_id",
-        "primary_ipv4", "primary_ipv6",
-        "secondary_ipv4", "secondary_ipv6",
-        "service_type", "vpn_gw_id",
-        "status", "tenant_id", "vrid",
-        "sort_key", "sort_dir", "aws_gw_id",
-        "azure_gw_id", "gcp_gw_id", "fic_gw_id",
-    )
+    base_path = '/' + service.version + '/mec_services'
 
     allow_list = True
     allow_get = True
-    allow_create = True
-    allow_delete = True
-    allow_update = True
+
+    _query_mapping = resource2.QueryParameters(
+        "description", "id",
+        "name", "zone",
+    )
 
     description = resource2.Body("description")
-    gw_vipv4 = resource2.Body("gw_vipv4")
-    gw_vipv6 = resource2.Body("gw_vipv6")
     id = resource2.Body("id")
-    interdc_gw_id = resource2.Body("interdc_gw_id")
-    internet_gw_id = resource2.Body("internet_gw_id")
-    mec_gw_id = resource2.Body("mec_gw_id")
+    zone = resource2.Body("zone")
     name = resource2.Body("name")
-    netmask = resource2.Body("netmask")
-    network_id = resource2.Body("network_id")
-    primary_ipv4 = resource2.Body("primary_ipv4")
-    primary_ipv6 = resource2.Body("primary_ipv6")
-    secondary_ipv4 = resource2.Body("secondary_ipv4")
-    secondary_ipv6 = resource2.Body("secondary_ipv6")
-    service_type = resource2.Body("service_type")
+    tenant_id = resource2.Body("tenant_id")
+
+
+class MECGateway(NetworkBaseResource):
+    resource_key = "mec_gateway"
+    resources_key = "mec_gateways"
+    service = network_service.NetworkService("v2.0")
+    base_path = '/' + service.version + '/mec_gateways'
+
+    allow_list = True
+    allow_get = True
+
+    _query_mapping = resource2.QueryParameters(
+        "description", "id",
+        "name", "qos_option_id",
+        "status", "tenant_id",
+        "mec_service_id",
+    )
+
+    description = resource2.Body("description")
+    id = resource2.Body("id")
+    name = resource2.Body("name")
+    qos_option_id = resource2.Body("qos_option_id")
     status = resource2.Body("status")
     tenant_id = resource2.Body("tenant_id")
-    vpn_gw_id = resource2.Body("vpn_gw_id")
-    aws_gw_id = resource2.Body("aws_gw_id")
-    gcp_gw_id = resource2.Body("gcp_gw_id")
-    azure_gw_id = resource2.Body("azure_gw_id")
-    fic_gw_id = resource2.Body("fic_gw_id")
-    vrid = resource2.Body("vrid")
-
-    def wait_for_create(self, session, status='ACTIVE', failures=['ERROR'],
-                         interval=2, wait=120):
-        return resource2.wait_for_status(session, self, status,
-                                         failures, interval, wait)
+    mec_service_id = resource2.Body("mec_service_id")
 
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
@@ -99,3 +89,33 @@ class GatewayInterface(NetworkBaseResource):
             return None
         raise exceptions.ResourceNotFound(
             "No %s found for %s" % (cls.__name__, name_or_id))
+
+
+class MECInterface(NetworkBaseResource):
+    resource_key = "mec_interface"
+    resources_key = "mec_interfaces"
+    service = network_service.NetworkService("v2.0")
+    base_path = '/' + service.version + '/mec_interfaces'
+
+    allow_list = True
+    allow_get = True
+
+    _query_mapping = resource2.QueryParameters(
+        "description", "id",
+        "name", "mec_gw_id",
+        "status", "tenant_id",
+    )
+
+    description = resource2.Body("description")
+    id = resource2.Body("id")
+    mec_gw_id = resource2.Body("mec_gw_id")
+    name = resource2.Body("name")
+    status = resource2.Body("status")
+    tenant_id = resource2.Body("tenant_id")
+    primary = resource2.Body("primary")
+    secondary = resource2.Body("secondary")
+
+    def wait_for_interface(self, session, status='ACTIVE', failures=['ERROR'],
+                           interval=2, wait=120):
+        return resource2.wait_for_status(session, self, status,
+                                         failures, interval, wait)

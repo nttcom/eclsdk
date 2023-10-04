@@ -22,6 +22,7 @@ class StaticRoute(NetworkBaseResource):
     _query_mapping = resource2.QueryParameters(
         "description", "id", "destination",
         "name", "interdc_gw_id", "internet_gw_id",
+        "mec_gw_id",
         "nexthop", "service_type", "status", "tenant_id",
         "vpn_gw_id", "sort_key", "sort_dir", "aws_gw_id",
         "azure_gw_id", "gcp_gw_id", "fic_gw_id",
@@ -32,6 +33,7 @@ class StaticRoute(NetworkBaseResource):
     id = resource2.Body("id")
     interdc_gw_id = resource2.Body("interdc_gw_id")
     internet_gw_id = resource2.Body("internet_gw_id")
+    mec_gw_id = resource2.Body("mec_gw_id")
     name = resource2.Body("name")
     nexthop = resource2.Body("nexthop")
     service_type = resource2.Body("service_type")
