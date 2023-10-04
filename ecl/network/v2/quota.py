@@ -23,6 +23,8 @@ class Quota(resource2.Resource):
     common_function_gateway = resource2.Body('common_function_gateway', type=int)
     #: The maximum amount of fic gateway you can create. *Type: int*
     fic_gateway = resource2.Body('fic_gateway', type=int)
+    #: The maximum amount of mec gateway you can create. *Type: int*
+    mec_gateway = resource2.Body('mec_gateway', type=int)
     #: The maximum amount of firewall you can create. *Type: int*
     firewall = resource2.Body('firewall', type=int)
     #: ID of quota
