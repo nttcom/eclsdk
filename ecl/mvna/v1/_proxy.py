@@ -713,8 +713,8 @@ class Proxy(proxy2.BaseProxy):
     def create_policy(self, health_monitor_id, listener_id,
                       default_target_group_id, load_balancer_id,
                       name=None, description=None, tags=None, algorithm=None,
-                      persistence=None, sorry_page_url=None, source_nat=None,
-                      certificate_id=None, tls_policy_id=None
+                      persistence=None, idle_timeout=None, sorry_page_url=None,
+                      source_nat=None, certificate_id=None, tls_policy_id=None
                       ):
         """Create Policy.
 
@@ -727,6 +727,7 @@ class Proxy(proxy2.BaseProxy):
         :param dict tags: Tags of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
+        :param string idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
@@ -749,6 +750,8 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
+        if idle_timeout is not None:
+            body["idle_timeout"] = idle_timeout
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if source_nat is not None:
@@ -798,8 +801,8 @@ class Proxy(proxy2.BaseProxy):
 
     def create_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           sorry_page_url=None, source_nat=None,
-                                           certificate_id=None,
+                                           idle_timeout=None, sorry_page_url=None,
+                                           source_nat=None, certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
                                            default_target_group_id=None,
@@ -810,6 +813,7 @@ class Proxy(proxy2.BaseProxy):
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
+        :param string idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
@@ -824,6 +828,8 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
+        if idle_timeout is not None:
+            body["idle_timeout"] = idle_timeout
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if source_nat is not None:
@@ -854,8 +860,8 @@ class Proxy(proxy2.BaseProxy):
 
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           sorry_page_url=None, source_nat=None,
-                                           certificate_id=None,
+                                           idle_timeout=None, sorry_page_url=None,
+                                           source_nat=None, certificate_id=None,
                                            health_monitor_id=None,
                                            listener_id=None,
                                            default_target_group_id=None,
@@ -866,6 +872,7 @@ class Proxy(proxy2.BaseProxy):
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
+        :param string idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
@@ -880,6 +887,8 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
+        if idle_timeout is not None:
+            body["idle_timeout"] = idle_timeout
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if source_nat is not None:
