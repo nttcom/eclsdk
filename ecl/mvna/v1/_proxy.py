@@ -727,7 +727,7 @@ class Proxy(proxy2.BaseProxy):
         :param dict tags: Tags of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        :param string idle_timeout: Idle Timeout of Policy
+        :param integer idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
@@ -813,7 +813,7 @@ class Proxy(proxy2.BaseProxy):
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        :param string idle_timeout: Idle Timeout of Policy
+        :param integer idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
@@ -872,7 +872,7 @@ class Proxy(proxy2.BaseProxy):
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
-        :param string idle_timeout: Idle Timeout of Policy
+        :param integer idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
         :param string certificate_id: Certificate ID
