@@ -18,6 +18,7 @@ class Policy(base.MVNABaseResource):
         "operation_status",
         "algorithm",
         "persistence",
+        "idle_timeout",
         "sorry_page_url",
         "source_nat",
         "certificate_id",
@@ -54,6 +55,8 @@ class Policy(base.MVNABaseResource):
     algorithm = resource2.Body('algorithm')
     #: persistence of policy
     persistence = resource2.Body('persistence')
+    #: Idle Timeout of policy
+    idle_timeout = resource2.Body('idle_timeout')
 
     #: Sorry page URL of policy
     sorry_page_url = resource2.Body('sorry_page_url')
