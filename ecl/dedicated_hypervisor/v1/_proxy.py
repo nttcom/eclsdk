@@ -86,6 +86,12 @@ class Proxy(proxy2.BaseProxy):
             body["metadata"] = metadata
         return self._create(_server.Server, **body)
 
+    def update_server(self, name):
+
+        body = {}
+        body["name"] = name
+        return self._create(_server.Server, **body)
+
     def delete_server(self, server_id, ignore_missing=False):
         """
         Deletes a specified Dedicated Hypervisor server.

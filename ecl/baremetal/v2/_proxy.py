@@ -22,6 +22,7 @@ from ecl.baremetal.v2 import stock as _stock
 from ecl.baremetal.v2 import nic_physical_port as _port
 from ecl.baremetal.v2 import server as _server
 from ecl.baremetal.v2 import chassis as _chassis
+from ecl.baremetal.v2 import bmc_reset as _reset
 from ecl.baremetal import version as _version
 from ecl import proxy2
 from ecl import session
@@ -562,3 +563,10 @@ class Proxy(proxy2.BaseProxy):
         # Use "Chassis" instead of "ChassisDetail".
         # Because "detail" is not included to the request path.
         return self._get(_chassis.Chassis, chassis_id)
+
+    def bmc_reset(self, details=True):
+        bmc_reset = _reset.BmcResetDetail if details else _reset.BmcReset
+        return list(self._list(bmc_reset))
+
+    def get_bmc_reset(self, server_id):
+        return self._get(_reset.BmcReset, server_id)
