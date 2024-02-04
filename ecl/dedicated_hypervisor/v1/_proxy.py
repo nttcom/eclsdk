@@ -87,10 +87,17 @@ class Proxy(proxy2.BaseProxy):
         return self._create(_server.Server, **body)
 
     def update_server(self, name):
+        """
+        Updates the editable attributes of the specified baremetal server.
 
+        :param string name: Name of your Dedicated Hypervisor/Baremetal server
+            as a string.
+        :return: The results of server createion.
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`
+        """
         body = {}
         body["name"] = name
-        return self._create(_server.Server, **body)
+        return self._update(_server.Server, **body)
 
     def delete_server(self, server_id, ignore_missing=False):
         """
@@ -233,3 +240,29 @@ class Proxy(proxy2.BaseProxy):
 
     def delete_sddc(self, sddc_id, ignore_missing=False):
         return self._delete(_vcf.Sddc, sddc_id, ignore_missing=ignore_missing)
+
+    def cfgw_connection(self, server_id):
+        """
+        Shows the connection status between your Dedicated Hypervisor and
+        common function gateway network.
+
+        :param string server_id: Server ID
+
+        :return: list of the licenses.
+        :rtype: list of
+            :class:`~ecl.dedicated_hypervisor.v1.license.License`
+        """
+        server = _server.ServerAction()
+        return server.cfgw_connection(self.session, server_id)
+
+    def get_cfgw_connection(self, server_id):
+        """
+        shows the connection status between your Dedicated Hypervisor and
+        common function gateway network.
+
+        :param string server_id: ID for the server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
+            instance.
+        """
+        server = _server.ServerAction()
+        return server.get_cfgw_connection(self.session, server_id)

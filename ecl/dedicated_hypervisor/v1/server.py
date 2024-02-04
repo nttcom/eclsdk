@@ -59,7 +59,7 @@ class Server(resource2.Resource):
     baremetal_server = resource2.Body('baremetal_server')
     #: Server's availability zone.
     availability_zone = resource2.Body('availability_zone')
-    #
+    #: Connection between the server and common function gateway network is established or not.
     cfgw_connection_status = resource2.Body('cfgw_connection_status')
 
 
@@ -70,7 +70,6 @@ class ServerDetail(Server):
     allow_list = True
     allow_get = False
     allow_create = False
-    allow_update = False
     allow_delete = False
 
 
@@ -83,7 +82,6 @@ class ServerAction(Server):
     allow_list = False
     allow_get = True
     allow_create = True
-    allow_update = False
     allow_delete = False
 
     vm_id = resource2.Body('vm_id')

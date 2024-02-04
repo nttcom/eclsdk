@@ -256,7 +256,11 @@ class ServerAction(resource2.Resource):
 
     def reset_bmc(self, session, server_id):
         uri = self.base_path % server_id
-        body = {"bmc-reset": None}
+        body = {
+            "bmc-reset": {
+                "type": type
+            }
+        }
         resp = session.post(
             uri,
             endpoint_filter=self.service,

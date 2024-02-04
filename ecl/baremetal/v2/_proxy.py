@@ -22,7 +22,6 @@ from ecl.baremetal.v2 import stock as _stock
 from ecl.baremetal.v2 import nic_physical_port as _port
 from ecl.baremetal.v2 import server as _server
 from ecl.baremetal.v2 import chassis as _chassis
-from ecl.baremetal.v2 import bmc_reset as _reset
 from ecl.baremetal import version as _version
 from ecl import proxy2
 from ecl import session
@@ -457,6 +456,16 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.get_management_console(self.session, server_id)
 
+    def bmc_reset(self, server_id):
+        """Reset the Baseboard Management Controller.
+        This request will be accepted only when the task_state is None.
+
+        :param string server_id: ID for the server.
+        :return: :class:`~ecl.baremetal.v2.server.ServerAction`
+        """
+        server = _server.ServerAction()
+        return server.bmc_reset(self.session, server_id)
+
     def metadata(self, server_id):
         """This API lists metadata for a specified server.
 
@@ -552,7 +561,7 @@ class Proxy(proxy2.BaseProxy):
     def get_chassis(self, chassis_id):
         """Gets details for a ChassisDetail associated with chassis_id.
 
-        A chassis represents base object of baremetal server. 
+        A chassis represents base object of baremetal server.
         Each chassis is assigned an unique id and has dedicated disk spaces, 
         memory capacities and cpu resources. You can create baremetal server 
         upon this object.
@@ -563,10 +572,3 @@ class Proxy(proxy2.BaseProxy):
         # Use "Chassis" instead of "ChassisDetail".
         # Because "detail" is not included to the request path.
         return self._get(_chassis.Chassis, chassis_id)
-
-    def bmc_reset(self, details=True):
-        bmc_reset = _reset.BmcResetDetail if details else _reset.BmcReset
-        return list(self._list(bmc_reset))
-
-    def get_bmc_reset(self, server_id):
-        return self._get(_reset.BmcReset, server_id)
