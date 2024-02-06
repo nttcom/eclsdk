@@ -263,20 +263,17 @@ class Proxy(proxy2.BaseProxy):
         :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
             instance.
         """
-        server = _server.ServerAction()
-        return server.get_cfgw_connection(self.session, server_id)
+        cfgw = _server.CFGWConnection()
+        return cfgw.get_cfgw_connection(self.session, server_id)
 
-    def update_cfgw_connection(self, server_id, name):
+    def update_cfgw_connection(self, server_id):
         """
         Updates the connection status between your Dedicated Hypervisor and
             common function gateway network.
 
         :param string server_id: ID for the server.
-        :param string name: Name of your Dedicated Hypervisor/Baremetal server
-            as a string.
         :return: The results of server update.
         :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`
         """
-        body = {"name": name}
-        return self._update_cfgw_connection(_server.Server, server_id, **body)
-
+        cfgw = _server.CFGWConnection()
+        return cfgw.update_cfgw_connection(self.session, server_id)

@@ -122,31 +122,44 @@ class ServerAction(Server):
 
 
 class CFGWConnection(Server):
-    resource_key = None
-    resources_key = None
+    resource_key = "server"
     base_path = '/servers/%s/cfgw_connection'
 
-    # capabilities
-    allow_get = True
-    allow_update = True
+    id = resource2.Body('id')
+    cfgw_connection = resource2.Body('cfgw_connection')
 
-    vm_id = resource2.Body('vm_id')
-    vm_name = resource2.Body('vm_name')
-    license_types = resource2.Body('license_types')
-    job_id = resource2.Body('job_id')
-    status = resource2.Body('status')
-    message = resource2.Body('message')
-    requested_param = resource2.Body('requested_param')
-
-    def get_cfgw_connection(self, server_id):
+    def get_cfgw_connection(self, session, server_id):
         """
         shows the connection status between your Dedicated Hypervisor and
             common function gateway network.
 
+        :param session: The session to use for making this request.
         :param string server_id: ID for the server.
         :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
             instance.
         """
         uri = self.base_path % server_id
-        """body = {}"""
-        return server.get_cfgw_connection(self.session, server_id)
+        resp = session.get(
+            uri,
+            endpoint_filter=self.service
+        )
+        self._translate_response(resp)
+        return self
+
+    def update_cfgw_connection(self, session, server_id):
+        """
+        Updates the connection status between your Dedicated Hypervisor and
+            common function gateway network.
+
+        :param session: The session to use for making this request.
+        :param string server_id: ID for the server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
+            instance.
+        """
+        uri = self.base_path % server_id
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service
+        )
+        self._translate_response(resp)
+        return self
