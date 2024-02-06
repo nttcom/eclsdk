@@ -86,18 +86,18 @@ class Proxy(proxy2.BaseProxy):
             body["metadata"] = metadata
         return self._create(_server.Server, **body)
 
-    def update_server(self, name):
+    def update_server(self, server_id, name):
         """
         Updates the editable attributes of the specified baremetal server.
 
+        :param string server_id: ID for the server.
         :param string name: Name of your Dedicated Hypervisor/Baremetal server
             as a string.
-        :return: The results of server createion.
+        :return: The results of server update.
         :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`
         """
-        body = {}
-        body["name"] = name
-        return self._update(_server.Server, **body)
+        body = {"name": name}
+        return self._update(_server.Server, server_id, **body)
 
     def delete_server(self, server_id, ignore_missing=False):
         """
@@ -247,7 +247,6 @@ class Proxy(proxy2.BaseProxy):
         common function gateway network.
 
         :param string server_id: Server ID
-
         :return: list of the licenses.
         :rtype: list of
             :class:`~ecl.dedicated_hypervisor.v1.license.License`
@@ -258,7 +257,7 @@ class Proxy(proxy2.BaseProxy):
     def get_cfgw_connection(self, server_id):
         """
         shows the connection status between your Dedicated Hypervisor and
-        common function gateway network.
+            common function gateway network.
 
         :param string server_id: ID for the server.
         :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
@@ -266,3 +265,18 @@ class Proxy(proxy2.BaseProxy):
         """
         server = _server.ServerAction()
         return server.get_cfgw_connection(self.session, server_id)
+
+    def update_cfgw_connection(self, server_id, name):
+        """
+        Updates the connection status between your Dedicated Hypervisor and
+            common function gateway network.
+
+        :param string server_id: ID for the server.
+        :param string name: Name of your Dedicated Hypervisor/Baremetal server
+            as a string.
+        :return: The results of server update.
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`
+        """
+        body = {"name": name}
+        return self._update_cfgw_connection(_server.Server, server_id, **body)
+

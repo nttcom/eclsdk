@@ -254,21 +254,6 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
-    def reset_bmc(self, session, server_id):
-        uri = self.base_path % server_id
-        body = {
-            "bmc-reset": {
-                "type": type
-            }
-        }
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service,
-            json=body
-        )
-        self._translate_response(resp, has_body=False)
-        return self
-
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
@@ -306,3 +291,34 @@ class ServerAction(resource2.Resource):
             return None
         raise exceptions.ResourceNotFound(
             "No %s found for %s" % (cls.__name__, name_or_id))
+
+class CFGWConnection(resource2.Resource):
+    resource_key = "console"
+    resources_key = None
+    base_path = '/servers/%s/cfgw_connection'
+    service = baremetal_service.BaremetalService()
+
+    # Properties
+    #: Type of the remote console. Valid values are IPMI or IMM.
+    type = resource2.Body('type')
+    #: URL to access the remote console.
+    url = resource2.Body('url')
+    #: User ID for sign in to the remote console.
+    user_id = resource2.Body('user_id')
+    #: Password for sign in to the remote console.
+    password = resource2.Body('password')
+
+    def reset_bmc(self, session, server_id):
+        uri = self.base_path % server_id
+        body = {
+            "bmc-reset": {
+                "type": "WARM"
+            }
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body
+        )
+        self._translate_response(resp, has_body=False)
+        return self

@@ -100,7 +100,7 @@ class ServerAction(Server):
             params["vm_id"] = vm_id
         if vm_name:
             params["vm_name"] = vm_name
-        body = { "add-license-to-vm": params }
+        body = {"add-license-to-vm": params}
         resp = session.post(
             uri,
             endpoint_filter=self.service,
@@ -111,7 +111,7 @@ class ServerAction(Server):
 
     def get_add_license_job(self, session, server_id, job_id):
         uri = self.base_path % server_id
-        body = { "get-result-for-add-license-to-vm": { "job_id": job_id } }
+        body = {"get-result-for-add-license-to-vm": {"job_id": job_id}}
         resp = session.post(
             uri,
             endpoint_filter=self.service,
@@ -119,3 +119,34 @@ class ServerAction(Server):
         )
         self._translate_response(resp, has_body=True)
         return self
+
+
+class CFGWConnection(Server):
+    resource_key = None
+    resources_key = None
+    base_path = '/servers/%s/cfgw_connection'
+
+    # capabilities
+    allow_get = True
+    allow_update = True
+
+    vm_id = resource2.Body('vm_id')
+    vm_name = resource2.Body('vm_name')
+    license_types = resource2.Body('license_types')
+    job_id = resource2.Body('job_id')
+    status = resource2.Body('status')
+    message = resource2.Body('message')
+    requested_param = resource2.Body('requested_param')
+
+    def get_cfgw_connection(self, server_id):
+        """
+        shows the connection status between your Dedicated Hypervisor and
+            common function gateway network.
+
+        :param string server_id: ID for the server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
+            instance.
+        """
+        uri = self.base_path % server_id
+        """body = {}"""
+        return server.get_cfgw_connection(self.session, server_id)
