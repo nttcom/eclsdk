@@ -292,22 +292,6 @@ class ServerAction(resource2.Resource):
         raise exceptions.ResourceNotFound(
             "No %s found for %s" % (cls.__name__, name_or_id))
 
-class CFGWConnection(resource2.Resource):
-    resource_key = "console"
-    resources_key = None
-    base_path = '/servers/%s/cfgw_connection'
-    service = baremetal_service.BaremetalService()
-
-    # Properties
-    #: Type of the remote console. Valid values are IPMI or IMM.
-    type = resource2.Body('type')
-    #: URL to access the remote console.
-    url = resource2.Body('url')
-    #: User ID for sign in to the remote console.
-    user_id = resource2.Body('user_id')
-    #: Password for sign in to the remote console.
-    password = resource2.Body('password')
-
     def reset_bmc(self, session, server_id, type):
         uri = self.base_path % server_id
         body = {
