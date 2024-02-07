@@ -462,9 +462,9 @@ class Proxy(proxy2.BaseProxy):
 
         :param string server_id: ID for the server.
         :param string reset_bmc_type: BMC reset mode.Supported values are WARM and COLD.
-        :return: :class:`~ecl.baremetal.v2.server.ServerAction`
+        :return: :class:`~ecl.baremetal.v2.server.CFGWConnection`
         """
-        server = _server.ServerAction()
+        server = _server.CFGWConnection()
         return server.reset_bmc(self.session, server_id, reset_bmc_type)
 
     def metadata(self, server_id):

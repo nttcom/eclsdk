@@ -308,7 +308,7 @@ class CFGWConnection(resource2.Resource):
     #: Password for sign in to the remote console.
     password = resource2.Body('password')
 
-    def reset_bmc(self, session, server_id, reset_bmc_type=None):
+    def reset_bmc(self, session, server_id, reset_bmc_type):
         uri = self.base_path % server_id
         body = {
             "bmc-reset": {
