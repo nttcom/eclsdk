@@ -135,7 +135,7 @@ class CFGWConnection(Server):
 
         :param session: The session to use for making this request.
         :param string server_id: ID for the server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
             instance.
         """
         uri = self.base_path % server_id
@@ -153,7 +153,7 @@ class CFGWConnection(Server):
 
         :param session: The session to use for making this request.
         :param string server_id: ID for the server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
             instance.
         """
         uri = self.base_path % server_id

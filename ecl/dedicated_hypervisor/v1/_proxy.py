@@ -260,7 +260,7 @@ class Proxy(proxy2.BaseProxy):
             common function gateway network.
 
         :param string server_id: ID for the server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Sever`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
             instance.
         """
         cfgw = _server.CFGWConnection()
@@ -273,7 +273,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param string server_id: ID for the server.
         :return: The results of server update.
-        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.Server`
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
         """
         cfgw = _server.CFGWConnection()
         return cfgw.update_cfgw_connection(self.session, server_id)
