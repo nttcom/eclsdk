@@ -456,16 +456,16 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.get_management_console(self.session, server_id)
 
-    def reset_bmc(self, server_id, reset_bmc_type):
+    def reset_bmc(self, server_id, type):
         """Reset the Baseboard Management Controller.
         This request will be accepted only when the task_state is None.
 
         :param string server_id: ID for the server.
-        :param string reset_bmc_type: BMC reset mode.Supported values are WARM and COLD.
+        :param string type: BMC reset mode.Supported values are WARM and COLD.
         :return: :class:`~ecl.baremetal.v2.server.CFGWConnection`
         """
         server = _server.CFGWConnection()
-        return server.reset_bmc(self.session, server_id, reset_bmc_type)
+        return server.reset_bmc(self.session, server_id, type)
 
     def metadata(self, server_id):
         """This API lists metadata for a specified server.

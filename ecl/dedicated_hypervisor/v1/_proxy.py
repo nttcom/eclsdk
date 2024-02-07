@@ -251,8 +251,8 @@ class Proxy(proxy2.BaseProxy):
         :rtype: list of
             :class:`~ecl.dedicated_hypervisor.v1.license.License`
         """
-        server = _server.ServerAction()
-        return server.cfgw_connection(self.session, server_id)
+        cfgw = _server.CFGWConnection()
+        return cfgw.cfgw_connection(self.session, server_id)
 
     def get_cfgw_connection(self, server_id):
         """
