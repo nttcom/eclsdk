@@ -254,6 +254,21 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
+    def reset_bmc(self, session, server_id, type):
+        uri = self.base_path % server_id
+        body = {
+            "bmc-reset": {
+                "type": type
+            }
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body
+        )
+        self._translate_response(resp, has_body=False)
+        return self
+
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
@@ -291,18 +306,3 @@ class ServerAction(resource2.Resource):
             return None
         raise exceptions.ResourceNotFound(
             "No %s found for %s" % (cls.__name__, name_or_id))
-
-    def reset_bmc(self, session, server_id, type):
-        uri = self.base_path % server_id
-        body = {
-            "bmc-reset": {
-                "type": type
-            }
-        }
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service,
-            json=body
-        )
-        self._translate_response(resp, has_body=False)
-        return self

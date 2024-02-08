@@ -256,12 +256,12 @@ class Proxy(proxy2.BaseProxy):
 
     def get_cfgw_connection(self, server_id):
         """
-        shows the connection status between your Dedicated Hypervisor and
-            common function gateway network.
+        Shows the connection status between your Dedicated Hypervisor and
+        common function gateway network.
 
         :param string server_id: ID for the server.
         :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
-            instance.
+        instance.
         """
         cfgw = _server.CFGWConnection()
         return cfgw.get_cfgw_connection(self.session, server_id)
@@ -269,11 +269,11 @@ class Proxy(proxy2.BaseProxy):
     def update_cfgw_connection(self, server_id):
         """
         Updates the connection status between your Dedicated Hypervisor and
-            common function gateway network.
+        common function gateway network.
 
         :param string server_id: ID for the server.
-        :return: The results of server update.
-        :rtype: :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
+        instance.
         """
         cfgw = _server.CFGWConnection()
         return cfgw.update_cfgw_connection(self.session, server_id)

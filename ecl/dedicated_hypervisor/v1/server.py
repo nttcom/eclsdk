@@ -130,8 +130,8 @@ class CFGWConnection(Server):
 
     def get_cfgw_connection(self, session, server_id):
         """
-        shows the connection status between your Dedicated Hypervisor and
-            common function gateway network.
+        Shows the connection status between your Dedicated Hypervisor and
+        common function gateway network.
 
         :param session: The session to use for making this request.
         :param string server_id: ID for the server.
@@ -149,7 +149,7 @@ class CFGWConnection(Server):
     def update_cfgw_connection(self, session, server_id):
         """
         Updates the connection status between your Dedicated Hypervisor and
-            common function gateway network.
+        common function gateway network.
 
         :param session: The session to use for making this request.
         :param string server_id: ID for the server.
