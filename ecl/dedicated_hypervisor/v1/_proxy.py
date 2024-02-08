@@ -241,19 +241,6 @@ class Proxy(proxy2.BaseProxy):
     def delete_sddc(self, sddc_id, ignore_missing=False):
         return self._delete(_vcf.Sddc, sddc_id, ignore_missing=ignore_missing)
 
-    def cfgw_connection(self, server_id):
-        """
-        Shows the connection status between your Dedicated Hypervisor and
-        common function gateway network.
-
-        :param string server_id: Server ID
-        :return: list of the licenses.
-        :rtype: list of
-            :class:`~ecl.dedicated_hypervisor.v1.license.License`
-        """
-        cfgw = _server.CFGWConnection()
-        return cfgw.cfgw_connection(self.session, server_id)
-
     def get_cfgw_connection(self, server_id):
         """
         Shows the connection status between your Dedicated Hypervisor and
