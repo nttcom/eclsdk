@@ -45,7 +45,6 @@ The resulting preference print out would look something like::
     service_type=network,region=zion
     service_type=image,region=zion
     service_type=metering,region=zion
-    service_type=orchestration,region=zion
     service_type=identity,region=zion,version=v3
 """
 
@@ -63,7 +62,6 @@ from ecl.identity import identity_service
 from ecl.image import image_service
 from ecl import module_loader
 from ecl.network import network_service
-from ecl.orchestration import orchestration_service
 from ecl.provider_connectivity import provider_connectivity_service
 from ecl.rca import rca_service
 from ecl.storage import storage_service
@@ -107,8 +105,6 @@ class Profile(object):
         self._add_service(image_service.ImageService(version="v2"))
         self._add_service(network_service.NetworkService(version="v2"))
         self._add_service(sss_service.SssService(version="v1"))
-        self._add_service(
-            orchestration_service.OrchestrationService(version="v1"))
         self._add_service(
             provider_connectivity_service.ProviderConnectivityService(
                 version="v2"))

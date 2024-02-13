@@ -127,8 +127,6 @@ class TestConnection(base.TestCase):
                          conn.network.__class__.__module__)
         self.assertEqual('ecl.rca.v1._proxy',
                          conn.rca.__class__.__module__)
-        self.assertEqual('ecl.orchestration.v1._proxy',
-                         conn.orchestration.__class__.__module__)
         self.assertEqual('ecl.telemetry.v2._proxy',
                          conn.telemetry.__class__.__module__)
         self.assertEqual('ecl.sss.v1._proxy',
