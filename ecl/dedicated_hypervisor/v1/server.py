@@ -24,6 +24,7 @@ class Server(resource2.Resource):
     allow_list = True
     allow_get = True
     allow_create = True
+    allow_update = True
     allow_delete = True
 
     _query_mapping = resource2.QueryParameters("image", "flavor", "name",
@@ -58,6 +59,8 @@ class Server(resource2.Resource):
     baremetal_server = resource2.Body('baremetal_server')
     #: Server's availability zone.
     availability_zone = resource2.Body('availability_zone')
+    #: Connection between the server and common function gateway network is established or not.
+    cfgw_connection_status = resource2.Body('cfgw_connection_status')
 
 
 class ServerDetail(Server):
@@ -97,7 +100,7 @@ class ServerAction(Server):
             params["vm_id"] = vm_id
         if vm_name:
             params["vm_name"] = vm_name
-        body = { "add-license-to-vm": params }
+        body = {"add-license-to-vm": params}
         resp = session.post(
             uri,
             endpoint_filter=self.service,
@@ -108,11 +111,55 @@ class ServerAction(Server):
 
     def get_add_license_job(self, session, server_id, job_id):
         uri = self.base_path % server_id
-        body = { "get-result-for-add-license-to-vm": { "job_id": job_id } }
+        body = {"get-result-for-add-license-to-vm": {"job_id": job_id}}
         resp = session.post(
             uri,
             endpoint_filter=self.service,
             json=body
         )
         self._translate_response(resp, has_body=True)
+        return self
+
+
+class CFGWConnection(Server):
+    resource_key = "server"
+    base_path = '/servers/%s/cfgw_connection'
+
+    id = resource2.Body('id')
+    cfgw_connection = resource2.Body('cfgw_connection')
+
+    def get_cfgw_connection(self, session, server_id):
+        """
+        Shows the connection status between your Dedicated Hypervisor and
+        common function gateway network.
+
+        :param session: The session to use for making this request.
+        :param string server_id: ID for the server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
+            instance.
+        """
+        uri = self.base_path % server_id
+        resp = session.get(
+            uri,
+            endpoint_filter=self.service
+        )
+        self._translate_response(resp)
+        return self
+
+    def update_cfgw_connection(self, session, server_id):
+        """
+        Updates the connection status between your Dedicated Hypervisor and
+        common function gateway network.
+
+        :param session: The session to use for making this request.
+        :param string server_id: ID for the server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.CFGWConnection`
+            instance.
+        """
+        uri = self.base_path % server_id
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service
+        )
+        self._translate_response(resp)
         return self
