@@ -46,3 +46,9 @@ class TestServerAction(base.BaseFunctionalTest):
         self.assertIsInstance(server.url, six.string_types)
         self.assertIsInstance(server.user_id, six.string_types)
         self.assertIsInstance(server.password, six.string_types)
+
+    def test_05_reset_bmc(self):
+        server = self.conn.baremetal.reset_bmc(
+            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            "WARM"
+        )
