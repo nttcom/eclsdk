@@ -46,3 +46,13 @@ class TestServerAction(base.BaseFunctionalTest):
         self.assertIsInstance(server.url, six.string_types)
         self.assertIsInstance(server.user_id, six.string_types)
         self.assertIsInstance(server.password, six.string_types)
+
+    def test_05_reset_bmc(self):
+        # tenant_idは実際にあるテナントIDに合わせて変更する
+        tenant_id = "9cb19125-2088-4514-9227-c7f532d975e7"
+        bmc_type = "WARM"
+
+        server = self.conn.baremetal.reset_bmc(
+            tenant_id,
+            bmc_type
+        )
