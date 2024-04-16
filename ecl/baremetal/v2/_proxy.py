@@ -456,6 +456,17 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.get_management_console(self.session, server_id)
 
+    def reset_bmc(self, server_id, type):
+        """Reset the Baseboard Management Controller.
+        This request will be accepted only when the task_state is None.
+
+        :param string server_id: ID for the server.
+        :param string type: BMC reset mode.Supported values are WARM and COLD.
+        :return: ``None``
+        """
+        server = _server.ServerAction()
+        return server.reset_bmc(self.session, server_id, type)
+
     def metadata(self, server_id):
         """This API lists metadata for a specified server.
 
@@ -551,7 +562,7 @@ class Proxy(proxy2.BaseProxy):
     def get_chassis(self, chassis_id):
         """Gets details for a ChassisDetail associated with chassis_id.
 
-        A chassis represents base object of baremetal server. 
+        A chassis represents base object of baremetal server.
         Each chassis is assigned an unique id and has dedicated disk spaces, 
         memory capacities and cpu resources. You can create baremetal server 
         upon this object.

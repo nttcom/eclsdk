@@ -27,7 +27,6 @@ class TestProfile(base.TestCase):
             'interconnectivity',
             'metering',
             'network',
-            'orchestration',
             'rca',
             'sss',
             'storage',
@@ -45,7 +44,6 @@ class TestProfile(base.TestCase):
         self.assertEqual('v1', prof.get_filter('interconnectivity').version)
         self.assertEqual('v2', prof.get_filter('metering').version)
         self.assertEqual('v2', prof.get_filter('network').version)
-        self.assertEqual('v1', prof.get_filter('orchestration').version)
         self.assertEqual('v1', prof.get_filter('rca').version)
         self.assertEqual('v1', prof.get_filter('sss').version)
         self.assertEqual('v1', prof.get_filter('storage').version)
@@ -69,8 +67,6 @@ class TestProfile(base.TestCase):
         self.assertEqual('v6', prof.get_filter('metering').version)
         prof.set_version('network', 'v7')
         self.assertEqual('v7', prof.get_filter('network').version)
-        prof.set_version('orchestration', 'v8')
-        self.assertEqual('v8', prof.get_filter('orchestration').version)
         prof.set_version('rca', 'v9')
         self.assertEqual('v9', prof.get_filter('rca').version)
         prof.set_version('sss', 'v10')

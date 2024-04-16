@@ -34,6 +34,7 @@ from ecl.network.v2 import gcp as _gcp
 from ecl.network.v2 import tenant_connection as _tenant_connection
 from ecl.network.v2 import azure as _azure
 from ecl.network.v2 import fic as _fic
+from ecl.network.v2 import mec as _mec
 
 from ecl import proxy2
 
@@ -1284,6 +1285,7 @@ class Proxy(proxy2.BaseProxy):
                                  primary_ipv6=None, secondary_ipv6=None,
                                  gw_vipv6=None, interdc_gw_id=None,
                                  internet_gw_id=None,
+                                 mec_gw_id=None,
                                  vpn_gw_id=None, aws_gw_id=None, gcp_gw_id=None,
                                  azure_gw_id=None, fic_gw_id=None, tenant_id=None):
         """Create a Gateway Interface from parameters
@@ -1302,6 +1304,7 @@ class Proxy(proxy2.BaseProxy):
         :param IPv6 gw_vipv6: gateway virtual IPv6 of gateway interface to create
         :param string interdc_gw_id: InterDC Gateway ID of gateway interface to create
         :param string internet_gw_id: Internet Gateway ID of gateway interface to create
+        :param string mec_gw_id: MEC Gateway ID of gateway interface to create
         :param string vpn_gw_id: VPN Gateway ID of gateway interface to create
         :param string fic_gw_id: FIC Gateway ID of gateway interface to create
         :param string tenant_id: tenant ID of gateway interface to create
@@ -1332,6 +1335,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"interdc_gw_id": interdc_gw_id})
         if internet_gw_id:
             body.update({"internet_gw_id": internet_gw_id})
+        if mec_gw_id:
+            body.update({"mec_gw_id": mec_gw_id})
         if vpn_gw_id:
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
@@ -1415,7 +1420,7 @@ class Proxy(proxy2.BaseProxy):
 
     def create_static_route(self, service_type, destination, nexthop,
                             name=None, description=None,interdc_gw_id=None,
-                            internet_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
+                            internet_gw_id=None, mec_gw_id=None, vpn_gw_id=None, aws_gw_id=None,
                             gcp_gw_id=None, azure_gw_id=None, fic_gw_id=None, tenant_id=None):
         """Create a Static Route
 
@@ -1426,6 +1431,7 @@ class Proxy(proxy2.BaseProxy):
         :param description: description of static route to create
         :param interdc_gw_id: InterDC Gateway ID of static route to create
         :param internet_gw_id: Internet Gateway ID of static route to create
+        :param mec_gw_id: MEC Gateway ID of static route to create
         :param vpn_gw_id: VPN Gateway ID of static route to create
         :param fic_gw_id: FIC Gateway ID of static route to create
         :param tenant_id: tenant ID of static route to create
@@ -1446,6 +1452,8 @@ class Proxy(proxy2.BaseProxy):
             body.update({"interdc_gw_id": interdc_gw_id})
         if internet_gw_id:
             body.update({"internet_gw_id": internet_gw_id})
+        if mec_gw_id:
+            body.update({"mec_gw_id": mec_gw_id})
         if vpn_gw_id:
             body.update({"vpn_gw_id": vpn_gw_id})
         if aws_gw_id:
@@ -2589,3 +2597,81 @@ class Proxy(proxy2.BaseProxy):
                  when no resource can be found.
         """
         return self._get(_fic.FICInterface, fic_interface)
+
+    def mec_services(self, **query):
+        """Return a list of MEC Service
+
+        :returns: A list of MEC Service objects
+        """
+        return list(self._list(_mec.MECService, paginated=False,
+                               **query))
+
+    def get_mec_service(self, mec_service):
+
+        """Get a single MEC Service
+
+        :param mec_service: The value can be the ID of a MEC Service or a
+                       :class:`~ecl.network.v2.mec.MECService` instance.
+
+        :returns: One :class:`~ecl.network.v2.mec.MECService`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_mec.MECService, mec_service)
+
+    def mec_gateways(self, **query):
+        """Return a list of MEC Gateways
+
+        :param query: Query parameters to select results
+
+        :returns: A list of MEC Gateway objects
+        """
+        return list(self._list(_mec.MECGateway, paginated=False, **query))
+
+    def get_mec_gateway(self, mec_gateway):
+
+        """Get a single MEC Gateway
+
+        :param mec_gateway: The value can be the ID of a MEC Gateway or a
+                       :class:`~ecl.network.v2.mec.MECGateway` instance.
+
+        :returns: One :class:`~ecl.network.v2.mec.MECGateway`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_mec.MECGateway, mec_gateway)
+
+    def find_mec_gateway(self, name_or_id, ignore_missing=False):
+        """Find a single mec_gateway
+
+        :param name_or_id: The name or ID of a mec_gateway.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the resource does not exist.
+                    When set to ``True``, None will be returned when
+                    attempting to find a nonexistent resource.
+        :returns: One :class:`~ecl.network.v2.mec.MECGateway` or None
+        """
+        return self._find(_mec.MECGateway,
+                          name_or_id, ignore_missing=ignore_missing)
+
+    def mec_interfaces(self, **query):
+        """Return a list of MEC Interface
+
+        :returns: A list of MEC Interface objects
+        """
+        return list(self._list(_mec.MECInterface, paginated=False,
+                               *query))
+
+    def get_mec_interface(self, mec_interface):
+
+        """Get a single MEC Gateway
+
+        :param mec_interface: The value can be the ID of a MEC Interface or a
+                       :class:`~ecl.network.v2.mec.MECInterface` instance.
+
+        :returns: One :class:`~ecl.network.v2.mec.MECInterface`
+        :raises: :class:`~ecl.exceptions.ResourceNotFound`
+                 when no resource can be found.
+        """
+        return self._get(_mec.MECInterface, mec_interface)
