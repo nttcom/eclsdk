@@ -213,3 +213,10 @@ class TestSession(testtools.TestCase):
         sot.endpoint_cache[(service_type, interface)] = endpoint
         rv = sot.get_endpoint(service_type=service_type, interface=interface)
         self.assertEqual(rv, endpoint)
+
+    def test_get(self):
+        sot = session.Session(None)
+        kwargs['headers'] = "application/json"
+
+        rv = sot.get_endpoint(service_type=service_type, interface=interface)
+        self.assertEqual(rv, endpoint)
