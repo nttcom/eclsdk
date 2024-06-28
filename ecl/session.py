@@ -41,6 +41,10 @@ from ecl.virtual_network_appliance import exceptions as vna_exp
 
 from six.moves.urllib import parse
 
+import http
+
+http.client.HTTPConnection.debuglevel = 1
+
 DEFAULT_USER_AGENT = "eclsdk/%s" % ecl_version.__version__
 API_REQUEST_HEADER = "ecl-api-version"
 
@@ -377,3 +381,31 @@ class Session(_session.Session):
             except:
                 pass
         return resp
+
+    def get(self, url, **kwargs):
+        self._append_accecpt_header(kwargs)
+        return super.get(self, url, **kwargs)
+
+    def post(self, url, **kwargs):
+        self._append_accecpt_header(kwargs)
+        return super.post(self, url, **kwargs)
+
+    def put(self, url, **kwargs):
+        self._append_accecpt_header(kwargs)
+        return super.put(self, url, **kwargs)
+
+    def delete(self, url, **kwargs):
+        self._append_accecpt_header(kwargs)
+        return super.delete(self, url, **kwargs)
+
+    def patch(self, url, **kwargs):
+        self._append_accecpt_header(kwargs)
+        return super.patch(self, url, **kwargs)
+
+    def _append_accecpt_header(self, kwargs):
+        headers = kwargs['headers'] if 'headers' in kwargs else {}
+        if "Accept" not in headers:
+            headers["Accept"] = "application/json"
+        elif headers["Accept"] == '':
+            headers["Accept"] = "application/json"
+        kwargs['headers'] = headers
