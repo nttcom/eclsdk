@@ -216,8 +216,60 @@ class TestSession(testtools.TestCase):
 
     def test_get(self):
         sot = session.Session(None)
-        kwargs['headers'] = "application/json"
+        sot.request = mock.Mock()
+        sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
 
-        rv = sot.get(url='https://console-compute-lab3ec.gcv-cloud.com/project/baremetals',
-                     headers=kwargs['headers'])
-        self.assertEqual(rv, headers)
+        request_headers = {'Accept': ''}
+        rv = sot.get(url='/server/hoge/', headers=request_headers, dummy='d')
+
+        actual_request_headers = sot.request.call_args_list[0][1].get('headers')
+
+        self.assertEqual(actual_request_headers, {'Accept': 'application/json'})
+
+    def test_post(self):
+        sot = session.Session(None)
+        sot.request = mock.Mock()
+        sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
+
+        request_headers = {'Accept': ''}
+        rv = sot.post(url='/server/hoge/', headers=request_headers, dummy='d')
+
+        actual_request_headers = sot.request.call_args_list[0][1].post('headers')
+
+        self.assertEqual(actual_request_headers, {'Accept': 'application/json'})
+
+    def test_put(self):
+        sot = session.Session(None)
+        sot.request = mock.Mock()
+        sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
+
+        request_headers = {'Accept': ''}
+        rv = sot.put(url='/server/hoge/', headers=request_headers, dummy='d')
+
+        actual_request_headers = sot.request.call_args_list[0][1].put('headers')
+
+        self.assertEqual(actual_request_headers, {'Accept': 'application/json'})
+
+    def test_delete(self):
+        sot = session.Session(None)
+        sot.request = mock.Mock()
+        sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
+
+        request_headers = {'Accept': ''}
+        rv = sot.delete(url='/server/hoge/', headers=request_headers, dummy='d')
+
+        actual_request_headers = sot.request.call_args_list[0][1].delete('headers')
+
+        self.assertEqual(actual_request_headers, {'Accept': 'application/json'})
+
+    def test_patch(self):
+        sot = session.Session(None)
+        sot.request = mock.Mock()
+        sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
+
+        request_headers = {'Accept': ''}
+        rv = sot.patch(url='/server/hoge/', headers=request_headers, dummy='d')
+
+        actual_request_headers = sot.request.call_args_list[0][1].patch('headers')
+
+        self.assertEqual(actual_request_headers, {'Accept': 'application/json'})

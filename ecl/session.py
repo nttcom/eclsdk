@@ -384,28 +384,28 @@ class Session(_session.Session):
 
     def get(self, url, **kwargs):
         self._append_accecpt_header(kwargs)
-        return super.get(self, url, **kwargs)
+        return super(Session, self).get(url, **kwargs)
 
     def post(self, url, **kwargs):
         self._append_accecpt_header(kwargs)
-        return super.post(self, url, **kwargs)
+        return super(Session, self).post(url, **kwargs)
 
     def put(self, url, **kwargs):
         self._append_accecpt_header(kwargs)
-        return super.put(self, url, **kwargs)
+        return super(Session, self).put(url, **kwargs)
 
     def delete(self, url, **kwargs):
         self._append_accecpt_header(kwargs)
-        return super.delete(self, url, **kwargs)
+        return super(Session, self).delete(url, **kwargs)
 
     def patch(self, url, **kwargs):
         self._append_accecpt_header(kwargs)
-        return super.patch(self, url, **kwargs)
+        return super(Session, self).patch(url, **kwargs)
 
     def _append_accecpt_header(self, kwargs):
         headers = kwargs['headers'] if 'headers' in kwargs else {}
         if "Accept" not in headers:
-            headers["Accept"] = "application/json"
+            headers["Accept"] = ""
         elif headers["Accept"] == '':
             headers["Accept"] = "application/json"
         kwargs['headers'] = headers
