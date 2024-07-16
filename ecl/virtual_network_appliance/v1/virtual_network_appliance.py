@@ -62,6 +62,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     password = resource2.Body('password')
     #: Password(after reset) of virtual network appliance.
     new_password = resource2.Body('new_password')
+    #: Initial config of virtual network appliance.
+    initial_config = resource2.Body('initial_config')
 
     def update(self, session, prepend_key=True, has_body=True):
         """Update the remote resource based on this virtual network appliance.
