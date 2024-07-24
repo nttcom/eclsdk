@@ -41,7 +41,6 @@ from ecl.virtual_network_appliance import exceptions as vna_exp
 
 from six.moves.urllib import parse
 
-
 DEFAULT_USER_AGENT = "eclsdk/%s" % ecl_version.__version__
 API_REQUEST_HEADER = "ecl-api-version"
 
