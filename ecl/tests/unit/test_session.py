@@ -60,7 +60,8 @@ class TestSession(testtools.TestCase):
         self.assertEqual({}, sot.additional_headers)
 
     def test_map_exceptions_not_found_exception(self):
-        ksa_exc = _exceptions.HttpError(message="test", http_status=404)
+        ksa_exc = _exceptions.HttpError(message="test", http_status=404, url="https://sdpf.ntt"
+                                                                             ".com/services/")
         func = mock.Mock(side_effect=ksa_exc)
 
         os_exc = self.assertRaises(
@@ -71,7 +72,8 @@ class TestSession(testtools.TestCase):
         self.assertEqual(ksa_exc, os_exc.cause)
 
     def test_map_exceptions_http_exception(self):
-        ksa_exc = _exceptions.HttpError(message="test", http_status=400)
+        ksa_exc = _exceptions.HttpError(message="test", http_status=400, url="https://sdpf.ntt"
+                                                                             ".com/services/")
         func = mock.Mock(side_effect=ksa_exc)
 
         os_exc = self.assertRaises(
