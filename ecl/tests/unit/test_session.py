@@ -214,7 +214,7 @@ class TestSession(testtools.TestCase):
         rv = sot.get_endpoint(service_type=service_type, interface=interface)
         self.assertEqual(rv, endpoint)
 
-    def test_get_accept_null(self):
+    def test_get_accept_unspecified(self):
         sot = session.Session(None)
         sot.request = mock.Mock()
         sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
@@ -231,7 +231,6 @@ class TestSession(testtools.TestCase):
         sot.request = mock.Mock()
         sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
 
-        request_headers = {}
         rv = sot.get(url='/server/hoge/',
                      headers={"Accept": "application/json"},
                      dummy='d')
@@ -245,7 +244,6 @@ class TestSession(testtools.TestCase):
         sot.request = mock.Mock()
         sot.request.return_value = type("Server", (object,), {"id": "1234", "name": "test-server"})
 
-        request_headers = {}
         rv = sot.get(url='/server/hoge/',
                      headers={"Accept": "application/octet-stream"},
                      dummy='d')
