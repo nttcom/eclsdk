@@ -207,7 +207,8 @@ class Image(resource2.Resource):
         # TODO(briancurtin): This method should probably offload the get
         # operation into another thread or something of that nature.
         url = utils.urljoin(self.base_path, image_id, 'file')
-        resp = session.get(url, endpoint_filter=self.service)
+        resp = session.get(url, headers={"Accept": "application/octet-stream"},
+                           endpoint_filter=self.service)
         return resp.content
 
     @classmethod
