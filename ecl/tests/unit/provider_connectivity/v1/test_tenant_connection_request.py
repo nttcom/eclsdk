@@ -18,7 +18,6 @@ BASIC_EXAMPLE = {
     'tags_other': 'tags_other',
     'tenant_id_other': 'tenant_id_other',
     'network_id': 'network_id',
-    'keystone_user_id': 'keystone_user_id',
     'apporoval_request_id': 'apporoval_request_id',
     'status': 'status'
 }
@@ -50,6 +49,5 @@ class TestTenantConnection(testtools.TestCase):
         self.assertEqual(BASIC_EXAMPLE['tenant_id'], sot.tenant_id)
         self.assertEqual(BASIC_EXAMPLE['tenant_id_other'], sot.tenant_id_other)
         self.assertEqual(BASIC_EXAMPLE['network_id'], sot.network_id)
-        self.assertEqual(BASIC_EXAMPLE['keystone_user_id'], sot.keystone_user_id)
         self.assertEqual(BASIC_EXAMPLE['apporoval_request_id'], sot.apporoval_request_id)
         self.assertEqual(BASIC_EXAMPLE['status'], sot.status)
