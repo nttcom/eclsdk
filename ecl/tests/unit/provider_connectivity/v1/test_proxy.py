@@ -27,11 +27,9 @@ class TestTenantConnectionProxy(test_proxy_base2.TestProxyBase):
                            _tc_request.TenantConnectionRequest,
                            method_kwargs={
                                "tenant_id_other": "tenant_id_other",
-                               "tenant_id": "tenant_id",
                                "network_id": "network_id"},
                            expected_kwargs={
                                "tenant_id_other": "tenant_id_other",
-                               "tenant_id": "tenant_id",
                                "network_id": "network_id"})
 
     def test_tenant_connection_request_delete(self):
