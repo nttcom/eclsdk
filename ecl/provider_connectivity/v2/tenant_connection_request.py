@@ -28,7 +28,6 @@ class TenantConnectionRequest(ProviderConnectivityBaseResource):
         'tenant_id_other',
         'network_id',
         'approval_request_id',
-        'keystone_user_id',
     )
 
     #: tenant_connection_request unique ID.
@@ -48,10 +47,6 @@ class TenantConnectionRequest(ProviderConnectivityBaseResource):
 
     #: Tags
     tags = resource2.Body('tags')
-
-    #: Keystone User ID who can access to the owner tenant of
-    # tenant_connection_request.
-    keystone_user_id = resource2.Body('keystone_user_id')
 
     #: Tenant ID of the owner.
     tenant_id = resource2.Body('tenant_id')

@@ -26,14 +26,10 @@ class TestTenantConnectionProxy(test_proxy_base2.TestProxyBase):
         self.verify_create(self.proxy.create_tenant_connection_request,
                            _tc_request.TenantConnectionRequest,
                            method_kwargs={
-                               "keystone_user_id": "test_id",
                                "tenant_id_other": "tenant_id_other",
-                               "tenant_id": "tenant_id",
                                "network_id": "network_id"},
                            expected_kwargs={
-                               "keystone_user_id": "test_id",
                                "tenant_id_other": "tenant_id_other",
-                               "tenant_id": "tenant_id",
                                "network_id": "network_id"})
 
     def test_tenant_connection_request_delete(self):
