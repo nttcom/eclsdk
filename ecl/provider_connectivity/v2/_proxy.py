@@ -164,15 +164,12 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(
             _tc_request.TenantConnectionRequest, paginated=False, **query))
 
-    def create_tenant_connection_request(self, keystone_user_id,
-                                         tenant_id_other, tenant_id,
+    def create_tenant_connection_request(self,
+                                         tenant_id_other,
                                          network_id, **params):
         """Create a tenant_connection_request resource.
 
-        :param keystone_user_id: Keystone User ID who can access to the
-                        owner tenant of tenant_connection_request
         :param tenant_id_other: The owner tenant of network
-        :param tenant_id: The owner tenant of tenant_connection_request
         :param network_id: Network unique id
         :param params:
                 name: Name of tenant_connection_request.
@@ -192,10 +189,6 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = params.get("description")
         if params.get("tags"):
             body["tags"] = params.get("tags")
-        if params.get("keystone_user_id"):
-            body["keystone_user_id"] = params.get("keystone_user_id")
-        if params.get("tenant_id"):
-            body["tenant_id"] = params.get("tenant_id")
         return self._create(_tc_request.TenantConnectionRequest, **body)
 
     def update_tenant_connection_request(self, tenant_connection_request,
