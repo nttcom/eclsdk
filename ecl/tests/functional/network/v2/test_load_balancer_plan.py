@@ -34,6 +34,8 @@ class TestLoadBalancerPlan(base.BaseFunctionalTest):
         self.assertIsInstance(plan.model, dict)
         self.assertIsInstance(plan.vendor, six.string_types)
         self.assertIsInstance(plan.version, six.string_types)
+        self.assertIsInstance(plan.enabled, six.integer_types)
+        self.assertIsInstance(plan.update_enabled, six.integer_types)
 
     def test_03_find_LB_plan(self):
         plan = self.conn.network.find_load_balancer_plan(
@@ -46,3 +48,5 @@ class TestLoadBalancerPlan(base.BaseFunctionalTest):
         self.assertIsInstance(plan.model, dict)
         self.assertIsInstance(plan.vendor, six.string_types)
         self.assertIsInstance(plan.version, six.string_types)
+        self.assertIsInstance(plan.enabled, six.integer_types)
+        self.assertIsInstance(plan.update_enabled, six.integer_types)
