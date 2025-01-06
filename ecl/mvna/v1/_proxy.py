@@ -348,7 +348,8 @@ class Proxy(proxy2.BaseProxy):
                      ignore_missing=ignore_missing)
 
     def upload_certificate(self,
-                           certificate_id, certificate_type, certificate_content, passphrase):
+                           certificate_id, certificate_type, certificate_content,
+                           passphrase=None):
         """Upload the Certificate.
 
         :param string certificate_id: ID of Certificate
@@ -357,7 +358,9 @@ class Proxy(proxy2.BaseProxy):
         :param string passphrase: Passphrase of Certificate
         :return: None
         """
-        body = {'type': certificate_type, 'content': certificate_content, 'passphrase': passphrase}
+        body = {'type': certificate_type, 'content': certificate_content}
+        if passphrase is not None:
+            body["passphrase"] = passphrase
         certificate = _certificate.Certificate()
         certificate.upload(self.session, certificate_id, **body)
 
@@ -755,7 +758,7 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
-        if persistence is not None:
+        if persistence_timeout is not None:
             body["persistence_timeout"] = persistence_timeout
         if idle_timeout is not None:
             body["idle_timeout"] = idle_timeout
@@ -1108,15 +1111,13 @@ class Proxy(proxy2.BaseProxy):
         rule = _rule.Rule()
         return rule.get_resource(self.session, rule_id, changes)
 
-    def update_rule(self, rule_id, name=None, description=None, tags=None,
-                    backup_target_group_id=None):
+    def update_rule(self, rule_id, name=None, description=None, tags=None):
         """Update Rule Attributes.
 
         :param string rule_id: ID of Rule
         :param string name: Name of Rule
         :param string description: Description of Rule
         :param dict tags: Tags of Rule
-        :param string backup_target_group_id: Backup Target group ID of Rule
         :return: Rule
         """
         body = {}
@@ -1126,8 +1127,6 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         if tags is not None:
             body["tags"] = tags
-        if backup_target_group_id is not None:
-            body["backup_target_group_id"] = backup_target_group_id
         return self._update(_rule.Rule, rule_id, **body)
 
     def delete_rule(self, rule_id, ignore_missing=False):
