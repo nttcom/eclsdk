@@ -348,15 +348,19 @@ class Proxy(proxy2.BaseProxy):
                      ignore_missing=ignore_missing)
 
     def upload_certificate(self,
-                           certificate_id, certificate_type, certificate_content):
+                           certificate_id, certificate_type, certificate_content,
+                           passphrase=None):
         """Upload the Certificate.
 
         :param string certificate_id: ID of Certificate
         :param string certificate_type: Type of Certificate
         :param string certificate_content: File content of Certificate
+        :param string passphrase: Passphrase of Certificate
         :return: None
         """
         body = {'type': certificate_type, 'content': certificate_content}
+        if passphrase is not None:
+            body["passphrase"] = passphrase
         certificate = _certificate.Certificate()
         certificate.upload(self.session, certificate_id, **body)
 
@@ -713,8 +717,9 @@ class Proxy(proxy2.BaseProxy):
     def create_policy(self, health_monitor_id, listener_id,
                       default_target_group_id, load_balancer_id,
                       name=None, description=None, tags=None, algorithm=None,
-                      persistence=None, idle_timeout=None, sorry_page_url=None,
-                      source_nat=None, certificate_id=None, tls_policy_id=None
+                      persistence=None, persistence_timeout=None, idle_timeout=None,
+                      sorry_page_url=None, source_nat=None, server_name_indications=None,
+                      certificate_id=None, tls_policy_id=None, backup_target_group_id=None
                       ):
         """Create Policy.
 
@@ -727,11 +732,14 @@ class Proxy(proxy2.BaseProxy):
         :param dict tags: Tags of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
+        :param integer persistence_timeout: Persistence timeout of Policy
         :param integer idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
+        :param array server_name_indications: Server Name Indications of Policy
         :param string certificate_id: Certificate ID
         :param string tls_policy_id: TLS Policy ID
+        :param string backup_target_group_id: Backup Target Group ID
         :return: Policy
         """
         body = {
@@ -750,16 +758,22 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
+        if persistence_timeout is not None:
+            body["persistence_timeout"] = persistence_timeout
         if idle_timeout is not None:
             body["idle_timeout"] = idle_timeout
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if source_nat is not None:
             body["source_nat"] = source_nat
+        if server_name_indications is not None:
+            body["server_name_indications"] = server_name_indications
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
+        if backup_target_group_id is not None:
+            body["backup_target_group_id"] = backup_target_group_id
         return self._create(_policy.Policy, **body)
 
     def get_policy(self, policy_id, changes=None):
@@ -801,25 +815,28 @@ class Proxy(proxy2.BaseProxy):
 
     def create_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           idle_timeout=None, sorry_page_url=None,
-                                           source_nat=None, certificate_id=None,
-                                           health_monitor_id=None,
-                                           listener_id=None,
+                                           persistence_timeout=None, idle_timeout=None,
+                                           sorry_page_url=None, source_nat=None,
+                                           server_name_indications=None, certificate_id=None,
+                                           health_monitor_id=None, listener_id=None,
                                            default_target_group_id=None,
-                                           tls_policy_id=None
+                                           backup_target_group_id=None, tls_policy_id=None
                                            ):
         """Create Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
+        :param integer persistence_timeout: Persistence timeout of Policy
         :param integer idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
+        :param array server_name_indications: Server Name Indications of Policy
         :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
+        :param string backup_target_group_id: Backup Target Group ID
         :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
@@ -828,12 +845,16 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
+        if persistence_timeout is not None:
+            body["persistence_timeout"] = persistence_timeout
         if idle_timeout is not None:
             body["idle_timeout"] = idle_timeout
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if source_nat is not None:
             body["source_nat"] = source_nat
+        if server_name_indications is not None:
+            body["server_name_indications"] = server_name_indications
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if health_monitor_id is not None:
@@ -842,6 +863,8 @@ class Proxy(proxy2.BaseProxy):
             body["listener_id"] = listener_id
         if default_target_group_id is not None:
             body["default_target_group_id"] = default_target_group_id
+        if backup_target_group_id is not None:
+            body["backup_target_group_id"] = backup_target_group_id
         if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
 
@@ -860,25 +883,28 @@ class Proxy(proxy2.BaseProxy):
 
     def update_staged_policy_configuration(self, policy_id,
                                            algorithm=None, persistence=None,
-                                           idle_timeout=None, sorry_page_url=None,
-                                           source_nat=None, certificate_id=None,
-                                           health_monitor_id=None,
-                                           listener_id=None,
+                                           persistence_timeout=None, idle_timeout=None,
+                                           sorry_page_url=None, source_nat=None,
+                                           server_name_indications=None, certificate_id=None,
+                                           health_monitor_id=None, listener_id=None,
                                            default_target_group_id=None,
-                                           tls_policy_id=None
+                                           backup_target_group_id=None, tls_policy_id=None
                                            ):
         """Update Staged Policy Configuration.
 
         :param string policy_id: ID of Policy
         :param string algorithm: Algorithm of Policy
         :param string persistence: Persistence of Policy
+        :param integer persistence_timeout: Persistence timeout of Policy
         :param integer idle_timeout: Idle Timeout of Policy
         :param string sorry_page_url: Sorry page URL
         :param string source_nat: Source NAT
+        :param array server_name_indications: Server Name Indications of Policy
         :param string certificate_id: Certificate ID
         :param string health_monitor_id: Health Monitor ID of Policy
         :param string listener_id: Listener ID of Policy
         :param string default_target_group_id: Default Target Group ID
+        :param string backup_target_group_id: Backup Target Group ID
         :param string tls_policy_id: TLS Policy ID
         :return: Policy
         """
@@ -887,12 +913,16 @@ class Proxy(proxy2.BaseProxy):
             body["algorithm"] = algorithm
         if persistence is not None:
             body["persistence"] = persistence
+        if persistence_timeout is not None:
+            body["persistence_timeout"] = persistence_timeout
         if idle_timeout is not None:
             body["idle_timeout"] = idle_timeout
         if sorry_page_url is not None:
             body["sorry_page_url"] = sorry_page_url
         if source_nat is not None:
             body["source_nat"] = source_nat
+        if server_name_indications is not None:
+            body["server_name_indications"] = server_name_indications
         if certificate_id is not None:
             body["certificate_id"] = certificate_id
         if health_monitor_id is not None:
@@ -901,6 +931,8 @@ class Proxy(proxy2.BaseProxy):
             body["listener_id"] = listener_id
         if default_target_group_id is not None:
             body["default_target_group_id"] = default_target_group_id
+        if backup_target_group_id is not None:
+            body["backup_target_group_id"] = backup_target_group_id
         if tls_policy_id is not None:
             body["tls_policy_id"] = tls_policy_id
 
@@ -1040,7 +1072,7 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(_rule.Rule, paginated=False, **params))
 
     def create_rule(self, priority, target_group_id, policy_id, conditions,
-                    name=None, description=None, tags=None):
+                    name=None, description=None, tags=None, backup_target_group_id=None):
         """Create Rule.
 
         :param string priority: Priority of Rule
@@ -1050,6 +1082,7 @@ class Proxy(proxy2.BaseProxy):
         :param string name: Name of Rule
         :param string description: Description of Rule
         :param dict tags: Tags of Rule
+        :param string backup_target_group_id: Backup Target group ID of Rule
         :return: Rule
         """
         body = {
@@ -1064,6 +1097,8 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         if tags is not None:
             body["tags"] = tags
+        if backup_target_group_id is not None:
+            body["backup_target_group_id"] = backup_target_group_id
         return self._create(_rule.Rule, **body)
 
     def get_rule(self, rule_id, changes=None):
@@ -1109,12 +1144,13 @@ class Proxy(proxy2.BaseProxy):
 
     def create_staged_rule_configuration(
             self, rule_id,
-            priority=None, target_group_id=None, conditions=None):
+            priority=None, target_group_id=None, backup_target_group_id=None, conditions=None):
         """Create Staged Rule Configuration.
 
         :param string rule_id: ID of Rule
         :param string priority: Priority of Rule
         :param string target_group_id: Target Group ID of Rule
+        :param string backup_target_group_id: Backup Target group ID of Rule
         :param string conditions: Conditions of Rule
         :return: Rule
         """
@@ -1123,6 +1159,8 @@ class Proxy(proxy2.BaseProxy):
             body["priority"] = priority
         if target_group_id is not None:
             body["target_group_id"] = target_group_id
+        if backup_target_group_id is not None:
+            body["backup_target_group_id"] = backup_target_group_id
         if conditions is not None:
             body["conditions"] = conditions
 
@@ -1140,12 +1178,13 @@ class Proxy(proxy2.BaseProxy):
 
     def update_staged_rule_configuration(
             self, rule_id,
-            priority=None, target_group_id=None, conditions=None):
+            priority=None, target_group_id=None, backup_target_group_id=None, conditions=None):
         """Create Staged Rule Configuration.
 
         :param string rule_id: ID of Rule
         :param string priority: Priority of Rule
         :param string target_group_id: Target Group ID of Rule
+        :param string backup_target_group_id: Backup Target group ID of Rule
         :param string conditions: Conditions of Rule
         :return: Rule
         """
@@ -1154,6 +1193,8 @@ class Proxy(proxy2.BaseProxy):
             body["priority"] = priority
         if target_group_id is not None:
             body["target_group_id"] = target_group_id
+        if backup_target_group_id is not None:
+            body["backup_target_group_id"] = backup_target_group_id
         if conditions is not None:
             body["conditions"] = conditions
 

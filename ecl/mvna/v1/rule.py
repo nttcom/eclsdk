@@ -18,6 +18,7 @@ class Rule(base.MVNABaseResource):
         "operation_status",
         "priority",
         "target_group_id",
+        "backup_target_group_id",
         "policy_id",
         "load_balancer_id",
         "tenant_id"
@@ -48,6 +49,8 @@ class Rule(base.MVNABaseResource):
     priority = resource2.Body('priority')
     #: Target group ID of rule
     target_group_id = resource2.Body('target_group_id')
+    #: Backup Target group ID of rule
+    backup_target_group_id = resource2.Body('backup_target_group_id')
     #: Policy ID of rule
     policy_id = resource2.Body('policy_id')
     #: Load balancer ID of rule

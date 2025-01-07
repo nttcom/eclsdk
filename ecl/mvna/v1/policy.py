@@ -18,6 +18,7 @@ class Policy(base.MVNABaseResource):
         "operation_status",
         "algorithm",
         "persistence",
+        "persistence_timeout",
         "idle_timeout",
         "sorry_page_url",
         "source_nat",
@@ -25,6 +26,7 @@ class Policy(base.MVNABaseResource):
         "health_monitor_id",
         "listener_id",
         "default_target_group_id",
+        "backup_target_group_id",
         "tls_policy_id",
         "load_balancer_id",
         "tenant_id"
@@ -55,6 +57,8 @@ class Policy(base.MVNABaseResource):
     algorithm = resource2.Body('algorithm')
     #: persistence of policy
     persistence = resource2.Body('persistence')
+    #: persistence timeout of policy
+    persistence_timeout = resource2.Body('persistence_timeout')
     #: Idle Timeout of policy
     idle_timeout = resource2.Body('idle_timeout')
 
@@ -62,6 +66,8 @@ class Policy(base.MVNABaseResource):
     sorry_page_url = resource2.Body('sorry_page_url')
     #: Source NAT of policy
     source_nat = resource2.Body('source_nat')
+    #: Server Name Indications of policy
+    server_name_indications = resource2.Body('server_name_indications')
     #: Certificate ID of policy
     certificate_id = resource2.Body('certificate_id')
     #: TLS policy ID of policy
@@ -73,6 +79,8 @@ class Policy(base.MVNABaseResource):
     listener_id = resource2.Body('listener_id')
     #: Default target group ID of policy
     default_target_group_id = resource2.Body('default_target_group_id')
+    #: Backup target group ID of policy
+    backup_target_group_id = resource2.Body('backup_target_group_id')
     #: Load balancer ID of policy
     load_balancer_id = resource2.Body('load_balancer_id')
     #: Tenant ID of policy
