@@ -25,6 +25,7 @@ class Plan(resource2.Resource):
         "max_number_of_rules",
         "max_number_of_conditions",
         "max_number_of_members",
+        "max_number_of_server_name_indications",
         "enabled"
     )
 
@@ -66,5 +67,7 @@ class Plan(resource2.Resource):
     max_number_of_conditions = resource2.Body('max_number_of_conditions')
     #: Max number of members
     max_number_of_members = resource2.Body('max_number_of_members')
+    #: Max number of server name indications
+    max_number_of_server_name_indications = resource2.Body('max_number_of_server_name_indications')
     #: Enabled or disabled
     enabled = resource2.Body('enabled')
