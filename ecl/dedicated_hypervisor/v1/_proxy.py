@@ -264,3 +264,45 @@ class Proxy(proxy2.BaseProxy):
         """
         cfgw = _server.CFGWConnection()
         return cfgw.update_cfgw_connection(self.session, server_id)
+
+    def show_vcenter(self):
+        """
+        Shows the registered vCenter server information.
+
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        instance.
+        """
+        vcenter = _server.Vcenter()
+        return vcenter.show_vcenter(self.session)
+
+    def register_vcenter(self):
+        """
+        Register the vCenter Server.
+
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        instance.
+        """
+        vcenter = _server.Vcenter()
+        return vcenter.register_vcenter(self.session)
+
+    def update_vcenter(self, vcenter_id):
+        """
+        Updates the registered vCenter server information.
+
+        :param string vcenter_id: ID for the vcenter server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        instance.
+        """
+        vcenter = _server.Vcenter(vcenter_id)
+        return vcenter.update_vcenter(self.session, vcenter_id)
+
+    def delete_vcenter(self, tennant_id, vcenter_id):
+        """
+        Deletes the registered vCenter server.
+
+        :param string vcenter_id: ID for the vcenter server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        instance.
+        """
+        vcenter = _server.Vcenter(vcenter_id)
+        return vcenter.delete_vcenter(self.session, vcenter_id)
