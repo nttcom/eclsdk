@@ -61,8 +61,6 @@ class Server(resource2.Resource):
     availability_zone = resource2.Body('availability_zone')
     #: Connection between the server and common function gateway network is established or not.
     cfgw_connection_status = resource2.Body('cfgw_connection_status')
-    #: Detail of vCenter server.
-    vcenter_server = resource2.Body('vcenter_server')
 
 
 class ServerDetail(Server):
@@ -159,80 +157,6 @@ class CFGWConnection(Server):
             instance.
         """
         uri = self.base_path % server_id
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service
-        )
-        self._translate_response(resp)
-        return self
-
-
-class Vcenter(Server):
-    resource_key = "vcenters"
-    base_path = '/%s/vcenters'
-
-    id = resource2.Body('id')
-    vcenter = resource2.Body('vcenter')
-
-    def show_vcenter(self, session):
-        """
-        Shows the registered vCenter server information.
-
-        :param session: The session to use for making this request.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
-            instance.
-        """
-        uri = self.base_path
-        resp = session.get(
-            uri,
-            endpoint_filter=self.service
-        )
-        self._translate_response(resp)
-        return self
-
-    def register_vcenter(self, session):
-        """
-        Register the vCenter Server.
-
-        :param session: The session to use for making this request.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
-            instance.
-        """
-        uri = self.base_path
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service
-        )
-        self._translate_response(resp)
-        return self
-
-    def update_vcenter(self, session, vcenter_id):
-        """
-        Updates the registered vCenter server information.
-
-        :param session: The session to use for making this request.
-        :param string vcenter_id: ID for the  Vcenter Server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
-            instance.
-        """
-        uri = self.base_path % vcenter_id
-        resp = session.get(
-            uri,
-            endpoint_filter=self.service
-        )
-        self._translate_response(resp)
-        return self
-
-    def delete_vcenter(self, session, vcenter_id):
-        """
-        Deletes the registered vCenter server.
-
-        :param session: The session to use for making this request.
-        :param string vcenter_id: ID for the Vcenter Server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
-            instance.
-        """
-        uri = self.base_path % vcenter_id
         resp = session.post(
             uri,
             endpoint_filter=self.service
