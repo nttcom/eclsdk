@@ -15,6 +15,7 @@ from ecl.dedicated_hypervisor.v1 import license_type as _license_type
 from ecl.dedicated_hypervisor.v1 import server as _server
 from ecl.dedicated_hypervisor.v1 import usage as _usage
 from ecl.dedicated_hypervisor.v1 import vcf as _vcf
+from ecl.dedicated_hypervisor.v1 import vcenter as _vcenter
 from ecl import proxy2
 
 
@@ -269,34 +270,52 @@ class Proxy(proxy2.BaseProxy):
         """
         Shows the registered vCenter server information.
 
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.show_vcenter`
         instance.
         """
-        vcenter = _server.Vcenter()
-        return vcenter.show_vcenter(self.session)
 
-    def register_vcenter(self):
+        return _vcenter.Vcenter.show_vcenter(self.session)
+
+    def register_vcenter(self, password, license_id):
         """
         Register the vCenter Server.
 
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        :param password: The password of vCenter server. Available character is
+                1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+                .-_/*+,!#$%&()~|].
+        :param string license_id: ID for license of vCenter server.
+
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.register_vcenter`
         instance.
         """
-        vcenter = _server.Vcenter()
-        return vcenter.register_vcenter(self.session)
 
-    def update_vcenter(self, vcenter_id):
+        body = {}
+        body["password"] = password
+        body["license_id"] = license_id
+
+        return _vcenter.Vcenter.register_vcenter(**body)
+
+    def update_vcenter(self, vcenter_id, password, license_id):
         """
         Updates the registered vCenter server information.
 
         :param string vcenter_id: ID for the vcenter server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
+        :param password: The password of vCenter server. Available character is
+                1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+                .-_/*+,!#$%&()~|].
+        :param string license_id: ID for license of vCenter server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.update_vcenter`
         instance.
         """
-        vcenter = _server.Vcenter(vcenter_id)
-        return vcenter.update_vcenter(self.session, vcenter_id)
+        body = {}
+        if password:
+            body["password"] = password
+        if license_id:
+            body["license_id"] = license_id
 
-    def delete_vcenter(self, tennant_id, vcenter_id):
+        return _vcenter.Vcenter.update_vcenter(vcenter_id, **body)
+
+    def delete_vcenter(self, vcenter_id, ignore_missing=False):
         """
         Deletes the registered vCenter server.
 
@@ -304,5 +323,4 @@ class Proxy(proxy2.BaseProxy):
         :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
         instance.
         """
-        vcenter = _server.Vcenter(vcenter_id)
-        return vcenter.delete_vcenter(self.session, vcenter_id)
+        return self._delete(vcenter_id ,ignore_missing=ignore_missing)
