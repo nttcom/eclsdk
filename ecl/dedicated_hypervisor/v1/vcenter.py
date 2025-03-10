@@ -14,8 +14,8 @@ from ecl.dedicated_hypervisor import dedicated_hypervisor_service
 from ecl import resource2
 
 
-class Vcenter(resource2.Resource):
-    resources_key = "vcenter"
+class VCenter(resource2.Resource):
+    resources_key = "vcenters"
     resource_key = "vcenter"
     base_path = '/vcenters'
     service = dedicated_hypervisor_service.DedicatedHypervisorService()
@@ -23,15 +23,14 @@ class Vcenter(resource2.Resource):
     # Capabilities
     allow_list = True
     allow_create = True
+    allow_update = True
     allow_delete = True
-
-    _query_mapping = resource2.QueryParameters("vcenters")
 
     # Properties
     #: id of vCenter Server.
     id = resource2.Body('id')
     #: local address.
-    local_address = resource2.Body('link_local_address')
+    link_local_address = resource2.Body('link_local_address')
     #: status for connection.
     metering_health = resource2.Body('metering_health')
     #: type of health error.
@@ -41,32 +40,22 @@ class Vcenter(resource2.Resource):
     #: name of vCenter server
     instance_name = resource2.Body('instance_name')
 
-    def show_vcenter(self, session):
-        uri = self.base_path
-        resp = session.get(
-            uri,
-            endpoint_filter=self.service
-        )
-        self._translate_response(resp)
-        return self
-
-    def register_vcenter(self, session, password, license_id):
-        url = self.base_path
-        resp = session.post(url, endpoint_filter = self.service,
+    def register(self, session, password, license_id):
+        resp = session.post(self.base_path, endpoint_filter = self.service,
                             json={"password": password,
-                                  "Licence_id": license_id})
+                                  "licence_id": license_id})
         self._translate_response(resp, has_body=True)
         return self
 
-    def update_vcenter(self, session, vcenter_id, password, license_id):
-        uri = self.base_path + vcenter_id
+    def update(self, session, vcenter_id, password, license_id):
         params = {}
         if password:
             params['password'] = password
         if license_id:
             params['license_id'] = license_id
 
-        resp = session.post(
+        uri = self.base_path + vcenter_id
+        resp = session.put(
             uri,
             endpoint_filter=self.service,
             json=params

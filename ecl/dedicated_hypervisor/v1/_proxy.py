@@ -270,11 +270,9 @@ class Proxy(proxy2.BaseProxy):
         """
         Shows the registered vCenter server information.
 
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.show_vcenter`
-        instance.
+        :return: :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         """
-
-        return _vcenter.Vcenter.show_vcenter(self.session)
+        return list(self._list(_vcenter.VCenter))
 
     def register_vcenter(self, password, license_id):
         """
@@ -285,17 +283,13 @@ class Proxy(proxy2.BaseProxy):
                 .-_/*+,!#$%&()~|].
         :param string license_id: ID for license of vCenter server.
 
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.register_vcenter`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         instance.
         """
 
-        body = {}
-        body["password"] = password
-        body["license_id"] = license_id
+        return _vcenter.VCenter.register(self.session, password, license_id)
 
-        return _vcenter.Vcenter.register_vcenter(**body)
-
-    def update_vcenter(self, vcenter_id, password, license_id):
+    def update_vcenter(self, vcenter_id, password=None, license_id=None):
         """
         Updates the registered vCenter server information.
 
@@ -304,23 +298,23 @@ class Proxy(proxy2.BaseProxy):
                 1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
                 .-_/*+,!#$%&()~|].
         :param string license_id: ID for license of vCenter server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.update_vcenter`
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         instance.
         """
-        body = {}
-        if password:
-            body["password"] = password
-        if license_id:
-            body["license_id"] = license_id
 
-        return _vcenter.Vcenter.update_vcenter(vcenter_id, **body)
+        return _vcenter.VCenter.update(self.session, vcenter_id, password, license_id)
 
     def delete_vcenter(self, vcenter_id, ignore_missing=False):
         """
         Deletes the registered vCenter server.
 
         :param string vcenter_id: ID for the vcenter server.
-        :return: One :class:`~ecl.dedicated_hypervisor.v1.server.Vcenter`
-        instance.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the server does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent server
+        :returns: ``None``
         """
-        return self._delete(vcenter_id ,ignore_missing=ignore_missing)
+        return self._delete(_vcenter.VCenter, vcenter_id ,
+                            ignore_missing=ignore_missing)
