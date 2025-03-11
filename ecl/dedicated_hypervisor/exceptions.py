@@ -13,7 +13,7 @@ class HttpException(exceptions.HttpException):
 
             # vCenter error case.
             key = content.keys()[0]
-            return '[' + str(content[key]['code']) + '] ' + content[key]['message']
+            return content[key]['message']
 
         except:
             pass
