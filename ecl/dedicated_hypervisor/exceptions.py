@@ -12,8 +12,8 @@ class HttpException(exceptions.HttpException):
             content = json.loads(self.response._content.decode('utf-8'))
 
             # vCenter error case.
-            if content.get('code') and content.get('message'):
-                return '[' + str(content['code']) + '] ' + content['message']
+            key = content.keys()[0]
+            return '[' + str(content[key]['code']) + '] ' + content[key]['message']
 
         except:
             pass
