@@ -54,7 +54,7 @@ class VCenter(resource2.Resource):
         if license_id:
             params['license_id'] = license_id
 
-        uri = self.base_path + vcenter_id
+        uri = self.base_path + '/' + vcenter_id
         resp = session.put(
             uri,
             endpoint_filter=self.service,

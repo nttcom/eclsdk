@@ -270,7 +270,8 @@ class Proxy(proxy2.BaseProxy):
         """
         Shows the registered vCenter server information.
 
-        :return: :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        :return: A list of the vCenter servers
+        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         instance.
         """
         return list(self._list(_vcenter.VCenter))
