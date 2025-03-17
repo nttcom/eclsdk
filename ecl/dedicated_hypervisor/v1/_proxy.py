@@ -15,6 +15,7 @@ from ecl.dedicated_hypervisor.v1 import license_type as _license_type
 from ecl.dedicated_hypervisor.v1 import server as _server
 from ecl.dedicated_hypervisor.v1 import usage as _usage
 from ecl.dedicated_hypervisor.v1 import vcf as _vcf
+from ecl.dedicated_hypervisor.v1 import vcenter as _vcenter
 from ecl import proxy2
 
 
@@ -264,3 +265,58 @@ class Proxy(proxy2.BaseProxy):
         """
         cfgw = _server.CFGWConnection()
         return cfgw.update_cfgw_connection(self.session, server_id)
+
+    def show_vcenter(self):
+        """
+        Shows the registered vCenter server information.
+
+        :return: A list of the vCenter servers
+        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+        return list(self._list(_vcenter.VCenter))
+
+    def register_vcenter(self, password, license_id):
+        """
+        Register the vCenter Server.
+
+        :param password: The password of vCenter server. Available character is
+                1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+                .-_/*+,!#$%&()~|].
+        :param string license_id: ID for license of vCenter server.
+
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+
+        return _vcenter.VCenter.register(self.session, password, license_id)
+
+    def update_vcenter(self, vcenter_id, password=None, license_id=None):
+        """
+        Updates the registered vCenter server information.
+
+        :param string vcenter_id: ID for the vcenter server.
+        :param password: The password of vCenter server. Available character is
+                1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+                .-_/*+,!#$%&()~|].
+        :param string license_id: ID for license of vCenter server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+
+        return _vcenter.VCenter.update(self.session, vcenter_id, password, license_id)
+
+    def delete_vcenter(self, vcenter_id, ignore_missing=False):
+        """
+        Deletes the registered vCenter server.
+
+        :param string vcenter_id: ID for the vcenter server.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the server does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent server
+        :returns: ``None``
+        """
+        return self._delete(_vcenter.VCenter, vcenter_id ,
+                            ignore_missing=ignore_missing)
