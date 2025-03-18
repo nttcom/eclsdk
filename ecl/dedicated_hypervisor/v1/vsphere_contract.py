@@ -14,7 +14,7 @@ from ecl.dedicated_hypervisor import dedicated_hypervisor_service
 from ecl import resource2
 
 
-class VsphereContract(resource2.Resource):
+class VSphereContract(resource2.Resource):
     resources_key = 'vsphere_contracts'
     resource_key = 'vsphere_contract'
     base_path = '/vsphere_contracts'
@@ -52,24 +52,29 @@ class VsphereContract(resource2.Resource):
             vsphere_contracts.append(vsphere_contract)
         return vsphere_contracts, all_server_cores, vsphere_contracts_histories
 
-    def manage_vsphere_contract(self, session, contract_year, cores):
-        params = {}
-        params['contract_year'] = contract_year
-        params['cores'] = cores
-        resp = session.put(
+    def manage(self, session, contract_year, cores):
+        params = {
+            'contract_year': contract_year,
+            'cores': cores
+        }
+        resp = session.post(
             self.base_path,
             endpoint_filter=self.service,
             json={self.resource_key: params}
         )
+        body = resp.json()
+        vsphere_contract = body[self.resource_key]
+        if vsphere_contract is None or len(vsphere_contract) == 0:
+            return None
         self._translate_response(resp)
         return self
 
-    def renewal_vsphere_contract(self, session, contract_year, contract_renewal=None):
+    def renewal(self, session, contract_year, contract_renewal=None):
         params = {}
         params['contract_year'] = contract_year
         if contract_renewal:
             params['contract_renewal'] = contract_renewal
-        resp = session.post(
+        resp = session.put(
             self.base_path,
             endpoint_filter=self.service,
             json={self.resource_key: params}
