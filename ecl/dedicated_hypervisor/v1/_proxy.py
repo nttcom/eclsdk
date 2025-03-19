@@ -288,8 +288,8 @@ class Proxy(proxy2.BaseProxy):
         :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         instance.
         """
-
-        return _vcenter.VCenter.register(self.session, password, license_id)
+        vcenter = _vcenter.VCenter()
+        return vcenter.register(self.session, password, license_id)
 
     def update_vcenter(self, vcenter_id, password=None, license_id=None):
         """
@@ -303,8 +303,8 @@ class Proxy(proxy2.BaseProxy):
         :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         instance.
         """
-
-        return _vcenter.VCenter.update(self.session, vcenter_id, password, license_id)
+        vcenter = _vcenter.VCenter()
+        return vcenter.update(self.session, vcenter_id, password, license_id)
 
     def delete_vcenter(self, vcenter_id, ignore_missing=False):
         """
