@@ -16,6 +16,7 @@ from ecl.dedicated_hypervisor.v1 import server as _server
 from ecl.dedicated_hypervisor.v1 import usage as _usage
 from ecl.dedicated_hypervisor.v1 import vcf as _vcf
 from ecl.dedicated_hypervisor.v1 import vcenter as _vcenter
+from ecl.dedicated_hypervisor.v1 import vsphere_contract as _vsphere_contract
 from ecl import proxy2
 
 
@@ -320,3 +321,43 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_vcenter.VCenter, vcenter_id ,
                             ignore_missing=ignore_missing)
+
+    def vsphere_contracts(self):
+        """
+        List vSphere Contracts.
+
+        :returns:
+            vsphere_contracts: A list of the vSphere Contracts
+            all_server_cores: The total cores of your vSphere ESXi server.
+            vsphere_contracts_histories: A list of the vSphere contracts histories.
+        :rtype:
+            vsphere_contracts: list of :class:`~ecl.dedicated_hypervisor.v1._vsphere_contract.VSphereContract` instance.
+            all_server_cores: integer
+            vsphere_contracts_histories: dict
+        """
+        vsphere_contract = _vsphere_contract.VSphereContract()
+        return vsphere_contract.list(self.session)
+
+    def manage_vsphere_contract(self, contract_year, cores):
+        """
+        Manage vSphere Contracts.
+
+        :param integer contract_year: The number of years of the contract. You can specify 1 or 3.
+        :param integer cores: The number of cores to be added to your contract.
+        :return: vSphere Contract.
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1._vsphere_contract.VSphereContract`
+        """
+        vsphere_contract = _vsphere_contract.VSphereContract()
+        return vsphere_contract.manage(self.session, contract_year, cores)
+
+    def renewal_vsphere_contract(self, contract_year, contract_renewal=None):
+        """
+        Enable/Disable Contract Renewal.
+
+        :param integer contract_year: The number of years of the contract. You can specify 1 or 3.
+        :param bool contract_renewal: The flag that you renew your contract or not.
+        :return: vSphere Contract.
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1._vsphere_contract.VSphereContract`
+        """
+        vsphere_contract = _vsphere_contract.VSphereContract()
+        return vsphere_contract.renewal(self.session, contract_year, contract_renewal)
