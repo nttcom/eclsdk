@@ -41,9 +41,15 @@ class VCenter(resource2.Resource):
     instance_name = resource2.Body('instance_name')
 
     def register(self, session, password, license_id):
-        resp = session.post(self.base_path, endpoint_filter = self.service,
-                            json={"password": password,
-                                  "licence_id": license_id})
+        params = {
+            "password": password,
+            "license_id": license_id
+        }
+        resp = session.post(
+            self.base_path,
+            endpoint_filter = self.service,
+            json={self.resource_key: params}
+        )
         self._translate_response(resp, has_body=True)
         return self
 
@@ -58,7 +64,7 @@ class VCenter(resource2.Resource):
         resp = session.put(
             uri,
             endpoint_filter=self.service,
-            json=params
+            json={self.resource_key: params}
         )
         self._translate_response(resp, has_body=True)
         return self
