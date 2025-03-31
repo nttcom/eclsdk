@@ -23,6 +23,7 @@ from collections import namedtuple
 
 from keystoneauth1 import exceptions as _exceptions
 from keystoneauth1 import session as _session
+from keystoneauth1.session import _Retries as Retries
 
 from ecl import exceptions
 from ecl import utils
@@ -363,13 +364,35 @@ class Session(_session.Session):
             pass
         return content
 
-    def _send_request(self, url, method, redirect, log, logger,
-                      connect_retries, connect_retry_delay=0.5, **kwargs):
+    def _send_request(self,
+                      url,
+                      method,
+                      redirect,
+                      log,
+                      logger,
+                      connect_retries,
+                      split_loggers=False,
+                      status_code_retries=0,
+                      retriable_status_codes=(),
+                      rate_semaphore=None,
+                      connect_retry_delays=Retries(0.5),
+                      status_code_retry_delays=Retries(0.5),
+                      **kwargs):
         resp = super(Session, self)._send_request(
-            url, method, redirect, log,
-            logger, connect_retries,
-            connect_retry_delay=connect_retry_delay,
+            url,
+            method,
+            redirect,
+            log,
+            logger,
+            split_loggers,             # ty.Optional[bool]
+            connect_retries,           # int
+            status_code_retries,       # int
+            retriable_status_codes,    # list[int]
+            rate_semaphore,            # ty.ContextManager[None]
+            connect_retry_delays,       # _Retries
+            status_code_retry_delays,  # _Retries
             **kwargs)
+
         if re.match('https:', url):
             try:
                 resp._content = self._replace_discoverd_keystone_url(

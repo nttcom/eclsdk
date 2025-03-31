@@ -30,7 +30,8 @@ There are plenty of examples of use of this class in the SDK code.
 """
 
 import abc
-import collections
+# import collections
+from collections.abc import MutableMapping
 import copy
 import itertools
 import time
@@ -206,7 +207,8 @@ class header(prop):
 
 
 @six.add_metaclass(abc.ABCMeta)
-class Resource(collections.MutableMapping):
+# class Resource(collections.MutableMapping):
+class Resource(MutableMapping):
 
     #: Singular form of key for resource.
     resource_key = None

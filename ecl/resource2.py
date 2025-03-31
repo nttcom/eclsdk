@@ -31,7 +31,8 @@ converted into this Resource class' appropriate components and types
 and then returned to the caller.
 """
 
-import collections
+# import collections
+from collections.abc import MutableMapping
 import itertools
 import time
 
@@ -126,7 +127,8 @@ class URI(_BaseComponent):
     key = "_uri"
 
 
-class _ComponentManager(collections.MutableMapping):
+# class _ComponentManager(collections.MutableMapping):
+class _ComponentManager(MutableMapping):
     """Storage of a component type"""
 
     def __init__(self, attributes=None, synchronized=False):
