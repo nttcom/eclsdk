@@ -62,7 +62,7 @@ class Server(resource2.Resource):
     #: Connection between the server and common function gateway network is established or not.
     cfgw_connection_status = resource2.Body('cfgw_connection_status')
     #: Get the BMDH image name
-    image_name = resource2.Body('image_name')
+    image_name = resource2.Body('imageRef')
 
 
 class ServerDetail(Server):
