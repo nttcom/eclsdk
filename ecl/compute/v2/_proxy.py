@@ -816,3 +816,7 @@ class Proxy(proxy2.BaseProxy):
         :returns: ``None``
         """
         self._delete(_volume.Volume, volume, ignore_missing=ignore_missing)
+
+    def retype_volume(self, volume, volume_type, is_dry_run=False):
+        volume_obj = self.get_volume(volume)
+        return volume_obj.retype(self.session, volume_type, is_dry_run)
