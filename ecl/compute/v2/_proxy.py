@@ -10,8 +10,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
-
 from ecl.compute.v2 import availability_zone as _availability_zone
 from ecl.compute.v2 import extension
 from ecl.compute.v2 import flavor as _flavor
@@ -28,10 +26,6 @@ from ecl.image.v2 import image
 
 from ecl import proxy2
 from ecl import resource2
-
-
-_logger = logging.getLogger(__name__)
-_logger.addHandler(logging.StreamHandler())
 
 
 class Proxy(proxy2.BaseProxy):
@@ -57,7 +51,6 @@ class Proxy(proxy2.BaseProxy):
             * marker: Specifies the ID of the last-seen item.
         :returns: A list of :class:`~ecl.compute.v2.server.Server`
         """
-        _logger.info("IF-14542 servers")
         srv = _server.ServerDetail if details else _server.Server
         return list(self._list(srv, paginated=True, **query))
 
@@ -234,7 +227,7 @@ class Proxy(proxy2.BaseProxy):
         virtual_server = self.get_server(server)
         return virtual_server.stop(self.session)
 
-    def resize_server(self, server, flavor_id):
+    def resize_server(self, server, flavor_id, is_dry_run=False):
         """Resize the server to flavor reference
 
         :param server: Either the ID of a server or a
@@ -242,9 +235,8 @@ class Proxy(proxy2.BaseProxy):
         :param string flavor_id: ID of flavor to resize
         :return: <Response 202>
         """
-        _logger.info("IF-14542 resize_server")
         virtual_server = self.get_server(server)
-        return virtual_server.resize(self.session, flavor_id)
+        return virtual_server.resize(self.session, flavor_id, is_dry_run)
 
     def get_server_metadata(self, server):
         """Return a dictionary of metadata for a server
