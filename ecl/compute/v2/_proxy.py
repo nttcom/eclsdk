@@ -57,7 +57,7 @@ class Proxy(proxy2.BaseProxy):
             * marker: Specifies the ID of the last-seen item.
         :returns: A list of :class:`~ecl.compute.v2.server.Server`
         """
-        _logger.info("servers")
+        _logger.info("IF-14542 servers")
         srv = _server.ServerDetail if details else _server.Server
         return list(self._list(srv, paginated=True, **query))
 
@@ -242,7 +242,7 @@ class Proxy(proxy2.BaseProxy):
         :param string flavor_id: ID of flavor to resize
         :return: <Response 202>
         """
-        _logger.info("resize_server")
+        _logger.info("IF-14542 resize_server")
         virtual_server = self.get_server(server)
         return virtual_server.resize(self.session, flavor_id)
 
