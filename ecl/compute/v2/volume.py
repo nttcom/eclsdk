@@ -8,7 +8,7 @@ from ecl import utils
 class Volume(resource2.Resource):
     resource_key = 'volume'
     resources_key = 'volumes'
-    base_path = '/os-volumes'
+    base_path = '/volumes'
     service = compute_service.ComputeService()
 
     # capabilities
