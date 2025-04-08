@@ -277,10 +277,11 @@ class Proxy(proxy2.BaseProxy):
         """
         return list(self._list(_vcenter.VCenter))
 
-    def register_vcenter(self, password, license_id):
+    def register_vcenter(self, link_local_address, password, license_id):
         """
         Register the vCenter Server.
 
+        :param link_local_address: The IP address that you can assign to your vCenter.
         :param password: The password of vCenter server. Available character is
                 1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
                 .-_/*+,!#$%&()~|].
@@ -290,12 +291,13 @@ class Proxy(proxy2.BaseProxy):
         instance.
         """
         vcenter = _vcenter.VCenter()
-        return vcenter.register(self.session, password, license_id)
+        return vcenter.register(self.session, link_local_address, password, license_id)
 
-    def update_vcenter(self, vcenter_id, password=None, license_id=None):
+    def update_vcenter(self, vcenter_id, link_local_address=None, password=None, license_id=None):
         """
         Updates the registered vCenter server information.
 
+        :param link_local_address: The IP address that you can assign to your vCenter.
         :param string vcenter_id: ID for the vcenter server.
         :param password: The password of vCenter server. Available character is
                 1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
@@ -305,7 +307,7 @@ class Proxy(proxy2.BaseProxy):
         instance.
         """
         vcenter = _vcenter.VCenter()
-        return vcenter.update(self.session, vcenter_id, password, license_id)
+        return vcenter.update(self.session, vcenter_id, link_local_address, password, license_id)
 
     def delete_vcenter(self, vcenter_id, ignore_missing=False):
         """
@@ -321,6 +323,16 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._delete(_vcenter.VCenter, vcenter_id ,
                             ignore_missing=ignore_missing)
+
+    def list_link_local_address(self):
+        """
+        List the link local addresses that you can assign to your vCenter.
+
+        :return: A list of the link local addresses
+        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+        return list(self._list(_vcenter.Link_local_addresses))
 
     def vsphere_contracts(self):
         """
