@@ -22,7 +22,7 @@ class LoadBalancerPlan(resource2.Resource):
 
     _query_mapping = resource2.QueryParameters(
         "description", "id", "name",
-        "vendor", "version", "enabled",
+        "vendor", "version", "enabled", "update_enabled",
         "sort_key", "sort_dir",
     )
 
@@ -46,6 +46,7 @@ class LoadBalancerPlan(resource2.Resource):
     #: Version of load balancer.
     version = resource2.Body("version")
     enabled = resource2.Body("enabled")
+    update_enabled = resource2.Body("update_enabled")
 
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
