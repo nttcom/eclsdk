@@ -40,8 +40,9 @@ class VCenter(resource2.Resource):
     #: name of vCenter server
     instance_name = resource2.Body('instance_name')
 
-    def register(self, session, password, license_id):
+    def register(self, session, link_local_address, password, license_id):
         params = {
+            "link_local_address": link_local_address,
             "password": password,
             "license_id": license_id
         }
@@ -53,8 +54,10 @@ class VCenter(resource2.Resource):
         self._translate_response(resp, has_body=True)
         return self
 
-    def update(self, session, vcenter_id, password, license_id):
+    def update(self, session, vcenter_id, link_local_address, password, license_id):
         params = {}
+        if link_local_address:
+            params['link_local_address'] = link_local_address
         if password:
             params['password'] = password
         if license_id:
@@ -68,3 +71,18 @@ class VCenter(resource2.Resource):
         )
         self._translate_response(resp, has_body=True)
         return self
+
+
+class LinkLocalAddresses(resource2.Resource):
+    base_path = '/vcenters/addresses'
+    resources_key = 'addresses'
+    resource_key = 'address'
+
+    # capabilities
+    allow_list = True
+
+    # Properties
+    #: IP address.
+    address = resource2.Body('address')
+    #: status that IP address is used or not.
+    in_use = resource2.Body('in_use')
