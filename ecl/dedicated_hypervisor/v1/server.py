@@ -61,6 +61,8 @@ class Server(resource2.Resource):
     availability_zone = resource2.Body('availability_zone')
     #: Connection between the server and common function gateway network is established or not.
     cfgw_connection_status = resource2.Body('cfgw_connection_status')
+    #: Image name of the server.
+    image_name = resource2.Body('image_name')
 
 
 class ServerDetail(Server):
