@@ -73,17 +73,16 @@ class VCenter(resource2.Resource):
         return self
 
 
-class Link_local_addresses(VCenter):
+class LinkLocalAddresses(resource2.Resource):
     base_path = '/vcenters/addresses'
+    resources_key = 'addresses'
+    resource_key = 'address'
 
     # capabilities
     allow_list = True
-    allow_get = False
-    allow_create = False
-    allow_delete = False
 
     # Properties
     #: IP address.
-    link_local_address = resource2.Body('link_local_address')
+    address = resource2.Body('address')
     #: status that IP address is used or not.
     in_use = resource2.Body('in_use')

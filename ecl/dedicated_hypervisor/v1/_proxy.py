@@ -324,7 +324,7 @@ class Proxy(proxy2.BaseProxy):
         return self._delete(_vcenter.VCenter, vcenter_id ,
                             ignore_missing=ignore_missing)
 
-    def list_link_local_address(self):
+    def available_addresses_vcenter(self):
         """
         List the link local addresses that you can assign to your vCenter.
 
@@ -332,7 +332,7 @@ class Proxy(proxy2.BaseProxy):
         :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
         instance.
         """
-        return list(self._list(_vcenter.Link_local_addresses))
+        return list(self._list(_vcenter.LinkLocalAddresses))
 
     def vsphere_contracts(self):
         """
