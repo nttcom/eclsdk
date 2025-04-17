@@ -77,6 +77,7 @@ class LinkLocalAddresses(resource2.Resource):
     base_path = '/vcenters/addresses'
     resources_key = 'addresses'
     resource_key = 'address'
+    service = dedicated_hypervisor_service.DedicatedHypervisorService()
 
     # capabilities
     allow_list = True
