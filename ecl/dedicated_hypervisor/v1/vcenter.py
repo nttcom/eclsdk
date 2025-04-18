@@ -84,6 +84,6 @@ class LinkLocalAddresses(resource2.Resource):
 
     # Properties
     #: IP address.
-    address = resource2.Body('address')
+    address = resource2.Body('address', alternate_id=True)
     #: status that IP address is used or not.
     in_use = resource2.Body('in_use')
