@@ -39,6 +39,8 @@ class VCenter(resource2.Resource):
     version = resource2.Body('version')
     #: name of vCenter server
     instance_name = resource2.Body('instance_name')
+    #: The ID of the license key assigned to the vCenter Server
+    license_id = resource2.Body('license_id')
 
     def register(self, session, link_local_address, password, license_id):
         params = {
