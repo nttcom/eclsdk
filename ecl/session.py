@@ -364,12 +364,16 @@ class Session(_session.Session):
         return content
 
     def _send_request(self, url, method, redirect, log, logger,
-                      connect_retries, connect_retry_delay=0.5, **kwargs):
+                      split_loggers, connect_retries, status_code_retries,
+                      retriable_status_codes, connect_retry_delay=0.5,
+                      status_code_retry_delay=0.5, ** kwargs):
+
         resp = super(Session, self)._send_request(
-            url, method, redirect, log,
-            logger, connect_retries,
-            connect_retry_delay=connect_retry_delay,
-            **kwargs)
+            url, method, redirect, log, logger,
+            split_loggers, connect_retries, status_code_retries,
+            retriable_status_codes, connect_retry_delay,
+            status_code_retry_delay, **kwargs)
+
         if re.match('https:', url):
             try:
                 resp._content = self._replace_discoverd_keystone_url(
