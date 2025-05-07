@@ -31,6 +31,7 @@ class Volume(resource2.Resource):
     bootable = resource2.Body('bootable')
 
     def retype(self, session, volume_type, is_dry_run=False):
+        """ Volume type change and dry run configuration process. """
         body = {
             'os-retype': {
                 'new_type': volume_type,

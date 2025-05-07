@@ -233,7 +233,7 @@ class Proxy(proxy2.BaseProxy):
         :param server: Either the ID of a server or a
                        :class:`~ecl.compute.v2.server.Server` instance.
         :param string flavor_id: ID of flavor to resize
-        :param bool is_dry_run:
+        :param bool is_dry_run:When set to "True" will enable dry run mode.
         :return: <Response 202>
         """
         virtual_server = self.get_server(server)
@@ -823,9 +823,9 @@ class Proxy(proxy2.BaseProxy):
 
         :param volume:The value can be either the ID of an volume or a
                       :class:`~ecl.compute.v2.volume.Volume` instance.
-        :param volume_type: volume type of volume to create.
-        :param bool is_dry_run:
-        :returns: :class:`~ecl.compute.v2.server_interface.ServerInterface`
+        :param volume_type: volume type of volume to retype.
+        :param bool is_dry_run:When set to "True" will enable dry run mode.
+        :returns: <Response 202>
         """
         volume_obj = self.get_volume(volume)
         return volume_obj.retype(self.session, volume_type, is_dry_run)
