@@ -204,14 +204,15 @@ class Server(resource2.Resource, _metadata.MetadataMixin):
         body = {"os-stop": None}
         return self._action(session, body)
 
-    def resize(self, session, flavor):
+    def resize(self, session, flavor, is_dry_run=False):
         """Resize server to flavor reference."""
         body = {
             'resize': {
-                'flavorRef': flavor,
-                'OS-DCF:diskConfig': 'AUTO'
+                'flavorRef': flavor
             }
         }
+        if is_dry_run:
+            body['resize']['dryRun'] = True
         self._action(session, body)
 
     def change_password(self, session, new_password):

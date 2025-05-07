@@ -227,16 +227,17 @@ class Proxy(proxy2.BaseProxy):
         virtual_server = self.get_server(server)
         return virtual_server.stop(self.session)
 
-    def resize_server(self, server, flavor_id):
+    def resize_server(self, server, flavor_id, is_dry_run=False):
         """Resize the server to flavor reference
 
         :param server: Either the ID of a server or a
                        :class:`~ecl.compute.v2.server.Server` instance.
         :param string flavor_id: ID of flavor to resize
+        :param bool is_dry_run:
         :return: <Response 202>
         """
         virtual_server = self.get_server(server)
-        return virtual_server.resize(self.session, flavor_id)
+        return virtual_server.resize(self.session, flavor_id, is_dry_run)
 
     def get_server_metadata(self, server):
         """Return a dictionary of metadata for a server
@@ -816,3 +817,15 @@ class Proxy(proxy2.BaseProxy):
         :returns: ``None``
         """
         self._delete(_volume.Volume, volume, ignore_missing=ignore_missing)
+
+    def retype_volume(self, volume, volume_type, is_dry_run=False):
+        """Retype an volume
+
+        :param volume:The value can be either the ID of an volume or a
+                      :class:`~ecl.compute.v2.volume.Volume` instance.
+        :param volume_type: volume type of volume to create.
+        :param bool is_dry_run:
+        :returns: :class:`~ecl.compute.v2.server_interface.ServerInterface`
+        """
+        volume_obj = self.get_volume(volume)
+        return volume_obj.retype(self.session, volume_type, is_dry_run)
