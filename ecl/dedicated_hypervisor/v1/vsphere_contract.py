@@ -72,7 +72,7 @@ class VSphereContract(resource2.Resource):
     def renewal(self, session, contract_year, contract_renewal=None):
         params = {}
         params['contract_year'] = contract_year
-        if contract_renewal:
+        if contract_renewal is not None:
             params['contract_renewal'] = contract_renewal
         resp = session.put(
             self.base_path,
