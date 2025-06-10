@@ -305,3 +305,14 @@ class Proxy(proxy2.BaseProxy):
             _virtual_network_appliance_plan.VirtualNetworkAppliancePlan,
             name_or_id,
             ignore_missing=ignore_missing)
+
+    def reallocate_virtual_network_appliance(self, virtual_network_appliance):
+        """Reallocate the virtual network appliance.
+
+        :param virtual_network_appliance:
+            The ID of a virtual network appliance.
+        :return: <Response 200>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.reallocate(self.session)
