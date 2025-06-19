@@ -179,6 +179,18 @@ class Proxy(proxy.BaseProxy):
         volume = self._get_resource(_volume.Volume, volume)
         return volume.update_bootable(self.session, bootable)
 
+    def retype_volume(self, volume, volume_type, is_dry_run=False):
+        """Retype an volume
+
+        :param volume:The value can be either the ID of an volume or a
+                      :class:`~ecl.compute.v2.volume.Volume` instance.
+        :param volume_type: volume type of volume to retype.
+        :param bool is_dry_run:When set to "True" will enable dry run mode.
+        :returns: <Response 202>
+        """
+        volume = self._get_resource(_volume.Volume, volume)
+        return volume.retype(self.session, volume_type, is_dry_run)
+
     def availability_zones(self):
         """Return a list of availability zones
 

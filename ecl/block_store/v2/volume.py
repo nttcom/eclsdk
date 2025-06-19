@@ -107,6 +107,18 @@ class Volume(resource.Resource):
         }}
         return self._action(session, body)
 
+    def retype(self, session, volume_type, is_dry_run=False):
+        """ Volume type change and dry run configuration process. """
+        body = {
+            'os-retype': {
+                'new_type': volume_type,
+                'migration_policy': 'on-demand'
+            }
+        }
+        if is_dry_run:
+            body['os-retype']['dryRun'] = True
+        self._action(session, body)
+
 
 class VolumeDetail(Volume):
 

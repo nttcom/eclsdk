@@ -817,15 +817,3 @@ class Proxy(proxy2.BaseProxy):
         :returns: ``None``
         """
         self._delete(_volume.Volume, volume, ignore_missing=ignore_missing)
-
-    def retype_volume(self, volume, volume_type, is_dry_run=False):
-        """Retype an volume
-
-        :param volume:The value can be either the ID of an volume or a
-                      :class:`~ecl.compute.v2.volume.Volume` instance.
-        :param volume_type: volume type of volume to retype.
-        :param bool is_dry_run:When set to "True" will enable dry run mode.
-        :returns: <Response 202>
-        """
-        volume_obj = self.get_volume(volume)
-        return volume_obj.retype(self.session, volume_type, is_dry_run)
