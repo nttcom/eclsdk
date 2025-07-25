@@ -116,7 +116,7 @@ class Volume(resource.Resource):
             }
         }
         if is_dry_run:
-            body['os-retype']['dryRun'] = True
+            body['os-retype']['dry_run'] = True
         self._action(session, body)
 
 
