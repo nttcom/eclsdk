@@ -15,6 +15,8 @@ from ecl.dedicated_hypervisor.v1 import license_type as _license_type
 from ecl.dedicated_hypervisor.v1 import server as _server
 from ecl.dedicated_hypervisor.v1 import usage as _usage
 from ecl.dedicated_hypervisor.v1 import vcf as _vcf
+from ecl.dedicated_hypervisor.v1 import vcenter as _vcenter
+from ecl.dedicated_hypervisor.v1 import vsphere_contract as _vsphere_contract
 from ecl import proxy2
 
 
@@ -264,3 +266,110 @@ class Proxy(proxy2.BaseProxy):
         """
         cfgw = _server.CFGWConnection()
         return cfgw.update_cfgw_connection(self.session, server_id)
+
+    def show_vcenter(self):
+        """
+        Shows the registered vCenter server information.
+
+        :return: A list of the vCenter servers
+        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+        return list(self._list(_vcenter.VCenter))
+
+    def register_vcenter(self, link_local_address, password, license_id):
+        """
+        Register the vCenter Server.
+
+        :param link_local_address: The IP address that you can assign to your vCenter.
+        :param password: The password of vCenter server. Available character is
+                1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+                .-_/*+,!#$%&()~|].
+        :param string license_id: ID for license of vCenter server.
+
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+        vcenter = _vcenter.VCenter()
+        return vcenter.register(self.session, link_local_address, password, license_id)
+
+    def update_vcenter(self, vcenter_id, link_local_address=None, password=None, license_id=None):
+        """
+        Updates the registered vCenter server information.
+
+        :param link_local_address: The IP address that you can assign to your vCenter.
+        :param string vcenter_id: ID for the vcenter server.
+        :param password: The password of vCenter server. Available character is
+                1-20 character of alphabet[a-zA-Z], number[0-9] and Symbols[
+                .-_/*+,!#$%&()~|].
+        :param string license_id: ID for license of vCenter server.
+        :return: One :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+        vcenter = _vcenter.VCenter()
+        return vcenter.update(self.session, vcenter_id, link_local_address, password, license_id)
+
+    def delete_vcenter(self, vcenter_id, ignore_missing=False):
+        """
+        Deletes the registered vCenter server.
+
+        :param string vcenter_id: ID for the vcenter server.
+        :param bool ignore_missing: When set to ``False``
+                    :class:`~ecl.exceptions.ResourceNotFound` will be
+                    raised when the server does not exist.
+                    When set to ``True``, no exception will be set when
+                    attempting to delete a nonexistent server
+        :returns: ``None``
+        """
+        return self._delete(_vcenter.VCenter, vcenter_id ,
+                            ignore_missing=ignore_missing)
+
+    def available_addresses_vcenter(self):
+        """
+        List the link local addresses that you can assign to your vCenter.
+
+        :return: A list of the link local addresses
+        :rtype: list of :class:`~ecl.dedicated_hypervisor.v1.vcenter.VCenter`
+        instance.
+        """
+        return list(self._list(_vcenter.LinkLocalAddresses))
+
+    def vsphere_contracts(self):
+        """
+        List vSphere Contracts.
+
+        :returns:
+            vsphere_contracts: A list of the vSphere Contracts
+            all_server_cores: The total cores of your vSphere ESXi server.
+            vsphere_contracts_histories: A list of the vSphere contracts histories.
+        :rtype:
+            vsphere_contracts: list of :class:`~ecl.dedicated_hypervisor.v1._vsphere_contract.VSphereContract` instance.
+            all_server_cores: integer
+            vsphere_contracts_histories: dict
+        """
+        vsphere_contract = _vsphere_contract.VSphereContract()
+        return vsphere_contract.list(self.session)
+
+    def manage_vsphere_contract(self, contract_year, cores):
+        """
+        Manage vSphere Contracts.
+
+        :param integer contract_year: The number of years of the contract. You can specify 1 or 3.
+        :param integer cores: The number of cores to be added to your contract.
+        :return: vSphere Contract.
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1._vsphere_contract.VSphereContract`
+        """
+        vsphere_contract = _vsphere_contract.VSphereContract()
+        return vsphere_contract.manage(self.session, contract_year, cores)
+
+    def renewal_vsphere_contract(self, contract_year, contract_renewal=None):
+        """
+        Enable/Disable Contract Renewal.
+
+        :param integer contract_year: The number of years of the contract. You can specify 1 or 3.
+        :param bool contract_renewal: The flag that you renew your contract or not.
+        :return: vSphere Contract.
+        :rtype: :class:`~ecl.dedicated_hypervisor.v1._vsphere_contract.VSphereContract`
+        """
+        vsphere_contract = _vsphere_contract.VSphereContract()
+        return vsphere_contract.renewal(self.session, contract_year, contract_renewal)
