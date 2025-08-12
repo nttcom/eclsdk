@@ -26,11 +26,10 @@ class WasabiGateways(resource2.Resource):
     allow_update = True
     allow_list = True
     allow_get = True
-    patch_update = True
 
     # Properties
     #: ID for the resource
-    wasabi_gateway_id = resource2.Body('wasabi_gateway_id')
+    id = resource2.Body('id')
     #: The Common Function Gateway ID to associate with this Wasabi Gateway.
     common_function_gateway_id = resource2.Body('common_function_gateway_id')
     #: Description of the Wasabi Gateway resource.
@@ -41,35 +40,3 @@ class WasabiGateways(resource2.Resource):
     status = resource2.Body('status')
     #: Tenant ID of the owner (UUID)
     tenant_id = resource2.Body('tenant_id')
-
-
-    def create(self, session, common_function_gateway_id, description, name, tenant_id):
-        params = {
-            "common_function_gateway_id": common_function_gateway_id,
-            "description": description,
-            "name": name,
-            "tenant_id": tenant_id
-        }
-        resp = session.post(
-            self.base_path,
-            endpoint_filter = self.service,
-            json={self.resource_key: params}
-        )
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def update(self, session, wasabi_gateway_id, description=None, name=None):
-        params = {}
-        if description:
-            params['description'] = description
-        if name:
-            params['name'] = name
-
-        uri = self.base_path + '/' + wasabi_gateway_id
-        resp = session.put(
-            uri,
-            endpoint_filter=self.service,
-            json={self.resource_key: params}
-        )
-        self._translate_response(resp, has_body=True)
-        return self
