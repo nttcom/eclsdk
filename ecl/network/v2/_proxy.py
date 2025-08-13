@@ -2882,12 +2882,13 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_wasabi.WasabiGateways, wasabi_gateway)
 
-    def create_wasabi_gateway(self, common_function_gateway_id, description=None, name=None):
+    def create_wasabi_gateway(self, common_function_gateway_id, description=None, name=None, tenant_id=None):
         """
         Create a Wasabi Gateway.
         :param common_function_gateway_id: The Common Function Gateway ID to associate with this wasabi gateway.
         :param description: Description for this wasabi gateway
         :param name: Name of the wasabi gateway resource
+        :param tenant_id: Tenant ID of the owner
         :return: :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways`
         """
         body = {"common_function_gateway_id" :common_function_gateway_id}
@@ -2895,6 +2896,8 @@ class Proxy(proxy2.BaseProxy):
             body["description"] = description
         if name:
             body["name"] = name
+        if tenant_id:
+            body["tenant_id"] = tenant_id
         return self._create(_wasabi.WasabiGateways, **body)
 
     def update_wasabi_gateway(self, wasabi_gateway, name=None, description=None):
