@@ -37,6 +37,7 @@ from ecl.network.v2 import tenant_connection as _tenant_connection
 from ecl.network.v2 import azure as _azure
 from ecl.network.v2 import fic as _fic
 from ecl.network.v2 import mec as _mec
+from ecl.network.v2 import wasabi_gateways as _wasabi
 
 from ecl import proxy2
 
@@ -2862,3 +2863,70 @@ class Proxy(proxy2.BaseProxy):
                  when no resource can be found.
         """
         return self._get(_mec.MECInterface, mec_interface)
+
+    def wasabi_gateways(self):
+        """
+        List wasabi gateways.
+        :return: A list of wasabi gateways object
+        """
+        return list(self._list(_wasabi.WasabiGateways))
+
+    def show_wasabi_gateway(self, wasabi_gateway):
+        """
+        Show a wasabi gateway.
+        :param: wasabi_gateway: The value can be the ID of a wasabi gateway or a
+                       :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways` instance.
+        :return: One :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways` or
+                     :class:`~ecl.exceptions.ResourceNotFound`when no
+                     resource can be found.
+        """
+        return self._get(_wasabi.WasabiGateways, wasabi_gateway)
+
+    def create_wasabi_gateway(self, common_function_gateway_id, description=None, name=None, tenant_id=None):
+        """
+        Create a Wasabi Gateway.
+        :param common_function_gateway_id: The Common Function Gateway ID to associate with this wasabi gateway.
+        :param description: Description for this wasabi gateway
+        :param name: Name of the wasabi gateway resource
+        :param tenant_id: Tenant ID of the owner
+        :return: :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways`
+        """
+        body = {"common_function_gateway_id" :common_function_gateway_id}
+        if description:
+            body["description"] = description
+        if name:
+            body["name"] = name
+        if tenant_id:
+            body["tenant_id"] = tenant_id
+        return self._create(_wasabi.WasabiGateways, **body)
+
+    def update_wasabi_gateway(self, wasabi_gateway, name=None, description=None):
+        """
+        Update a wasabi gateway from attributes
+        param wasabi_gateway: The value can be the ID of a wasabi_gateway or
+            a :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways` instance.
+        :param string description: Description for this wasabi gateway
+        :param string name: Name of wasabi gateway to update
+
+        :return: results of wasabi gateway update
+        :rtype: :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways`
+        """
+        body = dict()
+        if description is not None:
+            body["description"] = description
+        if name is not None:
+            body["name"] = name
+        if not isinstance(wasabi_gateway, _wasabi.WasabiGateways):
+            wasabi_gateway = self._get_resource(
+                _wasabi.WasabiGateways, wasabi_gateway)
+            wasabi_gateway._body.clean()
+        return self._update(self.session, wasabi_gateway, **body)
+
+    def delete_wasabi_gateway(self, wasabi_gateway):
+        """
+        Delete a wasabi gateway.
+        :param wasabi_gateway: ID for the wasabi gateway or a
+            :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways` instance.
+        :return:
+        """
+        return self._delete(_wasabi.WasabiGateways, wasabi_gateway)
