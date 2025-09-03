@@ -2920,7 +2920,7 @@ class Proxy(proxy2.BaseProxy):
             wasabi_gateway = self._get_resource(
                 _wasabi.WasabiGateways, wasabi_gateway)
             wasabi_gateway._body.clean()
-        return self._update(self.session, wasabi_gateway, **body)
+        return self._update(_wasabi.WasabiGateways, wasabi_gateway, **body)
 
     def delete_wasabi_gateway(self, wasabi_gateway):
         """
