@@ -12,10 +12,9 @@
 
 from . import base
 from ecl.network import network_service
-from ecl import resource2
 
 
-class WasabiGateways(base.NetworkBaseResource):
+class WasabiGateway(base.NetworkBaseResource):
     resource_key = "wasabi_gateway"
     resources_key = "wasabi_gateways"
     service = network_service.NetworkService("v2.0")
