@@ -2864,7 +2864,7 @@ class Proxy(proxy2.BaseProxy):
         """
         return self._get(_mec.MECInterface, mec_interface)
 
-    def wasabi_gateway(self):
+    def wasabi_gateways(self):
         """
         List wasabi gateways.
         :return: A list of wasabi gateway object
@@ -2889,7 +2889,7 @@ class Proxy(proxy2.BaseProxy):
         :param description: Description for this wasabi gateway
         :param name: Name of the wasabi gateway resource
         :param tenant_id: Tenant ID of the owner
-        :return: :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateways`
+        :return: :class:`~ecl.wasabi_gateways.v2.wasabi_gateways.WasabiGateway`
         """
         body = {"common_function_gateway_id" :common_function_gateway_id}
         if description:
