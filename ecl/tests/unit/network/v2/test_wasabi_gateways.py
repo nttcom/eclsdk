@@ -25,10 +25,10 @@ EXAMPLE = {
 }
 
 
-class TestWasabiGateways(testtools.TestCase):
+class TestWasabiGateway(testtools.TestCase):
 
     def test_basic(self):
-        sot = wasabi_gateways.WasabiGateways()
+        sot = wasabi_gateways.WasabiGateway()
         self.assertEqual('wasabi_gateway', sot.resource_key)
         self.assertEqual('wasabi_gateways', sot.resources_key)
         self.assertEqual('/wasabi_gateways', sot.base_path)
@@ -40,7 +40,7 @@ class TestWasabiGateways(testtools.TestCase):
         self.assertTrue(sot.allow_list)
 
     def test_make_it(self):
-        sot = wasabi_gateways.WasabiGateways(**EXAMPLE)
+        sot = wasabi_gateways.WasabiGateway(**EXAMPLE)
         self.assertEqual(EXAMPLE['id'], sot.id)
         self.assertEqual(EXAMPLE['common_function_gateway'], sot.common_function_gateway)
         self.assertEqual(EXAMPLE['description'], sot.description)
