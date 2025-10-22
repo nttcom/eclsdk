@@ -10,11 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from . import base
 from ecl.network import network_service
 from ecl import resource2
 
 
-class WasabiGateways(resource2.Resource):
+class WasabiGateway(base.NetworkBaseResource):
     resource_key = "wasabi_gateway"
     resources_key = "wasabi_gateways"
     service = network_service.NetworkService("v2.0")
