@@ -16,7 +16,7 @@ class VirtualNetworkAppliancePlan(base.VirtualNetworkApplianceBaseResource):
     allow_list = True
     allow_get = True
 
-    _query_mapping = resource2.QueryParameters("details")
+    _query_mapping = resource2.QueryParameters("details", "appliance_type")
 
     # Properties
     #: It identifies connection resource uniquely.

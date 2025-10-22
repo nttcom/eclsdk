@@ -23,8 +23,7 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     allow_update = True
     allow_delete = True
 
-    # _query_mapping = resource2.QueryParameters()
-    # TBD
+    _query_mapping = resource2.QueryParameters("appliance_type")
 
     # Properties
     #: It identifies connection resource uniquely.
