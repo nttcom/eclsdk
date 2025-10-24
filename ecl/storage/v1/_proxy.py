@@ -222,6 +222,7 @@ class Proxy(proxy2.BaseProxy):
         :param throughput: Provisioned throughput for volume.
         :param initiator_iqns: List of initiator IQN who can access to this volume.
         :param availability_zone: Availability zone.
+        :param snapshot_reserve_size: Size of Snapshot Reserve
         :return: :class:`~ecl.storage.v1.volume.Volume`
         """
         body = {"virtual_storage_id": virtual_storage_id, "name": name, "size": size}
@@ -235,6 +236,8 @@ class Proxy(proxy2.BaseProxy):
             body["initiator_iqns"] = initiator_iqns
         if availability_zone:
             body["availability_zone"] = availability_zone
+        if snapshot_reserve_size:
+            body["snapshot_reserve_size"] = snapshot_reserve_size
         volume = _volume.Volume()
         return volume.create(self.session, **body)
 
