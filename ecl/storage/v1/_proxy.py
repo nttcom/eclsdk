@@ -211,7 +211,7 @@ class Proxy(proxy2.BaseProxy):
 
     def create_volume(self, virtual_storage_id, name, size, description=None,
                       iops_per_gb=None, initiator_iqns=None, throughput=None,
-                      availability_zone=None):
+                      availability_zone=None, snapshot_reserve_size=None):
         """This API create additional Volume.
 
         :param virtual_storage_id: Virtual Storage ID.

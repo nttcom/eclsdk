@@ -73,9 +73,6 @@ class Volume(resource2.Resource):
     #: Percentage of Used Snapshots
     percentage_snapshot_reserve_used = \
         resource2.Body('percentage_snapshot_reserve_used', type=int)
-    #: Percentage of Snapshots Reserve
-    percentage_snapshot_reserve = \
-        resource2.Body('percentage_snapshot_reserve', type=int)
     #: The size of Snapshots Reserve
     snapshot_reserve_size = \
         resource2.Body('snapshot_reserve_size', type=int)
