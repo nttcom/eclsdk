@@ -12,6 +12,7 @@
 
 import six
 import time
+
 from ecl.tests.functional import base
 
 
@@ -23,31 +24,43 @@ class TestVolume(base.BaseFunctionalTest):
         # required
         self.assertIsInstance(volume.id, six.string_types)
         self.assertIsInstance(volume.name, six.string_types)
-        self.assertIsInstance(volume.description, six.string_types)
+        if volume.description is not None:
+            self.assertIsInstance(volume.description, six.string_types)
+        else:
+            self.assertIsNone(volume.description)
         self.assertIsInstance(volume.virtual_storage_id, six.string_types)
         self.assertIsInstance(volume.status, six.string_types)
-        self.assertIsInstance(volume.size, int)
-        self.assertIsInstance(volume.created_at, six.string_types)
-        self.assertIsInstance(volume.updated_at, six.string_types)
+        self.assertIsInstance(volume.size, six.integer_types)
+        if volume.created_at is not None:
+            self.assertIsInstance(volume.created_at, six.string_types)
+        else:
+            self.assertIsNone(volume.created_at)
+        if volume.updated_at is not None:
+            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+        else:
+            self.assertIsNone(volume.updated_at)
         self.assertIsInstance(volume.error_message, six.string_types)
         self.assertIsInstance(volume.target_ips, list)
-        self.assertIsInstance(volume.availability_zone, six.string_types)
-        self.assertIsInstance(volume.snapshot_ids, six.string_types)
+        if volume.availability_zone is not None:
+            self.assertIsInstance(volume.availability_zone, six.string_types)
+        else:
+            self.assertIsNone(volume.availability_zone)
+        self.assertIsInstance(volume.snapshot_ids, list)
         self.assertIsInstance(volume.encrypt, bool)
 
         # Only available for "piops_iscsi_na" or "piops_iscsi_na2" volumes
-        self.assertIsInstance(volume.percentage_snapshot_reserve_used, int)
+        self.assertIsInstance(volume.percentage_snapshot_reserve_used, six.integer_types)
 
         # Only available for "piops_iscsi_na" volumes
-        # self.assertIsInstance(volume.iops_per_gb, int)
+        # self.assertIsInstance(volume.iops_per_gb, six.integer_types)
         # self.assertIsInstance(volume.initiator_iqns, list)
-        # self.assertIsInstance(volume.initiator_secret, null)
-        # self.assertIsInstance(volume.target_secret, null)
+        # self.assertIsNone(volume.initiator_secret)
+        # self.assertIsNone(volume.target_secret)
         # self.assertIsInstance(volume.metadata, dict)
 
         # Only available for "piops_iscsi_na2" volumes
-        self.assertIsInstance(volume.snapshot_reserve_size, int)
-        self.assertIsInstance(volume.snapshot_reserve_used, int)
+        self.assertIsInstance(volume.snapshot_reserve_size, six.integer_types)
+        self.assertIsInstance(volume.snapshot_reserve_used, six.integer_types)
 
         # Only available for "standard_nfs_na" or "standard_smb_na" volumes
         # self.assertIsInstance(volume.export_rules, list)
@@ -61,31 +74,43 @@ class TestVolume(base.BaseFunctionalTest):
         # required
         self.assertIsInstance(volume.id, six.string_types)
         self.assertIsInstance(volume.name, six.string_types)
-        self.assertIsInstance(volume.description, six.string_types)
+        if volume.description is not None:
+            self.assertIsInstance(volume.description, six.string_types)
+        else:
+            self.assertIsNone(volume.description)
         self.assertIsInstance(volume.virtual_storage_id, six.string_types)
         self.assertIsInstance(volume.status, six.string_types)
-        self.assertIsInstance(volume.size, int)
-        self.assertIsInstance(volume.created_at, six.string_types)
-        self.assertIsInstance(volume.updated_at, six.string_types)
+        self.assertIsInstance(volume.size, six.integer_types)
+        if volume.created_at is not None:
+            self.assertIsInstance(volume.created_at, six.string_types)
+        else:
+            self.assertIsNone(volume.created_at)
+        if volume.updated_at is not None:
+            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+        else:
+            self.assertIsNone(volume.updated_at)
         self.assertIsInstance(volume.error_message, six.string_types)
         self.assertIsInstance(volume.target_ips, list)
-        self.assertIsInstance(volume.availability_zone, six.string_types)
-        self.assertIsInstance(volume.snapshot_ids, six.string_types)
+        if volume.availability_zone is not None:
+            self.assertIsInstance(volume.availability_zone, six.string_types)
+        else:
+            self.assertIsNone(volume.availability_zone)
+        self.assertIsInstance(volume.snapshot_ids, list)
         self.assertIsInstance(volume.encrypt, bool)
 
         # Only available for "piops_iscsi_na" or "piops_iscsi_na2" volumes
-        self.assertIsInstance(volume.percentage_snapshot_reserve_used, int)
+        self.assertIsInstance(volume.percentage_snapshot_reserve_used, six.integer_types)
 
         # Only available for "piops_iscsi_na" volumes
-        # self.assertIsInstance(volume.iops_per_gb, int)
+        # self.assertIsInstance(volume.iops_per_gb, six.integer_types)
         # self.assertIsInstance(volume.initiator_iqns, list)
-        # self.assertIsInstance(volume.initiator_secret, null)
-        # self.assertIsInstance(volume.target_secret, null)
+        # self.assertIsNone(volume.initiator_secret)
+        # self.assertIsNone(volume.target_secret)
         # self.assertIsInstance(volume.metadata, dict)
 
         # Only available for "piops_iscsi_na2" volumes
-        self.assertIsInstance(volume.snapshot_reserve_size, int)
-        self.assertIsInstance(volume.snapshot_reserve_used, int)
+        self.assertIsInstance(volume.snapshot_reserve_size, six.integer_types)
+        self.assertIsInstance(volume.snapshot_reserve_used, six.integer_types)
 
         # Only available for "standard_nfs_na" or "standard_smb_na" volumes
         # self.assertIsInstance(volume.export_rules, list)
@@ -103,31 +128,43 @@ class TestVolume(base.BaseFunctionalTest):
         # required
         self.assertIsInstance(volume.id, six.string_types)
         self.assertIsInstance(volume.name, six.string_types)
-        self.assertIsInstance(volume.description, six.string_types)
+        if volume.description is not None:
+            self.assertIsInstance(volume.description, six.string_types)
+        else:
+            self.assertIsNone(volume.description)
         self.assertIsInstance(volume.virtual_storage_id, six.string_types)
         self.assertIsInstance(volume.status, six.string_types)
-        self.assertIsInstance(volume.size, int)
-        self.assertIsInstance(volume.created_at, six.string_types)
-        self.assertIsInstance(volume.updated_at, six.string_types)
+        self.assertIsInstance(volume.size, six.integer_types)
+        if volume.created_at is not None:
+            self.assertIsInstance(volume.created_at, six.string_types)
+        else:
+            self.assertIsNone(volume.created_at)
+        if volume.updated_at is not None:
+            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+        else:
+            self.assertIsNone(volume.updated_at)
         self.assertIsInstance(volume.error_message, six.string_types)
         self.assertIsInstance(volume.target_ips, list)
-        self.assertIsInstance(volume.availability_zone, six.string_types)
-        self.assertIsInstance(volume.snapshot_ids, six.string_types)
+        if volume.availability_zone is not None:
+            self.assertIsInstance(volume.availability_zone, six.string_types)
+        else:
+            self.assertIsNone(volume.availability_zone)
+        self.assertIsInstance(volume.snapshot_ids, list)
         self.assertIsInstance(volume.encrypt, bool)
 
         # Only available for "piops_iscsi_na" or "piops_iscsi_na2" volumes
-        self.assertIsInstance(volume.percentage_snapshot_reserve_used, int)
+        self.assertIsInstance(volume.percentage_snapshot_reserve_used, six.integer_types)
 
         # Only available for "piops_iscsi_na" volumes
-        # self.assertIsInstance(volume.iops_per_gb, int)
+        # self.assertIsInstance(volume.iops_per_gb, six.integer_types)
         # self.assertIsInstance(volume.initiator_iqns, list)
-        # self.assertIsInstance(volume.initiator_secret, null)
-        # self.assertIsInstance(volume.target_secret, null)
+        # self.assertIsNone(volume.initiator_secret)
+        # self.assertIsNone(volume.target_secret)
         # self.assertIsInstance(volume.metadata, dict)
 
         # Only available for "piops_iscsi_na2" volumes
-        self.assertIsInstance(volume.snapshot_reserve_size, int)
-        self.assertIsInstance(volume.snapshot_reserve_used, int)
+        self.assertIsInstance(volume.snapshot_reserve_size, six.integer_types)
+        self.assertIsInstance(volume.snapshot_reserve_used, six.integer_types)
 
         # Only available for "standard_nfs_na" or "standard_smb_na" volumes
         # self.assertIsInstance(volume.export_rules, list)
@@ -144,39 +181,51 @@ class TestVolume(base.BaseFunctionalTest):
         )
 
         # required
-        assert isInstance(volume.id, six.string_types)
-        assert isInstance(volume.name, six.string_types)
-        assert isInstance(volume.description, six.string_types)
-        assert isInstance(volume.virtual_storage_id, six.string_types)
-        assert isInstance(volume.status, six.string_types)
-        assert isInstance(volume.size, int)
-        assert isInstance(volume.created_at, six.string_types)
-        assert isInstance(volume.updated_at, six.string_types)
-        assert isInstance(volume.error_message, six.string_types)
-        assert isInstance(volume.target_ips, list)
-        assert isInstance(volume.availability_zone, six.string_types)
-        assert isInstance(volume.snapshot_ids, six.string_types)
-        assert isInstance(volume.encrypt, bool)
+        self.assertIsInstance(volume.id, six.string_types)
+        self.assertIsInstance(volume.name, six.string_types)
+        if volume.description is not None:
+            self.assertIsInstance(volume.description, six.string_types)
+        else:
+            self.assertIsNone(volume.description)
+        self.assertIsInstance(volume.virtual_storage_id, six.string_types)
+        self.assertIsInstance(volume.status, six.string_types)
+        self.assertIsInstance(volume.size, six.integer_types)
+        if volume.created_at is not None:
+            self.assertIsInstance(volume.created_at, six.string_types)
+        else:
+            self.assertIsNone(volume.created_at)
+        if volume.updated_at is not None:
+            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+        else:
+            self.assertIsNone(volume.updated_at)
+        self.assertIsInstance(volume.error_message, six.string_types)
+        self.assertIsInstance(volume.target_ips, list)
+        if volume.availability_zone is not None:
+            self.assertIsInstance(volume.availability_zone, six.string_types)
+        else:
+            self.assertIsNone(volume.availability_zone)
+        self.assertIsInstance(volume.snapshot_ids, list)
+        self.assertIsInstance(volume.encrypt, bool)
 
         # Only available for "piops_iscsi_na" or "piops_iscsi_na2" volumes
-        assert isInstance(volume.percentage_snapshot_reserve_used, int)
+        self.assertIsInstance(volume.percentage_snapshot_reserve_used, six.integer_types)
 
         # Only available for "piops_iscsi_na" volumes
-        # assert isInstance(volume.iops_per_gb, int)
-        # assert isInstance(volume.initiator_iqns, list)
-        # assert isInstance(volume.initiator_secret, null)
-        # assert isInstance(volume.target_secret, null)
-        # assert isInstance(volume.metadata, dict)
+        # self.assertIsInstance(volume.iops_per_gb, six.integer_types)
+        # self.assertIsInstance(volume.initiator_iqns, list)
+        # self.assertIsNone(volume.initiator_secret)
+        # self.assertIsNone(volume.target_secret)
+        # self.assertIsInstance(volume.metadata, dict)
 
         # Only available for "piops_iscsi_na2" volumes
-        assert isInstance(volume.snapshot_reserve_size, int)
-        assert isInstance(volume.snapshot_reserve_used, int)
+        self.assertIsInstance(volume.snapshot_reserve_size, six.integer_types)
+        self.assertIsInstance(volume.snapshot_reserve_used, six.integer_types)
 
         # Only available for "standard_nfs_na" or "standard_smb_na" volumes
-        # assert isInstance(volume.export_rules, list)
+        # self.assertIsInstance(volume.export_rules, list)
 
         # Only available for "standard_smb_na" volumes
-        # assert isInstance(volume.smb_properties, dict)
+        # self.assertIsInstance(volume.smb_properties, dict)
 
         cls.vol_id = volume.id
 
