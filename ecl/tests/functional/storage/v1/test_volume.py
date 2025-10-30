@@ -36,7 +36,7 @@ class TestVolume(base.BaseFunctionalTest):
         else:
             self.assertIsNone(volume.created_at)
         if volume.updated_at is not None:
-            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+            self.assertIsInstance(volume.updated_at, six.string_types)
         else:
             self.assertIsNone(volume.updated_at)
         self.assertIsInstance(volume.error_message, six.string_types)
@@ -86,7 +86,7 @@ class TestVolume(base.BaseFunctionalTest):
         else:
             self.assertIsNone(volume.created_at)
         if volume.updated_at is not None:
-            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+            self.assertIsInstance(volume.updated_at, six.string_types)
         else:
             self.assertIsNone(volume.updated_at)
         self.assertIsInstance(volume.error_message, six.string_types)
@@ -140,7 +140,7 @@ class TestVolume(base.BaseFunctionalTest):
         else:
             self.assertIsNone(volume.created_at)
         if volume.updated_at is not None:
-            self.assertIsInstance(volume.updated_at, Null or six.string_types)
+            self.assertIsInstance(volume.updated_at, six.string_types)
         else:
             self.assertIsNone(volume.updated_at)
         self.assertIsInstance(volume.error_message, six.string_types)
@@ -195,7 +195,7 @@ class TestVolume(base.BaseFunctionalTest):
         else:
             assert volume.created_at is None
         if volume.updated_at is not None:
-            assert isinstance(volume.updated_at, Null or six.string_types)
+            assert isinstance(volume.updated_at, six.string_types)
         else:
             assert volume.updated_at is None
         assert isinstance(volume.error_message, six.string_types)
