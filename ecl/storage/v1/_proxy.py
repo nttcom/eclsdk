@@ -236,7 +236,7 @@ class Proxy(proxy2.BaseProxy):
             body["initiator_iqns"] = initiator_iqns
         if availability_zone:
             body["availability_zone"] = availability_zone
-        if snapshot_reserve_size:
+        if snapshot_reserve_size is not None:
             body["snapshot_reserve_size"] = snapshot_reserve_size
         volume = _volume.Volume()
         return volume.create(self.session, **body)
