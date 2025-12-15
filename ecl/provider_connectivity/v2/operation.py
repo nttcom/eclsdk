@@ -44,3 +44,9 @@ class Operation(resource2.Resource):
     latest = resource2.Body('latest')
     #: Error
     error = resource2.Body('error')
+    #: token_id
+    token_id = resource2.Body('token_id')
+    #: operation_id
+    operation_id = resource2.Body('operation_id')
+
+

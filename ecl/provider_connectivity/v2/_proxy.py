@@ -152,6 +152,18 @@ class Proxy(proxy2.BaseProxy):
         return list(self._list(_operation.Operation,
                                paginated=False,
                                **params))
+    def show_operations(self, **params):
+        """Show operations.
+
+        :param params: The parameters as query string
+            to get operations by specified condition.
+        :returns: A show of operation objects
+        :rtype: show of :class:`~ecl.provider_connectivity.v2.operation.
+            Operation`
+        """
+        return show(self._show(_operation.Operation,
+                               paginated=False,
+                               **params))
 
     def tenant_connection_requests(self, **query):
         """Return a list of tenant_connection_requests
