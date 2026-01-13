@@ -30,6 +30,8 @@ class Operation(base.VirtualNetworkApplianceBaseResource):
     reception_datetime = resource2.Body('reception_datetime')
     #: Commit datetime of operation.
     commit_datetime = resource2.Body('commit_datetime')
+    #: Request path of operation.
+    request_path = resource2.Body('request_path')
     #: Request body(JSON String) of operation.
     request_body = resource2.Body('request_body')
     #: Warning of operation.
