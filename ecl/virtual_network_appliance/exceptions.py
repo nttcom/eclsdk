@@ -9,7 +9,7 @@ class HttpException(exceptions.HttpException):
 
     def _get_exception_message(self, message=None):
         try:
-            content = json.loads(self.response._content)
+            content = json.loads(self.response._content.decode('utf-8'))
 
             # API-GW
             if 'fault' in content and 'faultstring' in content['fault']:
@@ -21,7 +21,7 @@ class HttpException(exceptions.HttpException):
 
             # In VNA API, we need to handle both "cause" and "message" key
             # as API error.
-            k = content.keys()
+            k = list(content.keys())
             if 'message' in k and 'cause' not in k:
                 return content['message']
             if 'cause' in k and 'message' not in k:
