@@ -5,12 +5,14 @@ from ecl import resource2
 
 
 class Operation(resource2.Resource):
+    resource_key = 'operation'
     resources_key = "operations"
     service = provider_connectivity_service.ProviderConnectivityService("v2.0")
     base_path = '/' + service.version + '/operations'
 
     # Capabilities
     allow_list = True
+    allow_get = True
 
     _query_mapping = resource2.QueryParameters(
         "service_type", "resource_type", "resource_id", "latest")
@@ -44,3 +46,9 @@ class Operation(resource2.Resource):
     latest = resource2.Body('latest')
     #: Error
     error = resource2.Body('error')
+    #: token_id
+    token_id = resource2.Body('token_id')
+    #: operation_id
+    operation_id = resource2.Body('operation_id')
+
+
