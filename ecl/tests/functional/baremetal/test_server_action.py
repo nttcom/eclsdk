@@ -46,3 +46,18 @@ class TestServerAction(base.BaseFunctionalTest):
         self.assertIsInstance(server.url, six.string_types)
         self.assertIsInstance(server.user_id, six.string_types)
         self.assertIsInstance(server.password, six.string_types)
+
+    def test_05_get_remote_console_access(self):
+        server = self.conn.baremetal.get_remote_console_access(
+            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            None
+        )
+        self.assertIsInstance(server.url, six.string_types)
+        self.assertIsInstance(server.access_code, six.string_types)
+        self.assertIsInstance(server.expired_at, six.string_types)
+
+    def test_06_disconnect_remote_console_access(self):
+        server = self.conn.baremetal.disconnect_remote_console_access(
+            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            None
+        )
