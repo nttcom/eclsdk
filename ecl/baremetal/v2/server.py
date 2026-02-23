@@ -281,7 +281,8 @@ class ServerAction(resource2.Resource):
         resp = session.post(
             uri,
             endpoint_filter=self.service,
-            json=body
+            json=body,
+            headers={"Accept": "application/json"}
         )
         self._translate_response(resp, has_body=True)
         return self
@@ -294,7 +295,8 @@ class ServerAction(resource2.Resource):
         resp = session.post(
             uri,
             endpoint_filter=self.service,
-            json=body
+            json=body,
+            headers={"Accept": "application/json"}
         )
         self._translate_response(resp, has_body=True)
         return self

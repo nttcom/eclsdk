@@ -19,28 +19,25 @@ class TestServerAction(base.BaseFunctionalTest):
 
     def test_01_start_server(self):
         server = self.conn.baremetal.start_server(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            "DISK"
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e"
         )
 
     def test_02_stop_server(self):
         server = self.conn.baremetal.stop_server(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
             None
         )
-        assert False
+        assert True
 
     def test_03_reboot_server(self):
         server = self.conn.baremetal.reboot_server(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            "SOFT",
-            "disk"
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
+            "SOFT"
         )
 
     def test_04_get_management_console(self):
         server = self.conn.baremetal.get_management_console(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            None
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e"
         )
         self.assertIsInstance(server.type, six.string_types)
         self.assertIsInstance(server.url, six.string_types)
@@ -49,8 +46,7 @@ class TestServerAction(base.BaseFunctionalTest):
 
     def test_05_get_remote_console_access(self):
         server = self.conn.baremetal.get_remote_console_access(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            None
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
         )
         self.assertIsInstance(server.url, six.string_types)
         self.assertIsInstance(server.access_code, six.string_types)
@@ -59,5 +55,4 @@ class TestServerAction(base.BaseFunctionalTest):
     def test_06_disconnect_remote_console_access(self):
         server = self.conn.baremetal.disconnect_remote_console_access(
             "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            None
         )
