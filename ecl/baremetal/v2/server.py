@@ -272,7 +272,7 @@ class ServerAction(resource2.Resource):
         )
         self._translate_response(resp, has_body=False)
         return self
-    #
+
     # def get_remote_console_access(self, session, server_id):
     #     uri = self.base_path % server_id
     #     body = {
@@ -340,7 +340,7 @@ class ServerAction(resource2.Resource):
             "No %s found for %s" % (cls.__name__, name_or_id))
 
 class ServerActionRemoteConsole(resource2.Resource):
-    resource_key = "console"
+    resource_key = "remote_console"
     resources_key = None
     base_path = '/servers/%s/action'
     service = baremetal_service.BaremetalService()
