@@ -485,7 +485,7 @@ class Proxy(proxy2.BaseProxy):
         :param string server_id: ID for the server.
         :return: :class:`~ecl.baremetal.v2.server.ServerAction`
         """
-        server = _server.ServerAction()
+        server = _server.ServerActionRemoteConsole()
         return server.get_remote_console_access(self.session, server_id)
 
     def disconnect_remote_console_access(self, server_id):
@@ -500,7 +500,7 @@ class Proxy(proxy2.BaseProxy):
         :param string server_id: ID for the server.
         :return: ``None``
         """
-        server = _server.ServerAction()
+        server = _server.ServerActionRemoteConsole()
         return server.disconnect_remote_console_access(self.session, server_id)
 
     def update_bmc_password(self, server_id, password):
