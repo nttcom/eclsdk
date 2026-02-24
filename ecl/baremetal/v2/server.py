@@ -272,34 +272,34 @@ class ServerAction(resource2.Resource):
         )
         self._translate_response(resp, has_body=False)
         return self
-
-    def get_remote_console_access(self, session, server_id):
-        uri = self.base_path % server_id
-        body = {
-            "get-remote-console-url": None
-        }
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service,
-            json=body,
-            headers={"Accept": "application/json"}
-        )
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def disconnect_remote_console_access(self, session, server_id):
-        uri = self.base_path % server_id
-        body = {
-            "disconnect-remote-console": None
-        }
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service,
-            json=body,
-            headers={"Accept": "application/json"}
-        )
-        self._translate_response(resp, has_body=True)
-        return self
+    #
+    # def get_remote_console_access(self, session, server_id):
+    #     uri = self.base_path % server_id
+    #     body = {
+    #         "get-remote-console-url": None
+    #     }
+    #     resp = session.post(
+    #         uri,
+    #         endpoint_filter=self.service,
+    #         json=body,
+    #         headers={"Accept": "application/json"}
+    #     )
+    #     self._translate_response(resp, has_body=True)
+    #     return self
+    #
+    # def disconnect_remote_console_access(self, session, server_id):
+    #     uri = self.base_path % server_id
+    #     body = {
+    #         "disconnect-remote-console": None
+    #     }
+    #     resp = session.post(
+    #         uri,
+    #         endpoint_filter=self.service,
+    #         json=body,
+    #         headers={"Accept": "application/json"}
+    #     )
+    #     self._translate_response(resp, has_body=True)
+    #     return self
 
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
