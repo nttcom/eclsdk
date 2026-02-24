@@ -384,6 +384,6 @@ class ServerActionRemoteConsole(resource2.Resource):
             endpoint_filter=self.service,
             json=body
         )
-        self._translate_response(resp, has_body=True)
+        self._translate_response(resp, has_body=False)
         return self
 
