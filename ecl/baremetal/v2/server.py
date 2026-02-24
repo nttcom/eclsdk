@@ -382,8 +382,7 @@ class ServerActionRemoteConsole(resource2.Resource):
         resp = session.post(
             uri,
             endpoint_filter=self.service,
-            json=body,
-            headers={"Accept": "application/json"}
+            json=body
         )
         self._translate_response(resp, has_body=True)
         return self
