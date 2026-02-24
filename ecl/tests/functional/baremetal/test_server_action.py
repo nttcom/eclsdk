@@ -54,5 +54,5 @@ class TestServerAction(base.BaseFunctionalTest):
 
     def test_06_disconnect_remote_console_access(self):
         server = self.conn.baremetal.disconnect_remote_console_access(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
         )
