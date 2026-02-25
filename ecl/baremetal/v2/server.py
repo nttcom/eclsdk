@@ -289,7 +289,6 @@ class ServerAction(resource2.Resource):
         return self
 
     def disconnect_remote_console_access(self, session, server_id):
-        self.resource_key = "remote_console"
         uri = self.base_path % server_id
         body = {
             "disconnect-remote-console": None
