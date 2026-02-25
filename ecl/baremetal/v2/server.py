@@ -269,6 +269,21 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
+    def update_bmc_password(self, session, server_id, password):
+        uri = self.base_path % server_id
+        body = {
+            "update-bmc-password": {
+                "password": password
+            }
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body
+        )
+        self._translate_response(resp, has_body=False)
+        return self
+
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
