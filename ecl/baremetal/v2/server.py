@@ -273,6 +273,35 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
+    def get_remote_console_access(self, session, server_id):
+        self.resource_key = "remote_console"
+        uri = self.base_path % server_id
+        body = {
+            "get-remote-console-url": None
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body,
+            headers={"Accept": "application/json"}
+        )
+        self._translate_response(resp, has_body=True)
+        return self
+
+    def disconnect_remote_console_access(self, session, server_id):
+        self.resource_key = "remote_console"
+        uri = self.base_path % server_id
+        body = {
+            "disconnect-remote-console": None
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body
+        )
+        self._translate_response(resp, has_body=False)
+        return self
+
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
         """Find a resource by its name or id.
@@ -310,44 +339,3 @@ class ServerAction(resource2.Resource):
             return None
         raise exceptions.ResourceNotFound(
             "No %s found for %s" % (cls.__name__, name_or_id))
-
-class ServerActionRemoteConsole(resource2.Resource):
-    resource_key = "remote_console"
-    resources_key = None
-    base_path = '/servers/%s/action'
-    service = baremetal_service.BaremetalService()
-
-    # Properties
-    #: URL to access the remote console.
-    url = resource2.Body('url')
-    #: Security token to get access_token.
-    access_code = resource2.Body('access_code')
-    #: Date and time when the access_code expires.
-    expired_at = resource2.Body('expired_at')
-
-    def get_remote_console_access(self, session, server_id):
-        uri = self.base_path % server_id
-        body = {
-            "get-remote-console-url": None
-        }
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service,
-            json=body,
-            headers={"Accept": "application/json"}
-        )
-        self._translate_response(resp, has_body=True)
-        return self
-
-    def disconnect_remote_console_access(self, session, server_id):
-        uri = self.base_path % server_id
-        body = {
-            "disconnect-remote-console": None
-        }
-        resp = session.post(
-            uri,
-            endpoint_filter=self.service,
-            json=body
-        )
-        self._translate_response(resp, has_body=False)
-        return self
