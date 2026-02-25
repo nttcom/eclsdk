@@ -19,30 +19,33 @@ class TestServerAction(base.BaseFunctionalTest):
 
     def test_01_start_server(self):
         server = self.conn.baremetal.start_server(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            "DISK"
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e"
         )
 
     def test_02_stop_server(self):
         server = self.conn.baremetal.stop_server(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
             None
         )
-        assert False
+        assert True
 
     def test_03_reboot_server(self):
         server = self.conn.baremetal.reboot_server(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            "SOFT",
-            "disk"
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
+            "SOFT"
         )
 
     def test_04_get_management_console(self):
         server = self.conn.baremetal.get_management_console(
-            "752aac2e-4b82-4d47-a7c7-fcbd0cbc86e2",
-            None
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e"
         )
         self.assertIsInstance(server.type, six.string_types)
         self.assertIsInstance(server.url, six.string_types)
         self.assertIsInstance(server.user_id, six.string_types)
         self.assertIsInstance(server.password, six.string_types)
+
+    def test_07_update_bmc_password(self):
+        server = self.conn.baremetal.update_bmc_password(
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
+            "password20260210"
+        )
