@@ -292,6 +292,13 @@ class ServerAction(resource2.Resource):
         uri = self.base_path % server_id
         body = {
             "disconnect-remote-console": None
+          
+    def update_bmc_password(self, session, server_id, password):
+        uri = self.base_path % server_id
+        body = {
+            "update-bmc-password": {
+                "password": password
+            }
         }
         resp = session.post(
             uri,

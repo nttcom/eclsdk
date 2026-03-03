@@ -502,6 +502,17 @@ class Proxy(proxy2.BaseProxy):
         """
         server = _server.ServerAction()
         return server.disconnect_remote_console_access(self.session, server_id)
+    def update_bmc_password(self, server_id, password):
+        """Update the password for the Baseboard Management Controller
+        of the Baremetal Server associated with server_id.
+        This request will be accepted only when the task_state is None.
+
+        :param string server_id: ID for the server.
+        :param string password: New password for BMC.
+        :return: ``None``
+        """
+        server = _server.ServerAction()
+        return server.update_bmc_password(self.session, server_id, password)
 
     def metadata(self, server_id):
         """This API lists metadata for a specified server.
