@@ -44,6 +44,19 @@ class TestServerAction(base.BaseFunctionalTest):
         self.assertIsInstance(server.user_id, six.string_types)
         self.assertIsInstance(server.password, six.string_types)
 
+    def test_05_get_remote_console_access(self):
+        server = self.conn.baremetal.get_remote_console_access(
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
+        )
+        self.assertIsInstance(server.url, six.string_types)
+        self.assertIsInstance(server.access_code, six.string_types)
+        self.assertIsInstance(server.expired_at, six.string_types)
+
+    def test_06_disconnect_remote_console_access(self):
+        server = self.conn.baremetal.disconnect_remote_console_access(
+            "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
+        )
+
     def test_07_update_bmc_password(self):
         server = self.conn.baremetal.update_bmc_password(
             "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
