@@ -502,6 +502,7 @@ class Proxy(proxy2.BaseProxy):
         """
         server = _server.ServerAction()
         return server.disconnect_remote_console_access(self.session, server_id)
+        
     def update_bmc_password(self, server_id, password):
         """Update the password for the Baseboard Management Controller
         of the Baremetal Server associated with server_id.
