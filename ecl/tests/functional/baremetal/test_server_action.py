@@ -55,6 +55,7 @@ class TestServerAction(base.BaseFunctionalTest):
     def test_06_disconnect_remote_console_access(self):
         server = self.conn.baremetal.disconnect_remote_console_access(
             "91f4e431-ab9d-422e-8f4f-9dcad809d18e",
+        )
           
     def test_07_update_bmc_password(self):
         server = self.conn.baremetal.update_bmc_password(
