@@ -64,6 +64,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     new_password = resource2.Body('new_password')
     #: Initial config of virtual network appliance.
     initial_config = resource2.Body('initial_config')
+    #: Reallocation status of virtual network appliance
+    reallocation_needed = resource2.Body('reallocation_needed')
 
     def update(self, session, prepend_key=True, has_body=True):
         """Update the remote resource based on this virtual network appliance.
@@ -136,3 +138,8 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
             console_dict = resp.json()
             if console_dict:
                 return console_dict.get("console")
+
+    def reallocate(self, session):
+        """Reallocate virtual network appliance"""
+        body = {'reallocate': None}
+        self._action(session, body)

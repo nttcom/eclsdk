@@ -3,7 +3,6 @@
 from ecl.compute import compute_service
 from ecl import resource2
 
-
 class Volume(resource2.Resource):
     resource_key = 'volume'
     resources_key = 'volumes'
