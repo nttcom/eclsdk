@@ -467,6 +467,42 @@ class Proxy(proxy2.BaseProxy):
         server = _server.ServerAction()
         return server.reset_bmc(self.session, server_id, type)
 
+    def get_remote_console_access(self, server_id):
+        """This API provides the necessary information to access the Bare Metal Server's
+        Baseboard Management Controller (BMC).
+        Specifically, it provides the destination URL and the access_code
+        required for access.
+        By appending /remote-console-token-exchange to the issued
+        URL, and sending a POST request with the access_code
+        specified in the request body in JSON format ({ "access_code": "" }), the access_token
+        will be returned in the Set-Cookie field of the response header.
+        You can then access the Bare Metal Server's BMC by accessing the issuedURL
+        with this access_token specified in the Cookie.
+        Please note that the validity period for the access_code is 1 minute, and the validity
+        period for the access_token is 1 hour. Once the access_token is retrieved
+        from an access_code, that access_code becomes invalid.
+
+        :param string server_id: ID for the server.
+        :return: :class:`~ecl.baremetal.v2.server.ServerAction`
+        """
+        server = _server.ServerAction()
+        return server.get_remote_console_access(self.session, server_id)
+
+    def disconnect_remote_console_access(self, server_id):
+        """This API immediately revokes the access_token that was
+        issued by the aforementioned Get Remote Console Access
+        API, effectively expiring it prematurely.
+        Once the access_token is revoked, access to the BMC
+        using that access_token will no longer be possible, and
+        it will also become impossible to retrieve a access_token
+        using the access_code.
+
+        :param string server_id: ID for the server.
+        :return: ``None``
+        """
+        server = _server.ServerAction()
+        return server.disconnect_remote_console_access(self.session, server_id)
+        
     def update_bmc_password(self, server_id, password):
         """Update the password for the Baseboard Management Controller
         of the Baremetal Server associated with server_id.

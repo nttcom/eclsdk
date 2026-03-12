@@ -153,6 +153,10 @@ class ServerAction(resource2.Resource):
     user_id = resource2.Body('user_id')
     #: Password for sign in to the remote console.
     password = resource2.Body('password')
+    #: Security token to get access_token.
+    access_code = resource2.Body('access_code')
+    #: Date and time when the access_code expires.
+    expired_at = resource2.Body('expired_at')
 
     def start(self, session, server_id):
         uri = self.base_path % server_id
@@ -269,6 +273,34 @@ class ServerAction(resource2.Resource):
         self._translate_response(resp, has_body=False)
         return self
 
+    def get_remote_console_access(self, session, server_id):
+        self.resource_key = "remote_console"
+        uri = self.base_path % server_id
+        body = {
+            "get-remote-console-url": None
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body,
+            headers={"Accept": "application/json"}
+        )
+        self._translate_response(resp, has_body=True)
+        return self
+
+    def disconnect_remote_console_access(self, session, server_id):
+        uri = self.base_path % server_id
+        body = {
+            "disconnect-remote-console": None
+        }
+        resp = session.post(
+            uri,
+            endpoint_filter=self.service,
+            json=body
+        )
+        self._translate_response(resp, has_body=False)
+        return self
+          
     def update_bmc_password(self, session, server_id, password):
         uri = self.base_path % server_id
         body = {
