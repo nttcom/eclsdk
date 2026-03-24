@@ -40,6 +40,9 @@ class Flavor(resource2.Resource):
     #: In order to maintain compatibility with Nova API,
     #: we put the size of the physical cpu to vcpu.
     vcpus = resource2.Body('vcpus', type=int)
+    #: The physical GPUs count, in whole integer amount, for the flavor.
+    #: This key is only present if the flavor includes GPUs.
+    gpus = resource2.Body('gpus', type=int)
 
     @classmethod
     def find(cls, session, name_or_id, ignore_missing=False, **params):
