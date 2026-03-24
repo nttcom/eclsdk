@@ -35,6 +35,9 @@ BASIC_EXAMPLE = {
     'error_message': '',
     'throughput': 50,
     'export_rules': [],
+    'percentage_snapshot_reserve_used': 50,
+    'snapshot_reserve_size': 12,
+    'snapshot_reserve_used': 6,
     'smb_properties': {
         'workgroup': 'WORKGROUP',
         'users': [{
@@ -93,3 +96,6 @@ class TestVolume(testtools.TestCase):
         self.assertEqual(BASIC_EXAMPLE['throughput'], sot.throughput)
         self.assertEqual(BASIC_EXAMPLE['export_rules'], sot.export_rules)
         self.assertEqual(BASIC_EXAMPLE['smb_properties'], sot.smb_properties)
+        self.assertEqual(BASIC_EXAMPLE['percentage_snapshot_reserve_used'], sot.percentage_snapshot_reserve_used)
+        self.assertEqual(BASIC_EXAMPLE['snapshot_reserve_size'], sot.snapshot_reserve_size)
+        self.assertEqual(BASIC_EXAMPLE['snapshot_reserve_used'], sot.snapshot_reserve_used)

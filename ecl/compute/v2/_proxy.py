@@ -227,16 +227,17 @@ class Proxy(proxy2.BaseProxy):
         virtual_server = self.get_server(server)
         return virtual_server.stop(self.session)
 
-    def resize_server(self, server, flavor_id):
+    def resize_server(self, server, flavor_id, is_dry_run=False):
         """Resize the server to flavor reference
 
         :param server: Either the ID of a server or a
                        :class:`~ecl.compute.v2.server.Server` instance.
         :param string flavor_id: ID of flavor to resize
+        :param bool is_dry_run:When set to "True" will enable dry run mode.
         :return: <Response 202>
         """
         virtual_server = self.get_server(server)
-        return virtual_server.resize(self.session, flavor_id)
+        return virtual_server.resize(self.session, flavor_id, is_dry_run)
 
     def get_server_metadata(self, server):
         """Return a dictionary of metadata for a server
