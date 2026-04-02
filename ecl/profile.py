@@ -110,7 +110,7 @@ class Profile(object):
         self._add_service(
             security_order_service.SecurityOrderService(version="v3"))
         self._add_service(
-            security_portal_service.SecurityPortalService(version="v2"))
+            security_portal_service.SecurityPortalService(version="v3"))
         self._add_service(rca_service.RcaService(version="v1"))
         self._add_service(baremetal_service.BaremetalService(version="v2"))
         self._add_service(
