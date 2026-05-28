@@ -62,7 +62,8 @@ class Proxy(proxy2.BaseProxy):
         :rtype: :class:`~ecl.network.v2.network.Network`
         """
         body = dict()
-        body.setdefault("admin_state_up", False)
+        if admin_state_up is not None:
+            body["admin_state_up"] = admin_state_up
 
         if admin_state_up:
             body["admin_state_up"] = admin_state_up
@@ -214,7 +215,7 @@ class Proxy(proxy2.BaseProxy):
         :rtype: :class:`~ecl.network.v2.port.Port`
         """
         body = dict()
-        if admin_state_up:
+        if admin_state_up is not None:
             body["admin_state_up"] = admin_state_up
         if allowed_address_pairs:
             body["allowed_address_pairs"] = allowed_address_pairs
