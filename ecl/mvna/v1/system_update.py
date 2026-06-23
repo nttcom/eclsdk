@@ -18,6 +18,7 @@ class SystemUpdate(resource2.Resource):
         "current_revision",
         "next_revision",
         "applicable",
+        "is_rollback_allowed",
         "latest"
     )
 
@@ -48,3 +49,5 @@ class SystemUpdate(resource2.Resource):
     next_revision = resource2.Body('next_revision')
     #: Applicable of system update
     applicable = resource2.Body('applicable')
+    #: Whether the system update can be rolled back
+    is_rollback_allowed = resource2.Body('is_rollback_allowed')
