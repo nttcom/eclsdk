@@ -65,6 +65,10 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     initial_config = resource2.Body('initial_config')
     #: Reallocation status of virtual network appliance
     reallocation_needed = resource2.Body('reallocation_needed')
+    #: Configuration Type of virtual network appliance.
+    format = resource2.Body('format')
+    #: Configuration of virtual network appliance.
+    data = resource2.Body('data')
 
     def update(self, session, prepend_key=True, has_body=True):
         """Update the remote resource based on this virtual network appliance.
@@ -126,6 +130,18 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
         body = {}
         resp = self._action(session, body, postfix='reset-password')
         self._translate_response(resp, has_body=True)
+        return self
+
+    def export_configuration(self, session, format):
+        """Export Configuration Virtual Network Appliance."""
+        body = {'format': format}
+        resp = self._action(session, body, postfix='export-config')
+        if resp:
+            configuration_dict = resp.json()
+            if configuration_dict:
+                conf = configuration_dict.get('configuration') or {}
+                self.data = conf.get('data')
+                self.format = conf.get('format')
         return self
 
     def get_console(self, session, vnc_type):
