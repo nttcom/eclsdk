@@ -23,3 +23,5 @@ class TestVirtualNetworkApplianceAction(base.BaseFunctionalTest):
         )
 
         self.assertIsInstance(action, dict)
+        self.assertIsInstance(action['format'], six.string_types)
+        self.assertIsInstance(action['data'], six.string_types)
