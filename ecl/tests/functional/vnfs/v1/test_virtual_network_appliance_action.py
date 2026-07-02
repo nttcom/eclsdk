@@ -11,7 +11,6 @@
 # under the License.
 
 import six
-import time
 
 from ecl.tests.functional import base
 
@@ -23,5 +22,4 @@ class TestVirtualNetworkApplianceAction(base.BaseFunctionalTest):
             "set"
         )
 
-        self.assertIsInstance(action.format, six.string_types)
-        self.assertIsInstance(action.data, six.string_types)
+        self.assertIsInstance(action, dict)

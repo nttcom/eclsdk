@@ -264,7 +264,8 @@ class Proxy(proxy2.BaseProxy):
             ID of the Virtual Network Appliance.
         :param format:
             Export format. The following formats are available:
-            set (show configuration | display set) / text (show configuration).
+                Firewall: set (show configuration | display set) / text (show configuration).
+                LoadBalancer(vThunder ADC): a10-json (show json-config).
         :return: <Response 200>
         """
         virtual_network_appliance = \

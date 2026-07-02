@@ -65,10 +65,6 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
     initial_config = resource2.Body('initial_config')
     #: Reallocation status of virtual network appliance
     reallocation_needed = resource2.Body('reallocation_needed')
-    #: Configuration Type of virtual network appliance.
-    format = resource2.Body('format')
-    #: Configuration of virtual network appliance.
-    data = resource2.Body('data')
 
     def update(self, session, prepend_key=True, has_body=True):
         """Update the remote resource based on this virtual network appliance.
@@ -139,10 +135,7 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
         if resp:
             configuration_dict = resp.json()
             if configuration_dict:
-                conf = configuration_dict.get('configuration') or {}
-                self.data = conf.get('data')
-                self.format = conf.get('format')
-        return self
+                return configuration_dict.get("configuration")
 
     def get_console(self, session, vnc_type):
         """Get console of virtual network appliance"""
