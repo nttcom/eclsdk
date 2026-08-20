@@ -73,6 +73,14 @@ class Volume(resource2.Resource):
     #: Percentage of Used Snapshots
     percentage_snapshot_reserve_used = \
         resource2.Body('percentage_snapshot_reserve_used', type=int)
+    #: The size of Snapshots Reserve
+    snapshot_reserve_size = \
+        resource2.Body('snapshot_reserve_size', type=int)
+    #: The size of Used Snapshots Reserve
+    snapshot_reserve_used = \
+        resource2.Body('snapshot_reserve_used', type=int)
+    #: properties for smb storage
+    smb_properties = resource2.Body('smb_properties', type=dict)
 
     def create(self, session, **attrs):
         body = {"volume":attrs}

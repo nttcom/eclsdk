@@ -67,10 +67,6 @@ from ecl.rca import rca_service
 from ecl.storage import storage_service
 from ecl.security_order import security_order_service
 from ecl.security_portal import security_portal_service
-## This section will be deleted if MSS v2 API is not available
-from ecl.security_order_v2 import security_order_service as security_order_service_v2
-from ecl.security_portal_v2 import security_portal_service as security_portal_service_v2
-## end of the section
 from ecl.sss import sss_service
 from ecl.telemetry import telemetry_service
 from ecl.dns import dns_service
@@ -115,12 +111,6 @@ class Profile(object):
             security_order_service.SecurityOrderService(version="v3"))
         self._add_service(
             security_portal_service.SecurityPortalService(version="v3"))
-        ## This section will be deleted if MSS v2 API is not available
-        self._add_service(
-            security_order_service_v2.SecurityOrderService(version="v2"))
-        self._add_service(
-            security_portal_service_v2.SecurityPortalService(version="v2"))
-        ## end of the section
         self._add_service(rca_service.RcaService(version="v1"))
         self._add_service(baremetal_service.BaremetalService(version="v2"))
         self._add_service(
