@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_portal import security_portal_service
+from ecl.security_portal_v4 import security_portal_service
 from ecl import resource2
 from ecl import exceptions
 from ecl import utils
@@ -9,11 +9,11 @@ from ecl import utils
 class SecurityDevice(resource2.Resource):
     resource_key = "device"
     resources_key = "devices"
-    base_path = '/ecl-api/devices'
+    base_path = '/ecl-api/v4/devices'
     service = security_portal_service.SecurityPortalService()
 
     _query_mapping = resource2.QueryParameters(
-        "tenantid",
+        "tenant_id",
     )
 
     # Capabilities
@@ -22,9 +22,9 @@ class SecurityDevice(resource2.Resource):
 
     # Properties
     #: MSA Device External reference.
-    msa_device_id = resource2.Body('msa_device_id', alternate_id=True)
+    device_id = resource2.Body('device_id', alternate_id=True)
     #: MSA Device Type.
-    msa_device_type = resource2.Body('msa_device_type')
+    device_type = resource2.Body('device_type')
     #: Server id of Network-based Security devices.
     os_server_id = resource2.Body('os_server_id')
     #: Server name on Openstack.
@@ -39,7 +39,7 @@ class SecurityDevice(resource2.Resource):
     interfaces = resource2.Body('interfaces')
 
     def get(self, session, server_id):
-        uri = self.base_path + '/%s?tenantid=%s' \
+        uri = self.base_path + '/%s?tenant_id=%s' \
               % (server_id, session.get_project_id())
         resp = session.get(uri, endpoint_filter=self.service)
         self._translate_response(resp, has_body=True)

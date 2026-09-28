@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_order import security_order_service
+from ecl.security_order_v4 import security_order_service
 from ecl import resource2
 from ecl import exceptions
 from ecl import utils
 
 
-class HADevice(resource2.Resource):
+class WAF(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryFGHA'
+    base_path = '/API/SoEntryFGWAF'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
@@ -23,8 +23,8 @@ class HADevice(resource2.Resource):
     #: Tenant ID of the owner (UUID).
     tenant_id = resource2.Body('tenant_id')
     #: List of following objects.
-    #: operatingmode: Set "FW" or "UTM" to this value.
-    #: licensekind: Set "02" or "08" as FW/UTM plan.
+    #: operatingmode: Set "WAF" to this value.
+    #: licensekind: Set "02", "04" or "08" as WAF plan.
     #: azgroup: Availability Zone.
     gt_host = resource2.Body('gt_host')
     #: A: Create Single Constitution Device.
@@ -50,6 +50,19 @@ class HADevice(resource2.Resource):
     devices = resource2.Body('devices')
     #: Percentage of Service Order Progress Status.
     progress_rate = resource2.Body('progressRate')
+    #: List of device objects.
+    devices = resource2.Body('devices')
+
+    def get_order_status(self, session, soid, locale=None):
+        tenant_id = session.get_project_id()
+        uri = '/API/ScreenEventFGWAFOrderProgressRate?tenant_id=%s&soid=%s' \
+              % (tenant_id, soid)
+        if locale is not None:
+            uri += '&locale=%s' % locale
+        headers = {'Content-Type': 'application/json'}
+        resp = session.get(uri, endpoint_filter=self.service, headers=headers)
+        self._translate_response(resp, has_body=True)
+        return self
 
     def update(self, session, **body):
         uri = self.base_path
@@ -65,7 +78,7 @@ class HADevice(resource2.Resource):
 
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGHADeviceGet?tenant_id=%s' % tenant_id
+        uri = '/API/ScreenEventFGWAFDeviceGet?tenant_id=%s' % tenant_id
         if locale is not None:
             uri += '&locale=%s' % locale
         headers = {'Content-Type': 'application/json'}
@@ -76,19 +89,11 @@ class HADevice(resource2.Resource):
             device = {
                 'internal_use': row['cell'][0],
                 'rows': row['cell'][1],
-                'ha_id': row['cell'][2],
-                'hostname': row['cell'][3],
-                'menu': row['cell'][4],
-                'plan': row['cell'][5],
-                'redundancy': row['cell'][6],
-                'availability_zone': row['cell'][7],
-                'zone_name': row['cell'][8],
-                'halink1networkid': row['cell'][9],
-                'halink1subnetid': row['cell'][10],
-                'halink1ipaddress': row['cell'][11],
-                'halink2networkid': row['cell'][12],
-                'halink2subnetid': row['cell'][13],
-                'halink2ipaddress': row['cell'][14],
+                'hostname': row['cell'][2],
+                'menu': row['cell'][3],
+                'plan': row['cell'][4],
+                'availability_zone': row['cell'][5],
+                'zone_name': row['cell'][6],
             }
             devices.append(device)
         body.update({'devices': devices})

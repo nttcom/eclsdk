@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_portal.v3 import security_device as _sd
-from ecl.security_portal.v3 import security_device_interface as _sdi
+from ecl.security_portal_v3.v3 import security_device as _sd
+from ecl.security_portal_v3.v3 import security_device_interface as _sdi
 from ecl import proxy2
 
 
@@ -10,7 +10,7 @@ class Proxy(proxy2.BaseProxy):
         """Listing security devices associated with specific tenant.
 
         :return: List security devices.
-        :rtype: :class:`~ecl.security_portal.v3.security_device.SecurityDevice`
+        :rtype: :class:`~ecl.security_portal_v3.v3.security_device.SecurityDevice`
         """
         return list(self._list(_sd.SecurityDevice, paginated=False,
                                tenantid=self.session.get_project_id()))
@@ -20,7 +20,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param string server_id: Server ID registered in Openstack(UUID).
         :return: One security device.
-        :rtype: :class:`~ecl.security_portal.v3.security_device.SecurityDevice`
+        :rtype: :class:`~ecl.security_portal_v3.v3.security_device.SecurityDevice`
         """
         sd = _sd.SecurityDevice()
         return sd.get(self.session, server_id)
@@ -30,7 +30,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param string server_id: Server ID registered in Openstack(UUID).
         :return: List security device interfaces.
-        :rtype: :class:`~ecl.security_portal.v3.security_device_interface.SecurityDeviceInterface`
+        :rtype: :class:`~ecl.security_portal_v3.v3.security_device_interface.SecurityDeviceInterface`
         """
         return list(self._list(_sdi.SecurityDeviceInterface, paginated=False,
                                server_id=server_id,
@@ -41,7 +41,7 @@ class Proxy(proxy2.BaseProxy):
 
         :param string port_id: Port ID registered in Openstack(UUID).
         :return: One security device interface.
-        :rtype: :class:`~ecl.security_portal.v3.security_device_interface.SecurityDeviceInterface`
+        :rtype: :class:`~ecl.security_portal_v3.v3.security_device_interface.SecurityDeviceInterface`
         """
         sdi = _sdi.SecurityDeviceInterface()
         return sdi.get(self.session, port_id)

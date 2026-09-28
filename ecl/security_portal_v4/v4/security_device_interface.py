@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_portal import security_portal_service
+from ecl.security_portal_v4 import security_portal_service
 from ecl import resource2
 from ecl import exceptions
 from ecl import utils
@@ -9,11 +9,11 @@ from ecl import utils
 class SecurityDeviceInterface(resource2.Resource):
     resource_key = "device_interface"
     resources_key = "device_interfaces"
-    base_path = '/ecl-api/devices/%(server_id)s/interfaces'
+    base_path = '/ecl-api/v4/devices/%(server_id)s/interfaces'
     service = security_portal_service.SecurityPortalService()
 
     _query_mapping = resource2.QueryParameters(
-        "tenantid",
+        "tenant_id",
     )
 
     # Capabilities
@@ -26,7 +26,7 @@ class SecurityDeviceInterface(resource2.Resource):
     #: Port IP address (if available).
     os_ip_address = resource2.Body('os_ip_address')
     #: Port id on the Network-based Security devices (registered in MSA).
-    msa_port_id = resource2.Body('msa_port_id')
+    port_id = resource2.Body('port_id')
     #: Port name on Openstack.
     os_port_name = resource2.Body('os_port_name')
     #: Network Id to which Port is associated on Openstack.
@@ -41,7 +41,7 @@ class SecurityDeviceInterface(resource2.Resource):
     os_server_id = resource2.Body('os_server_id')
 
     def get(self, session, port_id):
-        uri = '/ecl-api/devices/interface/%s?tenantid=%s' \
+        uri = '/ecl-api/v4/devices/interface/%s?tenant_id=%s' \
               % (port_id, session.get_project_id())
         resp = session.get(uri, endpoint_filter=self.service)
         self._translate_response(resp, has_body=True)

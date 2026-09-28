@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_order import security_order_service
+from ecl.security_order_v3 import security_order_service
 from ecl import resource2
 from ecl import exceptions
 from ecl import utils

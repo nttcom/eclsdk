@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_order.v3 import device as _fgs
-from ecl.security_order.v3 import ha_device as _fgha
-from ecl.security_order.v3 import waf as _fgwaf
-from ecl.security_order.v3 import host_based_security as _hbs
+from ecl.security_order_v3.v3 import device as _fgs
+from ecl.security_order_v3.v3 import ha_device as _fgha
+from ecl.security_order_v3.v3 import waf as _fgwaf
+from ecl.security_order_v3.v3 import host_based_security as _hbs
 from ecl import proxy2
 
 
