@@ -76,7 +76,7 @@ class Device(resource2.Resource):
 
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGSDeviceGet?tenant_id=%s' % tenant_id
+        uri = '/API/v4/ScreenEventFGSDeviceGet?tenant_id=%s' % tenant_id
         if locale is not None:
             uri += '&locale=%s' % locale
         headers = {'Content-Type': 'application/json'}
