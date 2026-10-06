@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from ecl.security_order import security_order_service
+from ecl.security_order_v4 import security_order_service
 from ecl import resource2
 from ecl import exceptions
 from ecl import utils
 
 
-class Device(resource2.Resource):
+class WAF(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryFGS'
+    base_path = '/API/SoEntryFGWAF'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
@@ -23,8 +23,8 @@ class Device(resource2.Resource):
     #: Tenant ID of the owner (UUID).
     tenant_id = resource2.Body('tenant_id')
     #: List of following objects.
-    #: operatingmode: Set "FW" or "UTM" to this value.
-    #: licensekind: Set "02" or "08" as FW/UTM plan.
+    #: operatingmode: Set "WAF" to this value.
+    #: licensekind: Set "02", "04" or "08" as WAF plan.
     #: azgroup: Availability Zone.
     gt_host = resource2.Body('gt_host')
     #: A: Create Single Constitution Device.
@@ -53,7 +53,7 @@ class Device(resource2.Resource):
 
     def get_order_status(self, session, soid, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGSOrderProgressRate?tenant_id=%s&soid=%s' \
+        uri = '/API/ScreenEventFGWAFOrderProgressRate?tenant_id=%s&soid=%s' \
               % (tenant_id, soid)
         if locale is not None:
             uri += '&locale=%s' % locale
@@ -76,7 +76,7 @@ class Device(resource2.Resource):
 
     def list(self, session, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGSDeviceGet?tenant_id=%s' % tenant_id
+        uri = '/API/v4/ScreenEventFGWAFDeviceGet?tenant_id=%s' % tenant_id
         if locale is not None:
             uri += '&locale=%s' % locale
         headers = {'Content-Type': 'application/json'}
@@ -90,9 +90,8 @@ class Device(resource2.Resource):
                 'hostname': row['cell'][2],
                 'menu': row['cell'][3],
                 'plan': row['cell'][4],
-                'redundancy': row['cell'][5],
-                'availability_zone': row['cell'][6],
-                'zone_name': row['cell'][7],
+                'availability_zone': row['cell'][5],
+                'zone_name': row['cell'][6],
             }
             devices.append(device)
         body.update({'devices': devices})
