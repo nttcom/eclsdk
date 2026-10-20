@@ -128,6 +128,15 @@ class VirtualNetworkAppliance(base.VirtualNetworkApplianceBaseResource):
         self._translate_response(resp, has_body=True)
         return self
 
+    def export_configuration(self, session, format):
+        """Export Configuration Virtual Network Appliance."""
+        body = {'format': format}
+        resp = self._action(session, body, postfix='export-config')
+        if resp:
+            configuration_dict = resp.json()
+            if configuration_dict:
+                return configuration_dict.get("configuration")
+
     def get_console(self, session, vnc_type):
         """Get console of virtual network appliance"""
         action = {'type': vnc_type}

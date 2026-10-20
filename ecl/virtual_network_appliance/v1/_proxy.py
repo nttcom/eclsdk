@@ -255,6 +255,23 @@ class Proxy(proxy2.BaseProxy):
             self.get_virtual_network_appliance(virtual_network_appliance)
         return virtual_network_appliance.reset_password(self.session)
 
+    def export_configuration_virtual_network_appliance(self,
+                                                       virtual_network_appliance,
+                                                       format):
+        """Export Configuration Virtual Network Appliance.
+
+        :param virtual_network_appliance:
+            ID of the Virtual Network Appliance.
+        :param format:
+            Export format. The following formats are available:
+                Firewall: set (show configuration | display set) / text (show configuration).
+                LoadBalancer(vThunder ADC): a10-json (show json-config).
+        :return: <Response 200>
+        """
+        virtual_network_appliance = \
+            self.get_virtual_network_appliance(virtual_network_appliance)
+        return virtual_network_appliance.export_configuration(self.session, format)
+
     def operations(self, resource_ids=[], no_deleted=True, latest=False):
         """List operations.
 
