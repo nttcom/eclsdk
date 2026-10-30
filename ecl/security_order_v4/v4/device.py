@@ -9,7 +9,7 @@ from ecl import utils
 class Device(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryFGS'
+    base_path = '/API/v4/SoEntryFGS'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
@@ -53,7 +53,7 @@ class Device(resource2.Resource):
 
     def get_order_status(self, session, soid, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventFGSOrderProgressRate?tenant_id=%s&soid=%s' \
+        uri = '/API/v4/ScreenEventFGSOrderProgressRate?tenant_id=%s&soid=%s' \
               % (tenant_id, soid)
         if locale is not None:
             uri += '&locale=%s' % locale
