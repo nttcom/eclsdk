@@ -8,7 +8,7 @@ from ecl import utils
 class HostBasedSecurity(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryHBS'
+    base_path = '/API/v4/SoEntryHBS'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
@@ -65,7 +65,7 @@ class HostBasedSecurity(resource2.Resource):
 
     def get_order_status(self, session, soid, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventHBSOrderProgressRate?tenant_id=%s&soid=%s' \
+        uri = '/API/v4/ScreenEventHBSOrderProgressRate?tenant_id=%s&soid=%s' \
               % (tenant_id, soid)
         if locale is not None:
             uri += '&locale=%s' % locale
@@ -76,7 +76,7 @@ class HostBasedSecurity(resource2.Resource):
 
     def get_order_info(self, session, locale=None):
         tenant_id = session.get_project_id()
-        uri = '/API/ScreenEventHBSOrderInfoGet?tenant_id=%s' % tenant_id
+        uri = '/API/v4/ScreenEventHBSOrderInfoGet?tenant_id=%s' % tenant_id
         if locale is not None:
             uri += '&locale=%s' % locale
         headers = {'Content-Type': 'application/json'}
