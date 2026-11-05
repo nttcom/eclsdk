@@ -31,8 +31,6 @@ class SecurityDevice(resource2.Resource):
     os_server_name = resource2.Body('os_server_name')
     #: Availability zone information.
     os_availability_zone = resource2.Body('os_availability_zone')
-    #: Name of admin.
-    os_admin_username = resource2.Body('os_admin_username')
     #: Server Status.
     os_server_status = resource2.Body('os_server_status')
     #: Interfaces details associated with the Security Device.
@@ -42,5 +40,25 @@ class SecurityDevice(resource2.Resource):
         uri = self.base_path + '/%s?tenant_id=%s' \
               % (server_id, session.get_project_id())
         resp = session.get(uri, endpoint_filter=self.service)
-        self._translate_response(resp, has_body=True)
+        self._translate_get_response(resp, has_body=True)
         return self
+
+    def _translate_get_response(self, response, has_body=True):
+        if has_body:
+            body = response.json()
+            # "device_id" is returned as a sibling of "device", not nested
+            # inside it, so it must be merged in before the resource_key
+            # ("device") is unwrapped.
+            device_id = body.get('device_id')
+            if self.resource_key and self.resource_key in body:
+                body = body[self.resource_key]
+            if device_id is not None:
+                body['device_id'] = device_id
+
+            body = self._filter_component(body, self._body_mapping())
+            self._body.attributes.update(body)
+            self._body.clean()
+
+        headers = self._filter_component(response.headers,self._header_mapping())
+        self._header.attributes.update(headers)
+        self._header.clean()
