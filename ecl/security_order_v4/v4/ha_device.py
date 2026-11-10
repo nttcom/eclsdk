@@ -9,7 +9,7 @@ from ecl import utils
 class HADevice(resource2.Resource):
     resource_key = None
     resources_key = None
-    base_path = '/API/SoEntryFGHA'
+    base_path = '/API/v4/SoEntryFGHA'
     service = security_order_service.SecurityOrderService()
 
     # Capabilities
