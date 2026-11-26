@@ -19,7 +19,6 @@ class InplaceUpgradeValidation(resource2.Resource):
 
     server_id = resource2.URI("server_id")
     instance_id = resource2.Body("instance_id")
-    overall_result = resource2.Body("overall_result")
     validations = resource2.Body("validations")
     upgradable_targets = resource2.Body("upgradable_targets")
 
@@ -39,7 +38,6 @@ class InplaceUpgradeValidation(resource2.Resource):
             validation = body.get('validation', {})
             flattened = {
                 'instance_id': body.get('instance_id'),
-                'overall_result': validation.get('overall_result'),
                 'validations': validation.get('validations'),
                 'upgradable_targets': body.get('upgradable_targets'),
             }

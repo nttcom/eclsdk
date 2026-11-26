@@ -19,7 +19,6 @@ SERVER_ID = 'ea5a4499-c71d-4af9-b58a-30a7bcf0a898'
 EXAMPLE = {
     'server_id': SERVER_ID,
     'instance_id': 'ea5a4499-c71d-4af9-b58a-30a7bcf0a898',
-    'overall_result': 'OK',
     'validations': [
         {
             'validation_id': '12345',
@@ -27,7 +26,7 @@ EXAMPLE = {
             'reason': '',
         },
     ],
-    'upgradable_target': ['Windows2026'],
+    'upgradable_targets': ['Windows2026'],
 }
 
 VALIDATION_BODY = {
@@ -66,9 +65,8 @@ class TestInplaceUpgradeValidation(testtools.TestCase):
         sot = inplace_upgrade_validation.InplaceUpgradeValidation(**EXAMPLE)
         self.assertEqual(EXAMPLE['server_id'], sot.server_id)
         self.assertEqual(EXAMPLE['instance_id'], sot.instance_id)
-        self.assertEqual(EXAMPLE['overall_result'], sot.overall_result)
         self.assertEqual(EXAMPLE['validations'], sot.validations)
-        self.assertEqual(EXAMPLE['upgradable_target'], sot.upgradable_target)
+        self.assertEqual(EXAMPLE['upgradable_targets'], sot.upgradable_targets)
 
     def test_get(self):
         sess = mock.Mock()
@@ -85,8 +83,6 @@ class TestInplaceUpgradeValidation(testtools.TestCase):
             endpoint_filter=sot.service)
 
         self.assertEqual(RESPONSE_BODY['instance_id'], sot.instance_id)
-        self.assertEqual(VALIDATION_BODY['overall_result'],
-                         sot.overall_result)
         self.assertEqual(VALIDATION_BODY['validations'], sot.validations)
         self.assertEqual(RESPONSE_BODY['upgradable_targets'],
-                         sot.upgradable_target)
+                         sot.upgradable_targets)
