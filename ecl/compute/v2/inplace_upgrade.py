@@ -3,7 +3,7 @@
 from ecl.compute import compute_service
 from ecl import resource2
 
-class InplaceUpgrades(resource2.Resource):
+class InplaceUpgrade(resource2.Resource):
     resource_key = 'inplace_upgrade'
     resources_key = 'inplace_upgrades'
     base_path = '/servers/%(server_id)s/inplace_upgrades'
@@ -17,10 +17,10 @@ class InplaceUpgrades(resource2.Resource):
     allow_update = False
 
     id = resource2.Body("id")
-    instance_id = resource2.URI("server_id")
+    instance_id = resource2.Body("instance_id")
     status = resource2.Body("status")
     src_os = resource2.Body("src_os")
     dst_os = resource2.Body("dst_os")
     created_at = resource2.Body("created_at")
-    upgraded_at = resource2.Body("upgraded_at")
+    upgrade_at = resource2.Body("upgrade_at")
     updated_at = resource2.Body("updated_at")

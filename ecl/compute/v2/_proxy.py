@@ -829,21 +829,22 @@ class Proxy(proxy2.BaseProxy):
             * src_os: Name of the Source OS as a string.
             * dst_os: Name of the destination OS as a string.
             * created_at: Specifies the creation time of the inplace upgrade.
-            * upgraded_at: Specifies the time when the inplace upgrade was last completed.
+            * upgrade_at: Specifies the time when the inplace upgrade was last completed.
             * updated_at: Specifies the update time of the inplace upgrade.
         :returns: A list of :class:`~ecl.compute.v2.inplace_upgrade.InplaceUpgrade`
         """
         server_id = resource2.Resource._get_id(server)
-        return list(self._list(_inplace.InplaceUpgrades, paginated=False, server_id=server_id))
+        return list(self._list(_inplace.InplaceUpgrade, paginated=False, server_id=server_id))
 
     def validate_inplace_upgrade(self, server):
         """Get validation results for in-place upgrades on a specific server instance.
 
             * instance_id: A ID of the server instance.
-            * overall_result: The overall result of the validation.
-            * validations: The result of individual validations.
+            * validation: The result of the validation.
+                * overall_result: The overall result of the validation.
+                * validations: The result of individual validations.
             * upgradable_target: The target OS to which the instance can be upgraded.
-        :returns: :class:`~ecl.compute.v2.inplace_upgrade_validation.ValidateInplaceUpgrade`
+        :returns: :class:`~ecl.compute.v2.inplace_upgrade_validation.InplaceUpgradeValidation`
         """
         server_id = resource2.Resource._get_id(server)
-        return self._get(_inplace_validation.ValidateInplaceUpgrade, server_id=server_id)
+        return self._get(_inplace_validation.InplaceUpgradeValidation, server_id=server_id)
