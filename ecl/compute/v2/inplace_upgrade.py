@@ -3,6 +3,7 @@
 from ecl.compute import compute_service
 from ecl import resource2
 
+
 class InplaceUpgrade(resource2.Resource):
     resource_key = 'inplace_upgrade'
     resources_key = 'inplace_upgrades'

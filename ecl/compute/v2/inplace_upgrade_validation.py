@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from ecl.compute import compute_service
+from ecl import exceptions
 from ecl import resource2
+
 
 class InplaceUpgradeValidation(resource2.Resource):
     resource_key = 'inplace_upgrade_validation'
@@ -19,12 +21,19 @@ class InplaceUpgradeValidation(resource2.Resource):
     instance_id = resource2.Body("instance_id")
     overall_result = resource2.Body("overall_result")
     validations = resource2.Body("validations")
-    upgradable_target = resource2.Body("upgradable_target")
+    upgradable_targets = resource2.Body("upgradable_targets")
 
     def get(self, session, requires_id=False):
-        return super(InplaceUpgradeValidation, self).get(session, False)
+        if not self.allow_get:
+            raise exceptions.MethodNotSupported(self, "get")
 
-    def _translate_response(self, response, has_body=True):
+        request = self._prepare_request(requires_id=False)
+        response = session.get(request.uri, endpoint_filter=self.service)
+
+        self._translate_get_response(response)
+        return self
+
+    def _translate_get_response(self, response, has_body=True):
         if has_body:
             body = response.json()
             validation = body.get('validation', {})
@@ -32,7 +41,7 @@ class InplaceUpgradeValidation(resource2.Resource):
                 'instance_id': body.get('instance_id'),
                 'overall_result': validation.get('overall_result'),
                 'validations': validation.get('validations'),
-                'upgradable_target': body.get('upgradable_targets'),
+                'upgradable_targets': body.get('upgradable_targets'),
             }
             flattened = self._filter_component(flattened, self._body_mapping())
             self._body.attributes.update(flattened)

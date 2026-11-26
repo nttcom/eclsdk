@@ -386,7 +386,7 @@ class Proxy(proxy2.BaseProxy):
                        server or a :class:`~ecl.compute.v2.server.Server`
                        instance that the action belongs to.
         :returns: Server Action object
-            :class:`~ecl.compute.v2.server_action.ServerAction`
+            :class:`~ecl.compute.v2.server_action.ServerAction`.
         :raises: :class:`~ecl.exceptions.ResourceNotFound`
                  when no resource can be found.
         """
@@ -841,9 +841,7 @@ class Proxy(proxy2.BaseProxy):
 
             * instance_id: A ID of the server instance.
             * validation: The result of the validation.
-                * overall_result: The overall result of the validation.
-                * validations: The result of individual validations.
-            * upgradable_target: The target OS to which the instance can be upgraded.
+            * upgradable_targets: The target OS to which the instance can be upgraded.
         :returns: :class:`~ecl.compute.v2.inplace_upgrade_validation.InplaceUpgradeValidation`
         """
         server_id = resource2.Resource._get_id(server)
