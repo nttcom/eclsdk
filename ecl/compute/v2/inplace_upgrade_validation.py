@@ -19,7 +19,7 @@ class InplaceUpgradeValidation(resource2.Resource):
 
     server_id = resource2.URI("server_id")
     instance_id = resource2.Body("instance_id")
-    validations = resource2.Body("validations")
+    validation = resource2.Body("validation")
     upgradable_targets = resource2.Body("upgradable_targets")
 
     def get(self, session, requires_id=False):
@@ -35,14 +35,8 @@ class InplaceUpgradeValidation(resource2.Resource):
     def _translate_get_response(self, response, has_body=True):
         if has_body:
             body = response.json()
-            validation = body.get('validation', {})
-            flattened = {
-                'instance_id': body.get('instance_id'),
-                'validations': validation.get('validations'),
-                'upgradable_targets': body.get('upgradable_targets'),
-            }
-            flattened = self._filter_component(flattened, self._body_mapping())
-            self._body.attributes.update(flattened)
+            body = self._filter_component(body, self._body_mapping())
+            self._body.attributes.update(body)
             self._body.clean()
 
         headers = self._filter_component(response.headers,
