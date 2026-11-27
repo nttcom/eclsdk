@@ -22,6 +22,8 @@ from ecl.compute.v2 import server_interface as _server_interface
 from ecl.compute.v2 import server_volume as _server_volume
 from ecl.compute.v2 import quota as _quota
 from ecl.compute.v2 import volume as _volume
+from ecl.compute.v2 import inplace_upgrade as _inplace
+from ecl.compute.v2 import inplace_upgrade_validation as _inplace_validation
 from ecl.image.v2 import image
 
 from ecl import proxy2
@@ -384,7 +386,7 @@ class Proxy(proxy2.BaseProxy):
                        server or a :class:`~ecl.compute.v2.server.Server`
                        instance that the action belongs to.
         :returns: Server Action object
-            :class:`~ecl.compute.v2.server_action.ServerAction`
+            :class:`~ecl.compute.v2.server_action.ServerAction`.
         :raises: :class:`~ecl.exceptions.ResourceNotFound`
                  when no resource can be found.
         """
@@ -817,3 +819,30 @@ class Proxy(proxy2.BaseProxy):
         :returns: ``None``
         """
         self._delete(_volume.Volume, volume, ignore_missing=ignore_missing)
+
+    def inplace_upgrades(self, server):
+        """Retrieve a list of inplace upgrades
+
+            * id: A ID for the inplace upgrade .
+            * instance_id: A ID of the server instance.
+            * status: Value of the status of the inplace upgrade.
+            * src_os: Name of the Source OS as a string.
+            * dst_os: Name of the destination OS as a string.
+            * created_at: Specifies the creation time of the inplace upgrade.
+            * upgrade_at: Specifies the time when the inplace upgrade was last completed.
+            * updated_at: Specifies the update time of the inplace upgrade.
+        :returns: A list of :class:`~ecl.compute.v2.inplace_upgrade.InplaceUpgrade`
+        """
+        server_id = resource2.Resource._get_id(server)
+        return list(self._list(_inplace.InplaceUpgrade, paginated=False, server_id=server_id))
+
+    def validate_inplace_upgrade(self, server):
+        """Get validation results for in-place upgrades on a specific server instance.
+
+            * instance_id: A ID of the server instance.
+            * validation: The result of the validation.
+            * upgradable_targets: The target OS to which the instance can be upgraded.
+        :returns: :class:`~ecl.compute.v2.inplace_upgrade_validation.InplaceUpgradeValidation`
+        """
+        server_id = resource2.Resource._get_id(server)
+        return self._get(_inplace_validation.InplaceUpgradeValidation, server_id=server_id)
